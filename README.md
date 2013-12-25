@@ -5,12 +5,11 @@
 
 ## GENERAL
 
-### PHP
-[documentation](http://www.php.net/docs.php)
-
-### SCSS (with Compass)
+### SASS
 [SASS documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
+
+### EXTENDED
 [Compass documentation](http://compass-style.org/)
+[Libsass documentation](https://github.com/hcatlin/libsass)
 
 
-## JS
