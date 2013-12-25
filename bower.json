@@ -1,0 +1,10 @@
+{
+  "name": "anila",
+  "version": "2.0.0",
+  "main": ["css/style.css", "js/anila.js"],
+  "dependencies": {
+    "jquery" : ">= 2.0.0",
+    "modernizr": ">= 2.6.2"
+  },
+  "private": true
+}

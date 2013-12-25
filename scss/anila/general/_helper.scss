@@ -1,0 +1,205 @@
+/*------------------------------------*\
+    $HELPER
+\*------------------------------------*/
+/**
+ * A series of helper classes to use arbitrarily. Only use a helper class if an
+ * element/component doesn’t already have a class to which you could apply this
+ * styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
+ * that ruleset as opposed to adding the `.float--left` class to the markup.
+ *
+ * A lot of these classes carry `!important` as you will always want them to win
+ * out over other selectors.
+ */
+
+
+/**
+ * Add/remove floats
+ */
+ /*!
+==================================
+ HELPER
+==================================
+ */
+.flo-r   { float:right!important; }
+.flo-l    { float:left !important; }
+.flo-n    { float:none !important; }
+
+
+/**
+ * Text alignment
+ */
+.txt-l     { text-align:left  !important; }
+.txt-c   { text-align:center !important; }
+.txt-r    { text-align:right !important; }
+
+
+/**
+ * Font weights
+ */
+.wei-l      { font-weight:300!important; }
+.wei-n     { font-weight:400!important; }
+.wei-sb   { font-weight:600!important; }
+
+
+/**
+ * Add/remove margins
+ */
+.push           { margin:       $base-spacing-unit!important; }
+.push--top      { margin-top:   $base-spacing-unit!important; }
+.push--right    { margin-right: $base-spacing-unit!important; }
+.push--bottom   { margin-bottom:$base-spacing-unit!important; }
+.push--left     { margin-left:  $base-spacing-unit!important; }
+.push--ends     { margin-top:   $base-spacing-unit!important; margin-bottom:$base-spacing-unit!important; }
+.push--sides    { margin-right: $base-spacing-unit!important; margin-left:  $base-spacing-unit!important; }
+
+.push-half          { margin:       $half-spacing-unit!important; }
+.push-half--top     { margin-top:   $half-spacing-unit!important; }
+.push-half--right   { margin-right: $half-spacing-unit!important; }
+.push-half--bottom  { margin-bottom:$half-spacing-unit!important; }
+.push-half--left    { margin-left:  $half-spacing-unit!important; }
+.push-half--ends    { margin-top:   $half-spacing-unit!important; margin-bottom:$half-spacing-unit!important; }
+.push-half--sides   { margin-right: $half-spacing-unit!important; margin-left:  $half-spacing-unit!important; }
+
+.flush          { margin:       0!important; }
+.flush--top     { margin-top:   0!important; }
+.flush--right   { margin-right: 0!important; }
+.flush--bottom  { margin-bottom:0!important; }
+.flush--left    { margin-left:  0!important; }
+.flush--ends    { margin-top:   0!important; margin-bottom:0!important; }
+.flush--sides   { margin-right: 0!important; margin-left:  0!important; }
+
+
+/**
+ * Add/remove paddings
+ */
+.softer          { padding:       $base-spacing-unit!important; }
+.softer-top      { padding-top:   $base-spacing-unit!important; }
+.softer-right    { padding-right: $base-spacing-unit!important; }
+.softer-bottom   { padding-bottom:$base-spacing-unit!important; }
+.softer-left     { padding-left:  $base-spacing-unit!important; }
+.softer-ends     { padding-top:   $base-spacing-unit!important; padding-bottom:$base-spacing-unit!important; }
+.softer-sides    { padding-right: $base-spacing-unit!important; padding-left:  $base-spacing-unit!important; }
+
+.softer-half          { padding:       $half-spacing-unit!important; }
+.softer-half-top      { padding-top:   $half-spacing-unit!important; }
+.softer-half-right    { padding-right: $half-spacing-unit!important; }
+.softer-half-bottom   { padding-bottom:$half-spacing-unit!important; }
+.softer-half-left     { padding-left:  $half-spacing-unit!important; }
+.softer-half-ends     { padding-top:   $half-spacing-unit!important; padding-bottom:$half-spacing-unit!important; }
+.softer-half-sides    { padding-right: $half-spacing-unit!important; padding-left:  $half-spacing-unit!important; }
+
+.harder          { padding:       0!important; }
+.harder-top      { padding-top:   0!important; }
+.harder-right    { padding-right: 0!important; }
+.harder-bottom   { padding-bottom:0!important; }
+.harder-left     { padding-left:  0!important; }
+.harder-ends     { padding-top:   0!important; padding-bottom:0!important; }
+.harder-sides    { padding-right: 0!important; padding-left:  0!important; }
+
+
+/**
+ * Pull items full width of `.island` parents.
+ */
+.full-bleed{
+    margin-right:-$base-spacing-unit!important;
+    margin-left: -$base-spacing-unit!important;
+
+    .islet &{
+        margin-right:-($half-spacing-unit)!important;
+        margin-left: -($half-spacing-unit)!important;
+    }
+}
+
+
+/**
+ * Add a help cursor to any element that gives the user extra information on
+ * `:hover`.
+ */
+.informative{
+    cursor:help!important;
+}
+
+
+/**
+ * Mute an object by reducing its opacity.
+ */
+.muted{
+    opacity:0.5!important;
+    filter:alpha(opacity = 50)!important;
+}
+
+
+/**
+ * Align items to the right where they imply progression/movement forward, e.g.:
+ *
+   <p class=proceed><a href=#>Read more...</a></p>
+ *
+ */
+.proceed{
+    text-align:right!important;
+}
+
+
+/**
+ * Add a right-angled quote to links that imply movement, e.g.:
+ *
+   <a href=# class=go>Read more</a>
+ *
+ */
+.go:after{
+    content:"\00A0" "\00BB"!important;
+}
+
+
+/**
+ * Apply capital case to an element (usually a `strong`).
+ */
+.caps{
+    text-transform:uppercase!important;
+}
+
+
+/**
+ * Hide content off-screen without resorting to `display:none;`, also provide
+ * breakpoint specific hidden elements.
+ */
+@mixin accessibility{
+    border:0!important;
+    clip:rect(0 0 0 0)!important;
+    height:1px!important;
+    margin:-1px!important;
+    overflow:hidden!important;
+    padding:0!important;
+    position: absolute!important;
+    width:1px!important;
+}
+.accessibility,
+.visuallyhidden{
+    @include accessibility;
+}
+@if $responsive{
+    @each $state in phone, tablet, desktop{
+        @include media-query(#{$state}){
+            .accessibility--#{$state},
+            .visuallyhidden--#{$state}{
+                @include accessibility;
+            }
+        }
+    }
+}
+/*------------------------------------*\
+    $CLEARFIX
+\*------------------------------------*/
+/**
+ * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+ * Extend the clearfix class with Sass to avoid the `.cf` class appearing over
+ * and over in your markup.
+ */
+.cf{
+    &:after{
+        content:"";
+        display:table;
+        clear:both;
+    }
+}
+
