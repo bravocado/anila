@@ -9,10 +9,10 @@ module.exports = function(config) {
 
     files: [
         {pattern: 'dist/assets/css/*.css', watched: true, served: true, included: false},
+        {pattern: 'dist/assets/js/vendor/jquery.js', watched: true, served: true, included: true},
         {pattern: 'dist/assets/js/vendor/modernizr.js', watched: true, served: true, included: true},
         {pattern: 'dist/assets/js/vendor/html5.js', watched: true, served: true, included: true},
         {pattern: 'dist/assets/js/vendor/iconfont-fallback.js', watched: true, served: true, included: true},
-        {pattern: 'dist/assets/js/vendor/jquery.js', watched: true, served: true, included: true},
         {pattern: 'dist/assets/js/vendor/legacy.js', watched: true, served: true, included: true},
         {pattern: 'dist/assets/js/anila/*.js', watched: true, served: true, included: false}
     ],

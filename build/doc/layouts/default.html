@@ -61,10 +61,10 @@
     <link rel="stylesheet" href="{{assets}}/css/noscript.css" />
   </noscript>
 
-  <script src="{{assets}}/js/modernizr.min.js"></script>
+  <script src="{{assets}}/js/modernizr.js"></script>
 
   <!--[if (lte IE 8) | (!IEMobile)]>
-    <script src="js/html5.min.js"></script>
+    <script src="{{assets}}/js/html5.js"></script>
     <link rel="stylesheet" media="screen" href="css/style.css" />
   <![endif]-->
 
@@ -84,20 +84,19 @@
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <!-- Grab Google CDN's jQuery, fall back to local if offline -->
-  <script>window.jQuery || document.write('<script src="{assets}}/js/jquery.min.js"><\/script>')</script>
-  <script type="text/javascript" src="{assets}}/js/legacy.min.js"></script>
+  <script>window.jQuery || document.write('<script src="{{assets}}/js/jquery.js"><\/script>')</script>
+  <script type="text/javascript" src="{{assets}}/js/legacy.js"></script>
 
-  <script type="text/javascript" src="{assets}}/js/all.min.js"></script>
+  <script type="text/javascript" src="{{assets}}/js/all.js"></script>
 
+  <script type="text/javascript" src="{{assets}}/js/iconfont-fallback.js"></script>
   <script>
     $(function() {
 
       if(Modernizr.fontface) {
         // if support action
-        //$('#fallbackmsg').html('<strong>Hey Ho! VECTOR FTW!!</strong>');
       } else {
         $('.icon').iconfontFallback();
-        //$('#fallbackmsg').html('<strong>disarankan anda beli henpon baru.. tengkyu.</strong>');
       }
 
     });
