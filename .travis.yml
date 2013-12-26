@@ -1,0 +1,9 @@
+node_js:
+  - "0.10"
+branches:
+only:
+  - master
+before_script:
+	- npm install grunt
+  - npm install -g grunt-cli
+  - grunt travis
