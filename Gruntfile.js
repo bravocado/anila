@@ -232,5 +232,6 @@ module.exports = function(grunt) {
   grunt.registerTask('compile', ['compile:assets', 'assemble']);
   grunt.registerTask('build', ['compile', 'compress']);
   grunt.registerTask('default', ['compile', 'watch']);
+  grunt.registerTask('travis', ['compile', 'karma:continuous']);
 
 };
