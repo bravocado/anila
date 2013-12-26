@@ -23,7 +23,7 @@ after_script:
   - git push -fq origin master
   - echo -e "Done with magic\n"
 env:
-  matrix:
+  global:
     secure: OrlGu5F9JHCrFfUX0oR9LxXc89uwy82Cd66NdBniYeKYvRnAkeKyIw7JOfwaUj613JDDkA0H0g7p9UlYnhsr5b03zkPkNTUaZMRQ1hw8k0Wzck0lNln5oeWf7knG422g/w7hb0j4Sfty3QIVwq5/LXIKLL4l2ZxM+SUtbU8/yC0=
 notifications:
   email:
