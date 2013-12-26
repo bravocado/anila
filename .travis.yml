@@ -4,15 +4,28 @@ node_js:
 branches:
   only:
   - development
+before_script:
+- echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- git config user.email "bravocado.project@gmail.com"
+- git config user.name "bravocado"
 script:
 - npm install grunt
 - npm install grunt-cli
 - grunt travis
+after_script:
+- git clone https://bravocado:${GH_TOKEN}@github.com/bravocado/bower-anila.git
+- cp -r dist/assets/* bower-anila/
+- cd bower-anila
+- git remote rm origin
+- git remote add origin https://bravocado:${GH_TOKEN}@github.com/bravocado/bower-anila.git
+- git add .
+- git commit -m "adding Anila to bower-anila"
+- git push -fq origin master
+- echo -e "Done with magic\n"
+env:
+  global:
+    secure: BVl/1lIoDD9yroN6LR98q/tvslqFYT054E40jIaVSdCRoVpF7CwiDSGHIlWAAgnTwwjUp7H3618jj3gL4HrIo/NTpnoiScfTZNvi3PAivGITyyJlvrsv5ijOWXdgvjCyAri6jW0UBUwMQ7VkrHOwMeTlr2Sfoqfr+DfB2Z3pSok=
 notifications:
   email:
     recipients:
     - bravocado.project@gmail.com
-env:
-  global:
-    secure: BVl/1lIoDD9yroN6LR98q/tvslqFYT054E40jIaVSdCRoVpF7CwiDSGHIlWAAgnTwwjUp7H3618jj3gL4HrIo/NTpnoiScfTZNvi3PAivGITyyJlvrsv5ijOWXdgvjCyAri6jW0UBUwMQ7VkrHOwMeTlr2Sfoqfr+DfB2Z3pSok=
-after_script: update-dist.sh
