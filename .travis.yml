@@ -6,8 +6,8 @@ branches:
     - master
 before_script:
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-  - git config --global user.email "bravocado.project@gmail.com"
-  - git config --global user.name "bravocado"
+  - git config user.email "bravocado.project@gmail.com"
+  - git config user.name "bravocado"
 script:
   - npm install grunt
   - npm install grunt-cli
