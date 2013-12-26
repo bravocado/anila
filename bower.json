@@ -1,7 +1,26 @@
 {
   "name": "anila",
-  "version": "2.0.0",
+  "version": "2.0.0-alpha.2",
   "main": ["css/style.css", "js/anila.js"],
+  "homepage": "https://github.com/bravocado/anila",
+  "authors": [
+    "Bravocado <bravocado.project@gmail.com>"
+  ],
+  "description": "a front-end project starter",
+  "keywords": [
+    "anila",
+    "front end",
+    "framework",
+    "starter"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "dist",
+    "tests"
+  ],
   "dependencies": {
     "jquery" : ">= 2.0.0",
     "modernizr": ">= 2.6.2"
