@@ -2,8 +2,8 @@ language: node_js
 node_js:
   - "0.10"
 branches:
-	only:
-	  - master
+  only:
+    - master
 before_script:
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - git config --global user.email "bravocado.project@gmail.com"
@@ -27,5 +27,5 @@ env:
     secure: OrlGu5F9JHCrFfUX0oR9LxXc89uwy82Cd66NdBniYeKYvRnAkeKyIw7JOfwaUj613JDDkA0H0g7p9UlYnhsr5b03zkPkNTUaZMRQ1hw8k0Wzck0lNln5oeWf7knG422g/w7hb0j4Sfty3QIVwq5/LXIKLL4l2ZxM+SUtbU8/yC0=
 notifications:
   email:
-    recipients:
+  recipients:
       - bravocado.project@gmail.com
