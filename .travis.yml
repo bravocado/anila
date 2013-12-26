@@ -14,10 +14,10 @@ script:
   - grunt travis
 after_script:
   - git clone https://bravocado:${GH_TOKEN}@github.com/bravocado/bower-anila.git
-  - cp -r dist/assets/* bower-foundation/
-  - cd bower-foundation
+  - cp -r dist/assets/* bower-anila/
+  - cd bower-anila
   - git remote rm origin
-  - git remote add origin https://bravocado:${GH_TOKEN}@github.com/zurb/bower-anila.git
+  - git remote add origin https://bravocado:${GH_TOKEN}@github.com/bravocado/bower-anila.git
   - git add .
   - git commit -m "adding Anila to bower-anila"
   - git push -fq origin master
