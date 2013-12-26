@@ -15,4 +15,4 @@ notifications:
 env:
   global:
     secure: BVl/1lIoDD9yroN6LR98q/tvslqFYT054E40jIaVSdCRoVpF7CwiDSGHIlWAAgnTwwjUp7H3618jj3gL4HrIo/NTpnoiScfTZNvi3PAivGITyyJlvrsv5ijOWXdgvjCyAri6jW0UBUwMQ7VkrHOwMeTlr2Sfoqfr+DfB2Z3pSok=
-after_success: ./update-dist.sh
+after_script: ./update-dist.sh
