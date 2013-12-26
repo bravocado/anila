@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     //anila
     anila: {
       js: ['build/js/anila/anila.js', 'build/js/anila.*.js'],
-      scss: ['scss/style.scss', 'scss/noscript.scss']
+      scss: ['build/scss/style.scss', 'build/scss/noscript.scss']
     },
 
     // assemble config
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
           flatten: false,
           assets: 'dist/docs/assets',
           data: ['build/doc/data/*.json'],
-          partials: ['build/doc/includes/**/*.{html,scss}'],
+          partials: ['build/doc/inc/**/*.{html,scss}'],
           helpers: ['build/doc/helpers/*.js'],
           layout: 'build/doc/layouts/default.html'
         },
@@ -56,8 +56,8 @@ module.exports = function(grunt) {
           includePaths: ['build/scss']
         },
         files: {
-          'dist/assets/css/style.css': '<%= style.scss %>',
-          'dist/docs/assets/css/docs.css': 'doc/assets/scss/docs.scss'
+          'dist/assets/css/style.css': '<%= anila.scss %>',
+          'dist/docs/assets/css/docs.css': 'build/doc/assets/scss/docs.scss'
         }
       },
       dist_compressed: {
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
           includePaths: ['build/scss']
         },
         files: {
-          'dist/assets/css/style.min.css': '<%= style.scss %>'
+          'dist/assets/css/style.min.css': '<%= anila.scss %>'
         }
       }
     },
@@ -85,11 +85,11 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'dist/assets/js/anila.min.js': ['<%= anila.js %>'],
-          'dist/assets/js/anila.min.js': ['js/vendor/html5.js'],
-          'dist/assets/js/anila.min.js': ['js/vendor/iconfont-fallback.js'],
-          'dist/assets/js/anila.min.js': ['js/vendor/jquery.js'],
-          'dist/assets/js/anila.min.js': ['js/vendor/legacy.js'],
-          'dist/docs/assets/js/all.js': ['<%= anila.js %>', 'doc/assets/js/docs.js']
+          'dist/assets/js/html5.min.js': ['js/vendor/html5.js'],
+          'dist/assets/js/iconfont-fallback.min.js': ['js/vendor/iconfont-fallback.js'],
+          'dist/assets/js/jquery.min.js': ['js/vendor/jquery.js'],
+          'dist/assets/js/legacy.min.js': ['js/vendor/legacy.js'],
+          'dist/docs/assets/js/all.js': ['<%= anila.js %>', 'build/doc/assets/js/docs.js']
         }
       }
     },
@@ -102,7 +102,7 @@ module.exports = function(grunt) {
           {cwd: 'build/js/', expand:true, filter: 'isFile', src: ['{anila,vendor}/**/*.js'], dest: 'dist/assets/js'},
           {cwd: 'build/js/vendor/', expand:true, filter: 'isFile', src: ['**/*.js'], dest: 'dist/docs/assets/js/'},
           {cwd: 'build/scss/', expand:true, filter: 'isFile', src: '**/*.scss', dest: 'dist/assets/scss/'},
-          {src: 'build/bower.json', dest: 'dist/assets/'}
+          {src: 'bower.json', dest: 'dist/assets/'}
         ]
       }
     },
@@ -110,9 +110,47 @@ module.exports = function(grunt) {
     // clean config
     clean: ['dist/'],
 
+    // karma config
+    karma: {
+      options: {
+        configFile: 'karma.conf.js',
+        runnerPort: 9999,
+      },
+      continuous: {
+        singleRun: true,
+        browsers: ['TinyPhantomJS', 'SmallPhantomJS']
+      },
+      dev: {
+        singleRun: true,
+        browsers: ['TinyPhantomJS', 'SmallPhantomJS', 'TinyChrome', 'Firefox'],
+        reporters: 'dots'
+      },
+      dev_watch: {
+        background: true,
+        browsers: ['TinyPhantomJS', 'SmallPhantomJS', 'TinyChrome', 'Firefox']
+      },
+      mac: {
+        singleRun: true,
+        browsers: ['TinyPhantomJS', 'SmallPhantomJS', 'TinyChrome', 'Firefox', 'Safari'],
+        reporters: 'dots'
+      },
+      win: {
+        singleRun: true,
+        browsers: ['TinyPhantomJS', 'SmallPhantomJS', 'TinyChrome', 'Firefox', 'IE'],
+        reporters: 'dots'
+      }
+    },
+
     // watch config
     watch_start: {
       grunt: { files: ['Gruntfile.js'] },
+      karma: {
+        files: [
+          'dist/assets/js/*.js',
+          'dist/assets/css/*.css'
+        ],
+        tasks: ['karma:dev_watch:run']
+      },
 
       styles: {
         files: ['build/scss/**/*.scss', 'doc/assets/**/*.scss'],
@@ -125,7 +163,7 @@ module.exports = function(grunt) {
         options: {livereload:true}
       },
       dist_docs: {
-        files: ['build/doc/{includes,layouts}/**/*.html'],
+        files: ['build/doc/{inc,layouts}/**/*.html'],
         tasks: ['assemble'],
         options: {livereload:true}
       },
@@ -156,7 +194,8 @@ module.exports = function(grunt) {
         ]
       }
     },
- 
+
+
     // webfont config
 		webfont: {
 		  icons: {
@@ -174,6 +213,7 @@ module.exports = function(grunt) {
 		    }
 		  }
 		}
+
   });
 
   // Load the plugin
@@ -185,16 +225,17 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('assemble');
 	grunt.loadNpmTasks('grunt-webfont');
   grunt.loadNpmTasks('grunt-newer');
 
   grunt.task.renameTask('watch', 'watch_start');
-  grunt.task.registerTask('watch', ['watch_start']);
+  grunt.task.registerTask('watch', ['karma:dev_watch:start', 'watch_start']);
 
-  grunt.registerTask('compile:assets', ['clean', 'sass', 'concat', 'uglify', 'copy']);
+  grunt.registerTask('compile:assets', ['clean', 'sass', 'concat', 'uglify', 'copy', 'webfont']);
   grunt.registerTask('compile', ['compile:assets', 'assemble']);
   grunt.registerTask('build', ['compile', 'compress']);
-  grunt.registerTask('default', ['compile', 'watch', 'webfont']);
+  grunt.registerTask('default', ['compile', 'watch']);
 
 };
