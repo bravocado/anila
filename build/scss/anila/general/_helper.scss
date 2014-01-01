@@ -162,7 +162,6 @@
 /**
  * Hide content off-screen without resorting to `display:none;`, also provide
  * breakpoint specific hidden elements.
- */
 @mixin accessibility{
     border:0!important;
     clip:rect(0 0 0 0)!important;
@@ -187,6 +186,8 @@
         }
     }
 }
+ */
+
 /*------------------------------------*\
     $CLEARFIX
 \*------------------------------------*/

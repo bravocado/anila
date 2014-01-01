@@ -36,20 +36,6 @@ $normalize: 											true !default;
 $global-border-box: 							true !default;
 
 
-/* ========= GENERAL VALUES ================ */
-
-// breakpoint
-$phone-start:       							0px !default;
-$tablet-start:      							768px !default;
-$desktop-start:     							024px !default;
-
-// border radius
-$border-radius-base:             	4px !default;
-$border-radius-large:            	6px !default;
-$border-radius-small:            	3px !default;
-$border-radius-round:            	500px !default;
-
-
 /*
 ================================================
 ALERTS
@@ -92,36 +78,18 @@ GENERAL
 /*
 ================================================
 GRIDS
+// see line --- to setting
 ================================================
 */
 
-$use-bootstrap-grid: 						true !default;
-$use-foundation-grid: 					false !default;
-$use-inuit-grid: 								false !default;
-$use-custom-grid: 							false !default;
+$use-grid: 												true !default;
 
-/* ===== bootstrap settings ====== */
-$grid-bootstrap-xs: 						true !default; // extra small -- phone -- about 480px
-$grid-bootstrap-xs-pull: 				false !default; // extra small -- phone -- about 480px
-$grid-bootstrap-xs-push: 				false !default; // extra small -- phone -- about 480px
-$grid-bootstrap-xs-offset: 			false !default; // extra small -- phone -- about 480px
-
-$grid-bootstrap-sm: 						true !default; // small -- tablet -- about 789px
-$grid-bootstrap-sm-pull: 				false !default; // extra small -- phone -- about 480px
-$grid-bootstrap-sm-push: 				false !default; // extra small -- phone -- about 480px
-$grid-bootstrap-sm-offset: 			false !default; // extra small -- phone -- about 480px
-
-$grid-bootstrap-md: 						true !default; // medium -- medium desktop -- about 1024px
-$grid-bootstrap-md-pull: 				false !default; // extra small -- phone -- about 480px
-$grid-bootstrap-md-push: 				false !default; // extra small -- phone -- about 480px
-$grid-bootstrap-md-offset: 			false !default; // extra small -- phone -- about 480px
-
-$grid-bootstrap-lg: 						true !default; // large -- large desktop -- about 1140px
-$grid-bootstrap-lg-pull: 				false !default; // extra small -- phone -- about 480px
-$grid-bootstrap-lg-push: 				false !default; // extra small -- phone -- about 480px
-$grid-bootstrap-lg-offset: 			false !default; // extra small -- phone -- about 480px
-
-
+$use-grid-sm: 										true !default;
+$use-grid-md: 										true !default;
+$use-grid-lg: 										true !default;
+$use-grid-xl: 										true !default;
+$use-grid-xxl: 										true !default;
+$use-grid-push-pull: 							false !default;
 
 
 /*
@@ -174,6 +142,8 @@ TYPORGRAPHY
 /*
 ================================================
 WELLS
+// see line --- to setting
 ================================================
 */
+$use-well: 												true !default;
 
