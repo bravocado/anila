@@ -30,7 +30,8 @@ GENERAL
 */
 
 @import "conditional";
-@import "general/values";
+@import "values";
+@import "general/functions";
 @import "general/mixins";
 
 @import "general/normalize";
