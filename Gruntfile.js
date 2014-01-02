@@ -86,7 +86,6 @@ module.exports = function(grunt) {
         files: {
           'dist/assets/js/jquery.min.js': ['build/js/vendor/jquery.js'],
           'dist/assets/js/anila.min.js': ['<%= anila.js %>'],
-          'dist/assets/js/html5.min.js': ['build/js/vendor/html5.js'],
           'dist/assets/js/legacy.min.js': ['build/js/vendor/legacy.js'],
           'dist/assets/js/iconfont-fallback.min.js': ['build/js/vendor/iconfont-fallback.js'],
           'dist/docs/assets/js/all.js': ['<%= anila.js %>', 'build/doc/assets/js/docs.js']
