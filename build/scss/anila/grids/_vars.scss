@@ -1,0 +1,47 @@
+/*
+================================================
+GLOBAL GRID SETTINGS
+================================================
+*/
+
+$sm-range: (0em, 40em);
+$md-range: (40.063em, 64em);
+$lg-range: (64.063em, 90em);
+$xl-range: (90.063em, 120em);
+$xxl-range: (120.063em);
+
+/*
+================================================
+FOUNDATION GRID SETTINGS
+================================================
+*/
+
+
+$screen: "only screen" !default;
+
+$landscape: "#{$screen} and (orientation: landscape)" !default;
+$portrait: "#{$screen} and (orientation: portrait)" !default;
+
+$sm-up: $screen !default;
+$sm-only: "#{$screen} and (max-width: #{upper-bound($sm-range)})" !default;
+
+$md-up: "#{$screen} and (min-width:#{lower-bound($md-range)})" !default;
+$md-only: "#{$screen} and (min-width:#{lower-bound($md-range)}) and (max-width:#{upper-bound($md-range)})" !default;
+
+$lg-up: "#{$screen} and (min-width:#{lower-bound($lg-range)})" !default;
+$lg-only: "#{$screen} and (min-width:#{lower-bound($lg-range)}) and (max-width:#{upper-bound($lg-range)})" !default;
+
+$xl-up: "#{$screen} and (min-width:#{lower-bound($xl-range)})" !default;
+$xl-only: "#{$screen} and (min-width:#{lower-bound($xl-range)}) and (max-width:#{upper-bound($xl-range)})" !default;
+
+$xxl-up: "#{$screen} and (min-width:#{lower-bound($xxl-range)})" !default;
+$xxl-only: "#{$screen} and (min-width:#{lower-bound($xxl-range)}) and (max-width:#{upper-bound($xxl-range)})" !default;
+
+// Legacy
+$small: $md-up;
+$medium: $md-up;
+$large: $lg-up;
+
+$row-width: rem-calc(1000) !default;
+$column-gutter: rem-calc(30) !default;
+$total-columns: 12 !default;
