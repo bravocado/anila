@@ -1,6 +1,6 @@
 {
   "name": "anila",
-  "version": "2.0.0-alpha.2",
+  "version": "2.0.0-alpha.3",
   "main": ["css/style.css", "js/anila.js"],
   "homepage": "https://github.com/bravocado/anila",
   "authors": [
