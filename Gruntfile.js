@@ -56,7 +56,7 @@ module.exports = function(grunt) {
           includePaths: ['build/scss']
         },
         files: {
-          'dist/assets/css/style.css': '<%= anila.scss %>',
+          'dist/assets/css/anila.css': '<%= anila.scss %>',
           'dist/docs/assets/css/docs.css': 'build/doc/assets/scss/docs.scss'
         }
       },
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
           includePaths: ['build/scss']
         },
         files: {
-          'dist/assets/css/style.min.css': '<%= anila.scss %>'
+          'dist/assets/css/anila.min.css': '<%= anila.scss %>'
         }
       }
     },
