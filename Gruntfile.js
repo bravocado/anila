@@ -31,7 +31,7 @@ module.exports = function(grunt) {
           flatten: false,
           assets: 'dist/docs/assets',
           data: ['build/doc/data/*.json'],
-          partials: ['build/doc/inc/**/*.{html,scss}'],
+          partials: ['build/doc/includes/**/*.{html,scss}'],
           helpers: ['build/doc/helpers/*.js'],
           layout: 'build/doc/layouts/default.html'
         },
