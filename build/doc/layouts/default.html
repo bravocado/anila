@@ -53,7 +53,6 @@
 	<meta name="twitter:description" content="">
 	<meta name="twitter:image" content="">
 
-
   <link href='{{assets}}/css/docs.css' rel='stylesheet' />
 
   <!-- for no script -->
@@ -74,9 +73,11 @@
 	
 	<div class="container">
 		
-		{{#markdown}}
-		{{> body}}
-		{{/markdown}}
+    <div class="row">
+      {{#markdown}}
+      {{> body}}
+      {{/markdown}}
+    </div>
 
 	</div>
 

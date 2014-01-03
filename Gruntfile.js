@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     //anila
     anila: {
       js: ['build/js/anila/anila.js', 'build/js/anila.*.js'],
-      scss: ['build/scss/style.scss', 'build/scss/noscript.scss']
+      scss: ['build/scss/anila.scss']
     },
 
     // assemble config
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
           includePaths: ['build/scss']
         },
         files: {
-          'dist/assets/css/style.css': '<%= anila.scss %>',
+          'dist/assets/css/anila.css': '<%= anila.scss %>',
           'dist/docs/assets/css/docs.css': 'build/doc/assets/scss/docs.scss'
         }
       },
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
           includePaths: ['build/scss']
         },
         files: {
-          'dist/assets/css/style.min.css': '<%= anila.scss %>'
+          'dist/assets/css/anila.min.css': '<%= anila.scss %>'
         }
       }
     },
@@ -147,12 +147,12 @@ module.exports = function(grunt) {
       },
 
       styles: {
-        files: ['build/scss/**/*.scss', 'doc/assets/**/*.scss'],
+        files: ['build/scss/**/*.scss', 'build/doc/assets/**/*.scss'],
         tasks: ['sass'],
         options: {livereload:true}
       },
       js: {
-        files: ['build/js/**/*.js', 'doc/assets/js/**/*.js'],
+        files: ['build/js/**/*.js', 'build/doc/assets/js/**/*.js'],
         tasks: ['copy', 'concat', 'uglify'],
         options: {livereload:true}
       },

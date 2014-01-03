@@ -29,48 +29,48 @@ GENERAL
 ================================================
 */
 
-@import "conditional";
-@import "values";
-@import "general/functions";
-@import "general/mixins";
+@import "anila/conditional";
+@import "anila/values";
+@import "anila/general/functions";
+@import "anila/general/mixins";
 
-@import "general/normalize";
-@import "general/reset";
-@import "general/debug";
+@import "anila/general/normalize";
+@import "anila/general/reset";
+@import "anila/general/debug";
 
 
 /* alerts */
-@import "alerts/logic";
+@import "anila/alerts/logic";
 
 /* buttons */
-@import "buttons/logic";
+@import "anila/buttons/logic";
 
 /* codes */
-@import "codes/logic";
+@import "anila/codes/logic";
 
 /* forms */
-@import "forms/logic";
+@import "anila/forms/logic";
 
 /* grids */
-@import "grids/logic";
+@import "anila/grids/logic";
 
 /* labels */
-@import "labels/logic";
+@import "anila/labels/logic";
 
 /* media */
-@import "media/logic";
+@import "anila/media/logic";
 
 /* navs */
-@import "navs/logic";
+@import "anila/navs/logic";
 
 /* panels */
-@import "panels/logic";
+@import "anila/panels/logic";
 
 /* tables */
-@import "tables/logic";
+@import "anila/tables/logic";
 
 /* typography */
-@import "typography/logic";
+@import "anila/typography/logic";
 
 /* wells */
-@import "wells/logic";
+@import "anila/wells/logic";
