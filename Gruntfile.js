@@ -109,6 +109,7 @@ module.exports = function(grunt) {
     // clean config
     clean: ['dist/'],
 
+    /*
     // karma config
     karma: {
       options: {
@@ -134,6 +135,7 @@ module.exports = function(grunt) {
         reporters: 'dots'
       }
     },
+    */
 
     // watch config
     watch_start: {
@@ -143,7 +145,9 @@ module.exports = function(grunt) {
           'dist/assets/js/*.js',
           'dist/assets/css/*.css'
         ],
+        /*
         tasks: ['karma:dev_watch:run']
+        */
       },
 
       styles: {
@@ -219,18 +223,18 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compress');
-  grunt.loadNpmTasks('grunt-karma');
+  //grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('assemble');
 	grunt.loadNpmTasks('grunt-webfont');
   grunt.loadNpmTasks('grunt-newer');
 
   grunt.task.renameTask('watch', 'watch_start');
-  grunt.task.registerTask('watch', ['karma:dev_watch:start', 'watch_start']);
+  grunt.task.registerTask('watch', [/*'karma:dev_watch:start',*/ 'watch_start']);
 
   grunt.registerTask('compile:assets', ['clean', 'sass', 'concat', 'uglify', 'copy', 'webfont']);
   grunt.registerTask('compile', ['compile:assets', 'assemble']);
   grunt.registerTask('build', ['compile', 'compress']);
   grunt.registerTask('default', ['compile', 'watch']);
-  grunt.registerTask('travis', ['compile', 'karma:continuous']);
+  grunt.registerTask('travis', ['compile'/*, 'karma:continuous'*/]);
 
 };
