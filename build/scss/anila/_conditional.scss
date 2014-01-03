@@ -78,7 +78,9 @@ GENERAL
 /*
 ================================================
 GRIDS
-// see line --- to setting
+// After you set this conditional,
+// make sure to check anila/grid/vars.scss
+// create your own value if you wish.
 ================================================
 */
 
@@ -113,6 +115,7 @@ NAVS
 ================================================
 */
 
+$use-side-nav: 										true !default;
 
 
 /*
@@ -134,16 +137,33 @@ TABLES
 /*
 ================================================
 TYPORGRAPHY
+// After you set this conditional,
+// make sure to check anila/typography/vars.scss
+// create your own value if you wish.
 ================================================
 */
 
+$use-typography: 									true !default;
 
 
 /*
 ================================================
 WELLS
-// see line --- to setting
+// After you set this conditional,
+// make sure to check anila/wells/vars.scss
+// create your own value if you wish.
 ================================================
 */
 $use-well: 												true !default;
+
+
+/*
+================================================
+VISIBILITY
+// -- no custom value.
+================================================
+*/
+
+$use-helper-clearfix: 						true !default;
+$use-helper-visibility: 					true !default;
 

@@ -176,15 +176,13 @@
 .visuallyhidden{
     @include accessibility;
 }
-@if $responsive{
-    @each $state in phone, tablet, desktop{
-        @include media-query(#{$state}){
-            .accessibility--#{$state},
-            .visuallyhidden--#{$state}{
-                @include accessibility;
-            }
-        }
+@each $state in phone, tablet, desktop{
+  @include media-query(#{$state}){
+    .accessibility--#{$state},
+    .visuallyhidden--#{$state}{
+        @include accessibility;
     }
+  }
 }
  */
 
@@ -196,11 +194,679 @@
  * Extend the clearfix class with Sass to avoid the `.cf` class appearing over
  * and over in your markup.
  */
-.cf{
-    &:after{
-        content:"";
-        display:table;
-        clear:both;
+@if $use-helper-clearfix != false {
+
+  .cf{
+      &:after{
+          content:"";
+          display:table;
+          clear:both;
+      }
+  }
+}
+
+/*------------------------------------*\
+    VISIBILITY
+\*------------------------------------*/
+
+//
+// Foundation Visibility Classes
+//
+
+@if $use-helper-visibility != false {
+
+//
+// Media Class Names
+//
+
+  /* Foundation Visibility HTML Classes */
+  .show-sm,
+  .show-sm-only,
+  .show-md-down,
+  .show-lg-down,
+  .hide-md,
+  .hide-md-up,
+  .hide-md-only,
+  .hide-lg,
+  .hide-lg-up,
+  .hide-lg-only,
+  .hide-xl,
+  .hide-xl-up,
+  .hide-xl-only,
+  .hide-xxl-up,
+  .hide-xxl-only { display: inherit !important; }
+
+  .hide-sm,
+  .hide-sm-only,
+  .hide-md-down,
+  .show-md,
+  .show-md-up,
+  .show-md-only,
+  .hide-lg-down,
+  .show-lg,
+  .show-lg-up,
+  .show-lg-only,
+  .show-for-xlarge,
+  .show-for-xlarge-up,
+  .show-for-xlarge-only,
+  .show-for-xxlarge-up,
+  .show-for-xxlarge-only { display: none !important; }
+
+  /* Specific visibility for tables */
+  table {
+    &.show-sm,
+    &.show-sm-only,
+    &.show-md-down,
+    &.show-lg-down,
+    &.hide-md,
+    &.hide-md-up,
+    &.hide-md-only,
+    &.hide-lg,
+    &.hide-lg-up,
+    &.hide-lg-only,
+    &.hide-xl,
+    &.hide-xl-up,
+    &.hide-xl-only,
+    &.hide-xxl-up,
+    &.hide-xxl-only { display: table; }
+  }
+  thead {
+    &.show-sm,
+    &.show-sm-only,
+    &.show-md-down,
+    &.show-lg-down,
+    &.hide-md,
+    &.hide-md-up,
+    &.hide-md-only,
+    &.hide-lg,
+    &.hide-lg-up,
+    &.hide-lg-only,
+    &.hide-xl,
+    &.hide-xl-up,
+    &.hide-xl-only,
+    &.hide-xxl-up,
+    &.hide-xxl-only { display: table-header-group !important; }
+  }
+  tbody {
+    &.show-sm,
+    &.show-sm-only,
+    &.show-md-down,
+    &.show-lg-down,
+    &.hide-md,
+    &.hide-md-up,
+    &.hide-md-only,
+    &.hide-lg,
+    &.hide-lg-up,
+    &.hide-lg-only,
+    &.hide-xl,
+    &.hide-xl-up,
+    &.hide-xl-only,
+    &.hide-xxl-up,
+    &.hide-xxl-only { display: table-row-group !important; }
+  }
+  tr {
+    &.show-sm,
+    &.show-sm-only,
+    &.show-md-down,
+    &.show-lg-down,
+    &.hide-md,
+    &.hide-md-up,
+    &.hide-md-only,
+    &.hide-lg,
+    &.hide-lg-up,
+    &.hide-lg-only,
+    &.hide-xl,
+    &.hide-xl-up,
+    &.hide-xl-only,
+    &.hide-xxl-up,
+    &.hide-xxl-only { display: table-row !important; }
+  }
+  td,
+  th {
+    &.show-sm,
+    &.show-sm-only,
+    &.show-md-down
+    &.show-lg-down,
+    &.hide-md,
+    &.hide-md-up,
+    &.hide-lg,
+    &.hide-lg-up,
+    &.hide-xl
+    &.hide-xl-up,
+    &.hide-xxl-up { display: table-cell !important; }
+  }
+
+  /* Medium Displays: 641px and up */
+  @media #{$medium-up} {
+    .hide-sm,
+    .hide-sm-only,
+    .show-md,
+    .show-md-down,
+    .show-md-up,
+    .show-md-only,
+    .hide-lg,
+    .hide-lg-up,
+    .hide-lg-only,
+    .hide-xl,
+    .hide-xl-up,
+    .hide-xl-only,
+    .hide-xxl-up,
+    .hide-xxl-only { display: inherit !important; }
+
+    .show-sm,
+    .show-sm-only,
+    .hide-md,
+    .hide-md-down,
+    .hide-md-up,
+    .hide-md-only,
+    .hide-lg-down,
+    .show-lg,
+    .show-lg-up,
+    .show-lg-only,
+    .show-for-xlarge,
+    .show-for-xlarge-up,
+    .show-for-xlarge-only,
+    .show-for-xxlarge-up,
+    .show-for-xxlarge-only { display: none !important; }
+
+    /* Specific visibility for tables */
+    table {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.show-md,
+      &.show-md-down,
+      &.show-md-up,
+      &.show-md-only,
+      &.hide-lg,
+      &.hide-lg-up,
+      &.hide-lg-only,
+      &.hide-xl,
+      &.hide-xl-up,
+      &.hide-xl-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table; }
     }
+    thead {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.show-md,
+      &.show-md-down,
+      &.show-md-up,
+      &.show-md-only,
+      &.hide-lg,
+      &.hide-lg-up,
+      &.hide-lg-only,
+      &.hide-xl,
+      &.hide-xl-up,
+      &.hide-xl-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table-header-group !important; }
+    }
+    tbody {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.show-md,
+      &.show-md-down,
+      &.show-md-up,
+      &.show-md-only,
+      &.hide-lg,
+      &.hide-lg-up,
+      &.hide-lg-only,
+      &.hide-xl,
+      &.hide-xl-up,
+      &.hide-xl-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table-row-group !important; }
+    }
+    tr {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.show-md,
+      &.show-md-down,
+      &.show-md-up,
+      &.show-md-only,
+      &.hide-lg,
+      &.hide-lg-up,
+      &.hide-lg-only,
+      &.hide-xl,
+      &.hide-xl-up,
+      &.hide-xl-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table-row !important; }
+    }
+    td,
+    th {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.show-md,
+      &.show-md-down,
+      &.show-md-up,
+      &.show-md-only,
+      &.hide-lg,
+      &.hide-lg-up,
+      &.hide-lg-only,
+      &.hide-xl,
+      &.hide-xl-up,
+      &.hide-xl-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table-cell !important; }
+    }
+  }
+
+  /* Large Displays: 1024px and up */
+  @media #{$large-up} {
+    .hide-sm,
+    .hide-sm-only,
+    .hide-md,
+    .hide-md-down,
+    .hide-md-only,
+    .show-md-up,
+    .show-lg,
+    .show-lg-up,
+    .show-lg-only,
+    .hide-xl,
+    .hide-xl-up,
+    .hide-xl-only,
+    .hide-xxl-up,
+    .hide-xxl-only { display: inherit !important; }
+
+    .show-sm-only,
+    .show-md,
+    .show-md-down,
+    .show-md-only,
+    .hide-lg,
+    .hide-lg-up,
+    .hide-lg-only,
+    .show-for-xlarge,
+    .show-for-xlarge-up,
+    .show-for-xlarge-only,
+    .show-for-xxlarge-up,
+    .show-for-xxlarge-only { display: none !important; }
+
+    /* Specific visilbity for tables */
+    table {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg,
+      &.show-lg-up,
+      &.show-lg-only,
+      &.hide-xl,
+      &.hide-xl-up,
+      &.hide-xl-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table; }
+    }
+    thead {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg,
+      &.show-lg-up,
+      &.show-lg-only,
+      &.hide-xl,
+      &.hide-xl-up,
+      &.hide-xl-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table-header-group !important; }
+    }
+    tbody {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg,
+      &.show-lg-up,
+      &.show-lg-only,
+      &.hide-xl,
+      &.hide-xl-up,
+      &.hide-xl-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table-row-group !important; }
+    }
+    tr {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg,
+      &.show-lg-up,
+      &.show-lg-only,
+      &.hide-xl,
+      &.hide-xl-up,
+      &.hide-xl-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table-row !important; }
+    }
+    td,
+    th {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg,
+      &.show-lg-up,
+      &.show-lg-only,
+      &.hide-xl,
+      &.hide-xl-up,
+      &.hide-xl-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table-cell !important; }
+    }
+  }
+
+  /* X-Large Displays: 1441 and up */
+  @media #{$xlarge-up} {
+    .hide-sm,
+    .hide-sm-only,
+    .hide-md,
+    .hide-md-down,
+    .hide-md-only,
+    .show-md-up,
+    .show-lg-up,
+    .show-for-xlarge,
+    .show-for-xlarge-up,
+    .show-for-xlarge-only,
+    .hide-xxl-up,
+    .hide-xxl-only { display: inherit !important; }
+
+    .show-sm-only,
+    .show-md,
+    .show-md-down,
+    .show-md-only,
+    .show-lg,
+    .show-lg-only,
+    .show-lg-down,
+    .hide-xl,
+    .hide-xl-up,
+    .hide-xl-only,
+    .show-for-xxlarge-up,
+    .show-for-xxlarge-only { display: none !important; }
+
+    /* Specific visilbity for tables */
+    table {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg-up,
+      &.show-for-xlarge,
+      &.show-for-xlarge-up,
+      &.show-for-xlarge-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table; }
+    }
+    thead {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg-up,
+      &.show-for-xlarge,
+      &.show-for-xlarge-up,
+      &.show-for-xlarge-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table-header-group !important; }
+    }
+    tbody {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg-up,
+      &.show-for-xlarge,
+      &.show-for-xlarge-up,
+      &.show-for-xlarge-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table-row-group !important; }
+    }
+    tr {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg-up,
+      &.show-for-xlarge,
+      &.show-for-xlarge-up,
+      &.show-for-xlarge-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table-row !important; }
+    }
+    td,
+    th {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg-up,
+      &.show-for-xlarge,
+      &.show-for-xlarge-up,
+      &.show-for-xlarge-only,
+      &.hide-xxl-up,
+      &.hide-xxl-only { display: table-cell !important; }
+    }
+  }
+
+  /* XX-Large Displays: 1920 and up */
+  @media #{$xxlarge-up} {
+    .hide-sm,
+    .hide-sm-only,
+    .hide-md,
+    .hide-md-down,
+    .hide-md-only,
+    .show-md-up,
+    .show-lg-up,
+    .show-for-xlarge-up,
+    .show-for-xxlarge-up,
+    .show-for-xxlarge-only { display: inherit !important; }
+
+    .show-sm-only,
+    .show-md,
+    .show-md-down,
+    .show-md-only,
+    .show-lg,
+    .show-lg-only,
+    .show-lg-down,
+    .hide-xl,
+    .show-for-xlarge-only,
+    .hide-xxl-up,
+    .hide-xxl-only { display: none !important; }
+
+    /* Specific visilbity for tables */
+    table {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg-up,
+      &.show-for-xlarge-up,
+      &.show-for-xxlarge-up,
+      &.show-for-xxlarge-only { display: table; }
+    }
+    thead {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg-up,
+      &.show-for-xlarge-up,
+      &.show-for-xxlarge-up,
+      &.show-for-xxlarge-only { display: table-header-group !important; }
+    }
+    tbody {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg-up,
+      &.show-for-xlarge-up,
+      &.show-for-xxlarge-up,
+      &.show-for-xxlarge-only { display: table-row-group !important; }
+    }
+    tr {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg-up,
+      &.show-for-xlarge-up,
+      &.show-for-xxlarge-up,
+      &.show-for-xxlarge-only { display: table-row !important; }
+    }
+    td,
+    th {
+      &.hide-sm,
+      &.hide-sm-only,
+      &.hide-md,
+      &.hide-md-down,
+      &.hide-md-only,
+      &.show-md-up,
+      &.show-lg-up,
+      &.show-for-xlarge-up,
+      &.show-for-xxlarge-up,
+      &.show-for-xxlarge-only { display: table-cell !important; }
+    }
+  }
+
+
+  /* Orientation targeting */
+  .show-landscape,
+  .hide-portrait { display: inherit !important; }
+  .hide-landscape,
+  .show-portrait { display: none !important; }
+
+  /* Specific visilbity for tables */
+  table {
+    &.hide-landscape,
+    &.show-portrait { display: table; }
+  }
+  thead {
+    &.hide-landscape,
+    &.show-portrait { display: table-header-group !important; }
+  }
+  tbody {
+    &.hide-landscape,
+    &.show-portrait { display: table-row-group !important; }
+  }
+  tr {
+    &.hide-landscape,
+    &.show-portrait { display: table-row !important; }
+  }
+  td,
+  th {
+    &.hide-landscape,
+    &.show-portrait { display: table-cell !important; }
+  }
+
+  @media #{$landscape} {
+    .show-landscape,
+    .hide-portrait { display: inherit !important; }
+    .hide-landscape,
+    .show-portrait { display: none !important; }
+
+    /* Specific visilbity for tables */
+    table {
+      &.show-landscape,
+      &.hide-portrait { display: table; }
+    }
+    thead {
+      &.show-landscape,
+      &.hide-portrait { display: table-header-group !important; }
+    }
+    tbody {
+      &.show-landscape,
+      &.hide-portrait { display: table-row-group !important; }
+    }
+    tr {
+      &.show-landscape,
+      &.hide-portrait { display: table-row !important; }
+    }
+    td,
+    th {
+      &.show-landscape,
+      &.hide-portrait { display: table-cell !important; }
+    }
+  }
+
+  @media #{$portrait} {
+    .show-portrait,
+    .hide-landscape { display: inherit !important; }
+    .hide-portrait,
+    .show-landscape { display: none !important; }
+
+    /* Specific visilbity for tables */
+    table {
+      &.show-portrait,
+      &.hide-landscape { display: table; }
+    }
+    thead {
+      &.show-portrait,
+      &.hide-landscape { display: table-header-group !important; }
+    }
+    tbody {
+      &.show-portrait,
+      &.hide-landscape { display: table-row-group !important; }
+    }
+    tr {
+      &.show-portrait,
+      &.hide-landscape { display: table-row !important; }
+    }
+    td,
+    th {
+      &.show-portrait,
+      &.hide-landscape { display: table-cell !important; }
+    }
+  }
+
+  /* Touch-enabled device targeting */
+  .show-touch { display: none !important; }
+  .hide-touch { display: inherit !important; }
+  .touch .show-touch { display: inherit !important; }
+  .touch .hide-touch { display: none !important; }
+
+  /* Specific visilbity for tables */
+  table.hide-touch { display: table; }
+  .touch table.show-touch { display: table; }
+  thead.hide-touch { display: table-header-group !important; }
+  .touch thead.show-touch { display: table-header-group !important; }
+  tbody.hide-touch { display: table-row-group !important; }
+  .touch tbody.show-touch { display: table-row-group !important; }
+  tr.hide-touch { display: table-row !important; }
+  .touch tr.show-touch { display: table-row !important; }
+  td.hide-touch { display: table-cell !important; }
+  .touch td.show-touch { display: table-cell !important; }
+  th.hide-touch { display: table-cell !important; }
+  .touch th.show-touch { display: table-cell !important; }
+
 }
 

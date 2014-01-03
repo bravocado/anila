@@ -11,7 +11,7 @@ layout: build/doc/layouts/default.html
 
 <h3>Basic</h3>
 
-Start by adding an element with a class of `row`. This will create a horizontal block to contain vertical columns. Then add divs with a `column` class within that row. You can use `column` or `columns` - the only difference is grammar. Specify the widths of each column with the sm-#, md-#, and lg-# classes.
+Start by adding an element with a class of `row`. This will create a horizontal block to contain vertical columns. Then add divs with a `col` class within that row. You will notice the naming rules isn't same like Foundation, i've combined it with Bootstrap naming rules because really familiar to use and more simple. Don't forget to specify the widths of each column with the sm-#, md-#, and lg-# classes.
 
 **Foundation is mobile-first**. Code for small screens first, and larger devices will inherit those styles. Customize for larger screens as necessary.
 
@@ -119,7 +119,7 @@ Customizing the grid is easy with the Sass variables provided in the `_settings.
 You can use the `grid-row()` and `grid-column()` mixins to create your own rows and columns with semantic markup, like so:
 
 <div class="row">
-  <div class="large-6 columns">
+  <div class="lg-6 col">
     <h4>SCSS</h4>
 {{#markdown}}
 ```scss
@@ -132,7 +132,7 @@ You can use the `grid-row()` and `grid-column()` mixins to create your own rows 
 ```
 {{/markdown}}
   </div>
-  <div class="large-6 columns">
+  <div class="lg-6 col">
     <h4>HTML</h4>
 {{> examples_grid_row_mixin}}
   </div>
@@ -164,6 +164,6 @@ If the default "foundation" import was commented out, then make sure you import 
 
 {{#markdown}}
 ```scss
-@import "foundation/components/grid";
+@import "anila/grid/logic";
 ```
 {{/markdown}}

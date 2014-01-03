@@ -2,10 +2,6 @@
 @import "anila";
 @import "code";
 
-body {
-	background: #f8f8f8;
-}
-
 .row {
   max-width: rem-calc(1440);
   &.display {
@@ -28,6 +24,5 @@ body {
 
 
 // Docs Components
-@import
-  "syntax-highlighting",
-  "sidebar";
+@import "syntax-highlighting";
+@import "sidebar";

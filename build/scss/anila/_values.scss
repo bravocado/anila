@@ -7,6 +7,8 @@ $border-radius-small:            	3px !default;
 $border-radius-round:            	500px !default;
 
 
+/* ---- TYPOGRAPHY ----- */
+
 // We use these to control text direction settings
 $text-direction: 									ltr !default;
 
@@ -20,3 +22,41 @@ $opposite-direction: 							right !default;
   $default-float: right;
   $opposite-direction: left;
 }
+// We use these to control various global styles
+$body-bg: #fff !default;
+$body-font-color: #222 !default;
+$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$body-font-weight: normal !default;
+$body-font-style: normal !default;
+
+// We use this to control font-smoothing
+$font-smoothing: antialiased !default;
+
+/* ---- COLOR ----- */
+
+// We use these as default colors throughout
+$primary-color: #E20816 !default;
+$secondary-color: #e7e7e7 !default;
+$tertiary-base-color: #2980b9 !default;
+$quaternary-base-color: #e67e22 !default;
+$quinary-base-color: #333 !default;
+
+
+$alert-color: #f04124 !default;
+$success-color: #43AC6A !default;
+$warning-color: #f08a24 !default;
+$info-color: #a0d3e8 !default;
+
+
+// We use this to control whether or not CSS classes come through in the gem files.
+$include-print-styles: true !default;
+
+
+/* ---- POINTER ----- */
+
+//We use this as cursors values for enabling the option of having custom cursors in the whole site's stylesheet
+$cursor-crosshair-value: crosshair !default;
+$cursor-default-value: default !default;
+$cursor-pointer-value: pointer !default;
+$cursor-help-value: help !default;
+$cursor-text-value: text !default;
