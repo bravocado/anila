@@ -30,8 +30,8 @@ GENERAL
 */
 
 @import "anila/conditional";
-@import "anila/values";
 @import "anila/general/functions";
+@import "anila/values";
 @import "anila/general/mixins";
 
 @import "anila/general/normalize";
@@ -74,3 +74,8 @@ GENERAL
 
 /* wells */
 @import "anila/wells/logic";
+
+
+/* helper */
+@import "anila/general/helper";
+

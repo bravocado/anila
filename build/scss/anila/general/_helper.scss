@@ -125,7 +125,7 @@
  */
 .muted{
     opacity:0.5!important;
-    filter:alpha(opacity = 50)!important;
+    //filter:alpha(opacity = 50)!important;
 }
 
 
@@ -203,6 +203,7 @@
           clear:both;
       }
   }
+  
 }
 
 /*------------------------------------*\
@@ -212,6 +213,7 @@
 //
 // Foundation Visibility Classes
 //
+
 
 @if $use-helper-visibility != false {
 
@@ -337,7 +339,7 @@
   }
 
   /* Medium Displays: 641px and up */
-  @media #{$medium-up} {
+  @include media-query($media:md) {
     .hide-sm,
     .hide-sm-only,
     .show-md,
@@ -454,7 +456,7 @@
   }
 
   /* Large Displays: 1024px and up */
-  @media #{$large-up} {
+  @include media-query($media:lg) {
     .hide-sm,
     .hide-sm-only,
     .hide-md,
@@ -568,7 +570,7 @@
   }
 
   /* X-Large Displays: 1441 and up */
-  @media #{$xlarge-up} {
+  @include media-query($media:xl) {
     .hide-sm,
     .hide-sm-only,
     .hide-md,
@@ -670,7 +672,7 @@
   }
 
   /* XX-Large Displays: 1920 and up */
-  @media #{$xxlarge-up} {
+  @include media-query($media:xxl) {
     .hide-sm,
     .hide-sm-only,
     .hide-md,
@@ -788,7 +790,7 @@
     &.show-portrait { display: table-cell !important; }
   }
 
-  @media #{$landscape} {
+  @include media-query($media:landscape) {
     .show-landscape,
     .hide-portrait { display: inherit !important; }
     .hide-landscape,
@@ -818,7 +820,7 @@
     }
   }
 
-  @media #{$portrait} {
+  @include media-query($media:potrait) {
     .show-portrait,
     .hide-landscape { display: inherit !important; }
     .hide-portrait,

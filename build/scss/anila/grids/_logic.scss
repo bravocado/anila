@@ -199,11 +199,11 @@ FOUNDATION GRID MIXIN
 
     .col { @include grid-column($columns:$total-columns); }
 
-    @media #{$sm-up} {
+    @include media-query($media:sm) {
       @include grid-html-classes($size:sm);
     }
 
-    @media #{$md-up} {
+    @include media-query($media:md) {
       @include grid-html-classes($size:md);
       // Old push and pull classes
       @if $use-grid-push-pull == true {
@@ -217,13 +217,13 @@ FOUNDATION GRID MIXIN
         }
       }
     }
-    @media #{$lg-up} {
+    @include media-query($media:lg) {
       @include grid-html-classes($size:lg);
     }
-    @media #{$xl-up} {
+    @include media-query($media:xl) {
       @include grid-html-classes($size:xl);
     }
-    @media #{$xxl-up} {
+    @include media-query($media:xxl) {
       @include grid-html-classes($size:xxl);
     }
   }
