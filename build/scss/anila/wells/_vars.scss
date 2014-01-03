@@ -1,1 +1,21 @@
-$well-bg:                     #f5f5f5 !default;
+$well-bg: #f5f5f5 !default;
+
+// well border -- well blockqoute border
+$well-border-size: 1px !default;
+$well-border-type: solid !default;
+$well-border-color: darken($well-bg, 7%) !default;
+$well-blockqoute-color: #DDD !default;
+
+// well height -- margin
+$well-min-height: 20px !default;
+$well-margin-bottom: 20px !default;
+
+// well padding sizes
+$well-base-padding: 19px !default;
+$well-large-padding: 24px !default;
+$well-small-padding: 9px !default;
+
+// well border radius sizes
+$well-base-radius: $border-radius-base !default;
+$well-large-radius:  $border-radius-large !default;
+$well-small-radius:  $border-radius-small !default;

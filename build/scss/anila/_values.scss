@@ -7,6 +7,77 @@ $border-radius-small:            	3px !default;
 $border-radius-round:            	500px !default;
 
 
+/* ---- SPACING ----- */
+
+$base-spacing-unit: 				rem-calc(16px) !default;
+$half-spacing-unit: 				$base-spacing-unit / 2 !default;
+
+
+/* ---- BREAK POINT ----- */
+
+
+$sm-range: (0em, 40em) !default;
+$md-range: (40.063em, 64em) !default;
+$lg-range: (64.063em, 90em) !default;
+$xl-range: (90.063em, 120em) !default;
+$xxl-range: (120.063em) !default;
+
+$screen: "only screen" !default;
+
+$landscape: "#{$screen} and (orientation: landscape)" !default;
+$portrait: "#{$screen} and (orientation: portrait)" !default;
+
+$sm-up: $screen !default;
+$sm-only: "#{$screen} and (max-width: #{upper-bound($sm-range)})" !default;
+
+$md-up: "#{$screen} and (min-width:#{lower-bound($md-range)})" !default;
+$md-only: "#{$screen} and (min-width:#{lower-bound($md-range)}) and (max-width:#{upper-bound($md-range)})" !default;
+
+$lg-up: "#{$screen} and (min-width:#{lower-bound($lg-range)})" !default;
+$lg-only: "#{$screen} and (min-width:#{lower-bound($lg-range)}) and (max-width:#{upper-bound($lg-range)})" !default;
+
+$xl-up: "#{$screen} and (min-width:#{lower-bound($xl-range)})" !default;
+$xl-only: "#{$screen} and (min-width:#{lower-bound($xl-range)}) and (max-width:#{upper-bound($xl-range)})" !default;
+
+$xxl-up: "#{$screen} and (min-width:#{lower-bound($xxl-range)})" !default;
+$xxl-only: "#{$screen} and (min-width:#{lower-bound($xxl-range)}) and (max-width:#{upper-bound($xxl-range)})" !default;
+
+// Legacy
+$small: $md-up;
+$medium: $md-up;
+$large: $lg-up;
+
+// Responsive Mixins
+// experiment 1. SASS Map issue.
+@mixin media-query($media) {
+  @if $media == md {
+  	@media #{$md-up} { @content; }
+  }
+
+  @if $media == lg {
+  	@media #{$lg-up} { @content; }
+  }
+
+  @if $media == xl {
+  	@media #{$xl-up} { @content; }
+  }
+
+  @if $media == xxl {
+  	@media #{$xxl-up} { @content; }
+  }
+
+  @if $media == landscape {
+  	@media #{$landscape} { @content; }
+  }
+
+  @if $media == potrait {
+  	@media #{$portrait} { @content; }
+  }
+
+}
+
+/* ---- TYPOGRAPHY ----- */
+
 // We use these to control text direction settings
 $text-direction: 									ltr !default;
 
@@ -20,3 +91,41 @@ $opposite-direction: 							right !default;
   $default-float: right;
   $opposite-direction: left;
 }
+// We use these to control various global styles
+$body-bg: #fff !default;
+$body-font-color: #222 !default;
+$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$body-font-weight: normal !default;
+$body-font-style: normal !default;
+
+// We use this to control font-smoothing
+$font-smoothing: antialiased !default;
+
+/* ---- COLOR ----- */
+
+// We use these as default colors throughout
+$primary-color: #E20816 !default;
+$secondary-color: #e7e7e7 !default;
+$tertiary-color: #2980b9 !default;
+$quaternary-color: #e67e22 !default;
+$quinary-color: #333 !default;
+
+
+$alert-color: #f04124 !default;
+$success-color: #43AC6A !default;
+$warning-color: #f08a24 !default;
+$info-color: #a0d3e8 !default;
+
+
+// We use this to control whether or not CSS classes come through in the gem files.
+$include-print-styles: true !default;
+
+
+/* ---- POINTER ----- */
+
+//We use this as cursors values for enabling the option of having custom cursors in the whole site's stylesheet
+$cursor-crosshair-value: crosshair !default;
+$cursor-default-value: default !default;
+$cursor-pointer-value: pointer !default;
+$cursor-help-value: help !default;
+$cursor-text-value: text !default;

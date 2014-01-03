@@ -9,26 +9,25 @@
   
   // Base class
   .well {
-    min-height: 20px;
-    padding: 19px;
-    margin-bottom: 20px;
+    min-height: $well-min-height;
+    padding: $well-base-padding;
+    margin-bottom: $well-margin-bottom;
     background-color: $well-bg;
-    border: 1px solid darken($well-bg, 7%);
-    border-radius: $border-radius-base;
+    border: $well-border-size $well-border-type $well-border-color;
+    border-radius: $well-base-radius;
     blockquote {
-      border-color: #ddd;
-      border-color: rgba(0,0,0,.15);
+      border-color: $well-blockqoute-color;
     }
   }
 
   // Sizes
   .well-lg {
-    padding: 24px;
-    border-radius: $border-radius-large;
+    padding: $well-large-padding;
+    border-radius: $well-large-radius;
   }
   .well-sm {
-    padding: 9px;
-    border-radius: $border-radius-small;
+    padding: $well-small-padding;
+    border-radius: $well-small-radius;
   }
 
 }

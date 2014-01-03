@@ -141,27 +141,3 @@
 @mixin ie7-restore-right-whitespace() {
   *margin-right: .3em;
 }
-
-/*------------------------------------*\
-    MEDIA QUERY MIXIN
-
-// Responsive Mixins
-
-$phone-end:     $tablet-start - 1px;
-$tablet-end:    $desktop-start - 1px;
-
-@mixin media-query($media-query) {
-  
-    @if $media-query == phone {
-      @media screen and (min-width: $phone-start) and (max-width: $phone-end) { @content; }
-    }
-
-    @if $media-query == tablet {
-      @media screen and (min-width: $tablet-start) and (max-width: $tablet-end) { @content; }
-    }
-
-    @if $media-query == desktop {
-      @media screen and (min-width: $desktop-start) { @content; }
-    }
-}
-\*------------------------------------*/

@@ -1,0 +1,122 @@
+$panel-bg-color: #FAFAFA;
+
+.sidebar {
+  background: $panel-bg-color;
+  border-top: solid 5px #E20816;
+  padding: 15px 20px;
+}
+.sidebar.fixed,
+[data-magellan-expedition] {
+  // min-width: 270px !important;
+  // max-width: 270px;
+  // width: 270px;
+  left: auto !important;
+
+}
+.side-nav .heading { text-transform: uppercase; }
+.side-nav li {
+  margin: 0;
+  padding: 0;
+  }
+.side-nav li a {
+  padding: rem-calc(6) 0;
+  &:hover {
+    color: darken($primary-color, 20%);
+    span {
+      background: darken($secondary-color, 5%);
+      color: #000;
+    }
+  }
+}
+
+.side-nav .heading,
+.sidebar form {
+  padding: 2px 0px;
+}
+
+.side-nav li.divider { margin: 16px 0px; }
+
+.sidebar {
+  h1,h2,h3,h4,h5,h6 {
+    padding: 4px 0px;
+    font-size: rem-calc(14);
+    font-weight: bold;
+  }
+}
+.sidebar .download.button {
+  margin: 10px 0px;
+  font-size: 1rem;
+}
+
+/*
+.sidebar .side-nav {
+  overflow-y: scroll;
+  height: 600px;
+
+}
+*/
+.sidebar .label {
+  background: #ddd; border-radius: $border-radius-base; color: #777; margin-left: 5px;
+}
+
+[data-magellan-expedition] {
+}
+.sidebar form { margin-bottom: 0; }
+.sidebar .button { font-size: rem-calc(12); }
+.magellan-fixed {
+  &.magellan-outer-wrapper {
+    overflow-y: scroll;
+    width:inherit;
+  }
+  .magellan-inner-wrapper {
+    overflow-y: scroll;
+  }
+}
+.sidebar {
+  input[type="search"]:focus {
+    -moz-box-shadow: 0 0 0 !important;
+    -webkit-box-shadow: 0 0 0 !important;
+    box-shadow: 0 0 0 !important;
+  }
+}
+
+.fader {
+  display: block;
+  position: fixed;
+  z-index: 400;
+  bottom: 0;
+  width: 220px;
+  background: url(../img/fader.png) no-repeat center bottom;
+}
+
+input[type="search"]:focus {
+  background: #fff;
+}
+
+// Side nav custom active style 
+.sidebar .side-nav li.active > a:first-child {
+  font-weight: bold;
+  color: lighten(#E20816,20%);
+  position: relative;
+  margin: 0 -20px;
+  padding-left:20px;
+  padding-right: 20px;
+  background: rgba(#E20816, 0.05);
+
+  // &::before {
+  //   content:"";
+  //   @include css-triangle(6px, darken(#008cba, 10%), left);
+  //   position: absolute;
+  //   left:0;
+  //   top:50%;
+  //   margin-top:-6px;
+  // }
+ }
+.sidebar .side-nav li:hover > a:first-child {
+  color: lighten(#E20816,10%);
+  position: relative;
+  margin: 0 -20px;
+  padding-left:20px;
+  padding-right: 20px;
+  background: rgba(#E20816, 0.03);
+}
