@@ -274,13 +274,13 @@
     .postfix { @include prefix-postfix-base; }
 
     /* Adjust padding, alignment and radius if pre/post element is a button */
-    .postfix.button { @include button($primary-color, flat); @include postfix(false,true); }
-    .prefix.button { @include button($primary-color, flat); @include prefix(false,true); }
+    .postfix.button { @include button-size(false,false,false); @include postfix(false,true); }
+    .prefix.button { @include button-size(false,false,false); @include prefix(false,true); }
 
-    //.prefix.button.radius { @include radius(0); @include side-radius(left, $button-radius); }
-    //.postfix.button.radius { @include radius(0); @include side-radius(right, $button-radius); }
-    //.prefix.button.round { @include radius(0); @include side-radius(left, $button-round); }
-    //.postfix.button.round { @include radius(0); @include side-radius(right, $button-round); }
+    .prefix.button.radius { @include radius(0); @include side-radius(left, $button-radius-base); }
+    .postfix.button.radius { @include radius(0); @include side-radius(right, $button-radius-base); }
+    .prefix.button.round { @include radius(0); @include side-radius(left, $button-round); }
+    .postfix.button.round { @include radius(0); @include side-radius(right, $button-round); }
 
     /* Separate prefix and postfix styles when on span or label so buttons keep their own */
     span.prefix,label.prefix { @include prefix();

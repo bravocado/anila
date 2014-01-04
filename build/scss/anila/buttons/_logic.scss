@@ -59,18 +59,69 @@
 
   // shape
   @if $shape == base-radius {
-    @include vendor(border-radius, $border-radius-base);
+    @include vendor(border-radius, $button-radius-base);
   }
   @if $shape == small-radius {
-    @include vendor(border-radius, $border-radius-small);
+    @include vendor(border-radius, $button-radius-small);
   }
   @if $shape == large-radius {
-    @include vendor(border-radius, $border-radius-large);
+    @include vendor(border-radius, $button-radius-large);
   }
   @if $shape == round {
-    @include vendor(border-radius, $border-radius-round);
+    @include vendor(border-radius, $button-round);
   }
 }
+
+@mixin button-size($padding:$button-med, $full-width:false, $is-input:false) {
+
+  // We control which padding styles come through,
+  // these can be turned off by setting $padding:false
+  @if $padding {
+    padding-top: $padding;
+    padding-#{$opposite-direction}: $padding * 2;
+    padding-bottom: $padding + rem-calc(1);
+    padding-#{$default-float}: $padding * 2;
+
+    // We control the font-size based on mixin input.
+    @if      $padding == $button-med { font-size: $button-font-med; }
+    @else if $padding == $button-tny { font-size: $button-font-tny; }
+    @else if $padding == $button-sml { font-size: $button-font-sml; }
+    @else if $padding == $button-lrg { font-size: $button-font-lrg; }
+/*     @else                            { font-size: $padding - rem-calc(2); } */
+  }
+
+  // We can set $full-width:true to remove side padding extend width.
+  @if $full-width {
+    // We still need to check if $padding is set.
+    @if $padding {
+    padding-top: $padding;
+    padding-bottom: $padding + rem-calc(1);
+    } @else if $padding == false {
+      padding-top:0;
+      padding-bottom:0;
+    }
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  // <input>'s and <button>'s take on strange padding. We added this to help fix that.
+  @if $is-input == $button-lrg {
+    padding-top: $is-input + rem-calc(.5);
+    padding-bottom: $is-input + rem-calc(.5);
+    -webkit-appearance: none;
+    border: none; 
+    font-weight: $button-font-weight !important;
+  }
+  @else if $is-input {
+    padding-top: $is-input + rem-calc(1);
+    padding-bottom: $is-input;
+    -webkit-appearance: none;
+    border: none; 
+    font-weight: $button-font-weight !important;
+  }
+}
+
 
 // precomposed buttons
 .af-btn {
