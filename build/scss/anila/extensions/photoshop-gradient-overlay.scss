@@ -1,0 +1,56 @@
+@import "photoshop-blend-modes";
+
+$gradient-overlay-blend-mode: normal !default;
+$gradient-overlay-opacity: 100% !default;
+$gradient-overlay-angle: 90deg !default;
+$gradient-overlay-scale: 100% !default;
+$gradient-overlay-color-stops: (#000 0%, #fff 100%) !default;
+
+// Compass Extension Installation
+// --------------------------
+@function photoshop-gradient-overlay(
+    $bg-color,
+    $blend: $gradient-overlay-blend-mode,
+    $opacity: $gradient-overlay-opacity,
+    $angle: $gradient-overlay-angle,
+    $scale: $gradient-overlay-scale,
+    $color-stops: $gradient-overlay-color-stops
+) {
+
+    // 0deg = north in CSS; 0deg = east in Photoshop.
+    $css-angle: $angle - 90deg;
+    $css-color-stops: ();
+
+    @for $i from 1 through length($color-stops) {
+        $blended-color: photoshop-blend($blend, $bg-color, nth( nth( $color-stops, $i ), 1 ), percentage-to-decimal($opacity));
+        $stop: join( $blended-color, stop-scale( nth( nth( $color-stops, $i ), 2 ), $scale ), space );
+        $css-color-stops: append($css-color-stops, $stop, comma);
+    }
+
+    @return linear-gradient($css-angle, $css-color-stops);
+}
+
+// Adjust the color-stops based on the scale value
+@function stop-scale($stop, $scale) {
+    //$stop: percentage-to-decimal($stop);
+    // removing decimal back to percentage
+    $stop: $stop;
+    $scale: percentage-to-decimal($scale);
+
+    @return $scale * $stop - (0.5 * ($scale - 1));
+}
+
+// Convert percentage units to decimal units
+@function percentage-to-decimal($percentage) {
+    @if unit($percentage) == '%' {
+        $percentage: $percentage/100%;
+    }
+    @return $percentage;
+}
+
+@function decimal-to-percentage($decimal) {
+    @if unit($decimal) == '' {
+        $decimal: $decimal*100%;
+    }
+    @return $decimal;
+}

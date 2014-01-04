@@ -1,0 +1,82 @@
+@import "vars";
+
+@mixin button-base($display:$button-display) {
+  display: $button-display;
+  margin-bottom: 0; // For input.btn
+  font-weight: $btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  //background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  white-space: nowrap;
+  text-decoration: none !important;
+  padding: $btn-padding-vertical $btn-padding-horizontal;
+}
+
+@mixin button ($btn-color: $primary-color, $style: flat, $gradient-type: overlay, $shape: no-radius) {
+  // box-sizing
+  @include box-sizing(border-box);
+
+  //styling
+  @if $style == flat {
+    @include button-base($display:inline-block);
+    $color-type: if(yiq-contrast-color($btn-color, #000, #fff) == #000, "light", "dark");
+    $shadow-color: yiq-contrast-color($btn-color, #fff, #000);
+    @include yiq-contrasted($btn-color);
+    &:hover {
+      $color-adjust: if($color-type == "dark", 10, -10);
+      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
+      background-color: $hover-color;
+    }
+    &:active {
+      $color-adjust: if($color-type == "dark", 5, -5);
+      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
+      background-color: $hover-color;
+    }
+  }
+  @if $style == pretty {
+    @include button-base($display:inline-block);
+    $color-type: if(yiq-contrast-color($btn-color, #000, #fff) == #000, "light", "dark");
+    $shadow-color: yiq-contrast-color($btn-color, #fff, #000);
+    $gradient-color:  photoshop-gradient-overlay($btn-color, $gradient-type, 80%, 90deg);
+    @include background-image($gradient-color);
+    @include yiq-contrasted($btn-color);
+    &:hover {
+      $color-adjust: if($color-type == "dark", 10, -10);
+      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
+      background-color: $hover-color;
+    }
+    &:active {
+      $color-adjust: if($color-type == "dark", 5, -5);
+      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
+      $gradient-color:  photoshop-gradient-overlay($btn-color, $gradient-type, 50%, -90deg);
+      @include background-image($gradient-color);
+      background-color: $hover-color;
+      
+    }
+  }
+
+  // shape
+  @if $shape == base-radius {
+    @include vendor(border-radius, $border-radius-base);
+  }
+  @if $shape == small-radius {
+    @include vendor(border-radius, $border-radius-small);
+  }
+  @if $shape == large-radius {
+    @include vendor(border-radius, $border-radius-large);
+  }
+  @if $shape == round {
+    @include vendor(border-radius, $border-radius-round);
+  }
+}
+
+// precomposed buttons
+.af-btn {
+  @include button($primary-color, flat);
+}
+
+.ap-btn {
+  @include button($primary-color, pretty, overlay, round);
+}
