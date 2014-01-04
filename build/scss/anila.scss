@@ -39,6 +39,11 @@ GENERAL
 @import "anila/general/debug";
 
 
+/* extensions */
+@import "anila/extensions/bourbon/bourbon";
+@import "anila/extensions/yiq-color-contrast";
+@import "anila/extensions/photoshop-gradient-overlay";
+
 /* alerts */
 @import "anila/alerts/logic";
 
