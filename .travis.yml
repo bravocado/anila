@@ -24,7 +24,7 @@ after_script:
   - echo -e "Done with magic\n"
 env:
   global:
-    secure: BVl/1lIoDD9yroN6LR98q/tvslqFYT054E40jIaVSdCRoVpF7CwiDSGHIlWAAgnTwwjUp7H3618jj3gL4HrIo/NTpnoiScfTZNvi3PAivGITyyJlvrsv5ijOWXdgvjCyAri6jW0UBUwMQ7VkrHOwMeTlr2Sfoqfr+DfB2Z3pSok=
+    secure: OrlGu5F9JHCrFfUX0oR9LxXc89uwy82Cd66NdBniYeKYvRnAkeKyIw7JOfwaUj613JDDkA0H0g7p9UlYnhsr5b03zkPkNTUaZMRQ1hw8k0Wzck0lNln5oeWf7knG422g/w7hb0j4Sfty3QIVwq5/LXIKLL4l2ZxM+SUtbU8/yC0=
 notifications:
   email: 
     recipients:
