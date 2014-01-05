@@ -7,14 +7,17 @@
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  //background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   white-space: nowrap;
   text-decoration: none !important;
   padding: $btn-padding-vertical $btn-padding-horizontal;
+  &:focus {
+    outline: none;
+  }
 }
 
-@mixin button ($btn-color: $primary-color, $style: flat, $gradient-type: overlay, $shape: no-radius) {
+@mixin anila-button ($btn-color: $primary-color, $style: flat, $gradient-type: overlay, $shape: no-radius) {
   // box-sizing
   @include box-sizing(border-box);
 
@@ -39,11 +42,12 @@
     @include button-base($display:inline-block);
     $color-type: if(yiq-contrast-color($btn-color, #000, #fff) == #000, "light", "dark");
     $shadow-color: yiq-contrast-color($btn-color, #fff, #000);
-    $gradient-color:  photoshop-gradient-overlay($btn-color, $gradient-type, 80%, 90deg);
+    $gradient-color:  photoshop-gradient-overlay($btn-color, $gradient-type, 50%, 90deg);
     @include background-image($gradient-color);
     @include yiq-contrasted($btn-color);
+    border: 1px solid $btn-color;
     &:hover {
-      $color-adjust: if($color-type == "dark", 10, -10);
+      $color-adjust: if($color-type == "dark", 5, -5);
       $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
       background-color: $hover-color;
     }
@@ -53,7 +57,23 @@
       $gradient-color:  photoshop-gradient-overlay($btn-color, $gradient-type, 50%, -90deg);
       @include background-image($gradient-color);
       background-color: $hover-color;
-      
+    }
+  }
+  @if $style == shiny {
+    @include button-base($display: inline-block);
+    $color-type: if(yiq-contrast-color($btn-color, #000, #fff) == #000, "light", "dark");
+    $shadow-color: yiq-contrast-color($btn-color, #fff, #000);
+    $gradient-color:  photoshop-gradient-overlay($btn-color, normal, 100%, -90deg, 100%, (adjust-color($btn-color, $lightness: 10) 0%, adjust-color($btn-color, $lightness: 10) 50%, $btn-color 50%, $btn-color 100%));
+    @include background-image($gradient-color);
+    @include yiq-contrasted($btn-color);
+    &:hover {
+      $color-adjust: if($color-type == "dark", 10, -10);
+      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
+      $gradient-color:  photoshop-gradient-overlay($btn-color, normal, 100%, -90deg, 100%, (adjust-color($btn-color, $lightness: 4) 0%, adjust-color($btn-color, $lightness: 4) 50%, adjust-color($btn-color, $lightness: -4) 50%, adjust-color($btn-color, $lightness: -4) 100%));
+      @include background-image($gradient-color);
+    }
+    &:active {
+      // active styling
     }
   }
 
@@ -72,7 +92,7 @@
   }
 }
 
-@mixin button-size($padding:$button-med, $full-width:false, $is-input:false) {
+@mixin button-size($padding:$button-md, $full-width:false, $is-input:false) {
 
   // We control which padding styles come through,
   // these can be turned off by setting $padding:false
@@ -83,10 +103,10 @@
     padding-#{$default-float}: $padding * 2;
 
     // We control the font-size based on mixin input.
-    @if      $padding == $button-med { font-size: $button-font-med; }
-    @else if $padding == $button-tny { font-size: $button-font-tny; }
-    @else if $padding == $button-sml { font-size: $button-font-sml; }
-    @else if $padding == $button-lrg { font-size: $button-font-lrg; }
+    @if      $padding == $button-md { font-size: $button-font-md; }
+    @else if $padding == $button-tn { font-size: $button-font-tn; }
+    @else if $padding == $button-sm { font-size: $button-font-sm; }
+    @else if $padding == $button-lg { font-size: $button-font-lg; }
 /*     @else                            { font-size: $padding - rem-calc(2); } */
   }
 
@@ -106,7 +126,7 @@
   }
 
   // <input>'s and <button>'s take on strange padding. We added this to help fix that.
-  @if $is-input == $button-lrg {
+  @if $is-input == $button-lg {
     padding-top: $is-input + rem-calc(.5);
     padding-bottom: $is-input + rem-calc(.5);
     -webkit-appearance: none;
@@ -120,14 +140,36 @@
     border: none; 
     font-weight: $button-font-weight !important;
   }
+
 }
 
 
 // precomposed buttons
-.af-btn {
-  @include button($primary-color, flat);
+.btn {
+  &.primary {
+    @include anila-button($primary-color, flat);
+  }
+  &.secondary {
+    @include anila-button($quinary-color, pretty, overlay, round);
+  }
+  &.tertiary {
+    @include anila-button($secondary-color, shiny, overlay, base-radius);
+  }
+  &.lg {
+    @include button-size($button-lg, false, false);
+  }
+  &.md {
+    @include button-size($button-md, false, false);
+  }
+  &.sm {
+    @include button-size($button-sm, false, false);
+  }
+  &.tn {
+    @include button-size($button-tn, false, false);
+  }
 }
-
-.ap-btn {
-  @include button($primary-color, pretty, overlay, round);
+button.btn {
+  &:focus {
+    outline: none;
+  }
 }
