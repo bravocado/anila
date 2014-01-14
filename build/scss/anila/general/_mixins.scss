@@ -26,6 +26,40 @@
     }
 }
 
+// we use this to add a fallback for non supported rem
+@mixin rem-fallback($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value * $rem-base}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  } 
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  } 
+  
+  #{$property}: $pxValues; 
+  #{$property}: $remValues; 
+}
+
+// mixin background image from bourbon.io
+@mixin background-image($images...) {
+  background-image: _add-prefix($images, webkit);
+  background-image: _add-prefix($images);
+}
+
 // We use this to add box-sizing across browser prefixes
 @mixin box-sizing($type:border-box) {
   @include vendor(box-sizing, $type);
