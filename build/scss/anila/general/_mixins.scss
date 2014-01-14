@@ -5,6 +5,7 @@
 // Create vendor-prefixed CSS in one go, e.g.
 // `@include vendor(border-radius, 4px);`
 
+
 @mixin vendor($property, $value...){
     -webkit-#{$property}:$value;
        -moz-#{$property}:$value;
@@ -158,28 +159,28 @@
    }
  *
  * Courtesy of @integralist: twitter.com/integralist/status/260484115315437569
+*/
 @mixin keyframe ($animation-name){
-    @-webkit-keyframes $animation-name{
+    @-webkit-keyframes #{$animation-name}{
         @content;
     }
 
-    @-moz-keyframes $animation-name{
+    @-moz-keyframes #{$animation-name}{
         @content;
     }
 
-    @-ms-keyframes $animation-name{
+    @-ms-keyframes #{$animation-name}{
         @content;
     }
 
-    @-o-keyframes $animation-name{
+    @-o-keyframes #{$animation-name}{
         @content;
     }
 
-    @keyframes $animation-name{
+    @keyframes #{$animation-name}{
         @content;
     }
 }
-*/
 
 // Transitions
 @mixin transition($transition...) {
