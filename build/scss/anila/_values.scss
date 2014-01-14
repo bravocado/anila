@@ -1,5 +1,7 @@
 /* ========= GENERAL VALUES ================ */
 
+$rem-fallback: true !default;
+
 // border radius
 $border-radius-base:             	5px !default;
 $border-radius-large:            	8px !default;
@@ -9,7 +11,7 @@ $border-radius-round:            	500px !default;
 
 /* ---- SPACING ----- */
 
-$base-spacing-unit: 				rem-calc(16px) !default;
+$base-spacing-unit: 				16 !default;
 $half-spacing-unit: 				$base-spacing-unit / 2 !default;
 
 

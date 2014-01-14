@@ -1,14 +1,14 @@
 // We use these to build padding for buttons.
-$button-tn: rem-calc(10) !default;
-$button-sm: rem-calc(14) !default;
-$button-md: rem-calc(16) !default;
-$button-lg: rem-calc(18) !default;
+$button-tn: 10 !default;
+$button-sm: 14 !default;
+$button-md: 16 !default;
+$button-lg: 18 !default;
 
 // We use these to build font for buttons.
-$button-font-tn: rem-calc(11) !default;
-$button-font-sm: rem-calc(13) !default;
-$button-font-md: rem-calc(16) !default;
-$button-font-lg: rem-calc(20) !default;
+$button-font-tn: 11 !default;
+$button-font-sm: 13 !default;
+$button-font-md: 16 !default;
+$button-font-lg: 20 !default;
 
 
 // We use this to set the default radius used throughout the core.
@@ -18,6 +18,6 @@ $button-radius-large: $border-radius-large !default;
 $button-round: $border-radius-round !default;
 
 $button-display: inline-block !default;
-$btn-font-weight: normal !default;
-$btn-padding-vertical: 5px !default;
-$btn-padding-horizontal: 10px !default;
+$button-font-weight: normal !default;
+$button-padding-vertical: 5px !default;
+$button-padding-horizontal: 10px !default;
