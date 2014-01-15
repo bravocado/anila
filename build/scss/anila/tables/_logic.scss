@@ -6,7 +6,8 @@
 
 @mixin table {
   background: $table-bg;
-  margin-bottom: $table-margin-bottom;
+  //margin-bottom: $table-margin-bottom;
+  @include unit(margin-bottom, $table-margin-bottom);
   border: $table-border-style $table-border-size $table-border-color;
 
   thead,
@@ -17,8 +18,10 @@
     tr {
       th,
       td {
-        padding: $table-head-padding;
-        font-size: $table-head-font-size;
+        //padding: $table-head-padding;
+        //font-size: $table-head-font-size;
+        @include unit(padding, $table-head-padding);
+        @include unit(font-size, $table-head-font-size);
         color: $table-head-font-color;
         text-align: $default-float;
       }
@@ -28,8 +31,10 @@
   tr {
     th,
     td {
-      padding: $table-row-padding;
-      font-size: $table-row-font-size;
+      //padding: $table-row-padding;
+      //font-size: $table-row-font-size;
+      @include unit(padding, $table-row-padding);
+      @include unit(font-size, $table-row-font-size);
       color: $table-row-font-color;
     }
 
@@ -42,7 +47,11 @@
   tfoot tr th,
   tbody tr td,
   tr td,
-  tfoot tr td { display: $table-display; line-height: $table-line-height; }
+  tfoot tr td {
+    display: $table-display;
+    //line-height: $table-line-height;
+    @include unit(line-height, $table-line-height);
+  }
 }
 
 
