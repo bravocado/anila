@@ -161,7 +161,7 @@ module.exports = function(grunt) {
         options: {livereload:true}
       },
       dist_docs: {
-        files: ['build/doc/{inc,layouts}/**/*.html'],
+        files: ['build/doc/{includes,layouts}/**/*.html'],
         tasks: ['assemble'],
         options: {livereload:true}
       },

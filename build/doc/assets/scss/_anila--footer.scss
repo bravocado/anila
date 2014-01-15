@@ -3,6 +3,7 @@
 	padding-right: 10px;
 	border-right: 5px solid $primary-color;
 	p {
-		font-size: rem-calc(14);
+		//font-size: rem-calc(14);
+		@include rem(font-size, 14);
 	}
 }

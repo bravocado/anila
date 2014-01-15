@@ -6,9 +6,12 @@
   @include rem(max-width, 1440);
   &.display {
     background: #eee;
-    font-size: 11px;
-    margin-bottom: 10px;
-    line-height: 2rem;
+    //font-size: 11px;
+    //margin-bottom: 10px;
+    //line-height: 2rem;
+    @include rem(font-size, 12);
+    @include rem(margin-bottom, 10);
+    @include rem(line-height, $rem-base*2);
     border: solid 1px #c6c6c6;
     margin-left: 0 !important;
     margin-right: 0 !important;
