@@ -66,11 +66,11 @@ $definition-list-margin-bottom: 12 !default;
 
 // We use these to style blockquotes
 $blockquote-font-color: lighten($header-font-color, 30%) !default;
-$blockquote-padding-top: 9 !default;
-$blockquote-padding-right: 20 !default;
-$blockquote-padding-bottom: 0 !default;
-$blockquote-padding-left: 19 !default; 
-//$blockquote-padding: 9 20 0 19 !default;
+//$blockquote-padding-top: 9 !default;
+//$blockquote-padding-right: 20 !default;
+//$blockquote-padding-bottom: 0 !default;
+//$blockquote-padding-left: 19 !default; 
+$blockquote-padding: 9 20 0 19 !default;
 $blockquote-border: 1px solid #ddd !default;
 $blockquote-cite-font-size: 13 !default;
 $blockquote-cite-font-color: lighten($header-font-color, 20%) !default;
@@ -80,15 +80,15 @@ $blockquote-cite-link-color: $blockquote-cite-font-color !default;
 $acronym-underline: 1px dotted #ddd !default;
 
 // We use these to control padding and margin
-//$microformat-padding: 10, 12 !default;
-$microformat-padding-vertical: 10 !default;
-$microformat-padding-horizontal: 12 !default;
+$microformat-padding: 10 12 !default;
+//$microformat-padding-vertical: 10 !default;
+//$microformat-padding-horizontal: 12 !default;
 //$microformat-margin: rem-calc(0 0 20 0) !default;
-//$microformat-margin: 0, 0, 20, 0 !default;
-$microformat-margin-top: 0 !default;
-$microformat-margin-right: 0 !default;
-$microformat-margin-bottom: 20 !default;
-$microformat-margin-left: 0 !default;
+$microformat-margin: 0, 0, 20, 0 !default;
+//$microformat-margin-top: 0 !default;
+//$microformat-margin-right: 0 !default;
+//$microformat-margin-bottom: 20 !default;
+//$microformat-margin-left: 0 !default;
 
 // We use these to control the border styles
 $microformat-border-width: 1px !default;
@@ -103,9 +103,9 @@ $microformat-fullname-font-size: 15 !default;
 $microformat-summary-font-weight: bold !default;
 
 // We use this to control abbr padding
-//$microformat-abbr-padding: rem-calc(0 1) !default;
-$microformat-abbr-padding-vertical: 0 !default;
-$microformat-abbr-padding-horizontal: 1 !default;
+$microformat-abbr-padding: 0 1 !default;
+//$microformat-abbr-padding-vertical: 0 !default;
+//$microformat-abbr-padding-horizontal: 1 !default;
 
 // We use this to control abbr font styles
 $microformat-abbr-font-weight: bold !default;

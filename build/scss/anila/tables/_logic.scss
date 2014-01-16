@@ -9,6 +9,7 @@
   //margin-bottom: $table-margin-bottom;
   @include unit(margin-bottom, $table-margin-bottom);
   border: $table-border-style $table-border-size $table-border-color;
+  width: $table-width-default;
 
   thead,
   tfoot {
@@ -38,9 +39,6 @@
       color: $table-row-font-color;
     }
 
-    &.even,
-    &.alt,
-    &:nth-of-type(even) { background: $table-even-row-bg; }
   }
 
   thead tr th,
@@ -52,6 +50,26 @@
     //line-height: $table-line-height;
     @include unit(line-height, $table-line-height);
   }
+
+  // types
+  &.bordered {
+    thead, tfoot, tbody {
+      tr {
+        th, td {
+          border: $table-border-style $table-border-size $table-border-color;
+        }
+      }
+    }
+  }
+  
+  &.stripe {
+    tr {
+      &.even,
+      &.alt,
+      &:nth-of-type(even) { background: $table-even-row-bg; }
+    }    
+  }
+  
 }
 
 

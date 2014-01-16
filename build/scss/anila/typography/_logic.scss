@@ -7,7 +7,7 @@
 // These will throw a deprecation warning if used within a media query.
 @mixin lead {
   //font-size: $paragraph-font-size + rem-calc(3.5);
-  @include rem(font-size, $paragraph-font-size + strip-unit(rem-calc(3.5)));
+  @include unit(font-size, $paragraph-font-size + strip-unit(rem-calc(3.5)));
   line-height: 1.6;
 }
 
@@ -17,8 +17,8 @@
   font-weight: $subheader-font-weight;
   //margin-top: $subheader-top-margin;
   //margin-bottom: $subheader-bottom-margin;
-  @include rem(margin-top, $subheader-top-margin);
-  @include rem(margin-bottom, $subheader-bottom-margin);
+  @include unit(margin-top, $subheader-top-margin);
+  @include unit(margin-bottom, $subheader-bottom-margin);
 }
 @include exports("type") {
   @if $use-typography == true {
@@ -65,17 +65,17 @@
       font-family: $paragraph-font-family;
       font-weight: $paragraph-font-weight;
       //font-size: $paragraph-font-size;
-      @include rem(font-size, $paragraph-font-size);
+      @include unit(font-size, $paragraph-font-size);
       line-height: $paragraph-line-height;
       //margin-bottom: $paragraph-margin-bottom;
-      @include rem(margin-bottom, $paragraph-margin-bottom);
+      @include unit(margin-bottom, $paragraph-margin-bottom);
       text-rendering: $paragraph-text-rendering;
 
       &.lead { @include lead; }
 
       & aside {
         //font-size: $paragraph-aside-font-size;
-        @include rem(font-size, $paragraph-aside-font-size);
+        @include unit(font-size, $paragraph-aside-font-size);
         line-height: $paragraph-aside-line-height;
         font-style: $paragraph-aside-font-style;
       }
@@ -90,8 +90,8 @@
       text-rendering: $header-text-rendering;
       //margin-top: $header-top-margin;
       //margin-bottom: $header-bottom-margin;
-      @include rem(margin-top, $header-top-margin);
-      @include rem(margin-bottom, $header-bottom-margin);
+      @include unit(margin-top, $header-top-margin);
+      @include unit(margin-bottom, $header-bottom-margin);
       line-height: $header-line-height;
 
       small {
@@ -101,12 +101,12 @@
       }
     }
 
-    h1 { @include rem(font-size, $h1-font-size - strip-unit(rem-calc(10))); }
-    h2 { @include rem(font-size, $h2-font-size - strip-unit(rem-calc(10))); }
-    h3 { @include rem(font-size, $h3-font-size - strip-unit(rem-calc(5))); }
-    h4 { @include rem(font-size, $h4-font-size - strip-unit(rem-calc(5))); }
-    h5 { @include rem(font-size, $h5-font-size); }
-    h6 { @include rem(font-size, $h6-font-size); }
+    h1 { @include unit(font-size, $h1-font-size - strip-unit(rem-calc(10))); }
+    h2 { @include unit(font-size, $h2-font-size - strip-unit(rem-calc(10))); }
+    h3 { @include unit(font-size, $h3-font-size - strip-unit(rem-calc(5))); }
+    h4 { @include unit(font-size, $h4-font-size - strip-unit(rem-calc(5))); }
+    h5 { @include unit(font-size, $h5-font-size); }
+    h6 { @include unit(font-size, $h6-font-size); }
 
     .subheader { @include subheader; }
 
@@ -115,7 +115,7 @@
       border-width: $hr-border-width 0 0;
       clear: both;
       //margin: $hr-margin 0 ($hr-margin - rem-calc(1));
-      @include rem(margin, $hr-margin, 0, ($hr-margin - strip-unit(rem-calc(1))));
+      @include unit(margin, $hr-margin, 0, ($hr-margin - strip-unit(rem-calc(1))));
       height: 0;
     }
 
@@ -148,25 +148,25 @@
     ol,
     dl {
       //font-size: $paragraph-font-size;
-      @include rem(font-size, $paragraph-font-size);
+      @include unit(font-size, $paragraph-font-size);
       line-height: $paragraph-line-height;
       //margin-bottom: $paragraph-margin-bottom;
-      @include rem(margin-bottom, $paragraph-margin-bottom);
+      @include unit(margin-bottom, $paragraph-margin-bottom);
       list-style-position: $list-style-position;
       font-family: $paragraph-font-family;
     }
 
     ul {
       //margin-#{$default-float}: $list-side-margin;
-      @include rem(margin-#{$default-float}, $list-side-margin);
+      @include unit(margin-#{$default-float}, $list-side-margin);
       &.no-bullet { 
         //margin-#{$default-float}: $list-side-margin-no-bullet; 
-        @include rem(margin-#{$default-float}, $list-side-margin-no-bullet);
+        @include unit(margin-#{$default-float}, $list-side-margin-no-bullet);
         li {
           ul,
           ol {
             //margin-#{$default-float}: $list-nested-margin;
-            @include rem(margin-#{$default-float}, $list-nested-margin);
+            @include unit(margin-#{$default-float}, $list-nested-margin);
             margin-bottom: 0;
             list-style: none;
           }
@@ -180,10 +180,10 @@
         ul,
         ol {
           //margin-#{$default-float}: $list-nested-margin;
-          @include rem(margin-#{$default-float}, $list-nested-margin);
+          @include unit(margin-#{$default-float}, $list-nested-margin);
           margin-bottom: 0;
           //font-size: 1rem; /* Override nested font-size change */
-          @include rem(font-size, $rem-base);
+          @include unit(font-size, $rem-base);
         }
       }
       &.square,
@@ -195,17 +195,17 @@
       &.square {
         list-style-type: square;
         //margin-#{$default-float}: $list-side-margin;
-        @include rem(margin-#{$default-float}, $list-side-margin);
+        @include unit(margin-#{$default-float}, $list-side-margin);
       }
       &.circle { 
         list-style-type: circle;
         //margin-#{$default-float}: $list-side-margin;
-        @include rem(margin-#{$default-float}, $list-side-margin);
+        @include unit(margin-#{$default-float}, $list-side-margin);
       }
       &.disc { 
         list-style-type: disc; 
         //margin-#{$default-float}: $list-side-margin;
-        @include rem(margin-#{$default-float}, $list-side-margin);
+        @include unit(margin-#{$default-float}, $list-side-margin);
       }
       &.no-bullet { list-style: none; }
     }
@@ -213,12 +213,12 @@
     /* Ordered Lists */
     ol {
       //margin-#{$default-float}: $list-ordered-side-margin;
-      @include rem(margin-#{$default-float}, $list-ordered-side-margin);
+      @include unit(margin-#{$default-float}, $list-ordered-side-margin);
       li {
         ul,
         ol {
           //margin-#{$default-float}: $list-nested-margin;
-          @include rem(margin-#{$default-float}, $list-nested-margin);
+          @include unit(margin-#{$default-float}, $list-nested-margin);
           margin-bottom: 0;
         }
       }
@@ -228,12 +228,12 @@
     dl {
       dt {
         //margin-bottom: $definition-list-header-margin-bottom;
-        @include rem(margin-bottom, $definition-list-header-margin-bottom);
+        @include unit(margin-bottom, $definition-list-header-margin-bottom);
         font-weight: $definition-list-header-weight;
       }
       dd { 
         //margin-bottom: $definition-list-margin-bottom;
-        @include rem(margin-bottom, $definition-list-margin-bottom);
+        @include unit(margin-bottom, $definition-list-margin-bottom);
       }
     }
 
@@ -253,15 +253,16 @@
     /* Blockquotes */
     blockquote {
       //margin: 0 0 $paragraph-margin-bottom;
-      @include rem(margin, 0,0,$paragraph-margin-bottom);
+      @include unit(margin, 0,0,$paragraph-margin-bottom);
       //padding: $blockquote-padding;
-      @include rem(padding, $blockquote-padding-top, $blockquote-padding-right, $blockquote-padding-bottom, $blockquote-padding-left);
+      //@include unit(padding, $blockquote-padding-top, $blockquote-padding-right, $blockquote-padding-bottom, $blockquote-padding-left);
+      @include unit(padding, $blockquote-padding);
       border-#{$default-float}: $blockquote-border;
 
       cite {
         display: block;
         //font-size: $blockquote-cite-font-size;
-        @include rem(font-size, $blockquote-cite-font-size);
+        @include unit(font-size, $blockquote-cite-font-size);
         color: $blockquote-cite-font-color;
         &:before {
           content: "\2014 \0020";
@@ -283,11 +284,13 @@
     .vcard {
       display: inline-block;
       //margin: $microformat-margin;
-      @include rem(margin, $microformat-margin-top, $microformat-margin-right, $microformat-margin-bottom, $microformat-margin-left);
+      //@include unit(margin, $microformat-margin-top, $microformat-margin-right, $microformat-margin-bottom, $microformat-margin-left);
+      @include unit(margin, $microformat-margin);
       //@include rem(margin, $microformat-margin);
       border: $microformat-border-width $microformat-border-style $microformat-border-color;
       //padding: $microformat-padding;
-      @include rem(padding, $microformat-padding-vertical, $microformat-padding-horizontal);
+      //@include rem(padding, $microformat-padding-vertical, $microformat-padding-horizontal);
+      @include unit(padding, $microformat-padding);
 
       li {
         margin: 0;
@@ -309,17 +312,18 @@
         font-weight: $microformat-abbr-font-weight;
         border: none;
         //padding: $microformat-abbr-padding;
-        @include rem(padding, $microformat-abbr-padding-vertical, $microformat-abbr-padding-horizontal);
+        //@include rem(padding, $microformat-abbr-padding-vertical, $microformat-abbr-padding-horizontal);
+        @include unit(padding, $microformat-abbr-padding);
       }
     }
 
 
     @media #{$md-up} {
       h1,h2,h3,h4,h5,h6 { line-height: $header-line-height; }
-      h1 { @include rem(font-size, $h1-font-size); }
-      h2 { @include rem(font-size, $h2-font-size); }
-      h3 { @include rem(font-size, $h3-font-size); }
-      h4 { @include rem(font-size, $h4-font-size); }
+      h1 { @include unit(font-size, $h1-font-size); }
+      h2 { @include unit(font-size, $h2-font-size); }
+      h3 { @include unit(font-size, $h3-font-size); }
+      h4 { @include unit(font-size, $h4-font-size); }
     }
 
     // Only include these styles if you want them.

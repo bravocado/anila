@@ -101,16 +101,16 @@
     //padding-#{$opposite-direction}: $padding * 2;
     //padding-bottom: $padding + rem-calc(1);
     //padding-#{$default-float}: $padding * 2;
-    @include rem(padding-top, $padding);
-    @include rem(padding-#{$opposite-direction}, $padding * 2);
-    @include rem(padding-bottom, $padding);
-    @include rem(padding-#{$default-float}, $padding * 2);
+    @include unit(padding-top, $padding);
+    @include unit(padding-#{$opposite-direction}, $padding * 2);
+    @include unit(padding-bottom, $padding);
+    @include unit(padding-#{$default-float}, $padding * 2);
 
     // We control the font-size based on mixin input.
-    @if      $padding == $button-md { @include rem(font-size, $button-font-md); }
-    @else if $padding == $button-tn { @include rem(font-size, $button-font-tn); }
-    @else if $padding == $button-sm { @include rem(font-size, $button-font-sm); }
-    @else if $padding == $button-lg { @include rem(font-size, $button-font-lg); }
+    @if      $padding == $button-md { @include unit(font-size, $button-font-md); }
+    @else if $padding == $button-tn { @include unit(font-size, $button-font-tn); }
+    @else if $padding == $button-sm { @include unit(font-size, $button-font-sm); }
+    @else if $padding == $button-lg { @include unit(font-size, $button-font-lg); }
 /*     @else                            { font-size: $padding - rem-calc(2); } */
   }
 
@@ -120,8 +120,8 @@
     @if $padding {
     //padding-top: $padding;
     //padding-bottom: $padding + rem-calc(1);
-    @include rem(padding-bottom, $padding);
-    @include rem(padding-bottom, $padding + strip-unit(rem-calc(1)));
+    @include unit(padding-bottom, $padding);
+    @include unit(padding-bottom, $padding + strip-unit(rem-calc(1)));
     } @else if $padding == false {
       padding-top:0;
       padding-bottom:0;
@@ -135,8 +135,8 @@
   @if $is-input == $button-lg {
     //padding-top: $is-input + rem-calc(.5);
     //padding-bottom: $is-input + rem-calc(.5);
-    @include rem(padding-top, $is-input);
-    @include rem(padding-bottom, $is-input);
+    @include unit(padding-top, $is-input);
+    @include unit(padding-bottom, $is-input);
     -webkit-appearance: none;
     border: none; 
     font-weight: $button-font-weight !important;
@@ -144,8 +144,8 @@
   @else if $is-input {
     //padding-top: $is-input + rem-calc(1);
     //padding-bottom: $is-input;
-    @include rem(padding-top, $is-input);
-    @include rem(padding-bottom, $is-input);
+    @include unit(padding-top, $is-input);
+    @include unit(padding-bottom, $is-input);
     -webkit-appearance: none;
     border: none; 
     font-weight: $button-font-weight !important;

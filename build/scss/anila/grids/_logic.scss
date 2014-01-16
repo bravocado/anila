@@ -49,7 +49,7 @@ FOUNDATION GRID MIXIN
     width: 100%;
     margin: 0;
     //max-width: $row-width;
-    @include rem(max-width, $row-width);
+    @include unit(max-width, $row-width);
   }
 
   // use @include grid-row(nest-collapse); to collapse outer margins on a nested row
@@ -67,7 +67,7 @@ FOUNDATION GRID MIXIN
     margin-top: 0;
     margin-bottom: 0;
     //max-width: $row-width;
-    @include rem(max-width, $row-width);
+    @include unit(max-width, $row-width);
   }
 
   // Clearfix for all rows
@@ -107,8 +107,8 @@ FOUNDATION GRID MIXIN
   @else if $collapse == false {
     //padding-left: $column-gutter / 2;
     //padding-right: $column-gutter / 2;
-    @include rem(padding-left, $column-gutter / 2);
-    @include rem(padding-right, $column-gutter / 2);
+    @include unit(padding-left, $column-gutter / 2);
+    @include unit(padding-right, $column-gutter / 2);
   }
 
   // If a column number is given, calculate width

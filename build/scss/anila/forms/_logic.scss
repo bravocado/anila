@@ -6,13 +6,13 @@
 
 // We use this mixin to give us form styles for rows inside of forms
 @mixin form-row-base {
-  .row { @include rem(margin, 0, ((-$form-spacing) / 2 ));
+  .row { @include unit(margin, 0, ((-$form-spacing) / 2 ));
   //margin: 0 ((-$form-spacing) / 2);
 
     .column,
     .col { 
       //padding: 0 $form-spacing / 2;
-      @include rem(padding, 0, $form-spacing / 2);
+      @include unit(padding, 0, $form-spacing / 2);
     }
 
     // Use this to collapse the margins of a form row
@@ -34,7 +34,7 @@
   textarea.column,
   textarea.col { 
     //padding-#{$default-float}: $form-spacing / 2;
-    @include rem(padding-#{$default-float}, $form-spacing / 2);
+    @include unit(padding-#{$default-float}, $form-spacing / 2);
   }
 }
 
@@ -51,11 +51,11 @@
   //font-size: $input-font-size;
   //margin: 0 0 $form-spacing 0;
   //padding: $form-spacing / 2;
-  @include rem(font-size, $input-font-size);
-  @include rem(margin, 0, 0, $form-spacing, 0);
-  @include rem(padding, $form-spacing / 2);
+  @include unit(font-size, $input-font-size);
+  @include unit(margin, 0, 0, $form-spacing, 0);
+  @include unit(padding, $form-spacing / 2);
   //height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1));
-  @include rem(height, ($input-font-size + ($form-spacing * 1.5) - strip-unit(rem-calc(1))));
+  @include unit(height, ($input-font-size + ($form-spacing * 1.5) - strip-unit(rem-calc(1))));
   width: 100%;
   @include box-sizing(border-box);
   @if $input-include-glowing-effect {
@@ -89,7 +89,7 @@
     display: block;
     font-weight: $form-label-font-weight;
     //margin-bottom: $form-label-bottom-margin;
-    @include rem(margin-bottom, $form-label-bottom-margin);
+    @include unit(margin-bottom, $form-label-bottom-margin);
   }
 
   // Alignment options
@@ -100,8 +100,8 @@
   @else if $alignment == inline {
     //margin: 0 0 $form-spacing 0;
     //padding: $form-spacing / 2 + rem-calc($input-border-width * 2) 0;
-    @include rem(margin, 0, 0, $form-spacing, 0);
-    @include rem(padding, $form-spacing / 2 + strip-unit(rem-calc($input-border-width * 2)), 0);
+    @include unit(margin, 0, 0, $form-spacing, 0);
+    @include unit(padding, $form-spacing / 2 + strip-unit(rem-calc($input-border-width * 2)), 0);
   }
 }
 
@@ -120,9 +120,9 @@
   //font-size: $form-label-font-size;
   //height: ($form-label-font-size + ($form-spacing * 1.5) - rem-calc(1));
   //line-height: ($form-label-font-size + ($form-spacing * 1.5) - rem-calc(1));
-  @include rem(font-size, $form-label-font-size);
-  @include rem(height, ($form-label-font-size + ($form-spacing * 1.5) - strip-unit(rem-calc(1))));
-  @include rem(line-height, ($form-label-font-size + ($form-spacing * 1.5) - strip-unit(rem-calc(1))));
+  @include unit(font-size, $form-label-font-size);
+  @include unit(height, ($form-label-font-size + ($form-spacing * 1.5) - strip-unit(rem-calc(1))));
+  @include unit(line-height, ($form-label-font-size + ($form-spacing * 1.5) - strip-unit(rem-calc(1))));
 }
 
 // @MIXIN
@@ -182,7 +182,7 @@
     padding-bottom: 0;
     text-align: center;
     //line-height: rem-calc(34);
-    @include rem(line-height, 34);
+    @include unit(line-height, 34);
     border: none;
   }
 
@@ -193,18 +193,18 @@
   border: $fieldset-border-style $fieldset-border-width $fieldset-border-color;
   //padding: $fieldset-padding;
   //margin: $fieldset-margin;
-  @include rem(padding, $fieldset-padding);
-  @include rem(margin, $fieldset-margin-vertical, $fieldset-margin-horizontal);
+  @include unit(padding, $fieldset-padding);
+  @include unit(margin, $fieldset-margin);
 
   // and legend styles
   legend {
     font-weight: $legend-font-weight;
     background: $legend-bg;
     //padding: $legend-padding;
-    @include rem(padding, $legend-padding-vertical, $legend-padding-horizontal);
+    @include unit(padding, $legend-padding);
     margin: 0;
     //margin-#{$default-float}: rem-calc(-3);
-    @include rem(margin-#{$default-float}, -3);
+    @include unit(margin-#{$default-float}, -3);
   }
 }
 
@@ -236,12 +236,12 @@
 @mixin form-error-message($bg:$alert-color) {
   display: block;
   //padding: $input-error-message-padding;
-  @include rem(padding, $input-error-message-padding-top, $input-error-message-padding-right, $input-error-message-padding-bottom);
+  @include unit(padding, $input-error-message-padding);
   margin-top: $input-error-message-top;
   //margin-bottom: $form-spacing;
   //font-size: $input-error-message-font-size;
-  @include rem(margin-bottom, $form-spacing);
-  @include rem(font-size, $input-error-message-font-size);
+  @include unit(margin-bottom, $form-spacing);
+  @include unit(font-size, $input-error-message-font-size);
   font-weight: $input-error-message-font-weight;
   font-style: $input-error-message-font-style;
 
@@ -257,7 +257,7 @@
     /* Standard Forms */
     form { 
       //margin: 0 0 $form-spacing;
-      @include rem(margin, 0, 0, 0, $form-spacing);
+      @include unit(margin, 0 0 $form-spacing);
     }
 
     /* Using forms within rows, we need to set some defaults */
@@ -284,8 +284,8 @@
       border: $input-border-width $input-border-style $input-border-color;
       //padding: $form-spacing / 2;
       //font-size: $input-font-size;
-      @include rem(padding, $form-spacing / 2);
-      @include rem(font-size, $input-font-size);
+      @include unit(padding, $form-spacing / 2);
+      @include unit(font-size, $input-font-size);
       @include radius(0);
       &.radius { @include radius($border-radius-base); }
       &:hover {
@@ -372,7 +372,7 @@
     textarea {
       height: auto;
       //min-height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1));
-      @include rem(min-height, ($input-font-size + ($form-spacing * 1.5) - strip-unit(rem-calc(1))));
+      @include unit(min-height, ($input-font-size + ($form-spacing * 1.5) - strip-unit(rem-calc(1))));
     }
 
     /* Adjust margin for form elements below */
@@ -381,7 +381,7 @@
     input[type="radio"],
     select {
       //margin: 0 0 $form-spacing 0;
-      @include rem(margin, 0, 0, $form-spacing, 0);
+      @include unit(margin, 0 0 $form-spacing 0);
     }
 
     input[type="checkbox"] + label,
