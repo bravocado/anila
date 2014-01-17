@@ -1,8 +1,8 @@
 // We use these to build padding for buttons.
-$button-tn: 10 !default;
-$button-sm: 14 !default;
-$button-md: 16 !default;
-$button-lg: 18 !default;
+$button-tn: 6 !default;
+$button-sm: 10 !default;
+$button-md: 12 !default;
+$button-lg: 14 !default;
 
 // We use these to build font for buttons.
 $button-font-tn: 11 !default;
@@ -21,3 +21,10 @@ $button-display: inline-block !default;
 $button-font-weight: normal !default;
 $button-padding-vertical: 5px !default;
 $button-padding-horizontal: 10px !default;
+
+// precomposed
+$base-button-class: btn;
+$button-color-list: "primary" $primary-color, "secondary" $secondary-color, "tertiary" $tertiary-color, "quaternary" $quaternary-color, "quinary" $quinary-color !default;
+$button-style-list: flat, pretty, shiny, bordered !default;
+$button-shape-list: hard, soft, round !default;
+$button-size-list: tn $button-tn, sm $button-sm, md $button-md, lg $button-lg !default;

@@ -83,7 +83,7 @@
   // Control whether or not the base styles come through.
   @if $base-style {
     //font-size: $form-label-font-size;
-    @include rem(font-size, $form-label-font-size);
+    @include unit(font-size, $form-label-font-size);
     color: $form-label-font-color;
     cursor: $form-label-pointer;
     display: block;
@@ -151,7 +151,7 @@
     padding-bottom: 0;
     text-align: center;
     //line-height: rem-calc(34);
-    @include rem(line-height, 34);
+    @include unit(line-height, 34);
     border: none;
   }
 
@@ -389,8 +389,8 @@
       display: inline-block;
       //margin-#{$default-float}: $form-spacing * .5;
       //margin-#{$opposite-direction}: $form-spacing;
-      @include rem(margin-#{$default-float}, $form-spacing*.5);
-      @include rem(margin-#{$opposite-direction}, $form-spacing);
+      @include unit(margin-#{$default-float}, $form-spacing*.5);
+      @include unit(margin-#{$opposite-direction}, $form-spacing);
       margin-bottom: 0;
       vertical-align: baseline;
     }

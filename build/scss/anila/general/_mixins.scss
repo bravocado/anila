@@ -27,37 +27,6 @@
 }
 
 // we use this to add a fallback for non supported rem
-@mixin rem($property, $values...) {
-  $max: length($values);
-  $pxValues: '';
-  $remValues: '';
-  
-  @for $i from 1 through $max {
-    $value: strip-unit(nth($values, $i));
-    $pxValues: #{$pxValues + $value}px;
-
-    @if $i < $max {
-      $pxValues: #{$pxValues + " "};
-    }
-  } 
-  @for $i from 1 through $max {
-    $value: strip-unit(nth($values, $i));
-    $base-value: strip-unit($rem-base);
-    $remValues: #{$remValues + $value / $base-value}rem;
-
-    @if $i < $max {
-      $remValues: #{$remValues + " "};
-    }
-  } 
-
-  @if $rem-fallback == true {
-    #{$property}: $pxValues; 
-  }
-  #{$property}: $remValues; 
-}
-
-// we use this to add a fallback for non supported rem
-// will remove mixin rem
 @mixin unit($property, $values...) {
   $max: length($values);
   $pxValues: ();

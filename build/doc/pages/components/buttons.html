@@ -1,5 +1,5 @@
 ---
-title: Grid
+title: Buttons
 layout: build/doc/layouts/default.html
 ---
 
@@ -13,33 +13,27 @@ layout: build/doc/layouts/default.html
 <h4>We have 2 precomposed style for you. Flat and pretty style.</h4>
 
 <div class="row">
-	<div class="col lg-4">
-		<h5>SASS</h5>
-		{{> examples_button_flat_rendered}}
-
-		<h5>Rendered</h5>
-		<a href="javascript:;"><span class="btn primary">Flat Button</span></a>
+	<div class="col lg-3 sm-12">
+		<h5>Flat Button</h5>
+		<a href="javascript:;"><span class="btn primary flat">Flat</span></a>
 	</div>
-	<div class="col lg-4">
-		<h5>SASS</h5>
-		{{> examples_button_pretty_rendered}}
-
-		<h5>Rendered</h5>
-		<a href="javascript:;"><span class="btn secondary">Pretty Button</span></a>
+	<div class="col lg-3 sm-12">
+		<h5>Pretty Button</h5>
+		<a href="javascript:;"><span class="btn primary pretty">Pretty</span></a>
 	</div>
-	<div class="col lg-4">
-		<h5>SASS</h5>
-		{{> examples_button_shiny_rendered}}
-
-		<h5>Rendered</h5>
-		<a href="javascript:;"><span class="btn tertiary">Shiny Button</span></a>
+	<div class="col lg-3 sm-12">
+		<h5>Shiny Button</h5>
+		<a href="javascript:;"><span class="btn primary shiny">Shiny</span></a>
 	</div>
-
+	<div class="col lg-3 sm-12">
+		<h5>Bordered Button</h5>
+		<a href="javascript:;"><span class="btn primary bordered">Bordered</span></a>
+	</div>
 </div>
 
 ***
 
-## Button Sizes
+### Button Sizes
 <h4>We cover 4 sizes for your buttons. Tiny, Small, Medium, and Large. Simply add <strong>tn/sm/md/lg</strong> class.</h4>
 
 <div class="row">
@@ -59,6 +53,20 @@ layout: build/doc/layouts/default.html
 
 ***
 
-## Button Colors
+### Button Colors
 <h4>By default, we cover 5 colors. They come from our SASS variables.</h4>
-<p>Maybe your buttons are same like our danger color? You can do it in mixi</p>
+<p>Maybe your buttons are same like our danger color? You can do it in mixin</p>
+
+***
+
+<div class="row">
+	<div class="col sm-12">
+		<ul class="lg-block-grid-5 md-block-grid-3 sm-block-gird-1">
+			<li><a href="javascript:;"><span class="btn primary block">Primary</span></a></li>
+			<li><a href="javascript:;"><span class="btn secondary block">Secondary</span></a></li>
+			<li><a href="javascript:;"><span class="btn tertiary block">Tertiary</span></a></li>
+			<li><a href="javascript:;"><span class="btn quaternary block">Quaternary</span></a></li>
+			<li><a href="javascript:;"><span class="btn quinary block">Quinary</span></a></li>
+		</ul>
+	</div>
+</div>

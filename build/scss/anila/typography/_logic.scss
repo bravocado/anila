@@ -299,7 +299,7 @@
       .fn {
         font-weight: $microformat-fullname-font-weight;
         //font-size: $microformat-fullname-font-size;
-        @include rem(font-size, $microformat-fullname-font-size);
+        @include unit(font-size, $microformat-fullname-font-size);
       }
     }
 

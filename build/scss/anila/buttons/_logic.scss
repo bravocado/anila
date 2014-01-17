@@ -11,84 +11,8 @@
   border: 1px solid transparent;
   white-space: nowrap;
   text-decoration: none !important;
-  padding: $button-padding-vertical $button-padding-horizontal;
   &:focus {
     outline: none;
-  }
-}
-
-@mixin anila-button ($btn-color: $primary-color, $style: flat, $gradient-type: overlay, $shape: no-radius) {
-  // box-sizing
-  @include box-sizing(border-box);
-
-  //styling
-  @if $style == flat {
-    @include button-base($display:inline-block);
-    $color-type: if(yiq-contrast-color($btn-color, #000, #fff) == #000, "light", "dark");
-    $shadow-color: yiq-contrast-color($btn-color, #fff, #000);
-    @include yiq-contrasted($btn-color);
-    &:hover {
-      $color-adjust: if($color-type == "dark", 10, -10);
-      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
-      background-color: $hover-color;
-    }
-    &:active {
-      $color-adjust: if($color-type == "dark", 5, -5);
-      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
-      background-color: $hover-color;
-    }
-  }
-  @if $style == pretty {
-    @include button-base($display:inline-block);
-    $color-type: if(yiq-contrast-color($btn-color, #000, #fff) == #000, "light", "dark");
-    $shadow-color: yiq-contrast-color($btn-color, #fff, #000);
-    $gradient-color:  photoshop-gradient-overlay($btn-color, $gradient-type, 50%, 90deg);
-    @include background-image($gradient-color);
-    @include yiq-contrasted($btn-color);
-    border: 1px solid $btn-color;
-    &:hover {
-      $color-adjust: if($color-type == "dark", 5, -5);
-      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
-      background-color: $hover-color;
-    }
-    &:active {
-      $color-adjust: if($color-type == "dark", 5, -5);
-      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
-      $gradient-color:  photoshop-gradient-overlay($btn-color, $gradient-type, 50%, -90deg);
-      @include background-image($gradient-color);
-      background-color: $hover-color;
-    }
-  }
-  @if $style == shiny {
-    @include button-base($display: inline-block);
-    $color-type: if(yiq-contrast-color($btn-color, #000, #fff) == #000, "light", "dark");
-    $shadow-color: yiq-contrast-color($btn-color, #fff, #000);
-    $gradient-color:  photoshop-gradient-overlay($btn-color, normal, 100%, -90deg, 100%, (adjust-color($btn-color, $lightness: 10) 0%, adjust-color($btn-color, $lightness: 10) 50%, $btn-color 50%, $btn-color 100%));
-    @include background-image($gradient-color);
-    @include yiq-contrasted($btn-color);
-    &:hover {
-      $color-adjust: if($color-type == "dark", 10, -10);
-      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
-      $gradient-color:  photoshop-gradient-overlay($btn-color, normal, 100%, -90deg, 100%, (adjust-color($btn-color, $lightness: 4) 0%, adjust-color($btn-color, $lightness: 4) 50%, adjust-color($btn-color, $lightness: -4) 50%, adjust-color($btn-color, $lightness: -4) 100%));
-      @include background-image($gradient-color);
-    }
-    &:active {
-      // active styling
-    }
-  }
-
-  // shape
-  @if $shape == base-radius {
-    @include vendor(border-radius, $button-radius-base);
-  }
-  @if $shape == small-radius {
-    @include vendor(border-radius, $button-radius-small);
-  }
-  @if $shape == large-radius {
-    @include vendor(border-radius, $button-radius-large);
-  }
-  @if $shape == round {
-    @include vendor(border-radius, $button-round);
   }
 }
 
@@ -154,32 +78,237 @@
 }
 
 
-// precomposed buttons
-.btn {
-  &.primary {
-    @include anila-button($primary-color, flat);
+@mixin anila-button ($btn-color: $primary-color, $style: flat, $gradient-type: overlay, $shape: no-radius) {
+  // box-sizing
+  @include box-sizing(border-box);
+
+  // size
+  @include button-size($button-md, false, false);
+
+  //styling
+  @if $style == flat {
+    @include button-base($display:inline-block);
+    $color-type: if(yiq-contrast-color($btn-color, #000, #fff) == #000, "light", "dark");
+    $shadow-color: yiq-contrast-color($btn-color, #fff, #000);
+    @include yiq-contrasted($btn-color);
+    @include single-transition(background-color, 400ms, ease-in-out);
+    &:hover {
+      $color-adjust: if($color-type == "dark", 10, -10);
+      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
+      background-color: $hover-color;
+    }
+    &:active {
+      $color-adjust: if($color-type == "dark", 5, -5);
+      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
+      background-color: $hover-color;
+    }
   }
-  &.secondary {
-    @include anila-button($quinary-color, pretty, overlay, round);
+  @if $style == pretty {
+    @include button-base($display:inline-block);
+    $color-type: if(yiq-contrast-color($btn-color, #000, #fff) == #000, "light", "dark");
+    $shadow-color: yiq-contrast-color($btn-color, #fff, #000);
+    $gradient-color:  photoshop-gradient-overlay($btn-color, $gradient-type, 50%, 90deg);
+    @include background-image($gradient-color);
+    @include yiq-contrasted($btn-color);
+    border: 1px solid $btn-color;
+    @include vendor(box-shadow, inset 0 3px 5px rgba($shadow-color, .5));
+    @include vendor(text-shadow, 2px 0 2px rgba($text-shadow, .9));
+    &:hover {
+      $color-adjust: if($color-type == "dark", 5, -5);
+      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
+      background-color: $hover-color;
+    }
+    &:active {
+      $color-adjust: if($color-type == "dark", 5, -5);
+      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
+      $gradient-color:  photoshop-gradient-overlay($btn-color, $gradient-type, 50%, -90deg);
+      @include background-image($gradient-color);
+      background-color: $hover-color;
+    }
   }
-  &.tertiary {
-    @include anila-button($secondary-color, shiny, overlay, base-radius);
+  @if $style == shiny {
+    @include button-base($display: inline-block);
+    $color-type: if(yiq-contrast-color($btn-color, #000, #fff) == #000, "light", "dark");
+    $shadow-color: yiq-contrast-color($btn-color, #fff, #000);
+    $gradient-color:  photoshop-gradient-overlay($btn-color, normal, 100%, -90deg, 100%, (adjust-color($btn-color, $lightness: 10) 0%, adjust-color($btn-color, $lightness: 10) 50%, $btn-color 50%, $btn-color 100%));
+    @include background-image($gradient-color);
+    @include yiq-contrasted($btn-color);
+    @include vendor(box-shadow, inset 0 3px 5px rgba($shadow-color, .5));
+    @include vendor(text-shadow, 2px 0 2px rgba($text-shadow, .9));
+    &:hover {
+      $color-adjust: if($color-type == "dark", 5, -5);
+      $hover-color: adjust-color(nth($bc, 2), $lightness: $color-adjust);
+      $gradient-color: photoshop-gradient-overlay($hover-color, normal, 100%, -90deg, 100%, (adjust-color($hover-color, $lightness: 10) 0%, adjust-color($hover-color, $lightness: 10) 50%, $hover-color 50%, $hover-color 100%));
+      @include background-image($gradient-color);
+    }
+    &:active {
+      $color-adjust: if($color-type == "dark", 10, -10);
+      $hover-color: adjust-color(nth($bc, 2), $lightness: $color-adjust);
+      $gradient-color: photoshop-gradient-overlay($hover-color, normal, 100%, -90deg, 100%, (adjust-color($hover-color, $lightness: 10) 0%, adjust-color($hover-color, $lightness: 10) 50%, $hover-color 50%, $hover-color 100%));
+      @include background-image($gradient-color);
+    }
   }
-  &.lg {
-    @include button-size($button-lg, false, false);
+  @if $style == bordered {
+    $color-type: if(yiq-contrast-color(nth($bc, 2), #000, #fff) == #000, "light", "dark");
+    @include yiq-contrasted(rgba(255, 255, 255, 0));
+    border: 3px solid nth($bc, 2);
+    &:hover, &:focus {
+      $color-adjust: if($color-type == "dark", 10, -10);
+      $hover-color: adjust-color(nth($bc, 2), $lightness: $color-adjust);
+      border: 3px solid $hover-color;
+    }
+    &:active {
+      $color-adjust: if($color-type == "dark", 5, -5);
+      $hover-color: adjust-color(nth($bc, 2), $lightness: $color-adjust);
+      border: 3px solid $hover-color;
+    }
   }
-  &.md {
-    @include button-size($button-md, false, false);
+
+  // shape
+  @if $shape == base-radius {
+    @include vendor(border-radius, $button-radius-base);
   }
-  &.sm {
-    @include button-size($button-sm, false, false);
+  @if $shape == small-radius {
+    @include vendor(border-radius, $button-radius-small);
   }
-  &.tn {
-    @include button-size($button-tn, false, false);
+  @if $shape == large-radius {
+    @include vendor(border-radius, $button-radius-large);
+  }
+  @if $shape == round {
+    @include vendor(border-radius, $button-round);
   }
 }
+
 button.btn {
   &:focus {
     outline: none;
   }
+}
+
+// experimental
+
+// creating a class with predefined colors and class
+@mixin button-precomposed($btn-color: $button-color-list, $btn-style: $button-style-list, $gradient-type: overlay, $btn-shape: $button-shape-list, $btn-size: $button-size-list) {
+  
+  .#{$base-button-class} {
+    @include button-base($display: inline-block);
+    // box-sizing
+    @include box-sizing(border-box);
+
+    // size
+    @include button-size($button-md, false, false);
+    // creating a colors and classes
+    @each $bc in $btn-color {
+      &.#{nth($bc,1 )} {
+        @include yiq-contrasted(nth($bc, 2));
+        // creating style based on list
+        @each $bs in $btn-style {
+          &.#{nth($bs, 1)} {
+            // flat design
+            @if #{nth($bs, 1)} == flat {
+              $color-type: if(yiq-contrast-color(nth($bc, 2), #000, #fff) == #000, "light", "dark");
+              $shadow-color: yiq-contrast-color(nth($bc, 2), #fff, #000);
+              @include yiq-contrasted(nth($bc, 2));
+              @include single-transition(background-color, 400ms, ease-in-out);
+             &:hover, &:focus {
+                $color-adjust: if($color-type == "dark", 10, -10);
+                $hover-color: adjust-color(nth($bc, 2), $lightness: $color-adjust);
+                background-color: $hover-color;
+              }
+              &:active {
+                $color-adjust: if($color-type == "dark", 5, -5);
+                $hover-color: adjust-color(nth($bc, 2), $lightness: $color-adjust);
+                background-color: $hover-color;
+              }
+            }
+            // pretty design
+            @if #{nth($bs, 1)} == pretty {
+              $color-type: if(yiq-contrast-color(nth($bc, 2), #000, #fff) == #000, "light", "dark");
+              $shadow-color: yiq-contrast-color(nth($bc, 2), #fff, #000);
+              $gradient-color:  photoshop-gradient-overlay(nth($bc, 2), $gradient-type, 50%, 90deg);
+              $text-shadow-adjust: if($color-type == "light", 20, -20);
+              $text-shadow: adjust-color(nth($bc, 2), $lightness: $text-shadow-adjust);
+              @include background-image($gradient-color);
+              @include yiq-contrasted(nth($bc, 2));
+              border: 1px solid nth($bc, 2);
+              @include vendor(box-shadow, inset 0 3px 5px rgba($shadow-color, .5));
+              @include vendor(text-shadow, 2px 0 2px rgba($text-shadow, .9));
+              &:hover, &:focus {
+                $color-adjust: if($color-type == "dark", 5, -5);
+                $hover-color: adjust-color(nth($bc, 2), $lightness: $color-adjust);
+                background-color: $hover-color;
+              }
+              &:active {
+                $color-adjust: if($color-type == "dark", 5, -5);
+                $hover-color: adjust-color(nth($bc, 2), $lightness: $color-adjust);
+                $gradient-color:  photoshop-gradient-overlay(nth($bc, 2), $gradient-type, 50%, -90deg);
+                @include background-image($gradient-color);
+                @include vendor(box-shadow, inset 0 -3px 5px rgba($shadow-color, .5));
+                background-color: $hover-color;
+              }
+            }
+            // shiny design
+            @if #{nth($bs, 1)} == shiny {
+              $color-type: if(yiq-contrast-color(nth($bc, 2), #000, #fff) == #000, "light", "dark");
+              $shadow-color: yiq-contrast-color(nth($bc, 2), #fff, #000);
+              $gradient-color:  photoshop-gradient-overlay(nth($bc, 2), normal, 100%, -90deg, 100%, (adjust-color(nth($bc, 2), $lightness: 10) 0%, adjust-color(nth($bc, 2), $lightness: 10) 50%, nth($bc, 2) 50%, nth($bc, 2) 100%));
+              $text-shadow-adjust: if($color-type == "light", 20, -20);
+              $text-shadow: adjust-color(nth($bc, 2), $lightness: $text-shadow-adjust);
+              @include background-image($gradient-color);
+              @include yiq-contrasted(nth($bc, 2));
+              border: 1px solid nth($bc, 2);
+              @include vendor(box-shadow, inset 0 3px 5px rgba($shadow-color, .5));
+              @include vendor(text-shadow, 2px 0 2px rgba($text-shadow, .9));
+              &:hover {
+                $color-adjust: if($color-type == "dark", 5, -5);
+                $hover-color: adjust-color(nth($bc, 2), $lightness: $color-adjust);
+                $gradient-color: photoshop-gradient-overlay($hover-color, normal, 100%, -90deg, 100%, (adjust-color($hover-color, $lightness: 10) 0%, adjust-color($hover-color, $lightness: 10) 50%, $hover-color 50%, $hover-color 100%));
+                @include background-image($gradient-color);
+              }
+              &:active {
+                $color-adjust: if($color-type == "dark", 10, -10);
+                $hover-color: adjust-color(nth($bc, 2), $lightness: $color-adjust);
+                $gradient-color: photoshop-gradient-overlay($hover-color, normal, 100%, -90deg, 100%, (adjust-color($hover-color, $lightness: 10) 0%, adjust-color($hover-color, $lightness: 10) 50%, $hover-color 50%, $hover-color 100%));
+                @include background-image($gradient-color);
+
+              }
+           }
+             // bordered design
+            @if #{nth($bs, 1)} == bordered {
+              $color-type: if(yiq-contrast-color(nth($bc, 2), #000, #fff) == #000, "light", "dark");
+              @include yiq-contrasted(rgba(255, 255, 255, 0));
+              border: 3px solid nth($bc, 2);
+              &:hover, &:focus {
+                $color-adjust: if($color-type == "dark", 10, -10);
+                $hover-color: adjust-color(nth($bc, 2), $lightness: $color-adjust);
+                border: 3px solid $hover-color;
+              }
+              &:active {
+                $color-adjust: if($color-type == "dark", 5, -5);
+                $hover-color: adjust-color(nth($bc, 2), $lightness: $color-adjust);
+                border: 3px solid $hover-color;
+              }
+            }
+         }
+        }
+      }
+      // end creating style
+    }
+    // end creating colors
+    @each $bz in $btn-size {
+      &.#{nth($bz, 1)} {
+        @include button-size(nth($bz, 2), false, false);
+      }
+    }
+    &.block {
+      width: 100%;
+      display: block;
+    }
+    //sizes
+  }
+
+}
+
+@if $use-button-precomposed  == true {
+  @include button-precomposed();
 }
