@@ -5,38 +5,41 @@ layout: build/doc/layouts/default.html
 
 # Buttons
 
-<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, accusantium, pariatur necessitatibus deserunt dolores rem fugit fuga quo vitae et aspernatur delectus dolorum error odio laborum explicabo sunt veritatis temporibus.</h3>
+<h3>We. won't let you take a long time to crete your own buttons. You can simply use our precomposed buttons or if you won't, you can use our mixin and available variables.</h3>
 
 ***
 
 ## Precomposed
-<h4>We have 2 precomposed style for you. Flat and pretty style.</h4>
+<h4>We have 4 precomposed style for you. <strong>Flat</strong>, <strong>Pretty</strong>, <strong>Shiny</strong>, and <strong>Bordered</strong> style.</h4>
 
-<div class="row">
+<div class="row push-bottom push-top">
 	<div class="col lg-3 sm-12">
 		<h5>Flat Button</h5>
 		<a href="javascript:;"><span class="btn primary flat">Flat</span></a>
 	</div>
 	<div class="col lg-3 sm-12">
 		<h5>Pretty Button</h5>
-		<a href="javascript:;"><span class="btn primary pretty">Pretty</span></a>
+		<a href="javascript:;"><span class="btn secondary pretty">Pretty</span></a>
 	</div>
 	<div class="col lg-3 sm-12">
 		<h5>Shiny Button</h5>
-		<a href="javascript:;"><span class="btn primary shiny">Shiny</span></a>
+		<a href="javascript:;"><span class="btn tertiary shiny">Shiny</span></a>
 	</div>
 	<div class="col lg-3 sm-12">
 		<h5>Bordered Button</h5>
-		<a href="javascript:;"><span class="btn primary bordered">Bordered</span></a>
+		<a href="javascript:;"><span class="btn quaternary bordered">Bordered</span></a>
 	</div>
 </div>
+
+<h4>If you're planing using our mixin, here we go!</h4>
+
 
 ***
 
 ### Button Sizes
-<h4>We cover 4 sizes for your buttons. Tiny, Small, Medium, and Large. Simply add <strong>tn/sm/md/lg</strong> class.</h4>
+<h4>We cover 4 sizes for your buttons. <strong>Tiny</strong>, <strong>Small</strong>, <strong>Medium</strong>, and <strong>Large</strong>. Simply add <strong>tn/sm/md/lg</strong> class.</h4>
 
-<div class="row">
+<div class="row push-top push-bottom">
 	<div class="col lg-3">
 		<a href="javascript:;"><span class="btn primary tn">Tiny</span></a>
 	</div>
@@ -54,12 +57,12 @@ layout: build/doc/layouts/default.html
 ***
 
 ### Button Colors
-<h4>By default, we cover 5 colors. They come from our SASS variables.</h4>
-<p>Maybe your buttons are same like our danger color? You can do it in mixin</p>
+<h4>By default, we cover 5 colors. They come from our precomposed buttons or you can create your own color from our mixin.</h4>
+<p>If you're using our precomposed buttons, then you're lucky. simply change your primary, secondary, tertiary, quaternary, or quniary color and you're set!</p>
 
 ***
 
-<div class="row">
+<div class="row push-top push-bottom">
 	<div class="col sm-12">
 		<ul class="lg-block-grid-5 md-block-grid-3 sm-block-gird-1">
 			<li><a href="javascript:;"><span class="btn primary block">Primary</span></a></li>
@@ -70,3 +73,21 @@ layout: build/doc/layouts/default.html
 		</ul>
 	</div>
 </div>
+
+***
+
+### Button Shape
+<h4>You can adjust your button shape too. We cover 3 shapes : <strong>Hard</strong>, <strong>soft</strong>, and <strong>Round</strong>.</h4>
+<p>Maybe your buttons are same like our danger color? You can do it in mixin</p>
+
+<div class="row push-top push-bottom">
+	<div class="col sm-12">
+		<ul class="lg-block-grid-4 md-block-grid-2 sm-block-gird-1">
+			<li><a href="javascript:;"><span class="btn primary block hard">Hard</span></a></li>
+			<li><a href="javascript:;"><span class="btn secondary block soft">Soft</span></a></li>
+			<li><a href="javascript:;"><span class="btn tertiary block extra-soft">Extra-soft</span></a></li>
+			<li><a href="javascript:;"><span class="btn quaternary block round">Round</span></a></li>
+		</ul>
+	</div>
+</div>
+

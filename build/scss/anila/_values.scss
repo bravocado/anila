@@ -2,7 +2,7 @@
 
 // border radius
 $border-radius-base:             	5px !default;
-$border-radius-large:            	8px !default;
+$border-radius-large:            	15px !default;
 $border-radius-small:            	3px !default;
 $border-radius-round:            	500px !default;
 
@@ -102,11 +102,14 @@ $font-smoothing: antialiased !default;
 
 /* ---- COLOR ----- */
 
+// change the setting of threshold so match with our color scheme
+$yiq-contrasted-threshold: 160 !default;
+
 // We use these as default colors throughout
 $primary-color: #922790 !default;
 $secondary-color: #E20816 !default;
-$tertiary-color: #0b4cef !default;
-$quaternary-color: #bdc3c7 !default;
+$tertiary-color: #21a9ec !default;
+$quaternary-color: #85B623 !default;
 $quinary-color: #333 !default;
 
 
