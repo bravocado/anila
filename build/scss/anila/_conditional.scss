@@ -36,7 +36,7 @@ $normalize: 											true !default;
 $global-border-box: 							true !default;
 
 // when you set it true, all unit will add a fallback to px
-$rem-fallback: true !default;
+$rem-fallback: 										true !default;
 
 /*
 ================================================
@@ -55,6 +55,7 @@ BUTTONS
 $use-buttons: 										true !default;
 
 $use-button-precomposed: 					true !default;
+$use-button-group: 								true !default;
 
 /*
 ================================================

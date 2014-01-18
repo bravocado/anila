@@ -103,14 +103,14 @@ $font-smoothing: antialiased !default;
 /* ---- COLOR ----- */
 
 // change the setting of threshold so match with our color scheme
-$yiq-contrasted-threshold: 160 !default;
+$yiq-contrasted-threshold: 168 !default;
 
 // We use these as default colors throughout
 $primary-color: #922790 !default;
 $secondary-color: #E20816 !default;
 $tertiary-color: #21a9ec !default;
 $quaternary-color: #85B623 !default;
-$quinary-color: #333 !default;
+$quinary-color: #f79813 !default;
 
 
 $alert-color: #f04124 !default;
@@ -131,3 +131,6 @@ $cursor-default-value: default !default;
 $cursor-pointer-value: pointer !default;
 $cursor-help-value: help !default;
 $cursor-text-value: text !default;
+
+
+/* ========= COMPONENTS VALUES ================ */
