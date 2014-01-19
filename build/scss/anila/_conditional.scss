@@ -35,6 +35,8 @@ $reset: 													true !default;
 $normalize: 											true !default;
 $global-border-box: 							true !default;
 
+// when you set it true, all unit will add a fallback to px
+$rem-fallback: 										true !default;
 
 /*
 ================================================
@@ -51,6 +53,17 @@ BUTTONS
 */
 
 $use-buttons: 										true !default;
+
+$use-button-precomposed: 					true !default;
+$use-button-group: 								true !default;
+
+/*
+================================================
+BREADCRUMBS
+================================================
+*/
+
+$use-breadcrumbs: 								true !default;
 
 /*
 ================================================
@@ -107,6 +120,7 @@ MEDIA
 ================================================
 */
 
+$use-media: 											true !default;
 
 
 /*
@@ -132,7 +146,7 @@ TABLES
 ================================================
 */
 
-
+$use-table: 											true !default;
 
 /*
 ================================================

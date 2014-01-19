@@ -37,8 +37,10 @@ FOUNDATION GRID MIXIN
   // use @include grid-row(nest); to include a nested row
   @if $behavior == nest {
     width: auto;
-    margin-#{$default-float}: -($column-gutter/2);
-    margin-#{$opposite-direction}: -($column-gutter/2);
+    //margin-#{$default-float}: -($column-gutter/2);
+    //margin-#{$opposite-direction}: -($column-gutter/2);
+    @include unit(margin-#{$default-float}, -($column-gutter/2));
+    @include unit(margin-#{$opposite-direction}, -($column-gutter/2));
     margin-top: 0;
     margin-bottom: 0;
     max-width: none;
@@ -48,7 +50,8 @@ FOUNDATION GRID MIXIN
   @else if $behavior == collapse {
     width: 100%;
     margin: 0;
-    max-width: $row-width;
+    //max-width: $row-width;
+    @include unit(max-width, $row-width);
   }
 
   // use @include grid-row(nest-collapse); to collapse outer margins on a nested row
@@ -65,7 +68,8 @@ FOUNDATION GRID MIXIN
     margin-#{$opposite-direction}: auto;
     margin-top: 0;
     margin-bottom: 0;
-    max-width: $row-width;
+    //max-width: $row-width;
+    @include unit(max-width, $row-width);
   }
 
   // Clearfix for all rows
@@ -103,8 +107,10 @@ FOUNDATION GRID MIXIN
   // Gutter padding whenever a column isn't set to collapse
   // (use $collapse:null to do nothing)
   @else if $collapse == false {
-    padding-left: $column-gutter / 2;
-    padding-right: $column-gutter / 2;
+    //padding-left: $column-gutter / 2;
+    //padding-right: $column-gutter / 2;
+    @include unit(padding-left, $column-gutter / 2);
+    @include unit(padding-right, $column-gutter / 2);
   }
 
   // If a column number is given, calculate width
@@ -225,6 +231,76 @@ FOUNDATION GRID MIXIN
     }
     @include media-query($media:xxl) {
       @include grid-html-classes($size:xxl);
+    }
+  }
+}
+
+
+// Create a custom block grid
+//
+// $per-row - # of items to display per row. Default: false.
+// $spacing - # of ems to use as padding on each block item. Default: rem-calc(20).
+// $base-style - Apply a base style to block grid. Default: true.
+@mixin block-grid(
+  $per-row:false, 
+  $spacing:$block-grid-default-spacing, 
+  $base-style:true) {
+
+  @if $base-style {
+    display: block;
+    padding: 0;
+    //margin: 0 (-$spacing/2);
+    @include unit(margin, 0 (-$spacing/2));
+    @include clearfix;
+
+    &>li {
+      display: inline;
+      height: auto;
+      float: $default-float;
+      //padding: 0 ($spacing/2) $spacing;
+      @include unit(padding, 0 ($spacing/2) $spacing);
+    }
+  }
+
+  @if $per-row {
+    &>li {
+      width: 100%/$per-row;
+      //padding: 0 ($spacing/2) $spacing;
+      @include unit(padding, 0 ($spacing/2) $spacing);
+
+      &:nth-of-type(n) { clear: none; }
+      &:nth-of-type(#{$per-row}n+1) { clear: both; }
+    }
+  }
+
+}
+
+// Generate presentational markup for block grid.
+//
+// $size - Name of class to use, i.e. "large" will generate .large-block-grid-1, .large-block-grid-2, etc.
+@mixin block-grid-html-classes($size) {
+  @for $i from 1 through $block-grid-elements {
+    .#{$size}-block-grid-#{($i)} {
+      @include block-grid($i,$block-grid-default-spacing,false);
+    }
+  }
+}
+
+@include exports("block-grid") {
+  @if $include-block-grid {
+    
+    [class*="block-grid-"] { @include block-grid; }
+
+    @media #{$sm-up} {
+      @include block-grid-html-classes($size:sm);
+    }
+
+    @media #{$md-up} {
+      @include block-grid-html-classes($size:md);
+    }
+
+    @media #{$lg-up} {
+      @include block-grid-html-classes($size:lg);
     }
   }
 }

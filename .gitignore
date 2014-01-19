@@ -45,3 +45,7 @@ Thumbs.db
 /bower_components/*
 /dist/*
 node_modules/*
+
+# Necessary #
+######################
+.travis.yml

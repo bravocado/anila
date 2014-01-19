@@ -5,6 +5,7 @@
 // Create vendor-prefixed CSS in one go, e.g.
 // `@include vendor(border-radius, 4px);`
 
+
 @mixin vendor($property, $value...){
     -webkit-#{$property}:$value;
        -moz-#{$property}:$value;
@@ -23,6 +24,50 @@
             @include vendor(box-sizing, border-box);
         }
     }
+}
+
+// User select
+// For selecting text on the page
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+     -moz-user-select: $select;
+      -ms-user-select: $select; // IE10+
+       -o-user-select: $select;
+          user-select: $select;
+}
+
+// we use this to add a fallback for non supported rem
+@mixin unit($property, $values...) {
+  $max: length($values);
+  $pxValues: ();
+  $remValues: ();
+
+  @for $i from 1 through $max {
+    $pxValues: px-calc(nth($values, $i));
+    @if $i == $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $remValues: rem-calc(nth($values, $i));
+    @if $i == $max {
+      $remValues: #{$remValues + " "};
+    }
+  } 
+
+  @if $rem-fallback == true {
+    #{$property}: $pxValues; 
+  }
+  #{$property}: $remValues; 
+
+}
+
+
+// mixin background image from bourbon.io
+@mixin background-image($images...) {
+  background-image: _add-prefix($images, webkit);
+  background-image: _add-prefix($images);
 }
 
 // We use this to add box-sizing across browser prefixes
@@ -109,6 +154,13 @@
   }
 }
 
+// Drop shadows
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+          box-shadow: $shadow;
+}
+
+
 // We use this to add transitions to elements
 // $property - Default: all, Options: http://www.w3.org/TR/css3-transitions/#animatable-properties
 // $speed - Default: 300ms
@@ -151,28 +203,28 @@
    }
  *
  * Courtesy of @integralist: twitter.com/integralist/status/260484115315437569
+*/
 @mixin keyframe ($animation-name){
-    @-webkit-keyframes $animation-name{
+    @-webkit-keyframes #{$animation-name}{
         @content;
     }
 
-    @-moz-keyframes $animation-name{
+    @-moz-keyframes #{$animation-name}{
         @content;
     }
 
-    @-ms-keyframes $animation-name{
+    @-ms-keyframes #{$animation-name}{
         @content;
     }
 
-    @-o-keyframes $animation-name{
+    @-o-keyframes #{$animation-name}{
         @content;
     }
 
-    @keyframes $animation-name{
+    @keyframes #{$animation-name}{
         @content;
     }
 }
-*/
 
 // Transitions
 @mixin transition($transition...) {

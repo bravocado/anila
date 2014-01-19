@@ -1,8 +1,15 @@
 // We use these to build padding for buttons.
-$button-tny: rem-calc(10) !default;
-$button-sml: rem-calc(14) !default;
-$button-med: rem-calc(16) !default;
-$button-lrg: rem-calc(18) !default;
+$button-tn: 6 !default;
+$button-sm: 10 !default;
+$button-md: 12 !default;
+$button-lg: 14 !default;
+
+// We use these to build font for buttons.
+$button-font-tn: 11 !default;
+$button-font-sm: 13 !default;
+$button-font-md: 16 !default;
+$button-font-lg: 20 !default;
+
 
 // We use this to set the default radius used throughout the core.
 $button-radius-base: $border-radius-base !default;
@@ -11,6 +18,13 @@ $button-radius-large: $border-radius-large !default;
 $button-round: $border-radius-round !default;
 
 $button-display: inline-block !default;
-$btn-font-weight: normal !default;
-$btn-padding-vertical: 5px !default;
-$btn-padding-horizontal: 10px !default;
+$button-font-weight: normal !default;
+$button-padding-vertical: 5px !default;
+$button-padding-horizontal: 10px !default;
+
+// precomposed
+$base-button-class: btn;
+$button-color-list: "primary" $primary-color, "secondary" $secondary-color, "tertiary" $tertiary-color, "quaternary" $quaternary-color, "quinary" $quinary-color !default;
+$button-style-list: flat, pretty, shiny, bordered !default;
+$button-shape-list: hard, extra-soft, soft, round !default;
+$button-size-list: tn $button-tn, sm $button-sm, md $button-md, lg $button-lg !default;

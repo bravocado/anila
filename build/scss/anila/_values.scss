@@ -1,17 +1,16 @@
 /* ========= GENERAL VALUES ================ */
 
 // border radius
+$border-radius-small:             3px !default;
 $border-radius-base:             	5px !default;
-$border-radius-large:            	8px !default;
-$border-radius-small:            	3px !default;
+$border-radius-large:            	15px !default;
 $border-radius-round:            	500px !default;
 
 
-/* ---- SPACING ----- */
+/* ---- HELPER UNIT  ----- */
 
-$base-spacing-unit: 				rem-calc(16px) !default;
-$half-spacing-unit: 				$base-spacing-unit / 2 !default;
-
+$helper-spacing-unit: 20px !default;
+$half-helper-spacing-unit: $helper-spacing-unit/2 !default;
 
 /* ---- BREAK POINT ----- */
 
@@ -103,12 +102,15 @@ $font-smoothing: antialiased !default;
 
 /* ---- COLOR ----- */
 
+// change the setting of threshold so match with our color scheme
+$yiq-contrasted-threshold: 168 !default;
+
 // We use these as default colors throughout
-$primary-color: #E20816 !default;
-$secondary-color: #e7e7e7 !default;
-$tertiary-color: #2980b9 !default;
-$quaternary-color: #e67e22 !default;
-$quinary-color: #333 !default;
+$primary-color: #922790 !default;
+$secondary-color: #E20816 !default;
+$tertiary-color: #21a9ec !default;
+$quaternary-color: #85B623 !default;
+$quinary-color: #f79813 !default;
 
 
 $alert-color: #f04124 !default;
@@ -129,3 +131,6 @@ $cursor-default-value: default !default;
 $cursor-pointer-value: pointer !default;
 $cursor-help-value: help !default;
 $cursor-text-value: text !default;
+
+
+/* ========= COMPONENTS VALUES ================ */

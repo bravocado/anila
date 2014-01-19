@@ -6,10 +6,14 @@
 
 // We use this mixin to give us form styles for rows inside of forms
 @mixin form-row-base {
-  .row { margin: 0 ((-$form-spacing) / 2);
+  .row { @include unit(margin, 0 ((-$form-spacing) / 2 ));
+  //margin: 0 ((-$form-spacing) / 2);
 
     .column,
-    .col { padding: 0 $form-spacing / 2; }
+    .col { 
+      //padding: 0 $form-spacing / 2;
+      @include unit(padding, 0 $form-spacing / 2);
+    }
 
     // Use this to collapse the margins of a form row
     &.collapse { margin: 0;
@@ -28,7 +32,10 @@
   input.column,
   input.col,
   textarea.column,
-  textarea.col { padding-#{$default-float}: $form-spacing / 2; }
+  textarea.col { 
+    //padding-#{$default-float}: $form-spacing / 2;
+    @include unit(padding-#{$default-float}, $form-spacing / 2);
+  }
 }
 
 // @MIXIN
@@ -41,10 +48,14 @@
   @include vendor(box-shadow, $input-box-shadow);
   color: $input-font-color;
   display: block;
-  font-size: $input-font-size;
-  margin: 0 0 $form-spacing 0;
-  padding: $form-spacing / 2;
-  height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1));
+  //font-size: $input-font-size;
+  //margin: 0 0 $form-spacing 0;
+  //padding: $form-spacing / 2;
+  @include unit(font-size, $input-font-size);
+  @include unit(margin, 0 0 $form-spacing 0);
+  @include unit(padding, $form-spacing / 2);
+  //height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1));
+  @include unit(height, ($input-font-size + ($form-spacing * 1.5) - strip-unit(rem-calc(1))));
   width: 100%;
   @include box-sizing(border-box);
   @if $input-include-glowing-effect {
@@ -71,12 +82,14 @@
 
   // Control whether or not the base styles come through.
   @if $base-style {
-    font-size: $form-label-font-size;
+    //font-size: $form-label-font-size;
+    @include unit(font-size, $form-label-font-size);
     color: $form-label-font-color;
     cursor: $form-label-pointer;
     display: block;
     font-weight: $form-label-font-weight;
-    margin-bottom: $form-label-bottom-margin;
+    //margin-bottom: $form-label-bottom-margin;
+    @include unit(margin-bottom, $form-label-bottom-margin);
   }
 
   // Alignment options
@@ -85,8 +98,10 @@
     text-align: right;
   }
   @else if $alignment == inline {
-    margin: 0 0 $form-spacing 0;
-    padding: $form-spacing / 2 + rem-calc($input-border-width * 2) 0;
+    //margin: 0 0 $form-spacing 0;
+    //padding: $form-spacing / 2 + rem-calc($input-border-width * 2) 0;
+    @include unit(margin, 0 0 $form-spacing 0);
+    @include unit(padding, $form-spacing / 2 + strip-unit(rem-calc($input-border-width * 2)), 0);
   }
 }
 
@@ -102,9 +117,12 @@
   border-style: $input-prefix-border-type;
   border-width: $input-prefix-border-size;
   overflow: $input-prefix-overflow;
-  font-size: $form-label-font-size;
-  height: ($form-label-font-size + ($form-spacing * 1.5) - rem-calc(1));
-  line-height: ($form-label-font-size + ($form-spacing * 1.5) - rem-calc(1));
+  //font-size: $form-label-font-size;
+  //height: ($form-label-font-size + ($form-spacing * 1.5) - rem-calc(1));
+  //line-height: ($form-label-font-size + ($form-spacing * 1.5) - rem-calc(1));
+  @include unit(font-size, $form-label-font-size);
+  @include unit(height, ($form-label-font-size + ($form-spacing * 1.5) - strip-unit(rem-calc(1))));
+  @include unit(line-height, ($form-label-font-size + ($form-spacing * 1.5) - strip-unit(rem-calc(1))));
 }
 
 // @MIXIN
@@ -132,7 +150,8 @@
     padding-top: 0;
     padding-bottom: 0;
     text-align: center;
-    line-height: rem-calc(34);
+    //line-height: rem-calc(34);
+    @include unit(line-height, 34);
     border: none;
   }
 
@@ -162,7 +181,8 @@
     padding-top: 0;
     padding-bottom: 0;
     text-align: center;
-    line-height: rem-calc(34);
+    //line-height: rem-calc(34);
+    @include unit(line-height, 34);
     border: none;
   }
 
@@ -171,16 +191,20 @@
 // We use this mixin to style fieldsets
 @mixin fieldset {
   border: $fieldset-border-style $fieldset-border-width $fieldset-border-color;
-  padding: $fieldset-padding;
-  margin: $fieldset-margin;
+  //padding: $fieldset-padding;
+  //margin: $fieldset-margin;
+  @include unit(padding, $fieldset-padding);
+  @include unit(margin, $fieldset-margin);
 
   // and legend styles
   legend {
     font-weight: $legend-font-weight;
     background: $legend-bg;
-    padding: $legend-padding;
+    //padding: $legend-padding;
+    @include unit(padding, $legend-padding);
     margin: 0;
-    margin-#{$default-float}: rem-calc(-3);
+    //margin-#{$default-float}: rem-calc(-3);
+    @include unit(margin-#{$default-float}, -3);
   }
 }
 
@@ -211,10 +235,13 @@
 // $bg - Default: $alert-color (Found in settings file)
 @mixin form-error-message($bg:$alert-color) {
   display: block;
-  padding: $input-error-message-padding;
+  //padding: $input-error-message-padding;
+  @include unit(padding, $input-error-message-padding);
   margin-top: $input-error-message-top;
-  margin-bottom: $form-spacing;
-  font-size: $input-error-message-font-size;
+  //margin-bottom: $form-spacing;
+  //font-size: $input-error-message-font-size;
+  @include unit(margin-bottom, $form-spacing);
+  @include unit(font-size, $input-error-message-font-size);
   font-weight: $input-error-message-font-weight;
   font-style: $input-error-message-font-style;
 
@@ -228,7 +255,10 @@
 @include exports("form") {
   @if $use-form {
     /* Standard Forms */
-    form { margin: 0 0 $form-spacing; }
+    form { 
+      //margin: 0 0 $form-spacing;
+      @include unit(margin, 0 0 $form-spacing);
+    }
 
     /* Using forms within rows, we need to set some defaults */
     form .row { @include form-row-base; }
@@ -252,8 +282,10 @@
       background-position-x: 97%;
       background-position-y: center;
       border: $input-border-width $input-border-style $input-border-color;
-      padding: $form-spacing / 2;
-      font-size: $input-font-size;
+      //padding: $form-spacing / 2;
+      //font-size: $input-font-size;
+      @include unit(padding, $form-spacing / 2);
+      @include unit(font-size, $input-font-size);
       @include radius(0);
       &.radius { @include radius($border-radius-base); }
       &:hover {
@@ -339,7 +371,8 @@
     // adjust textarea [anila]
     textarea {
       height: auto;
-      min-height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1));
+      //min-height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1));
+      @include unit(min-height, ($input-font-size + ($form-spacing * 1.5) - strip-unit(rem-calc(1))));
     }
 
     /* Adjust margin for form elements below */
@@ -347,14 +380,17 @@
     input[type="checkbox"],
     input[type="radio"],
     select {
-      margin: 0 0 $form-spacing 0;
+      //margin: 0 0 $form-spacing 0;
+      @include unit(margin, 0 0 $form-spacing 0);
     }
 
     input[type="checkbox"] + label,
     input[type="radio"] + label {
       display: inline-block;
-      margin-#{$default-float}: $form-spacing * .5;
-      margin-#{$opposite-direction}: $form-spacing;
+      //margin-#{$default-float}: $form-spacing * .5;
+      //margin-#{$opposite-direction}: $form-spacing;
+      @include unit(margin-#{$default-float}, $form-spacing*.5);
+      @include unit(margin-#{$opposite-direction}, $form-spacing);
       margin-bottom: 0;
       vertical-align: baseline;
     }
