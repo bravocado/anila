@@ -20,6 +20,15 @@
   @include unit(margin-top, $subheader-top-margin);
   @include unit(margin-bottom, $subheader-bottom-margin);
 }
+
+@mixin type-highlight($highlight-color: $color-list) {
+  @each $i in $highlight-color {
+    &.#{nth($i, 1)} {
+      color: nth($i, 2);
+    }
+  }
+}
+
 @include exports("type") {
   @if $use-typography == true {
 
@@ -315,6 +324,12 @@
         //@include rem(padding, $microformat-abbr-padding-vertical, $microformat-abbr-padding-horizontal);
         @include unit(padding, $microformat-abbr-padding);
       }
+    }
+
+    span {
+      // experimental
+      // highlight text
+      @include type-highlight($color-list);
     }
 
 
