@@ -28,11 +28,11 @@ $button-group-border-width: 1px !default;
 }
 
 // We use this to control styles for button groups
-@mixin button-group-style($radius:false, $even:false, $float:$default-float) {
+@mixin button-group-style($radius:false, $even:false, $float:$default-float, $reset-border: false) {
 
   > button, .btn { 
     border-#{$opposite-direction}: $button-group-border-width solid;
-    border-color: rgba(0, 0, 0, .1);  
+    border-#{$opposite-direction}-color: rgba(0, 0, 0, .1);  
   }
 
   // We use this to control the flow, or remove those styles completely.
@@ -70,6 +70,18 @@ $button-group-border-width: 1px !default;
     width: percentage((100/$even) / 100);
     button, .btn { width: 100%; }
   }
+  
+  @if $reset-border {
+
+  }
+  // reset border-color for pretty button
+  & > .btn {
+    &.pretty {
+      border-right: 0;
+      border-right-width: 0;
+      border-color: none;
+    }
+  }
 
 }
 
@@ -83,8 +95,14 @@ $button-group-border-width: 1px !default;
       &.extra-soft > * { @include button-group-style($radius:$button-radius-large, $float:null); }
       &.round > * { @include button-group-style($radius:$button-round, $float:null); }
       
-      &.tn > li > .btn {
+      &.tn > * > .btn {
         @include button-size($button-tn, false, false);
+      }
+      &.sm > * > .btn {
+        @include button-size($button-sm, false, false);
+      }
+      &.lg > * > .btn {
+        @include button-size($button-lg, false, false);
       }
 
       @for $i from 2 through 8 {
