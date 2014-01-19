@@ -28,7 +28,7 @@ $button-group-border-width: 1px !default;
 }
 
 // We use this to control styles for button groups
-@mixin button-group-style($radius:false, $even:false, $float:$default-float, $reset-border: false) {
+@mixin button-group-style($radius:false, $even:false, $float:$default-float) {
 
   > button, .btn { 
     border-#{$opposite-direction}: $button-group-border-width solid;
@@ -38,6 +38,7 @@ $button-group-border-width: 1px !default;
   // We use this to control the flow, or remove those styles completely.
   @if $float {
     margin: 0;
+    @include unit(margin-bottom, 2px);
     float: $float;
     // Make sure the first child doesn't get the negative margin.
     &:first-child { margin-#{$default-float}: 0; }
@@ -71,9 +72,6 @@ $button-group-border-width: 1px !default;
     button, .btn { width: 100%; }
   }
   
-  @if $reset-border {
-
-  }
   // reset border-color for pretty button
   & > .btn {
     &.pretty {
@@ -84,6 +82,11 @@ $button-group-border-width: 1px !default;
   }
 
 }
+
+@mixin button-group-vertical {
+  
+}
+
 
 @include exports("btn-group") {
   @if $use-button-group == true {
