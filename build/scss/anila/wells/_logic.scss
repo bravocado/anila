@@ -12,22 +12,37 @@
     min-height: $well-min-height;
     padding: $well-base-padding;
     margin-bottom: $well-margin-bottom;
-    background-color: $well-bg;
-    border: $well-border-size $well-border-type $well-border-color;
+    background-color: $well-bg-default;
+    border: $well-border-size $well-border-type;
+    border-color: $well-border-color-default;
     border-radius: $well-base-radius;
     blockquote {
       border-color: $well-blockqoute-color;
     }
 
     // well color
-    &.primary {
-      background-color: $primary-color;
+    @each $i in $well-bg {
+      &.#{nth($i, 1)} {
+        $color-type: if(yiq-contrast-color(nth($i, 2), #000, #fff) == #000, "light", "dark");
+        $color-adjust: if($color-type == "light", 5, -5);
+        @include yiq-contrasted(nth($i, 2));
+        border-color: darken(nth($i, 2), 7%);
+        h1, h2, h3, h4, h5, h6 {
+          color: inherit;
+        }
+      }
     }
-    &.secondary {
-      background-color: $secondary-color;
-    }
+
     &.transparent {
       background-color: transparent;
+    }
+
+    // reset margin bottom last element on well
+    p:last-child,
+    ul:last-child,
+    ol:last-child,
+    dl:last-child {
+      margin-bottom: 0;
     }
   }
 
