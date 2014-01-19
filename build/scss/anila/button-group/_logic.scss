@@ -83,16 +83,13 @@ $button-group-border-width: 1px !default;
 
 }
 
-@mixin button-group-vertical {
-  
-}
-
-
 @include exports("btn-group") {
   @if $use-button-group == true {
     .btn-group { @include button-group-container;
-
-      &> * { @include button-group-style(); }
+      
+      &> * {
+        @include button-group-style();
+      }
 
       &.soft > * { @include button-group-style($radius:$button-radius-base, $float:null); }
       &.extra-soft > * { @include button-group-style($radius:$button-radius-large, $float:null); }

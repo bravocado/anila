@@ -6,13 +6,13 @@
 
 // We use this mixin to give us form styles for rows inside of forms
 @mixin form-row-base {
-  .row { @include unit(margin, 0, ((-$form-spacing) / 2 ));
+  .row { @include unit(margin, 0 ((-$form-spacing) / 2 ));
   //margin: 0 ((-$form-spacing) / 2);
 
     .column,
     .col { 
       //padding: 0 $form-spacing / 2;
-      @include unit(padding, 0, $form-spacing / 2);
+      @include unit(padding, 0 $form-spacing / 2);
     }
 
     // Use this to collapse the margins of a form row
@@ -52,7 +52,7 @@
   //margin: 0 0 $form-spacing 0;
   //padding: $form-spacing / 2;
   @include unit(font-size, $input-font-size);
-  @include unit(margin, 0, 0, $form-spacing, 0);
+  @include unit(margin, 0 0 $form-spacing 0);
   @include unit(padding, $form-spacing / 2);
   //height: ($input-font-size + ($form-spacing * 1.5) - rem-calc(1));
   @include unit(height, ($input-font-size + ($form-spacing * 1.5) - strip-unit(rem-calc(1))));
@@ -100,7 +100,7 @@
   @else if $alignment == inline {
     //margin: 0 0 $form-spacing 0;
     //padding: $form-spacing / 2 + rem-calc($input-border-width * 2) 0;
-    @include unit(margin, 0, 0, $form-spacing, 0);
+    @include unit(margin, 0 0 $form-spacing 0);
     @include unit(padding, $form-spacing / 2 + strip-unit(rem-calc($input-border-width * 2)), 0);
   }
 }

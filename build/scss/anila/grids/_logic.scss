@@ -37,8 +37,10 @@ FOUNDATION GRID MIXIN
   // use @include grid-row(nest); to include a nested row
   @if $behavior == nest {
     width: auto;
-    margin-#{$default-float}: -($column-gutter/2);
-    margin-#{$opposite-direction}: -($column-gutter/2);
+    //margin-#{$default-float}: -($column-gutter/2);
+    //margin-#{$opposite-direction}: -($column-gutter/2);
+    @include unit(margin-#{$default-float}, -($column-gutter/2));
+    @include unit(margin-#{$opposite-direction}, -($column-gutter/2));
     margin-top: 0;
     margin-bottom: 0;
     max-width: none;
