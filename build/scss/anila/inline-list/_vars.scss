@@ -1,0 +1,18 @@
+$use-inline-list: true !default;
+
+// We use this to control the margins and padding of the inline list.
+$inline-list-top-margin: 0 !default;
+$inline-list-opposite-margin: 0 !default;
+$inline-list-bottom-margin: 17 !default;
+$inline-list-default-float-margin: -22 !default;
+
+$inline-list-padding: 0 !default;
+
+// We use this to control the overflow of the inline list.
+$inline-list-overflow: hidden !default;
+
+// We use this to control the list items
+$inline-list-display: block !default;
+
+// We use this to control any elments within list items
+$inline-list-children-display: block !default;

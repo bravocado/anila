@@ -7,6 +7,7 @@
 @mixin table-color($color: $color-list) {
   @each $i in $color {
     &.#{nth($i, 1)} {
+      border-color: lighten(nth($i, 2), 20%);
       thead {
         @include yiq-contrasted(nth($i, 2));
       }
