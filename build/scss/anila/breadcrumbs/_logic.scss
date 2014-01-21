@@ -3,6 +3,7 @@
 //
 // Breakcrumb Mixins
 //
+$crumb-color: $color-list;
 
 // We use this mixin to create a container around our breadcrumbs
 @mixin crumb-container {
@@ -17,6 +18,7 @@
   // We control which background color and border come through.
   background-color: $crumb-bg;
   border-color: $crumb-border-color;
+
 }
 
 // We use this mixin to create breadcrumb styles from list items.
@@ -60,7 +62,7 @@
     a:focus {
       text-decoration: none;
       color: $crumb-font-color-unavailable;
-      cursor: $cursor-default-value;
+      cursor: not-allowed;
     }
   }
 
@@ -69,7 +71,7 @@
     color: $crumb-slash-color;
     @include unit(margin, 0 $crumb-side-padding);
     position: relative;
-    top: 1px;
+    //top: 1px;
   }
 
   &:first-child:before {
@@ -77,6 +79,56 @@
     margin: 0;
   }
 }
+
+@mixin crumb-color {
+  // experimental
+  // define colors
+  @each $i in $crumb-color {
+    &.#{nth($i, 1)} {
+      $color-type: if(yiq-contrast-color(nth($i, 2), #000, #fff) == #000, "light", "dark");
+      $anchor-color-adjust: if($color-type == "dark", 50, -50);
+      $unavailable-color-adjust: if($color-type == "dark", 20, -20);
+      $crumb-divider-color-adjust: if($color-type == "light", 20, -20);
+      
+      $anchor-color: adjust-color(nth($i, 2), $lightness: $anchor-color-adjust);
+      $unavailable-color: adjust-color(nth($i, 2), $lightness: $unavailable-color-adjust);
+      $crumb-color: adjust-color(nth($i, 2), $lightness: $crumb-divider-color-adjust);
+
+      @include yiq-contrasted(nth($i, 2));
+      border-color: darken(nth($i, 2), 10%);
+      &>* {
+        &.current {
+            color: inherit;
+          a {
+            color: inherit;
+          }
+        }
+        
+        // crumb divider
+        &:before {
+          color: $crumb-color;
+        }
+
+        // Unavailable removed color and link styles so it looks inactive.
+        &.unavailable {
+          color: $unavailable-color;
+          a { color: $unavailable-color; }
+
+          &:hover,
+          &:hover a,
+          &:focus,
+          a:focus {
+            color: darken($unavailable-color, 10%);
+          }
+        }
+        a, span {
+          color: $anchor-color;
+        }
+      }
+    }
+  }
+}
+
 
 @include exports("breadcrumbs") {
   @if $use-breadcrumbs {
@@ -90,6 +142,8 @@
       &>* {
         @include crumbs;
       }
+
+      @include crumb-color;
     }
   }
 }

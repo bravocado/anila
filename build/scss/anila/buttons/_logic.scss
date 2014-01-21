@@ -294,5 +294,5 @@ button.btn {
 // end mixin precomposed
 
 @if $use-button-precomposed  == true {
-  @include button-precomposed();
+  @include button-precomposed;
 }

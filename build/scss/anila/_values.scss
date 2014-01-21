@@ -118,6 +118,10 @@ $success-color: #43AC6A !default;
 $warning-color: #f08a24 !default;
 $info-color: #a0d3e8 !default;
 
+// experimental
+// adding a theme and color for easy update for all components without touching every single variable
+$theme-list: flat, pretty, shiny, bordered !default;
+$color-list: "primary" $primary-color, "secondary" $secondary-color, "tertiary" $tertiary-color, "quaternary" $quaternary-color, "quinary" $quinary-color !default;
 
 // We use this to control whether or not CSS classes come through in the gem files.
 $include-print-styles: true !default;

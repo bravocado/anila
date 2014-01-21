@@ -20,6 +20,15 @@
   @include unit(margin-top, $subheader-top-margin);
   @include unit(margin-bottom, $subheader-bottom-margin);
 }
+
+@mixin type-highlight($highlight-color: $color-list) {
+  @each $i in $highlight-color {
+    &.#{nth($i, 1)} {
+      color: nth($i, 2);
+    }
+  }
+}
+
 @include exports("type") {
   @if $use-typography == true {
 
@@ -115,7 +124,7 @@
       border-width: $hr-border-width 0 0;
       clear: both;
       //margin: $hr-margin 0 ($hr-margin - rem-calc(1));
-      @include unit(margin, $hr-margin, 0, ($hr-margin - strip-unit(rem-calc(1))));
+      @include unit(margin, $hr-margin 0 ($hr-margin - strip-unit(rem-calc(1))));
       height: 0;
     }
 
@@ -253,7 +262,7 @@
     /* Blockquotes */
     blockquote {
       //margin: 0 0 $paragraph-margin-bottom;
-      @include unit(margin, 0,0,$paragraph-margin-bottom);
+      @include unit(margin, 0 0 $paragraph-margin-bottom);
       //padding: $blockquote-padding;
       //@include unit(padding, $blockquote-padding-top, $blockquote-padding-right, $blockquote-padding-bottom, $blockquote-padding-left);
       @include unit(padding, $blockquote-padding);
@@ -315,6 +324,12 @@
         //@include rem(padding, $microformat-abbr-padding-vertical, $microformat-abbr-padding-horizontal);
         @include unit(padding, $microformat-abbr-padding);
       }
+    }
+
+    span {
+      // experimental
+      // highlight text
+      @include type-highlight($color-list);
     }
 
 

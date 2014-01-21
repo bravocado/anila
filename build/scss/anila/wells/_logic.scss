@@ -1,44 +1,69 @@
 @import "vars";
 
 //
-// Wells
+// mixin
 // --------------------------------------------------
 
+@mixin well-base {
+  min-height: $well-min-height;
+  padding: $well-base-padding;
+  margin-bottom: $well-margin-bottom;
+  background-color: $well-bg-default;
+  border: $well-border-size $well-border-type;
+  border-color: $well-border-color-default;
+  border-radius: $well-base-radius;
+  // reset margin bottom last element on well
+  blockquote {
+    border-color: $well-blockqoute-color;
+  }
+  p:last-child,
+  ul:last-child,
+  ol:last-child,
+  dl:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin well-size($radius: $well-base-radius, $padding: $well-base-padding) {
+  padding: $padding;
+  border-radius: $radius;
+}
 
 @if $use-well != false {
   
   // Base class
   .well {
-    min-height: $well-min-height;
-    padding: $well-base-padding;
-    margin-bottom: $well-margin-bottom;
-    background-color: $well-bg;
-    border: $well-border-size $well-border-type $well-border-color;
-    border-radius: $well-base-radius;
-    blockquote {
-      border-color: $well-blockqoute-color;
+    @include well-base;
+    
+    @if $use-well-color {
+      // well color
+      @each $i in $well-bg {
+        &.#{nth($i, 1)} {
+          $color-type: if(yiq-contrast-color(nth($i, 2), #000, #fff) == #000, "light", "dark");
+          $color-adjust: if($color-type == "light", 5, -5);
+          @include yiq-contrasted(nth($i, 2));
+          border-color: darken(nth($i, 2), 7%);
+          // follow yiq-color-contrast rule
+          h1, h2, h3, h4, h5, h6 {
+            color: inherit;
+          }
+        }
+      }
     }
-
-    // well color
-    &.primary {
-      background-color: $primary-color;
-    }
-    &.secondary {
-      background-color: $secondary-color;
-    }
+    
+    // if they wish want well without background
     &.transparent {
       background-color: transparent;
     }
+
   }
 
   // Sizes
-  .well-lg {
-    padding: $well-large-padding;
-    border-radius: $well-large-radius;
+  &.lg {
+    @include well-size($well-large-radius, $well-large-padding);
   }
-  .well-sm {
-    padding: $well-small-padding;
-    border-radius: $well-small-radius;
+  &.sm {
+    @include well-size($well-small-radius, $well-small-padding);
   }
 
 }

@@ -4,6 +4,40 @@
 // @mixins
 //
 
+@mixin table-color($color: $color-list) {
+  @each $i in $color {
+    &.#{nth($i, 1)} {
+      border-color: lighten(nth($i, 2), 20%);
+      thead {
+        @include yiq-contrasted(nth($i, 2));
+      }
+      thead, tfoot {
+        tr {
+          th, td {
+            color: inherit;
+          }
+        }
+      }
+      &.bordered {
+        thead, tfoot, tbody {
+          tr {
+            th, td {
+              border-color: lighten(nth($i, 2), 20%);
+            }
+          }
+        }
+      }
+      &.stripe {
+        tr {
+          &.even,
+          &.alt,
+          &:nth-of-type(even) { background: rgba(nth($i, 2), .2); }
+        }    
+      }
+    }
+  }
+}
+
 @mixin table {
   background: $table-bg;
   //margin-bottom: $table-margin-bottom;
@@ -13,14 +47,12 @@
 
   thead,
   tfoot {
-    background: $table-head-bg;
+    background-color: $table-head-bg;
     font-weight: $table-head-font-weight;
 
     tr {
       th,
       td {
-        //padding: $table-head-padding;
-        //font-size: $table-head-font-size;
         @include unit(padding, $table-head-padding);
         @include unit(font-size, $table-head-font-size);
         color: $table-head-font-color;
@@ -50,7 +82,7 @@
     //line-height: $table-line-height;
     @include unit(line-height, $table-line-height);
   }
-
+  
   // types
   &.bordered {
     thead, tfoot, tbody {
@@ -68,6 +100,10 @@
       &.alt,
       &:nth-of-type(even) { background: $table-even-row-bg; }
     }    
+  }
+
+  @if $use-table-color {
+    @include table-color($color-list);
   }
   
 }
