@@ -101,7 +101,7 @@
     //margin: 0 0 $form-spacing 0;
     //padding: $form-spacing / 2 + rem-calc($input-border-width * 2) 0;
     @include unit(margin, 0 0 $form-spacing 0);
-    @include unit(padding, $form-spacing / 2 + strip-unit(rem-calc($input-border-width * 2)), 0);
+    @include unit(padding, $form-spacing / 2 + strip-unit(rem-calc($input-border-width * 2)) 0);
   }
 }
 
