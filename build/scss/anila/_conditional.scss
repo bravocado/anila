@@ -5,12 +5,12 @@ GENERAL
 */
 
 $debug-mode: 											false !default;
-$helper: 													true !default;
 $reset: 													true !default;
 $normalize: 											true !default;
 $global-border-box: 							true !default;
 
 // when you set it true, all unit will add a fallback to px
+// see value.scss line 9 for setting a rem base.
 $rem-fallback: 										true !default;
 
 /*
@@ -24,6 +24,7 @@ ALERTS
 /*
 ================================================
 BUTTONS
+// value.scss line 184 - 214 for available vars
 ================================================
 */
 
@@ -32,9 +33,20 @@ $use-buttons: 										true !default;
 $use-button-precomposed: 					true !default;
 $use-button-group: 								true !default;
 
+
+/*
+================================================
+SPLIT BUTTONS
+================================================
+*/
+
+$use-split-button: true !default;
+
+
 /*
 ================================================
 BREADCRUMBS
+// value.scss line 222 - 245 for available vars
 ================================================
 */
 
@@ -50,25 +62,17 @@ CODES
 /*
 ================================================
 FORMS
+// value.scss line 254 - 309 for available vars
 ================================================
 */
 
 $use-form: 												true !default;
 
-/*
-================================================
-GENERAL
-================================================
-*/
-
-
 
 /*
 ================================================
 GRIDS
-// After you set this conditional,
-// make sure to check anila/grid/vars.scss
-// create your own value if you wish.
+// value.scss line 420 - 432 for available vars
 ================================================
 */
 
@@ -85,13 +89,17 @@ $use-grid-push-pull: 							true !default;
 /*
 ================================================
 LABELS
+// value.scss line 440 - 450 for available vars
 ================================================
 */
+
+$use-label: 											true !default;
 
 
 /*
 ================================================
 MEDIA
+// value.scss line 489 - 463 for available vars
 ================================================
 */
 
@@ -101,6 +109,7 @@ $use-media: 											true !default;
 /*
 ================================================
 NAVS
+// value.scss line 472 - 489 for available vars
 ================================================
 */
 
@@ -109,15 +118,8 @@ $use-side-nav: 										true !default;
 
 /*
 ================================================
-PANELS
-================================================
-*/
-
-
-
-/*
-================================================
 TABLES
+// value.scss line 498 - 520 for available vars
 ================================================
 */
 
@@ -127,10 +129,19 @@ $use-table-color: 								true !default;
 
 /*
 ================================================
+PAGINATION
+// value.scss line 557 - 422 for available vars
+================================================
+*/
+
+$use-pagination: 									true !default;
+
+$use-pagination-theme: 						true !default;
+
+/*
+================================================
 TYPORGRAPHY
-// After you set this conditional,
-// make sure to check anila/typography/vars.scss
-// create your own value if you wish.
+// value.scss line 317 - 411 for available vars
 ================================================
 */
 
@@ -139,15 +150,13 @@ $use-typography: 									true !default;
 
 /*
 ================================================
-WELLS
-// After you set this conditional,
-// make sure to check anila/wells/vars.scss
-// create your own value if you wish.
+boxy
+// value.scss line 534 - 550 for available vars
 ================================================
 */
-$use-well: 												true !default;
+$use-boxy: 												true !default;
 
-$use-well-color: 									true !default;
+$use-boxy-color: 									true !default;
 
 /*
 ================================================
@@ -156,6 +165,7 @@ VISIBILITY
 ================================================
 */
 
+$use-global-helper: 							true !default;
 $use-helper-clearfix: 						true !default;
 $use-helper-visibility: 					true !default;
 

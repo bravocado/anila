@@ -1,0 +1,83 @@
+@import "vars";
+
+//
+// mixin
+// --------------------------------------------------
+
+@mixin boxy-base {
+  min-height: $boxy-min-height;
+  padding: $boxy-base-padding;
+  margin-bottom: $boxy-margin-bottom;
+  background-color: $boxy-bg-default;
+  border: $boxy-border-size $boxy-border-type;
+  border-color: $boxy-border-color-default;
+  // reset margin bottom last element on boxy
+  blockquote {
+    border-color: $boxy-blockqoute-color;
+  }
+  p:last-child,
+  ul:last-child,
+  ol:last-child,
+  dl:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin boxy-size($padding: $boxy-base-padding) {
+  padding: $padding;
+}
+
+@mixin boxy-radius($radius: $boxy-base-radius) {
+  @include vendor(border-radius, $radius);
+}
+
+@if $use-boxy != false {
+  
+  // Base class
+  .boxy {
+    @include boxy-base;
+    
+    @if $use-boxy-color {
+      // boxy color
+      @each $i in $boxy-bg {
+        &.#{nth($i, 1)} {
+          $color-type: if(yiq-contrast-color(nth($i, 2), #000, #fff) == #000, "light", "dark");
+          $color-adjust: if($color-type == "light", 5, -5);
+          @include yiq-contrasted(nth($i, 2));
+          border-color: darken(nth($i, 2), 7%);
+          // follow yiq-color-contrast rule
+          h1, h2, h3, h4, h5, h6 {
+            color: inherit;
+          }
+        }
+      }
+    }
+    
+    // if they wish want boxy without background
+    &.transparent {
+      background-color: transparent;
+    }
+    
+    // Sizes
+    &.lg {
+      @include boxy-size($boxy-large-padding);
+    }
+    &.sm {
+      @include boxy-size($boxy-small-padding);
+    }
+
+    // radius
+    &.radius {
+      @include boxy-radius($boxy-base-radius);
+    }
+    &.radius-lg {
+      @include boxy-radius($boxy-large-radius);
+    }
+    &.radius-sm {
+      @include boxy-radius($boxy-small-radius);
+    }
+
+  }
+
+
+}

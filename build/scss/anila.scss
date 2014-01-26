@@ -49,6 +49,9 @@ GENERAL
 /* buttons */
 @import "anila/buttons/logic";
 
+/* buttons */
+@import "anila/split-button/logic";
+
 /* breadcrumbs */
 @import "anila/breadcrumbs/logic";
 
@@ -57,6 +60,9 @@ GENERAL
 
 /* codes */
 @import "anila/codes/logic";
+
+/* fonts */
+@import "anila/fonts/anila";
 
 /* forms */
 @import "anila/forms/logic";
@@ -73,9 +79,6 @@ GENERAL
 /* navs */
 @import "anila/navs/logic";
 
-/* panels */
-@import "anila/panels/logic";
-
 /* tables */
 @import "anila/tables/logic";
 
@@ -86,10 +89,13 @@ GENERAL
 @import "anila/inline-list/logic";
 
 /* wells */
-@import "anila/wells/logic";
+@import "anila/boxy/logic";
 
 /* media */
 @import "anila/media/logic";
+
+/* pagination */
+@import "anila/pagination/logic";
 
 
 /* helper */

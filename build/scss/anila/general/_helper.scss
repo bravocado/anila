@@ -20,87 +20,90 @@
  HELPER
 ==================================
  */
-.flo-r   { float:right!important; }
-.flo-l    { float:left !important; }
-.flo-n    { float:none !important; }
+
+@if $use-global-helper == true {
+
+  .flo-r   { float:right!important; }
+  .flo-l    { float:left !important; }
+  .flo-n    { float:none !important; }
 
 
-/**
- * Text alignment
- */
-.txt-l     { text-align:left  !important; }
-.txt-c   { text-align:center !important; }
-.txt-r    { text-align:right !important; }
+  /**
+  * Text alignment
+  */
+  .txt-l     { text-align:left  !important; }
+  .txt-c   { text-align:center !important; }
+  .txt-r    { text-align:right !important; }
 
 
-/**
- * Font weights
- */
-.wei-l      { font-weight:300!important; }
-.wei-n     { font-weight:400!important; }
-.wei-sb   { font-weight:600!important; }
+  /**
+  * Font weights
+  */
+  .wei-l      { font-weight:300!important; }
+  .wei-n     { font-weight:400!important; }
+  .wei-sb   { font-weight:600!important; }
 
 
-/**
- * Add/remove margins
- */
-.push           { margin:       $helper-spacing-unit!important; }
-.push-top      { margin-top:   $helper-spacing-unit!important; }
-.push-right    { margin-right: $helper-spacing-unit!important; }
-.push-bottom   { margin-bottom:$helper-spacing-unit!important; }
-.push-left     { margin-left:  $helper-spacing-unit!important; }
-.push-ends     { margin-top:   $helper-spacing-unit!important; margin-bottom:$helper-spacing-unit!important; }
-.push-sides    { margin-right: $helper-spacing-unit!important; margin-left:  $helper-spacing-unit!important; }
+  /**
+  * Add/remove margins
+  */
+  .push           { margin:       $helper-spacing-unit!important; }
+  .push-top      { margin-top:   $helper-spacing-unit!important; }
+  .push-right    { margin-right: $helper-spacing-unit!important; }
+  .push-bottom   { margin-bottom:$helper-spacing-unit!important; }
+  .push-left     { margin-left:  $helper-spacing-unit!important; }
+  .push-ends     { margin-top:   $helper-spacing-unit!important; margin-bottom:$helper-spacing-unit!important; }
+  .push-sides    { margin-right: $helper-spacing-unit!important; margin-left:  $helper-spacing-unit!important; }
 
-.push-half          { margin:       $half-helper-spacing-unit!important; }
-.push-half-top     { margin-top:   $half-helper-spacing-unit!important; }
-.push-half-right   { margin-right: $half-helper-spacing-unit!important; }
-.push-half-bottom  { margin-bottom:$half-helper-spacing-unit!important; }
-.push-half-left    { margin-left:  $half-helper-spacing-unit!important; }
-.push-half-ends    { margin-top:   $half-helper-spacing-unit!important; margin-bottom:$half-helper-spacing-unit!important; }
-.push-half-sides   { margin-right: $half-helper-spacing-unit!important; margin-left:  $half-helper-spacing-unit!important; }
+  .push-half          { margin:       $half-helper-spacing-unit!important; }
+  .push-half-top     { margin-top:   $half-helper-spacing-unit!important; }
+  .push-half-right   { margin-right: $half-helper-spacing-unit!important; }
+  .push-half-bottom  { margin-bottom:$half-helper-spacing-unit!important; }
+  .push-half-left    { margin-left:  $half-helper-spacing-unit!important; }
+  .push-half-ends    { margin-top:   $half-helper-spacing-unit!important; margin-bottom:$half-helper-spacing-unit!important; }
+  .push-half-sides   { margin-right: $half-helper-spacing-unit!important; margin-left:  $half-helper-spacing-unit!important; }
 
-.flush          { margin:       0!important; }
-.flush-top     { margin-top:   0!important; }
-.flush-right   { margin-right: 0!important; }
-.flush-bottom  { margin-bottom:0!important; }
-.flush-left    { margin-left:  0!important; }
-.flush-ends    { margin-top:   0!important; margin-bottom:0!important; }
-.flush-sides   { margin-right: 0!important; margin-left:  0!important; }
-
-
-/**
- * Add/remove paddings
- */
-.softer          { padding:       $helper-spacing-unit!important; }
-.softer-top      { padding-top:   $helper-spacing-unit!important; }
-.softer-right    { padding-right: $helper-spacing-unit!important; }
-.softer-bottom   { padding-bottom:$helper-spacing-unit!important; }
-.softer-left     { padding-left:  $helper-spacing-unit!important; }
-.softer-ends     { padding-top:   $helper-spacing-unit!important; padding-bottom:$helper-spacing-unit!important; }
-.softer-sides    { padding-right: $helper-spacing-unit!important; padding-left:  $helper-spacing-unit!important; }
-
-.softer-half          { padding:       $half-helper-spacing-unit!important; }
-.softer-half-top      { padding-top:   $half-helper-spacing-unit!important; }
-.softer-half-right    { padding-right: $half-helper-spacing-unit!important; }
-.softer-half-bottom   { padding-bottom:$half-helper-spacing-unit!important; }
-.softer-half-left     { padding-left:  $half-helper-spacing-unit!important; }
-.softer-half-ends     { padding-top:   $half-helper-spacing-unit!important; padding-bottom:$half-helper-spacing-unit!important; }
-.softer-half-sides    { padding-right: $half-helper-spacing-unit!important; padding-left:  $half-helper-spacing-unit!important; }
-
-.harder          { padding:       0!important; }
-.harder-top      { padding-top:   0!important; }
-.harder-right    { padding-right: 0!important; }
-.harder-bottom   { padding-bottom:0!important; }
-.harder-left     { padding-left:  0!important; }
-.harder-ends     { padding-top:   0!important; padding-bottom:0!important; }
-.harder-sides    { padding-right: 0!important; padding-left:  0!important; }
+  .flush          { margin:       0!important; }
+  .flush-top     { margin-top:   0!important; }
+  .flush-right   { margin-right: 0!important; }
+  .flush-bottom  { margin-bottom:0!important; }
+  .flush-left    { margin-left:  0!important; }
+  .flush-ends    { margin-top:   0!important; margin-bottom:0!important; }
+  .flush-sides   { margin-right: 0!important; margin-left:  0!important; }
 
 
-/**
- * Pull items full width of `.island` parents.
- */
-.full-bleed{
+  /**
+  * Add/remove paddings
+  */
+  .softer          { padding:       $helper-spacing-unit!important; }
+  .softer-top      { padding-top:   $helper-spacing-unit!important; }
+  .softer-right    { padding-right: $helper-spacing-unit!important; }
+  .softer-bottom   { padding-bottom:$helper-spacing-unit!important; }
+  .softer-left     { padding-left:  $helper-spacing-unit!important; }
+  .softer-ends     { padding-top:   $helper-spacing-unit!important; padding-bottom:$helper-spacing-unit!important; }
+  .softer-sides    { padding-right: $helper-spacing-unit!important; padding-left:  $helper-spacing-unit!important; }
+
+  .softer-half          { padding:       $half-helper-spacing-unit!important; }
+  .softer-half-top      { padding-top:   $half-helper-spacing-unit!important; }
+  .softer-half-right    { padding-right: $half-helper-spacing-unit!important; }
+  .softer-half-bottom   { padding-bottom:$half-helper-spacing-unit!important; }
+  .softer-half-left     { padding-left:  $half-helper-spacing-unit!important; }
+  .softer-half-ends     { padding-top:   $half-helper-spacing-unit!important; padding-bottom:$half-helper-spacing-unit!important; }
+  .softer-half-sides    { padding-right: $half-helper-spacing-unit!important; padding-left:  $half-helper-spacing-unit!important; }
+
+  .harder          { padding:       0!important; }
+  .harder-top      { padding-top:   0!important; }
+  .harder-right    { padding-right: 0!important; }
+  .harder-bottom   { padding-bottom:0!important; }
+  .harder-left     { padding-left:  0!important; }
+  .harder-ends     { padding-top:   0!important; padding-bottom:0!important; }
+  .harder-sides    { padding-right: 0!important; padding-left:  0!important; }
+
+
+  /**
+  * Pull items full width of `.island` parents.
+  */
+  .full-bleed{
     margin-right:-$helper-spacing-unit!important;
     margin-left: -$helper-spacing-unit!important;
 
@@ -108,61 +111,61 @@
         margin-right:-($half-helper-spacing-unit)!important;
         margin-left: -($half-helper-spacing-unit)!important;
     }
-}
+  }
 
 
-/**
- * Add a help cursor to any element that gives the user extra information on
- * `:hover`.
- */
-.informative{
+  /**
+  * Add a help cursor to any element that gives the user extra information on
+  * `:hover`.
+  */
+  .informative{
     cursor:help!important;
-}
+  }
 
 
-/**
- * Mute an object by reducing its opacity.
- */
-.muted{
+  /**
+  * Mute an object by reducing its opacity.
+  */
+  .muted{
     opacity:0.5!important;
     //filter:alpha(opacity = 50)!important;
-}
+  }
 
 
-/**
- * Align items to the right where they imply progression/movement forward, e.g.:
- *
+  /**
+  * Align items to the right where they imply progression/movement forward, e.g.:
+  *
    <p class=proceed><a href=#>Read more...</a></p>
- *
- */
-.proceed{
+  *
+  */
+  .proceed{
     text-align:right!important;
-}
+  }
 
 
-/**
- * Add a right-angled quote to links that imply movement, e.g.:
- *
+  /**
+  * Add a right-angled quote to links that imply movement, e.g.:
+  *
    <a href=# class=go>Read more</a>
- *
- */
-.go:after{
+  *
+  */
+  .go:after{
     content:"\00A0" "\00BB"!important;
-}
+  }
 
 
-/**
- * Apply capital case to an element (usually a `strong`).
- */
-.caps{
+  /**
+  * Apply capital case to an element (usually a `strong`).
+  */
+  .caps{
     text-transform:uppercase!important;
-}
+  }
 
 
-/**
- * Hide content off-screen without resorting to `display:none;`, also provide
- * breakpoint specific hidden elements.
-@mixin accessibility{
+  /**
+  * Hide content off-screen without resorting to `display:none;`, also provide
+  * breakpoint specific hidden elements.
+  @mixin accessibility{
     border:0!important;
     clip:rect(0 0 0 0)!important;
     height:1px!important;
@@ -171,20 +174,23 @@
     padding:0!important;
     position: absolute!important;
     width:1px!important;
-}
-.accessibility,
-.visuallyhidden{
+  }
+  .accessibility,
+  .visuallyhidden{
     @include accessibility;
-}
-@each $state in phone, tablet, desktop{
+  }
+  @each $state in phone, tablet, desktop{
   @include media-query(#{$state}){
     .accessibility--#{$state},
     .visuallyhidden--#{$state}{
         @include accessibility;
     }
   }
+  }
+  */
+
 }
- */
+
 
 /*------------------------------------*\
     $CLEARFIX

@@ -3,31 +3,33 @@
 // @mixins
 //
 
-img,
-object,
-embed { max-width: 100%; height: auto; }
-
-object,
-embed { height: 100%; }
-img { -ms-interpolation-mode: bicubic; }
-
-#map_canvas,
-.map_canvas {
+@mixin media-image-responsive {
   img,
-  embed,
-  object { max-width: none !important;
+  object,
+  embed { max-width: 100%; height: auto; }
+
+  object,
+  embed { height: 100%; }
+  img { -ms-interpolation-mode: bicubic; }
+
+  #map_canvas,
+  .map_canvas {
+    img,
+    embed,
+    object { max-width: none !important;
+    }
   }
 }
 
-@mixin flex-video-container {
+@mixin media-video-container {
   position: relative;
-  @include unit(padding-top, $flex-video-padding-top);
-  padding-bottom: $flex-video-padding-bottom;
+  @include unit(padding-top, $media-video-padding-top);
+  padding-bottom: $media-video-padding-bottom;
   height: 0;
-  @include unit(margin-bottom, $flex-video-margin-bottom);
+  @include unit(margin-bottom, $media-video-margin-bottom);
   overflow: hidden;
 
-  &.widescreen { padding-bottom: $flex-video-widescreen-padding-bottom; }
+  &.widescreen { padding-bottom: $media-video-widescreen-padding-bottom; }
   &.vimeo { padding-top: 0; }
 
   iframe,
@@ -37,14 +39,14 @@ img { -ms-interpolation-mode: bicubic; }
     position: absolute;
     top: 0;
     #{$default-float}: 0;
-    // removing black bar
-    //width: 100%;
-    //height: 100%;
+    width: 100%;
+    height: 100%;
   }
 }
 
-@include exports("flex-video") {
+@include exports("media-video") {
   @if $use-media {
-    .media-video { @include flex-video-container; }
+    .media-video { @include media-video-container; }
+    @include media-image-responsive;
   }
 }
