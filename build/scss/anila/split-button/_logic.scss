@@ -1,0 +1,202 @@
+@import "vars";
+@import "../buttons/logic";
+
+/*
+=================
+MIXIN
+=================
+*/
+
+@mixin split-button-base {
+	@include button-base($display: table);
+	#{nth($split-button-holder, 1)} {
+		display: table-cell;
+	}
+	#{nth($split-button-holder, 2)} {
+		display: table-cell;
+	}
+}
+
+@mixin split-button-size($padding: $button-md) {
+
+  //@include unit(padding-#{$opposite-direction}, $padding);
+  //@include unit(padding-#{$default-float}, $padding);
+
+	#{nth($split-button-holder, 1)},
+	#{nth($split-button-holder, 2)} {
+	  @include unit(padding-top, $padding);
+	  @include unit(padding-bottom, $padding);
+	  @include unit(padding-#{$opposite-direction}, $padding);
+	  @include unit(padding-#{$default-float}, $padding);
+	}
+
+  // We control the font-size based on mixin input.
+  @if      $padding == $button-md { @include unit(font-size, $button-font-md); }
+  @else if $padding == $button-tn { @include unit(font-size, $button-font-tn); }
+  @else if $padding == $button-sm { @include unit(font-size, $button-font-sm); }
+  @else if $padding == $button-lg { @include unit(font-size, $button-font-lg); }
+}
+
+@mixin split-button-shape($split-radius: $button-radius-base) {
+	@include radius($split-radius);
+	#{nth($split-button-holder, 1)} {
+		@include side-radius($side: left, $radius: $split-radius);
+	}
+	#{nth($split-button-holder, 2)} {
+		@include side-radius($side: right, $radius: $split-radius);
+	}
+}
+
+
+@mixin split-care($color: $color-list, $style: $theme-list, $gradient-type: overlay) {
+  // base color adjust
+  $color-type: if(yiq-contrast-color($color, #000, #fff) == #000, "light", "dark");
+  $color-adjust: if($color-type == "light", 5, -5);
+  $gradient-color: photoshop-gradient-overlay($color, $gradient-type, 50%, 90deg);
+  
+  //text shadow color adjust
+  $text-shadow-adjust: if($color-type == "light", 20, -20);
+  $text-shadow: adjust-color($color, $lightness: $text-shadow-adjust);
+
+  // shadow color normal adjust
+  $shadow-color: yiq-contrast-color($color, #fff, #000);
+
+  // hover color adjust
+  $hover-color: adjust-color($color, $lightness: $color-adjust);
+
+  // active state adjust
+  $active-color-adjust: if($color-type == "light", 10, -10);
+  $active-color: adjust-color($color, $lightness: $active-color-adjust);
+
+  // border color adjust
+  $border-adjust: if($color-type == "light", 15, -15);
+	$border-color: adjust-color($color, $lightness: $border-adjust);
+
+	i {
+		border-left: solid 1px $border-color;
+		&:active {
+			border-left: solid 1px adjust-color($border-color, $lightness: 10%);
+		}
+	}
+
+  @if $style == flat {
+    // icon active 
+    i {
+    	&:active {
+    		background-color: adjust-color($active-color, $lightness: $active-color-adjust + 1%);
+    	}
+    }
+	}
+
+  @if $style == pretty {
+    // icon active 
+    i {
+    	&:active {
+    		background-color: adjust-color($active-color, $lightness: $active-color-adjust + 1%);
+    	}
+    }
+  }
+
+  @if $style == shiny {
+    // icon active 
+    i {
+    	&:active {
+	      @include background-image($gradient-color);
+    		background-color: adjust-color($hover-color, $lightness: $active-color-adjust + 1%);
+    	}
+    }
+  }
+
+}
+
+@mixin split-btn-precomposed($color: $color-list, $style: $theme-list, $gradient-type: overlay) {
+
+  @each $bc in $color {
+    &.#{nth($bc, 1)} {
+      @include yiq-contrasted(nth($bc, 2));
+      @include single-transition(background-color, 200ms, ease-in-out);
+      // creating style based on list
+      &:hover {
+        $hover-color: darken(nth($bc, 2), 5%);
+        background-color: $hover-color;
+      }
+      &:active {
+        $active-color: darken(nth($bc, 2), 10%);
+        background-color: $active-color;
+      }
+      @each $bs in $style {
+        &.#{nth($bs, 1)} {
+          // flat design
+          @if #{nth($bs, 1)} == flat {
+            @include anila-button($btn-color: nth($bc, 2), $style: flat);
+            @include split-care($color: nth($bc, 2), $style: flat);
+          }
+          // pretty design
+          @if #{nth($bs, 1)} == pretty {
+            @include anila-button($btn-color: nth($bc, 2), $style: pretty, $gradient-type: overlay);
+            @include split-care($color: nth($bc, 2), $style: pretty, $gradient-type: overlay);
+          }
+          // shiny design
+          @if #{nth($bs, 1)} == shiny {
+            @include anila-button($btn-color: nth($bc, 2), $style: shiny, $gradient-type: normal);
+            @include split-care($color: nth($bc, 2), $style: shiny, $gradient-type: normal);
+          }
+           // bordered design
+          @if #{nth($bs, 1)} == bordered {
+            @include anila-button($btn-color: nth($bc, 2), $style: bordered, $gradient-type: normal);
+            @include split-care($color: nth($bc, 2), $style: bordered, $gradient-type: normal);
+          }
+        }
+      }
+    }
+    // end creating style
+  }
+  // end creating colors
+
+}
+
+// EXPORT
+
+@include exports("split-button") {
+	@if $use-split-button {
+		// reset styling when using split-btn on button
+		button.split-btn {
+			border: 0;
+			outline: none;
+			padding: 0;
+		}
+
+		.split-btn {
+			@include split-button-base;
+			@include split-button-size($button-md);
+			@include button-shape;
+
+			// sizes
+			&.lg {
+				@include split-button-size($button-lg);
+			}
+			&.sm {
+				@include split-button-size($button-sm);
+			}
+			&.tn {
+				@include split-button-size($button-tn);
+			}
+
+			// shape
+			&.soft {
+				@include split-button-shape($button-radius-base);
+			}
+			&.extra-soft {
+				@include split-button-shape($button-radius-large);
+			}
+			&.round {
+				@include split-button-shape($button-round);
+			}
+
+			// style and color precompose
+			@if $use-button-precomposed {
+				@include split-btn-precomposed;
+			}
+		}
+	}
+}

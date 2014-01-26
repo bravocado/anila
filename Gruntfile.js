@@ -71,6 +71,25 @@ module.exports = function(grunt) {
       }
     },
 
+    // webfont config
+    webfont: {
+      icons: {
+        src: 'build/icons/*.svg',
+        //dest: 'dist/docs/assets/fonts',
+        dest: 'build/fonts/',
+        destCss: 'build/scss/anila/fonts',
+        options: {
+          hashes: false,
+          stylesheet: 'scss',
+          syntax: 'bootstrap',
+          font: 'anila',
+          ligature: true,
+          embed: false,
+          relativeFontPath: '../../../assets/fonts/'
+        }
+      }
+    },
+
     // concat config
     concat: {
       dist: {
@@ -102,7 +121,8 @@ module.exports = function(grunt) {
           {cwd: 'build/js/', expand:true, filter: 'isFile', src: ['{anila,vendor}/**/*.js'], dest: 'dist/assets/js'},
           {cwd: 'build/js/vendor/', expand:true, filter: 'isFile', src: ['**/*.js'], dest: 'dist/docs/assets/js/'},
           {cwd: 'build/scss/', expand:true, filter: 'isFile', src: '**/*.scss', dest: 'dist/assets/scss/'},
-          {src: 'bower.json', dest: 'dist/assets/'}
+          {src: 'bower.json', dest: 'dist/assets/'},
+          {cwd: 'build/fonts/', expand:true, filter: 'isFile', src:['*'], dest: 'dist/assets/fonts'}
         ]
       }
     },
@@ -192,26 +212,8 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'dist/assets/', src: ['**'], dest: 'anila/'}
         ]
       }
-    },
+    }
 
-
-    // webfont config
-		webfont: {
-		  icons: {
-		    src: 'build/icons/*.svg',
-		    dest: 'build/fonts',
-		    destCss: 'build/fonts/public',
-		    options: {
-		    	hashes: false,
-		      stylesheet: 'scss',
-		      syntax: 'bootstrap',
-		      font: 'anilaicon',
-		      ligature: true,
-		      embed: false,
-		      relativeFontPath: '/build/fonts'
-		    }
-		  }
-		}
 
   });
 

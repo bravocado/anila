@@ -11,14 +11,14 @@
   $link-color:$side-nav-link-color) {
   display: block;
   margin: 0;
-  padding: $side-nav-padding;
+  @include unit(padding, $side-nav-padding);
   list-style-type: $side-nav-list-type;
   list-style-position: $side-nav-list-position;
   font-family: $side-nav-font-family;
 
   li {
-    margin: $side-nav-list-margin;
-    font-size: $font-size;
+    @include unit(margin, $side-nav-list-margin);
+    @include unit(font-size, $font-size);
 
     a {
       display: block;

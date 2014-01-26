@@ -1,19 +1,63 @@
-/* ========= GENERAL VALUES ================ */
+/* 
+=================================
+GENERAL VALUES
+=================================
+*/
 
-// border radius
+// rem for all unit
+
+$rem-base: 16px !default;
+
+
+//
+// GENERAL HTML AVAILABLE VARS
+//
+
+// We use these to control text direction settings
+$text-direction:                  ltr !default;
+
+// NOTE: No need to change this conditional statement, $text-direction variable controls it all.
+$default-float:                   left !default;
+$opposite-direction:              right !default;
+@if $text-direction == ltr {
+  $default-float: left;
+  $opposite-direction: right;
+} @else {
+  $default-float: right;
+  $opposite-direction: left;
+}
+// We use these to control various global styles
+$body-bg: #fff !default;
+$body-font-color: #222 !default;
+$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$body-font-weight: normal !default;
+$body-font-style: normal !default;
+
+// We use this to control font-smoothing
+$font-smoothing: antialiased !default;
+
+
+//
+// BORDER RADIUS AVAILABLE VARS
+//
+
 $border-radius-small:             3px !default;
 $border-radius-base:             	5px !default;
 $border-radius-large:            	15px !default;
 $border-radius-round:            	500px !default;
 
 
-/* ---- HELPER UNIT  ----- */
+//
+// HELPER AVAILABLE VARS
+//
 
 $helper-spacing-unit: 20px !default;
 $half-helper-spacing-unit: $helper-spacing-unit/2 !default;
 
-/* ---- BREAK POINT ----- */
 
+//
+// MEDIA QUERIES AVAILABLE VARS
+//
 
 $sm-range: (0em, 40em) !default;
 $md-range: (40.063em, 64em) !default;
@@ -75,32 +119,9 @@ $large: $lg-up;
 
 }
 
-/* ---- TYPOGRAPHY ----- */
-
-// We use these to control text direction settings
-$text-direction: 									ltr !default;
-
-// NOTE: No need to change this conditional statement, $text-direction variable controls it all.
-$default-float: 									left !default;
-$opposite-direction: 							right !default;
-@if $text-direction == ltr {
-  $default-float: left;
-  $opposite-direction: right;
-} @else {
-  $default-float: right;
-  $opposite-direction: left;
-}
-// We use these to control various global styles
-$body-bg: #fff !default;
-$body-font-color: #222 !default;
-$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
-$body-font-weight: normal !default;
-$body-font-style: normal !default;
-
-// We use this to control font-smoothing
-$font-smoothing: antialiased !default;
-
-/* ---- COLOR ----- */
+//
+// COLOR AVAILABLE VARS
+//
 
 // change the setting of threshold so match with our color scheme
 $yiq-contrasted-threshold: 168 !default;
@@ -120,14 +141,27 @@ $info-color: #a0d3e8 !default;
 
 // experimental
 // adding a theme and color for easy update for all components without touching every single variable
-$theme-list: flat, pretty, shiny, bordered !default;
-$color-list: "primary" $primary-color, "secondary" $secondary-color, "tertiary" $tertiary-color, "quaternary" $quaternary-color, "quinary" $quinary-color !default;
+$theme-list:  flat,
+              pretty,
+              shiny,
+              bordered
+              !default;
+
+$color-list:  "primary" $primary-color,
+              "secondary" $secondary-color,
+              "tertiary" $tertiary-color,
+              "quaternary" $quaternary-color,
+              "quinary" $quinary-color
+              !default;
+
 
 // We use this to control whether or not CSS classes come through in the gem files.
 $include-print-styles: true !default;
 
 
-/* ---- POINTER ----- */
+//
+// POINTER AVAILABLE VARS
+//
 
 //We use this as cursors values for enabling the option of having custom cursors in the whole site's stylesheet
 $cursor-crosshair-value: crosshair !default;
@@ -137,4 +171,397 @@ $cursor-help-value: help !default;
 $cursor-text-value: text !default;
 
 
-/* ========= COMPONENTS VALUES ================ */
+/* 
+=================================
+COMPONENT VALUES
+=================================
+*/
+
+//
+// BUTTON AVAILABLE VARS
+//
+
+// We use these to build padding for buttons.
+$button-tn: 6 !default;
+$button-sm: 10 !default;
+$button-md: 12 !default;
+$button-lg: 14 !default;
+
+// We use these to build font for buttons.
+$button-font-tn: 11 !default;
+$button-font-sm: 13 !default;
+$button-font-md: 16 !default;
+$button-font-lg: 20 !default;
+
+
+// We use this to set the default radius used throughout the core.
+$button-radius-base: $border-radius-base !default;
+$button-radius-small: $border-radius-small !default;
+$button-radius-large: $border-radius-large !default;
+$button-round: $border-radius-round !default;
+
+$button-display: inline-block !default;
+$button-font-weight: normal !default;
+$button-padding-vertical: 5px !default;
+$button-padding-horizontal: 10px !default;
+
+// precomposed
+$base-button-class: btn;
+$button-color-list: $color-list !default;
+$button-style-list: $theme-list !default;
+$button-shape-list: hard, extra-soft, soft, round !default;
+$button-size-list: tn $button-tn, sm $button-sm, md $button-md, lg $button-lg !default;
+
+
+//
+// BREADCRUMB AVAILABLE VARS
+//
+
+// We use this to set the background color for the breadcrumb container.
+$crumb-bg: #f9f9f9 !default;
+
+// We use these to set the padding around the breadcrumbs.
+$crumb-padding: 9px 14px 9px !default;
+$crumb-side-padding: 12px !default;
+
+// We use these to control border styles.
+$crumb-function-factor: 10% !default;
+$crumb-border-size: 1px !default;
+$crumb-border-style: solid !default;
+$crumb-border-color: darken($crumb-bg, $crumb-function-factor) !default;
+$crumb-radius: $border-radius-base !default;
+
+// We use these to set various text styles for breadcrumbs.
+$crumb-font-size: 11px !default;
+$crumb-font-color: $primary-color !default;
+$crumb-font-color-current: #333 !default;
+$crumb-font-color-unavailable: #999 !default;
+$crumb-font-transform: uppercase !default;
+$crumb-link-decor: underline !default;
+
+// We use these to control the slash between breadcrumbs
+$crumb-slash-color: #aaa !default;
+$crumb-slash: "/" !default;
+
+
+
+//
+// FORMS AVAILABLE VARS
+//
+
+// We use this to set the base for lots of form spacing and positioning styles
+$form-spacing: 16 !default;
+
+// We use these to style the labels in different ways
+$form-label-pointer: pointer !default;
+$form-label-font-size: 14 !default;
+$form-label-font-weight: normal !default;
+$form-label-font-color: lighten(#000, 30%) !default;
+$form-label-bottom-margin: 8 !default;
+$input-font-family: inherit !default;
+$input-font-color: rgba(0,0,0,0.75) !default;
+$input-font-size: 14 !default;
+$input-bg-color: #fff !default;
+$input-focus-bg-color: darken(#fff, 2%) !default;
+$input-border-color: darken(#fff, 20%) !default;
+$input-focus-border-color: darken(#fff, 40%) !default;
+$input-border-style: solid !default;
+$input-border-width: 1px !default;
+$input-disabled-bg: #ddd !default;
+$input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1) !default;
+$input-include-glowing-effect: true !default;
+
+// We use these to style the fieldset border and spacing.
+$fieldset-border-style: solid !default;
+$fieldset-border-width: 1px !default;
+$fieldset-border-color: #ddd !default;
+$fieldset-padding: 20 !default;
+$fieldset-margin: 18 0 !default;
+
+// We use these to style the legends when you use them
+$legend-bg: #fff !default;
+$legend-font-weight: bold !default;
+$legend-padding: 0 3 !default;
+
+// We use these to style the prefix and postfix input elements
+$input-prefix-bg: darken(#fff, 5%) !default;
+$input-prefix-border-color: darken(#fff, 20%) !default;
+$input-prefix-border-size: 1px !default;
+$input-prefix-border-type: solid !default;
+$input-prefix-overflow: hidden !default;
+$input-prefix-font-color: #333 !default;
+$input-prefix-font-color-alt: #fff !default;
+
+// We use these to style the error states for inputs and labels
+$input-error-message-padding: 6 9 9 !default;
+$input-error-message-top: -1px !default;
+$input-error-message-font-size: 12 !default;
+$input-error-message-font-weight: normal !default;
+$input-error-message-font-style: italic !default;
+$input-error-message-font-color: #fff !default;
+$input-error-message-font-color-alt: #333 !default;
+
+// We use this to style the glowing effect of inputs when focused
+$glowing-effect-fade-time: 0.45s !default;
+$glowing-effect-color: $input-focus-border-color !default;
+
+// Select variables
+$select-bg-color: #fafafa !default;
+
+//
+// TYPOGRAPHY AVAILABLE VARS
+//
+
+// We use these to control header font styles
+$header-font-family: join("Raleway", $body-font-family) !default;
+$header-font-weight: 300 !default;
+$header-font-style: normal !default;
+$header-font-color: #222 !default;
+$header-line-height: 1.4 !default;
+$header-top-margin: $rem-base*.2 !default;
+$header-bottom-margin: $rem-base*.5 !default;
+$header-text-rendering: optimizeLegibility !default;
+
+// We use these to control header font sizes
+$h1-font-size: 44 !default;
+$h2-font-size: 37 !default;
+$h3-font-size: 27 !default;
+$h4-font-size: 23 !default;
+$h5-font-size: 18 !default;
+$h6-font-size: 16 !default;
+
+// These control how subheaders are styled.
+$subheader-line-height: 1.4 !default;
+$subheader-font-color: lighten($header-font-color, 30%) !default;
+$subheader-font-weight: 300 !default;
+$subheader-top-margin: 3.6 !default;
+$subheader-bottom-margin: 8 !default;
+
+// A general <small> styling
+$small-font-size: 60% !default;
+$small-font-color: lighten($header-font-color, 30%) !default;
+
+// We use these to style paragraphs
+$paragraph-font-family: inherit !default;
+$paragraph-font-weight: normal !default;
+$paragraph-font-size: $rem-base !default;
+$paragraph-line-height: 1.6 !default;
+$paragraph-margin-bottom: 20 !default;
+$paragraph-aside-font-size: 14 !default;
+$paragraph-aside-line-height: 1.35 !default;
+$paragraph-aside-font-style: italic !default;
+$paragraph-text-rendering: optimizeLegibility !default;
+
+// We use these to style <code> tags
+$code-color: darken($alert-color, 15%) !default;
+$code-font-family: Consolas, 'Liberation Mono', Courier, monospace !default;
+$code-font-weight: bold !default;
+
+// We use these to style anchors
+$anchor-text-decoration: none !default;
+$anchor-font-color: $primary-color !default;
+$anchor-font-color-hover: darken($primary-color, 5%) !default;
+
+// We use these to style the <hr> element
+$hr-border-width: 1px !default;
+$hr-border-style: solid !default;
+$hr-border-color: #ddd !default;
+$hr-margin: 20 !default;
+
+// We use these to style lists
+$list-style-position: outside !default;
+$list-side-margin: 19 !default;
+$list-ordered-side-margin: 20 !default;
+$list-side-margin-no-bullet: 0 !default;
+$list-nested-margin: 20 !default;
+$definition-list-header-weight: bold !default;
+$definition-list-header-margin-bottom: $rem-base*.3 !default;
+$definition-list-margin-bottom: 12 !default;
+
+// We use these to style blockquotes
+$blockquote-font-color: lighten($header-font-color, 30%) !default;
+$blockquote-padding: 9 20 0 19 !default;
+$blockquote-border: 1px solid #ddd !default;
+$blockquote-cite-font-size: 13 !default;
+$blockquote-cite-font-color: lighten($header-font-color, 20%) !default;
+$blockquote-cite-link-color: $blockquote-cite-font-color !default;
+
+// Acronym styles
+$acronym-underline: 1px dotted #ddd !default;
+
+// We use these to control padding and margin
+$microformat-padding: 10 12 !default;
+$microformat-margin: 0, 0, 20, 0 !default;
+
+// We use these to control the border styles
+$microformat-border-width: 1px !default;
+$microformat-border-style: solid !default;
+$microformat-border-color: #ddd !default;
+
+// We use these to control full name font styles
+$microformat-fullname-font-weight: bold !default;
+$microformat-fullname-font-size: 15 !default;
+
+// We use this to control the summary font styles
+$microformat-summary-font-weight: bold !default;
+
+// We use this to control abbr padding
+$microformat-abbr-padding: 0 1 !default;
+
+// We use this to control abbr font styles
+$microformat-abbr-font-weight: bold !default;
+$microformat-abbr-font-decoration: none !default;
+
+
+//
+// GRID AVAILABLE VARS
+//
+
+$row-width: 1000 !default;
+$column-gutter: 30 !default;
+$total-columns: 12 !default;
+
+
+// block grid
+$include-block-grid: true !default;
+// We use this to control the maximum number of block grid elements per row
+$block-grid-elements: 12 !default;
+$block-grid-default-spacing: 20 !default;
+
+// Enables media queries for block-grid classes. Set to false if writing semantic HTML.
+$block-grid-media-queries: true !default;
+
+
+//
+// LABEL AVAILABLE VARS
+//
+
+// We use these to style the labels
+$label-color-list: $color-list !default;
+$label-default-bg: #f5f5f5 !default;
+$label-padding: 4 8 6 !default;
+$label-radius: $border-radius-base !default;
+
+// We use these to style the label text
+$label-font-sizing: 12 !default;
+$label-font-weight: normal !default;
+$label-font-color: #333 !default;
+$label-font-color-alt: #fff !default;
+$label-font-family: $body-font-family !default;
+
+
+//
+// MEDIA AVAILABLE VARS
+//
+
+// We use these to control video container padding and margins
+$media-video-padding-top: 25 !default;
+$media-video-padding-bottom: 67.5% !default;
+$media-video-margin-bottom: 16 !default;
+
+// We use this to control widescreen bottom padding
+$media-video-widescreen-padding-bottom: 57.25% !default;
+
+
+//
+// NAV AVAILABLE VARS
+//
+
+// We use this to control padding.
+$side-nav-padding: 14 0 !default;
+
+// We use these to control list styles.
+$side-nav-list-type: none !default;
+$side-nav-list-position: inside !default;
+$side-nav-list-margin: 0 0 7 0 !default;
+
+// We use these to control link styles.
+$side-nav-link-color: $primary-color !default;
+$side-nav-link-color-active: lighten(#000, 30%) !default;
+$side-nav-font-size: 14 !default;
+$side-nav-font-weight: normal !default;
+$side-nav-font-family: $body-font-family !default;
+$side-nav-active-font-family: $side-nav-font-family !default;
+
+// We use these to control border styles
+$side-nav-divider-size: 1px !default;
+$side-nav-divider-style: solid !default;
+$side-nav-divider-color: darken(#fff, 10%) !default;
+
+
+//
+// TABLE AVAILABLE VARS
+//
+
+// These control the background color for the table and even rows
+$table-width-default: 100% !default;
+
+$table-bg: #fff !default;
+$table-even-row-bg: #f9f9f9 !default;
+
+// These control the table cell border style
+$table-border-style: solid !default;
+$table-border-size: 1px !default;
+$table-border-color: #ddd !default;
+
+// These control the table head styles
+$table-head-bg: #f5f5f5 !default;
+$table-head-font-size: 14 !default;
+$table-head-font-color: #222 !default;
+$table-head-font-weight: bold !default;
+$table-head-padding: 8 10 10 !default;
+
+// These control the row padding and font styles
+$table-row-padding: 9 10 !default;
+$table-row-font-size: 14 !default;
+$table-row-font-color: #222 !default;
+$table-line-height: 18 !default;
+
+// These are for controlling the display and margin of tables
+$table-display: table-cell !default;
+$table-margin-bottom: 20 !default;
+
+
+//
+// BOXY AVAILABLE VARS
+//
+
+$boxy-bg: $color-list !default;
+$boxy-bg-default: #f5f5f5 !default;
+
+// boxy border -- boxy blockqoute border
+$boxy-border-size: 1px !default;
+$boxy-border-type: solid !default;
+$boxy-border-color-default: darken($boxy-bg-default, 7%) !default;
+$boxy-blockqoute-color: #DDD !default;
+
+// boxy height -- margin
+$boxy-min-height: 20px !default;
+$boxy-margin-bottom: 20px !default;
+
+// boxy padding sizes
+$boxy-base-padding: 19px !default;
+$boxy-large-padding: 24px !default;
+$boxy-small-padding: 9px !default;
+
+// boxy border radius sizes
+$boxy-base-radius: $border-radius-base !default;
+$boxy-large-radius:  $border-radius-large !default;
+$boxy-small-radius:  $border-radius-small !default;
+
+
+//
+// PAGINATION AVAILABLE VARS
+//
+
+$pagination-selector: li !default;
+$pagination-display: inline-block !default;
+$pagination-text-decor: underline !default;
+$pagination-spacing: $rem-base/2 !default;
+
+
+//
+// SPLIT BUTTON AVAILABLE VARS
+//
+
+$split-button-holder: span, i !default;

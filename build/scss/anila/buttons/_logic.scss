@@ -25,10 +25,6 @@
   // We control which padding styles come through,
   // these can be turned off by setting $padding:false
   @if $padding {
-    //padding-top: $padding;
-    //padding-#{$opposite-direction}: $padding * 2;
-    //padding-bottom: $padding + rem-calc(1);
-    //padding-#{$default-float}: $padding * 2;
     @include unit(padding-top, $padding);
     @include unit(padding-#{$opposite-direction}, $padding * 2);
     @include unit(padding-bottom, $padding);
