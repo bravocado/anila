@@ -49,3 +49,4 @@ node_modules/*
 # Necessary #
 ######################
 .travis.yml
+.htaccess
