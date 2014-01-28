@@ -108,7 +108,7 @@ module.exports = function(grunt) {
           'dist/assets/js/anila.min.js': ['<%= anila.js %>'],
           'dist/assets/js/legacy.min.js': ['build/js/vendor/legacy.js'],
           'dist/assets/js/iconfont-fallback.min.js': ['build/js/vendor/iconfont-fallback.js'],
-          'dist/docs/assets/js/all.js': ['<%= anila.js %>', 'build/doc/assets/js/docs.js']
+          'dist/docs/assets/js/all.min.js': ['<%= anila.js %>', 'build/doc/assets/js/docs.js']
         }
       }
     },

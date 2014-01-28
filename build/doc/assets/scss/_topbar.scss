@@ -1,0 +1,22 @@
+.topbar {
+	//@include yiq-contrasted($primary-color);
+	//border-bottom: solid 3px adjust-color($primary-color, $lightness: 10);
+	//@include unit(padding, 0 20);
+	@include clearfix();
+	.brand {
+		float: left;
+		@include yiq-contrasted($primary-color);
+		@include unit(padding, 5 20);
+		h1, h2, h3 {
+			margin-top: 0; margin-bottom: 0;
+			color: inherit;
+		}
+	}
+	.topbar-nav {
+		float: right;
+		margin-top: 9px;
+		ul {
+			margin-bottom: 0;
+		}
+	}
+}

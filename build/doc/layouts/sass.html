@@ -13,7 +13,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 
-  <title>{{#if title}}{{title}} | {{/if}}Anila Docs</title>
+  <title>{{#if title}}{{title}} | {{/if}}Anila SASS Docs</title>
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway:400,100,700" />
   <link rel="icon" href="{{assets}}/img/icons/favicon.ico" type="image/x-icon">
   <!-- For third-generation iPad with high-resolution Retina display: -->
@@ -59,7 +59,7 @@
     <link rel="stylesheet" href="{{assets}}/css/noscript.css" />
   </noscript>
 
-  <script src="../../assets/js/modernizr.min.js"></script>
+  <script src="../../../assets/js/modernizr.min.js"></script>
 
   <!--[if (lte IE 8) | (!IEMobile)]>
     <script src="{{assets}}/js/html5.js"></script>
@@ -68,6 +68,7 @@
 </head>
 
 <body>
+
 	
 	<div class="container">
 		
@@ -77,11 +78,13 @@
             
             <div class="lg-3 md-4 sm-12 col">
               <div class="hide-sm">
-              {{> sidebar}}
+              {{> sidebar-sass}}
               </div>
             </div>
 
             <div class="lg-9 md-8 sm-12 col">
+              {{> header}}
+
               {{#markdown}}
               {{> body}}
               {{/markdown}}
@@ -98,12 +101,12 @@
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <!-- Grab Google CDN's jQuery, fall back to local if offline -->
-  <script>window.jQuery || document.write('<script src="../../assets/js/jquery.min.js"><\/script>')</script>
-  <script type="text/javascript" src="../../assets/js/legacy.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../../assets/js/jquery.min.js"><\/script>')</script>
+  <script type="text/javascript" src="../../../assets/js/legacy.min.js"></script>
 
-  <script type="text/javascript" src="../../docs/assets/js/all.min.js"></script>
+  <script type="text/javascript" src="../../../docs/assets/js/all.min.js"></script>
 
-  <script type="text/javascript" src="../../assets/js/iconfont-fallback.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/iconfont-fallback.min.js"></script>
   <script>
     $(function() {
 

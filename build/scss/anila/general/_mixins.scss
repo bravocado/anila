@@ -1,6 +1,6 @@
-/*------------------------------------*\
-    GENERAL MIXIN
-\*------------------------------------*/
+// ------------------------------------
+// GENERAL MIXIN
+// ------------------------------------
 
 // Create vendor-prefixed CSS in one go, e.g.
 // `@include vendor(border-radius, 4px);`
@@ -14,9 +14,9 @@
 }
 
 @if $global-border-box == true{
-    /**
-    * Let’s make the box model all nice, shall we...?
-    */
+    /* ---------
+    BOX SIZING!
+    ------------ */
     *{
         &,
         &:before,

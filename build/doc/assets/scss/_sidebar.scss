@@ -39,7 +39,7 @@ $panel-bg-color: #FAFAFA;
 .sidebar {
   h1,h2,h3,h4,h5,h6 {
     @include unit(padding, 4 0);
-    @include unit(font-size, 14);
+    @include unit(font-size, 18);
     font-weight: bold;
   }
 }

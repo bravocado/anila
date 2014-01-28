@@ -1,0 +1,34 @@
+---
+title: Units
+layout: build/doc/layouts/sass.html
+---
+
+***
+
+# Units
+
+We are using REM as a default. But if you want to support IE8 and add a fallback, you can set a rem fallback in conditional.scss:
+
+```scss
+$rem-fallback: true !default;
+```
+
+<br>
+If you're thinking about using our unit mixin, we also cover it! Simply :
+
+```scss
+@include unit($property, $value...);
+```
+<br>
+SCSS :
+
+```scss
+@include unit(padding, 0px 10px);
+```
+
+<br>
+CSS :
+```css
+padding: 5px 20px;
+padding: 0.27778rem 1.11111rem;
+```

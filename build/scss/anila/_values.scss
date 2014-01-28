@@ -1,8 +1,8 @@
-/* 
-=================================
-GENERAL VALUES
-=================================
-*/
+// 
+// =================================
+// GENERAL VALUES
+// =================================
+// 
 
 // rem for all unit
 
@@ -59,11 +59,17 @@ $half-helper-spacing-unit: $helper-spacing-unit/2 !default;
 // MEDIA QUERIES AVAILABLE VARS
 //
 
-$sm-range: (0em, 40em) !default;
-$md-range: (40.063em, 64em) !default;
-$lg-range: (64.063em, 90em) !default;
-$xl-range: (90.063em, 120em) !default;
-$xxl-range: (120.063em) !default;
+//$sm-range: (0em, 40em) !default;
+//$md-range: (40.063em, 64em) !default;
+//$lg-range: (64.063em, 90em) !default;
+//$xl-range: (90.063em, 120em) !default;
+//$xxl-range: (120.063em) !default;
+
+$sm-range: (0, 640px) !default;
+$md-range: (641px, 1024px) !default;
+$lg-range: (1025px, 1440px) !default;
+$xl-range: (1441px, 1920px) !default;
+$xxl-range: (1921px) !default;
 
 $screen: "only screen" !default;
 
@@ -141,18 +147,20 @@ $info-color: #a0d3e8 !default;
 
 // experimental
 // adding a theme and color for easy update for all components without touching every single variable
-$theme-list:  flat,
-              pretty,
-              shiny,
-              bordered
+$theme-list:  flat, // shadowless, gradientless, and simple.
+              pretty, // gradient, more pumping.
+              shiny, // elegant with gradient
+              bordered // simple with border
               !default;
+              // choose wisely, it will kill your user if you load it all.
 
-$color-list:  "primary" $primary-color,
-              "secondary" $secondary-color,
-              "tertiary" $tertiary-color,
-              "quaternary" $quaternary-color,
-              "quinary" $quinary-color
+$color-list:  "primary" $primary-color, // default color
+              "secondary" $secondary-color, // you will have minimum 2 colors, so fill it.
+              "tertiary" $tertiary-color, // optional
+              "quaternary" $quaternary-color, // optional
+              "quinary" $quinary-color // optional
               !default;
+              // choose wisely, it will kill your user if you load it all.
 
 
 // We use this to control whether or not CSS classes come through in the gem files.
@@ -171,11 +179,11 @@ $cursor-help-value: help !default;
 $cursor-text-value: text !default;
 
 
-/* 
-=================================
-COMPONENT VALUES
-=================================
-*/
+//  
+// =================================
+// COMPONENT VALUES
+// =================================
+// 
 
 //
 // BUTTON AVAILABLE VARS

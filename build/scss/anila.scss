@@ -23,11 +23,11 @@
  *
  */
 
-/*
-================================================
-GENERAL
-================================================
-*/
+// 
+// ================================================
+// GENERAL
+// ================================================
+// 
 
 @import "anila/conditional";
 @import "anila/general/functions";
@@ -39,64 +39,64 @@ GENERAL
 @import "anila/general/debug";
 
 
-/* extensions */
+// extensions
 @import "anila/extensions/yiq-color-contrast";
 @import "anila/extensions/photoshop-gradient-overlay";
 
-/* alerts */
+// alerts
 @import "anila/alerts/logic";
 
-/* buttons */
+// buttons
 @import "anila/buttons/logic";
 
-/* buttons */
+// buttons
 @import "anila/split-button/logic";
 
-/* breadcrumbs */
+// breadcrumbs
 @import "anila/breadcrumbs/logic";
 
-/* button group */
+// button group
 @import "anila/button-group/logic";
 
-/* codes */
+// codes
 @import "anila/codes/logic";
 
-/* fonts */
+// fonts
 @import "anila/fonts/anila";
 
-/* forms */
+// forms
 @import "anila/forms/logic";
 
-/* grids */
+// grids
 @import "anila/grids/logic";
 
-/* labels */
+// labels
 @import "anila/labels/logic";
 
-/* media */
+// media
 @import "anila/media/logic";
 
-/* navs */
+// navs
 @import "anila/navs/logic";
 
-/* tables */
+// tables
 @import "anila/tables/logic";
 
-/* typography */
+// typography
 @import "anila/typography/logic";
 
-/* typography */
+// inline-list
 @import "anila/inline-list/logic";
 
-/* wells */
+// wells
 @import "anila/boxy/logic";
 
-/* media */
+// media
 @import "anila/media/logic";
 
-/* pagination */
+// pagination
 @import "anila/pagination/logic";
 
 
-/* helper */
+// helper
 @import "anila/general/helper";

@@ -13,7 +13,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 
-  <title>{{#if title}}{{title}} | {{/if}}Anila Docs</title>
+  <title>{{#if title}}{{title}} | {{/if}}Anila Photoshop Docs</title>
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway:400,100,700" />
   <link rel="icon" href="{{assets}}/img/icons/favicon.ico" type="image/x-icon">
   <!-- For third-generation iPad with high-resolution Retina display: -->
@@ -68,6 +68,7 @@
 </head>
 
 <body>
+
 	
 	<div class="container">
 		
@@ -77,11 +78,13 @@
             
             <div class="lg-3 md-4 sm-12 col">
               <div class="hide-sm">
-              {{> sidebar}}
+              {{> sidebar-photoshop}}
               </div>
             </div>
 
             <div class="lg-9 md-8 sm-12 col">
+              {{> header}}
+
               {{#markdown}}
               {{> body}}
               {{/markdown}}

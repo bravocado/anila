@@ -1,0 +1,35 @@
+---
+title: Breakpoint
+layout: build/doc/layouts/sass.html
+---
+
+
+***
+
+# Breakpoint
+
+***
+
+See our available values :
+
+```scss
+$sm-range: (0, 640px) !default;
+$md-range: (641px, 1024px) !default;
+$lg-range: (1025px, 1440px) !default;
+$xl-range: (1441px, 1920px) !default;
+$xxl-range: (1921px) !default;
+```
+<br>
+- Small range for mobile-only.
+- Medium range for tablet-only.
+- Large range for a laptop or a standard desktop screen size.
+- Extra large for a bigger desktop screen size.
+- Extra extra large for a screen size more than an usual desktop screen size.
+
+<br><br>
+We also cover for landscape and potrait media queries.
+
+```scss
+$landscape: "#{$screen} and (orientation: landscape)" !default;
+$portrait: "#{$screen} and (orientation: portrait)" !default;
+```
