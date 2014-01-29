@@ -31,7 +31,7 @@ module.exports = function(grunt) {
           flatten: false,
           assets: 'dist/docs/assets',
           data: ['build/doc/data/*.json'],
-          partials: ['build/doc/includes/**/*.{html,scss}'],
+          partials: ['build/doc/includes/**/**/*.{html,scss}'],
           helpers: ['build/doc/helpers/*.js'],
           layout: 'build/doc/layouts/default.html'
         },
@@ -39,6 +39,45 @@ module.exports = function(grunt) {
         cwd: 'build/doc/pages',
         src: '**/*.{html,md}',
         dest: 'dist/docs/'
+      },
+      sass: {
+        options: {
+          flatten: false,
+          assets: 'dist/docs/assets',
+          data: ['build/doc/data/*.json'],
+          partials: ['build/doc/includes/sass/**/*.{html,scss}'],
+          helpers: ['build/doc/helpers/*js']
+        },
+        expand: true,
+        cwd: 'build/doc/pages/sass',
+        src: '**/*.{html,md}',
+        dest: 'dist/docs/sass'
+      },
+      css: {
+        options: {
+          flatten: false,
+          assets: 'dist/docs/assets',
+          data: ['build/doc/data/*.json'],
+          partials: ['build/doc/includes/css/**/*.{html,scss}'],
+          helpers: ['build/doc/helpers/*js']
+        },
+        expand: true,
+        cwd: 'build/doc/pages/css',
+        src: '**/*.{html,md}',
+        dest: 'dist/docs/css'
+      },
+      photoshop: {
+        options: {
+          flatten: false,
+          assets: 'dist/docs/assets',
+          data: ['build/doc/data/*.json'],
+          partials: ['build/doc/includes/photoshop/**/*.{html,scss}'],
+          helpers: ['build/doc/helpers/*js']
+        },
+        expand: true,
+        cwd: 'build/doc/pages/photoshop',
+        src: '**/*.{html,md}',
+        dest: 'dist/docs/photoshop'
       },
       dist_download: {
         options: {
@@ -108,7 +147,7 @@ module.exports = function(grunt) {
           'dist/assets/js/anila.min.js': ['<%= anila.js %>'],
           'dist/assets/js/legacy.min.js': ['build/js/vendor/legacy.js'],
           'dist/assets/js/iconfont-fallback.min.js': ['build/js/vendor/iconfont-fallback.js'],
-          'dist/docs/assets/js/all.min.js': ['<%= anila.js %>', 'build/doc/assets/js/docs.js']
+          'dist/docs/assets/js/all.min.js': ['<%= anila.js %>', 'build/doc/assets/js/docs.js', 'build/doc/assets/js/prism.js']
         }
       }
     },
@@ -189,6 +228,21 @@ module.exports = function(grunt) {
       dist_docs_pages: {
         files: ['build/doc/pages/**/*.html'],
         tasks: ['newer:assemble'],
+        options: {livereload:true}
+      },
+      dist_sass_docs: {
+        files: ['build/doc/{includes,layouts}/sass/**/*.html'],
+        tasks: ['assemble:sass'],
+        options: {livereload:true}
+      },
+      dist_css_docs: {
+        files: ['build/doc/{includes,layouts}/css/**/*.html'],
+        tasks: ['assemble:css'],
+        options: {livereload:true}
+      },
+      dist_photoshop_docs: {
+        files: ['build/doc/{includes,layouts}/photoshop/**/*.html'],
+        tasks: ['assemble:photoshop'],
         options: {livereload:true}
       },
       dist_download: {

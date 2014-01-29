@@ -3,6 +3,8 @@ title: Grid
 layout: build/doc/layouts/sass.html
 ---
 
+***
+
 # Grid
 
 <h3 class="subheader">Create powerful multi-device layouts quickly and easily with the default 12-column, nest-able from Foundation grid. If you're familiar with grid systems, you'll feel right at home. If not, you'll learn quickly.</h3>
@@ -13,15 +15,15 @@ layout: build/doc/layouts/sass.html
 
 Start by adding an element with a class of `row`. This will create a horizontal block to contain vertical columns. Then add divs with a `col` class within that row. You will notice the naming rules isn't same like Foundation, i've combined it with Bootstrap naming rules because really familiar to use and more simple. Don't forget to specify the widths of each column with the sm-#, md-#, and lg-# classes.
 
-**Foundation is mobile-first**. Code for small screens first, and larger devices will inherit those styles. Customize for larger screens as necessary.
+Code for small screens first, and larger devices will inherit those styles. Customize for larger screens as necessary.
 
 <h4>HTML</h4>
 
-{{> examples_grid_basic}}
+{{> examples-grid-basic}}
 
-<h4>Rendered HTML</h4>
+<h4 class="push-top">Rendered HTML</h4>
 
-{{> examples_grid_rendered}}
+{{> examples-grid-rendered}}
 
 
 ***
@@ -31,11 +33,11 @@ Small grids expand to large screens easier than large grids cram into small scre
 
 <h4>HTML</h4>
 
-{{> examples_grid_small}}
+{{> examples-grid-small}}
 
-<h4>Rendered HTML</h4>
+<h4 class="push-top">Rendered HTML</h4>
 
-{{> examples_grid_small_rendered}}
+{{> examples-grid-small-rendered}}
 
 ***
 
@@ -43,11 +45,11 @@ Small grids expand to large screens easier than large grids cram into small scre
 
 Medium sized screens will inherit styles from small, unless you specify a different layout, using the medium grid classes.
 
-{{> examples_grid_medium}}
+{{> examples-grid-medium}}
 
-<h4>Rendered HTML</h4>
+<h4 class="push-top">Rendered HTML</h4>
 
-{{> examples_grid_medium_rendered}}
+{{> examples-grid-medium-rendered}}
 
 ***
 
@@ -57,11 +59,11 @@ You can nest the grids indefinitely, though at a certain point it will get absur
 
 <h4>HTML</h4>
 
-{{> examples_grid_nested}}
+{{> examples-grid-nested}}
 
 <h4>Rendered HTML</h4>
 
-{{> examples_grid_nested_rendered}}
+{{> examples-grid-nested-rendered}}
 
 ***
 
@@ -71,11 +73,11 @@ Move blocks up to 11 columns to the right by using classes like `.lg-offset-1` a
 
 <h4>HTML</h4>
 
-{{> examples_grid_offsets}}
+{{> examples-grid-offsets}}
 
-<h4>Rendered HTML</h4>
+<h4 class="push-top">Rendered HTML</h4>
 
-{{> examples_grid_offsets_rendered}}
+{{> examples-grid-offsets-rendered}}
 
 ***
 
@@ -85,11 +87,11 @@ Center your columns by adding a class of `sm-centered` to your `column`. Large w
 
 <h4>HTML</h4>
 
-{{> examples_grid_centered}}
+{{> examples-grid-centered}}
 
-<h4>Rendered HTML</h4>
+<h4 class="push-top">Rendered HTML</h4>
 
-{{> examples_grid_centered_rendered}}
+{{> examples-grid-centered-rendered}}
 
 ***
 
@@ -99,11 +101,11 @@ Using these source ordering classes, you can shift columns around between our br
 
 <h4>HTML</h4>
 
-{{> examples_grid_source}}
+{{> examples-grid-source}}
 
-<h4>Rendered HTML</h4>
+<h4 class="push-top">Rendered HTML</h4>
 
-{{> examples_grid_source_rendered}}
+{{> examples-grid-source-rendered}}
 
 ***
 
@@ -113,7 +115,7 @@ Customizing the grid is easy with the Sass variables provided in the `_settings.
 
 <h4>SCSS</h4>
 
-{{> examples_grid_variables}}
+{{> examples-grid-variables}}
 
 <h3>Basic</h3>
 
@@ -135,7 +137,7 @@ You can use the `grid-row()` and `grid-column()` mixins to create your own rows 
   </div>
   <div class="lg-6 col">
     <h4>HTML</h4>
-{{> examples_grid_row_mixin}}
+{{> examples-grid-row-mixin}}
   </div>
 </div>
 
@@ -147,13 +149,13 @@ You can further customize your grid columns using the provided options in the `g
 
 <h4>SCSS</h4>
 
-{{> examples_grid_row_options}}
+{{> examples-grid-row-options}}
 
 ##### Column Mixin Options
 
 <h4>SCSS</h4>
 
-{{> examples_grid_column_mixin}}
+{{> examples-grid-column-mixin}}
 
 ***
 

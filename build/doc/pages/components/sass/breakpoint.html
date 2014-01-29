@@ -8,10 +8,14 @@ layout: build/doc/layouts/sass.html
 
 # Breakpoint
 
+<h3 class="subheader">If you wondering to create your own stylesheet for every devices, we cover several breakpoints. You can use it on your media queries.</h3>
+
 ***
 
-See our available values :
+<h5>A default range. And you may change it as a custom value.</h5>
 
+<div class="col md-6">
+{{#markdown}}	
 ```scss
 $sm-range: (0, 640px) !default;
 $md-range: (641px, 1024px) !default;
@@ -19,17 +23,39 @@ $lg-range: (1025px, 1440px) !default;
 $xl-range: (1441px, 1920px) !default;
 $xxl-range: (1921px) !default;
 ```
-<br>
-- Small range for mobile-only.
-- Medium range for tablet-only.
-- Large range for a laptop or a standard desktop screen size.
-- Extra large for a bigger desktop screen size.
-- Extra extra large for a screen size more than an usual desktop screen size.
+{{/markdown}}
+</div>
+<div class="col md-6">
+	<ul>
+		<li>Small range for mobile-only.</li>
+		<li>Medium range for tablet-only.</li>
+		<li>Large range for a laptop or a standard desktop screen size.</li>
+		<li>Extra large for a bigger desktop screen size.</li>
+		<li>Extra extra large for a screen size more than an usual desktop screen size.</li>
+	</ul>
+</div>
 
-<br><br>
-We also cover for landscape and potrait media queries.
 
+<div class="col sm-12 push-bottom">
+<h5>We also cover for landscape and potrait media queries.</h5>
+{{#markdown}}
 ```scss
 $landscape: "#{$screen} and (orientation: landscape)" !default;
 $portrait: "#{$screen} and (orientation: portrait)" !default;
 ```
+{{/markdown}}
+</div>
+
+***
+
+<h4>How to use it as your media queries?</h4>
+<div class="col md-12">
+<h5>SCSS :</h5>	
+{{#markdown}}
+```scss
+@media #($sm-only) {
+	@content;
+}
+```
+{{/markdown}}
+</div>

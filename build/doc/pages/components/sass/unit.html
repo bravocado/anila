@@ -7,28 +7,72 @@ layout: build/doc/layouts/sass.html
 
 # Units
 
-We are using REM as a default. But if you want to support IE8 and add a fallback, you can set a rem fallback in conditional.scss:
+<h3 class="subheader">We cover 2 units. px and rem. But it's your choice. If you won't support IE8, dont set $rem-fallback to false. You will get the rem without px for fallback. And of course it will reduce the file size too.</h3>
 
+***
+
+<div class="col sm-12 push-bottom">
+{{#markdown}}
+**Mixin :**
 ```scss
-$rem-fallback: true !default;
+@mixin unit($property, $values...) {
+  $max: length($values);
+  $pxValues: ();
+  $remValues: ();
+
+  @for $i from 1 through $max {
+    $pxValues: px-calc(nth($values, $i));
+    @if $i == $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $remValues: rem-calc(nth($values, $i));
+    @if $i == $max {
+      $remValues: #{$remValues + " "};
+    }
+  } 
+
+  @if $rem-fallback == true {
+    #{$property}: $pxValues; 
+  }
+  #{$property}: $remValues; 
+
+}
+
 ```
+{{/markdown}}
+</div>
 
-<br>
-If you're thinking about using our unit mixin, we also cover it! Simply :
+***
 
+<h4 class="subheader">
+You can simply use our mixin to your CSS property. Here is the example :	
+</h4>
+
+<div class="col md-6">
+{{#markdown}}
+**SCSS :**
 ```scss
-@include unit($property, $value...);
+.your-class {
+	@include unit(padding, 0px 10px);
+}
 ```
-<br>
-SCSS :
+{{/markdown}}
+</div>
 
-```scss
-@include unit(padding, 0px 10px);
-```
+<div class="col md-6">
 
-<br>
-CSS :
+{{#markdown}}
+**CSS :**
 ```css
-padding: 5px 20px;
-padding: 0.27778rem 1.11111rem;
+.your-class {
+	padding: 5px 20px;
+	padding: 0.27778rem 1.11111rem;
+}
+
 ```
+{{/markdown}}
+</div>
+

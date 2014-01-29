@@ -3,6 +3,75 @@ title: Block Grid
 layout: build/doc/layouts/sass.html
 ---
 
+***
+
 # Block Grid
 
+<h4 class="subheader">Block grids give you a way to evenly split contents of a list within the grid. If you wanted to create a row of five images or paragraphs that need to stay evenly spaced no matter the screen size, the block grid is for you.</h4>
+
 ***
+
+<ul class="lg-block-grid-4 sm-block-grid-2">
+	<li><div class="boxy txt-c">block</div></li>
+	<li><div class="boxy txt-c">block</div></li>
+	<li><div class="boxy txt-c">block</div></li>
+	<li><div class="boxy txt-c">block</div></li>
+</ul>
+
+
+***
+
+### Usage
+
+<div class="row">
+	<div class="col sm-12 push-bottom">
+		Use a simple `sm-block-#` class to code up the block grid and specify the number of items in a row.
+	</div>
+	<div class="col md-6">
+{{#markdown}}
+**HTML :**
+```html
+<ul class="md-block-grid-4 sm-block-grid-1">
+	<li>...</li>
+	<li>...</li>
+	<li>...</li>
+	<li>...</li>
+</ul>
+```
+{{/markdown}}
+	</div>
+	<div class="col md-6">
+		<h5><strong>Rendered :</strong></h5>
+		<ul class="md-block-grid-4 sm-block-grid-1">
+			<li><div class="boxy sm txt-c">block</div></li>
+			<li><div class="boxy sm txt-c">block</div></li>
+			<li><div class="boxy sm txt-c">block</div></li>
+			<li><div class="boxy sm txt-c">block</div></li>
+		</ul>
+	</div>
+	<div class="col sm-12 push-top">
+		<p>If you use the `sm-block-grid` only, the grid will keep its spacing and configuration no matter the screen size. If you use `lg-block-grid` only, the list items will stack on top of each other for small devices. If you use both of those classes combined, you can control the configuration and layout separately for each breakpoint.</p>
+	</div>
+</div>
+
+***
+
+### Customize with SASS
+
+Block grids can be easily customized with the Sass variables provided in the _settings.scss file.
+
+<div class="row">
+	<div class="col sm-12">
+{{#markdown}}
+**SCSS :**
+```scss
+// We use this to control the maximum blocks and spacing 
+$block-grid-elements: 12;
+$block-grid-default-spacing: rem-calc(20);
+
+// Enables media queries for block-grid classes. Set to false if writing semantic HTML.
+$block-grid-media-queries: true;
+```
+{{/markdown}}
+	</div>
+</div>
