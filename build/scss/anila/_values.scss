@@ -6,7 +6,7 @@
 
 // rem for all unit
 
-$rem-base: 16px !default;
+$rem-base: 17px !default;
 
 
 //
@@ -65,7 +65,7 @@ $half-helper-spacing-unit: $helper-spacing-unit/2 !default;
 //$xl-range: (90.063em, 120em) !default;
 //$xxl-range: (120.063em) !default;
 
-$sm-range: (0, 640px) !default;
+$sm-range: (0px, 640px) !default;
 $md-range: (641px, 1024px) !default;
 $lg-range: (1025px, 1440px) !default;
 $xl-range: (1441px, 1920px) !default;
@@ -92,13 +92,17 @@ $xxl-up: "#{$screen} and (min-width:#{lower-bound($xxl-range)})" !default;
 $xxl-only: "#{$screen} and (min-width:#{lower-bound($xxl-range)}) and (max-width:#{upper-bound($xxl-range)})" !default;
 
 // Legacy
-$small: $md-up;
+$small: $sm-up;
 $medium: $md-up;
 $large: $lg-up;
 
 // Responsive Mixins
 // experiment 1. SASS Map issue.
 @mixin media-query($media) {
+  @if $media == sm {
+    @media #{$sm-up} { @content; }
+  }
+  
   @if $media == md {
   	@media #{$md-up} { @content; }
   }
