@@ -76,16 +76,14 @@ $use-label: true !default;
   @include label-style($bg, $radius);
 }
 
-@include exports("label") {
-  @if $use-label {
-    .label {
-      @include label-base;
-      @include label-size;
-      @include label-style;
-			
-      &.radius { @include label-style(false, true); }
-      &.round { @include label-style(false, $radius:1000px); }
+@if $use-label {
+  .label {
+    @include label-base;
+    @include label-size;
+    @include label-style;
+		
+    &.radius { @include label-style(false, true); }
+    &.round { @include label-style(false, $radius:1000px); }
 
-    }
   }
 }

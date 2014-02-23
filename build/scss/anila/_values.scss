@@ -148,21 +148,21 @@ $alert-color: #f04124 !default;
 $success-color: #43AC6A !default;
 $warning-color: #f08a24 !default;
 $info-color: #a0d3e8 !default;
+$unavailable-color: #555 !default;
 
 // experimental
 // adding a theme and color for easy update for all components without touching every single variable
-$theme-list:  flat, // shadowless, gradientless, and simple.
-              pretty, // gradient, more pumping.
+$theme-list:  pretty, // gradient, more pumping.
               shiny, // elegant with gradient
               bordered // simple with border
               !default;
               // choose wisely, it will kill your user if you load it all.
 
-$color-list:  "primary" $primary-color, // default color
-              "secondary" $secondary-color, // you will have minimum 2 colors, so fill it.
-              "tertiary" $tertiary-color, // optional
-              "quaternary" $quaternary-color, // optional
-              "quinary" $quinary-color // optional
+$color-list:  primary $primary-color, // default color
+              secondary $secondary-color, // you will have minimum 2 colors, so fill it.
+              tertiary $tertiary-color, // optional
+              quaternary $quaternary-color, // optional
+              quinary $quinary-color // optional
               !default;
               // choose wisely, it will kill your user if you load it all.
 

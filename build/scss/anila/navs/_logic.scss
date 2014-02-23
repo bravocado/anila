@@ -41,8 +41,6 @@
   }
 }
 
-@include exports("side-nav") {
-	@if $use-side-nav !=false {
-    .side-nav { @include side-nav; }
-  }
+@if $use-side-nav !=false {
+  .side-nav { @include side-nav; }
 }

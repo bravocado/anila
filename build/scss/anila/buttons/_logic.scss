@@ -1,7 +1,9 @@
 @import "vars";
 
-@mixin button-base($display:$button-display) {
-  display: $button-display;
+// for easier reading unminified css
+
+@mixin button-base($display: $button-display) {
+  display: $display;
   margin-bottom: 0; // For input.btn
   font-weight: $button-font-weight;
   text-align: center;
@@ -35,7 +37,7 @@
     @else if $padding == $button-tn { @include unit(font-size, $button-font-tn); }
     @else if $padding == $button-sm { @include unit(font-size, $button-font-sm); }
     @else if $padding == $button-lg { @include unit(font-size, $button-font-lg); }
-/*     @else                            { font-size: $padding - rem-calc(2); } */
+//  @else { font-size: $padding - rem-calc(2); }
   }
 
   // We can set $full-width:true to remove side padding extend width.
@@ -56,7 +58,7 @@
   }
 
   // <input>'s and <button>'s take on strange padding. We added this to help fix that.
-  @if $is-input == $button-lg {
+  @else if $is-input == $button-lg {
     //padding-top: $is-input + rem-calc(.5);
     //padding-bottom: $is-input + rem-calc(.5);
     @include unit(padding-top, $is-input);
@@ -77,175 +79,38 @@
 
 }
 
-@mixin button-shape($shape: hard) {
-  // shape
-  @if $shape == hard {
+@mixin button-shape {
+  &.hard {
     @include vendor(border-radius, 0px);
   }
-  @if $shape == soft {
+  &.soft {
     @include vendor(border-radius, $button-radius-base);
   }
-  @if $shape == extra-soft {
+  &.extra-soft {
     @include vendor(border-radius, $button-radius-large);
   }
-  @if $shape == round {
+  &.round {
     @include vendor(border-radius, $button-round);
-  }
-}
-
-
-@mixin anila-button($btn-color: $primary-color, $style: flat, $gradient-type: overlay, $shape: no-radius) {
-  // base color adjust
-  $color-type: if(yiq-contrast-color($btn-color, #000, #fff) == #000, "light", "dark");
-  $color-adjust: if($color-type == "light", 5, -5);
-  $gradient-color: photoshop-gradient-overlay($btn-color, $gradient-type, 50%, 90deg);
-  
-  //text shadow color adjust
-  $text-shadow-adjust: if($color-type == "light", 20, -20);
-  $text-shadow: adjust-color($btn-color, $lightness: $text-shadow-adjust);
-
-  // shadow color normal adjust
-  $shadow-color: yiq-contrast-color($btn-color, #fff, #000);
-
-  // hover color adjust
-  $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
-
-  // active state adjust
-  $active-color-adjust: if($color-type == "light", 10, -10);
-  $active-color: adjust-color($btn-color, $lightness: $active-color-adjust);
-
-  @if $style == flat {
-    @include yiq-contrasted($btn-color);
-    @include single-transition(background-color, 400ms, ease-in-out);
-    &:hover {
-      background-color: $hover-color;
-    }
-    &:active {
-      background-color: $active-color;
-    }
-  }
-  @if $style == pretty {
-    @include background-image($gradient-color);
-    @include yiq-contrasted($btn-color);
-    border: 1px solid $btn-color;
-    @include vendor(box-shadow, inset 0 0 5px rgba($shadow-color, .5));
-    @include vendor(text-shadow, -1px 1px 1px rgba($text-shadow, .8));
-    @include single-transition(background-color, 200ms, ease-in-out);
-    &:hover {
-      background-color: $hover-color;
-    }
-    &:active {
-      @include vendor(box-shadow, inset 0 2px 6px rgba(0, 0, 0, .3));
-      background-color: $active-color;
-    }
-  }
-  @if $style == shiny {
-    $gradient-color:  photoshop-gradient-overlay($btn-color, normal, 100%, -90deg, 100%, (adjust-color($btn-color, $lightness: 10) 0%, adjust-color($btn-color, $lightness: 10) 50%, $btn-color 50%, $btn-color 100%));
-    @include background-image($gradient-color);
-    @include yiq-contrasted($btn-color);
-    border: 1px solid adjust-color($btn-color, $lightness: 10);
-    @include vendor(box-shadow, inset 0 3px 5px rgba(255, 255, 255, .5));
-    @include vendor(text-shadow, 2px 0 2px rgba($text-shadow, .9));
-    @include single-transition(background-color, 400ms, ease-in-out);
-    &:hover {
-      $color-adjust: if($color-type == "dark", 2, -2);
-      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
-      $gradient-color: photoshop-gradient-overlay($hover-color, normal, 100%, -90deg, 100%, (adjust-color($hover-color, $lightness: 10) 0%, adjust-color($hover-color, $lightness: 10) 50%, $hover-color 50%, $hover-color 100%));
-      @include background-image($gradient-color);
-      background-color: $hover-color;
-    }
-    &:active {
-      $color-adjust: if($color-type == "dark", 5, -5);
-      $hover-color: adjust-color($btn-color, $lightness: $color-adjust);
-      $gradient-color: photoshop-gradient-overlay($hover-color, normal, 100%, -90deg, 100%, (adjust-color($hover-color, $lightness: 10) 0%, adjust-color($hover-color, $lightness: 10) 50%, $hover-color 50%, $hover-color 100%));
-      @include background-image($gradient-color);
-      background-color: $hover-color;
-    }
-  }
-  @if $style == bordered {
-    @include yiq-contrasted(rgba(255, 255, 255, 0));
-    @include single-transition(border-color, 400ms, ease-in-out);
-    border: 3px solid $btn-color;
-    &:hover, &:focus {
-      border: 3px solid $hover-color;
-    }
-    &:active {
-      border: 3px solid $active-color;
-    }
-  }
-
-  // shape
-  @if $shape == base-radius {
-    @include vendor(border-radius, $button-radius-base);
-  }
-  @if $shape == small-radius {
-    @include vendor(border-radius, $button-radius-small);
-  }
-  @if $shape == large-radius {
-    @include vendor(border-radius, $button-radius-large);
-  }
-  @if $shape == round {
-    @include vendor(border-radius, $button-round);
-  }
-}
-
-button.btn {
-  border: 0;
-  &:focus {
-    outline: none;
   }
 }
 
 // experimental
-
 // creating a class with predefined colors and class
-@mixin button-precomposed($btn-color: $button-color-list, $btn-style: $button-style-list, $gradient-type: overlay, $btn-shape: $button-shape-list, $btn-size: $button-size-list) {
+@mixin button-precomposed($btn-shape: $button-shape-list, $btn-size: $button-size-list) {
   
   .#{$base-button-class} {
-    @include button-base($display: inline-block);
+    @include button-base;
     // box-sizing
     @include box-sizing(border-box);
 
     // size
     @include button-size($button-md, false, false);
+
     // creating a colors and classes
-    @each $bc in $btn-color {
-      &.#{nth($bc, 1)} {
-        @include yiq-contrasted(nth($bc, 2));
-        @include single-transition(background-color, 200ms, ease-in-out);
-        // creating style based on list
-        &:hover {
-          $hover-color: darken(nth($bc, 2), 5%);
-          background-color: $hover-color;
-        }
-        &:active {
-          $active-color: darken(nth($bc, 2), 10%);
-          background-color: $active-color;
-        }
-        @each $bs in $btn-style {
-          &.#{nth($bs, 1)} {
-            // flat design
-            @if #{nth($bs, 1)} == flat {
-              @include anila-button($btn-color: nth($bc, 2), $style: flat);
-            }
-            // pretty design
-            @if #{nth($bs, 1)} == pretty {
-              @include anila-button($btn-color: nth($bc, 2), $style: pretty, $gradient-type: overlay);
-            }
-            // shiny design
-            @if #{nth($bs, 1)} == shiny {
-              @include anila-button($btn-color: nth($bc, 2), $style: shiny, $gradient-type: normal);
-           }
-             // bordered design
-            @if #{nth($bs, 1)} == bordered {
-              @include anila-button($btn-color: nth($bc, 2), $style: bordered, $gradient-type: normal);
-            }
-          }
-        }
-      }
-      // end creating style
-    }
-    // end creating colors
+    @include color-setup;
+    
+    // creating a theme
+    @include compose-theme($hover: true, $transition: true, $button: true);
 
     // creating sizes
     @each $bz in $btn-size {
@@ -259,37 +124,29 @@ button.btn {
       display: block;
     }
     //sizes
-
-    // creating shapes
-    @each $bp in $btn-shape {
-      @if #{nth($bp, 1)} == hard {
-        &.hard {
-          @include button-shape(hard);
-        }
-      }
-      @if #{nth($bp, 1)} == soft {
-        &.soft {
-          @include button-shape(soft);
-        }
-      }
-      @if #{nth($bp, 1)} == extra-soft {
-        &.extra-soft {
-          @include button-shape(extra-soft);
-        }
-      }
-      @if #{nth($bp, 1)} == round {
-        &.round {
-          @include button-shape(round);
-        }
-      }
-    }
-    // end chreating shape
+    
+    // shape
+    @include button-shape;
 
   }
   // end each base button base
 }
 // end mixin precomposed
+@if $use-buttons {
 
-@if $use-button-precomposed  == true {
-  @include button-precomposed;
+    button.btn {
+      border: 0;
+      &:focus {
+        outline: none;
+      }
+    }
+  @if $use-button-precomposed {
+  /*
+  ==========================================================================
+   BUTTONS
+  ==========================================================================
+  */
+    @include button-precomposed;
+  }
 }
+

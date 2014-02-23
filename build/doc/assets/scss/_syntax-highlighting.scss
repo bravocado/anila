@@ -234,3 +234,11 @@ pre.line-numbers > code {
     }
   }
 }
+
+.language-bash {
+  .code-wrapper {
+    background: #272822;
+    @include unit(padding, 15);
+    overflow: auto;
+  }
+}

@@ -9,3 +9,5 @@ note: This is a heavy starter. Please set your conditional and values so it's fi
 #### Dependecies
 
 - SASS [SASS documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
+- Libsass
+- Node

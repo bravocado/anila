@@ -1,5 +1,4 @@
 @import "vars";
-@import "../buttons/logic";
 
 //
 // Button Group Variables
@@ -83,36 +82,34 @@ $button-group-border-width: 1px !default;
 
 }
 
-@include exports("btn-group") {
-  @if $use-button-group == true {
-    .btn-group { @include button-group-container;
-      
-      &> * {
-        @include button-group-style();
-      }
-
-      &.soft > * { @include button-group-style($radius:$button-radius-base, $float:null); }
-      &.extra-soft > * { @include button-group-style($radius:$button-radius-large, $float:null); }
-      &.round > * { @include button-group-style($radius:$button-round, $float:null); }
-      
-      &.tn > * > .btn {
-        @include button-size($button-tn, false, false);
-      }
-      &.sm > * > .btn {
-        @include button-size($button-sm, false, false);
-      }
-      &.lg > * > .btn {
-        @include button-size($button-lg, false, false);
-      }
-
-      @for $i from 2 through 8 {
-        &.even#{-$i} li { @include button-group-style($even:$i, $float:null); }
-      }
+@if $use-button-group == true {
+  .btn-group { @include button-group-container;
+    
+    &> * {
+      @include button-group-style();
     }
 
-    .btn-bar {
-      @include clearfix;
-      .btn-group { @include button-group-container($styles:false,$float:true); }
+    &.soft > * { @include button-group-style($radius:$button-radius-base, $float:null); }
+    &.extra-soft > * { @include button-group-style($radius:$button-radius-large, $float:null); }
+    &.round > * { @include button-group-style($radius:$button-round, $float:null); }
+    
+    &.tn > * > .btn {
+      @include button-size($button-tn, false, false);
     }
+    &.sm > * > .btn {
+      @include button-size($button-sm, false, false);
+    }
+    &.lg > * > .btn {
+      @include button-size($button-lg, false, false);
+    }
+
+    @for $i from 2 through 8 {
+      &.even#{-$i} li { @include button-group-style($even:$i, $float:null); }
+    }
+  }
+
+  .btn-bar {
+    @include clearfix;
+    .btn-group { @include button-group-container($styles:false,$float:true); }
   }
 }

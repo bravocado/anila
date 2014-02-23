@@ -187,51 +187,49 @@ FOUNDATION GRID MIXIN
   }
 }
 
-@include exports("grid") {
-  @if $use-grid != false {
-    .row {
-      @include grid-row;
+@if $use-grid != false {
+  .row {
+    @include grid-row;
 
-      &.collapse {
-         > .col { @include grid-column($collapse:true); }
+    &.collapse {
+       > .col { @include grid-column($collapse:true); }
 
-        .row {margin-left:0; margin-right:0;}
-      }
-
-      .row { @include grid-row($behavior:nest);
-        &.collapse { @include grid-row($behavior:nest-collapse); }
-      }
+      .row {margin-left:0; margin-right:0;}
     }
 
-    .col { @include grid-column($columns:$total-columns); }
-
-    @include media-query($media:sm) {
-      @include grid-html-classes($size:sm);
+    .row { @include grid-row($behavior:nest);
+      &.collapse { @include grid-row($behavior:nest-collapse); }
     }
+  }
 
-    @include media-query($media:md) {
-      @include grid-html-classes($size:md);
-      // Old push and pull classes
-      @if $use-grid-push-pull == true {
-        @for $i from 1 through $total-columns - 1 {
-          .push#{-$i} {
-            @include grid-column($push:$i, $collapse:null, $float:false);
-          }
-          .pull#{-$i} {
-            @include grid-column($pull:$i, $collapse:null, $float:false);
-          }
+  .col { @include grid-column($columns:$total-columns); }
+
+  @include media-query($media:sm) {
+    @include grid-html-classes($size:sm);
+  }
+
+  @include media-query($media:md) {
+    @include grid-html-classes($size:md);
+    // Old push and pull classes
+    @if $use-grid-push-pull == true {
+      @for $i from 1 through $total-columns - 1 {
+        .push#{-$i} {
+          @include grid-column($push:$i, $collapse:null, $float:false);
+        }
+        .pull#{-$i} {
+          @include grid-column($pull:$i, $collapse:null, $float:false);
         }
       }
     }
-    @include media-query($media:lg) {
-      @include grid-html-classes($size:lg);
-    }
-    @include media-query($media:xl) {
-      @include grid-html-classes($size:xl);
-    }
-    @include media-query($media:xxl) {
-      @include grid-html-classes($size:xxl);
-    }
+  }
+  @include media-query($media:lg) {
+    @include grid-html-classes($size:lg);
+  }
+  @include media-query($media:xl) {
+    @include grid-html-classes($size:xl);
+  }
+  @include media-query($media:xxl) {
+    @include grid-html-classes($size:xxl);
   }
 }
 
@@ -286,21 +284,18 @@ FOUNDATION GRID MIXIN
   }
 }
 
-@include exports("block-grid") {
-  @if $include-block-grid {
-    
-    [class*="block-grid-"] { @include block-grid; }
+@if $include-block-grid {
+  [class*="block-grid-"] { @include block-grid; }
 
-    @media #{$sm-up} {
-      @include block-grid-html-classes($size:sm);
-    }
+  @media #{$sm-up} {
+    @include block-grid-html-classes($size:sm);
+  }
 
-    @media #{$md-up} {
-      @include block-grid-html-classes($size:md);
-    }
+  @media #{$md-up} {
+    @include block-grid-html-classes($size:md);
+  }
 
-    @media #{$lg-up} {
-      @include block-grid-html-classes($size:lg);
-    }
+  @media #{$lg-up} {
+    @include block-grid-html-classes($size:lg);
   }
 }

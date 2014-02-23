@@ -83,19 +83,35 @@ $crumb-color: $color-list;
 @mixin crumb-color {
   // experimental
   // define colors
-  @each $i in $crumb-color {
-    &.#{nth($i, 1)} {
-      $color-type: if(yiq-contrast-color(nth($i, 2), #000, #fff) == #000, "light", "dark");
+  @each $c in $crumb-color {
+    &.#{nth($c, 1)} {
+      $color-type: if(yiq-contrast-color(nth($c, 2), #000, #fff) == #000, "light", "dark");
       $anchor-color-adjust: if($color-type == "dark", 50, -50);
       $unavailable-color-adjust: if($color-type == "dark", 20, -20);
       $crumb-divider-color-adjust: if($color-type == "light", 20, -20);
       
-      $anchor-color: adjust-color(nth($i, 2), $lightness: $anchor-color-adjust);
-      $unavailable-color: adjust-color(nth($i, 2), $lightness: $unavailable-color-adjust);
-      $crumb-color: adjust-color(nth($i, 2), $lightness: $crumb-divider-color-adjust);
+      $anchor-color: adjust-color(nth($c, 2), $lightness: $anchor-color-adjust);
+      $unavailable-color: adjust-color(nth($c, 2), $lightness: $unavailable-color-adjust);
+      $crumb-color: adjust-color(nth($c, 2), $lightness: $crumb-divider-color-adjust);
 
-      @include yiq-contrasted(nth($i, 2));
-      border-color: darken(nth($i, 2), 10%);
+      @include yiq-contrasted(nth($c, 2));
+      border-color: darken(nth($c, 2), 10%);
+      @each $t in $theme-list {
+        &.#{nth($t, 1)} {
+          // pretty design
+          @if #{nth($t, 1)} == pretty {
+            @include theme-setup($color: nth($c, 2), $theme: pretty, $hover: false, $transition: false, $button: false);
+          }
+          // shiny design
+          @if #{nth($t, 1)} == shiny {
+            @include theme-setup($color: nth($c, 2), $theme: shiny, $hover: false, $transition: false, $button: false);
+         }
+           // bordered design
+          @if #{nth($t, 1)} == bordered {
+            @include theme-setup($color: nth($c, 2), $theme: bordered, $hover: false, $transition: false, $button: false);
+          }
+        }
+      }
       &>* {
         &.current {
             color: inherit;
@@ -130,20 +146,18 @@ $crumb-color: $color-list;
 }
 
 
-@include exports("breadcrumbs") {
-  @if $use-breadcrumbs {
-    .breadcrumbs {
-      @include crumb-container;
-      
-      &.radius {
-        @include radius($crumb-radius);
-      }
-
-      &>* {
-        @include crumbs;
-      }
-
-      @include crumb-color;
+@if $use-breadcrumbs {
+  .breadcrumbs {
+    @include crumb-container;
+    
+    &.radius {
+      @include radius($crumb-radius);
     }
+
+    &>* {
+      @include crumbs;
+    }
+
+    @include crumb-color;
   }
 }
