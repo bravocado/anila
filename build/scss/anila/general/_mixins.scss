@@ -265,6 +265,14 @@
   }
 }
 
+@mixin extra-color-setup($extra-color: $extra-color-list) {
+  @each $ec in $extra-color {
+    &.#{nth($ec, 1)} {
+      @include yiq-contrasted(nth($ec, 2));
+    }
+  }
+}
+
 @mixin theme-setup($color: $primary-color, $theme: flat, $gradient-type: overlay, $hover: false, $transition: false, $button: false) {
   //base color
   $color-type: if(yiq-contrast-color($color, #000, #fff) == #000, "light", "dark");
@@ -359,7 +367,7 @@
   }
 }
 
-@mixin compose-theme($color: $color-list, $theme: $theme-list, $gradient-type: overlay, $hover: false, $transition: false, $button: false) {
+@mixin compose-theme($color: $color-list, $theme: $theme-list, $gradient-type: overlay, $hover: false, $transition: false, $button: false, $extra-color: true) {
   @each $c in $color {
     &.#{nth($c, 1)} {
       @if $hover {
@@ -421,8 +429,75 @@
           }
         }
       }
+      // end each theme in main color
     }
   }
+  // end each main color
+  @each $ec in $extra-color-list {
+    &.#{nth($ec, 1)} {
+      @if $hover {
+        @include theme-setup($color: nth($ec, 2), $hover: true);
+      }
+      @else if $transition {
+        @include theme-setup($color: nth($ec, 2), $hover: true, $transition: true);
+      }
+      @else if $button {
+        @include theme-setup($color: nth($ec, 2), $hover: true, $transition: true, $button: true);
+      }
+      @else {
+        @include theme-setup($color: nth($ec, 2));
+      }
+      @each $t in $theme {
+        &.#{nth($t, 1)} {
+          // pretty design
+          @if #{nth($t, 1)} == pretty {
+            @include theme-setup($color: nth($ec, 2), $theme: pretty, $gradient-type: overlay);
+            @if $hover {
+              @include theme-setup($color: nth($ec, 2), $hover: true);
+            }
+            @else if $transition {
+              @include theme-setup($color: nth($ec, 2), $hover: true, $transition: true);
+            }
+            @else if $button {
+              @include theme-setup($color: nth($ec, 2), $hover: true, $transition: true, $button: true);
+            }
+          }
+          // shiny design
+          @else if #{nth($t, 1)} == shiny {
+            @if $hover {
+              @include theme-setup($color: nth($ec, 2), $theme: shiny, $gradient-type: normal, $hover: true);
+            }
+            @else if $transition {
+              @include theme-setup($color: nth($ec, 2), $theme: shiny, $gradient-type: normal, $hover: true, $transition: true);
+            }
+            @else if $button  {
+              @include theme-setup($color: nth($ec, 2), $theme: shiny, $gradient-type: normal, $hover: true, $transition: true, $button: true);
+            }
+            @else {
+              @include theme-setup($color: nth($ec, 2), $theme: shiny, $gradient-type: normal);
+            }
+          }
+          // bordered design
+          @else if #{nth($t, 1)} == bordered {
+            @if $hover {
+              @include theme-setup($color: nth($ec, 2), $theme: bordered, $hover: true);
+            }
+            @else if $transition {
+              @include theme-setup($color: nth($ec, 2), $theme: bordered, $hover: true, $transition: true);
+            }
+            @else if $button {
+              @include theme-setup($color: nth($ec, 2), $theme: bordered, $hover: true, $transition: true, $button: true);
+            }
+            @else {
+              @include theme-setup($color: nth($ec, 2), $theme: bordered);
+            }
+          }
+        }
+      }
+      // end each theme in extra color
+    }
+  }
+  // end each extra color
 }
 
 // inline-block hack without commenting your HTML

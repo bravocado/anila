@@ -119,8 +119,20 @@
     // creating a colors and classes
     @include color-setup;
     
+    // creating extra color setup
+    @include extra-color-setup;
+
     // creating a theme
-    @include compose-theme($hover: true, $transition: true, $button: true);
+    @include compose-theme($hover: true, $transition: true, $button: true, $extra-color: true);
+    &.bordered {
+      @include button-size($button-md - 3px, false, false);
+    }
+    &.disable {
+      &:hover, &:focus, &:active {
+        background-color: $unavailable-color;
+        cursor: not-allowed;
+      }
+    }
 
     // creating sizes
     @each $bz in $btn-size {
@@ -130,10 +142,11 @@
     }
 
     &.block {
-      width: 100%;
-      display: block;
+      @include button-size($full-width: true, $is-input: true);
+      &.bordered {
+        @include button-size($button-md - 3px, false, false);
+      }
     }
-    //sizes
     
     // shape
     @include button-shape($shape: predefined);
@@ -158,6 +171,7 @@
   ==========================================================================
   */
     @include button-precomposed;
+
   }
 }
 
