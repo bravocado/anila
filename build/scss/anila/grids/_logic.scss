@@ -2,7 +2,8 @@
 
 /*
 ================================================
-FOUNDATION GRID MIXIN
+GRID SYSTEM
+thx to Zurb Foundation
 ================================================
 */
 
@@ -286,15 +287,18 @@ FOUNDATION GRID MIXIN
 
 @if $include-block-grid {
   [class*="block-grid-"] { @include block-grid; }
-
+  
+  /* === SMALL GRID CLASSES === */
   @media #{$sm-up} {
     @include block-grid-html-classes($size:sm);
   }
 
+  /* === MEDIUM GRID CLASSES === */
   @media #{$md-up} {
     @include block-grid-html-classes($size:md);
   }
 
+  /* === LARGE GRID CLASSES === */
   @media #{$lg-up} {
     @include block-grid-html-classes($size:lg);
   }

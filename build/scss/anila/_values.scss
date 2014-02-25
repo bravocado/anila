@@ -166,6 +166,12 @@ $color-list:  primary $primary-color, // default color
               !default;
               // choose wisely, it will kill your user if you load it all.
 
+$extra-color-list:  alert $alert-color,
+                    success $success-color,
+                    warning $warning-color,
+                    info $info-color,
+                    disable $unavailable-color 
+                    !default;
 
 // We use this to control whether or not CSS classes come through in the gem files.
 $include-print-styles: true !default;
@@ -221,7 +227,6 @@ $button-padding-horizontal: 10px !default;
 $base-button-class: btn;
 $button-color-list: $color-list !default;
 $button-style-list: $theme-list !default;
-$button-shape-list: hard, extra-soft, soft, round !default;
 $button-size-list: tn $button-tn, sm $button-sm, md $button-md, lg $button-lg !default;
 
 

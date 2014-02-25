@@ -1,5 +1,11 @@
 @import "vars";
 
+/*
+==========================================================================
+ TABLE
+==========================================================================
+*/
+
 //
 // @mixins
 //
@@ -96,6 +102,13 @@
           }
         }
       }
+      &.stripe {
+        tr {
+          &.even,
+          &.alt,
+          &:nth-of-type(even) { @include yiq-contrasted(rgba(nth($tc, 2), .1)); }
+        }    
+      }
       thead {
         @include yiq-contrasted(nth($tc, 2));
       }
@@ -112,6 +125,13 @@
           // bordered design
           @if #{nth($ts, 1)} == bordered {
             @include anila-table($color: nth($tc, 2), $style: bordered, $gradient-type: normal);
+            thead {
+              tr {
+                th, td {
+                  border-color: nth($tc, 2);
+                }
+              }
+            }
           }
         }
       }

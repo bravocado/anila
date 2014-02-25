@@ -79,24 +79,34 @@
 
 }
 
-@mixin button-shape {
-  &.hard {
-    @include vendor(border-radius, 0px);
-  }
-  &.soft {
+
+@mixin button-shape($shape: soft) {
+  @if $shape == soft {
     @include vendor(border-radius, $button-radius-base);
   }
-  &.extra-soft {
+  @else if $shape == extra-soft {
     @include vendor(border-radius, $button-radius-large);
   }
-  &.round {
+  @else if $shape == round {
     @include vendor(border-radius, $button-round);
+  }
+  @else if $shape == predefined {
+    // predefined
+    &.soft {
+      @include vendor(border-radius, $button-radius-base);
+    }
+    &.extra-soft {
+      @include vendor(border-radius, $button-radius-large);
+    }
+    &.round {
+      @include vendor(border-radius, $button-round);
+    }
   }
 }
 
 // experimental
 // creating a class with predefined colors and class
-@mixin button-precomposed($btn-shape: $button-shape-list, $btn-size: $button-size-list) {
+@mixin button-precomposed($btn-size: $button-size-list) {
   
   .#{$base-button-class} {
     @include button-base;
@@ -126,7 +136,8 @@
     //sizes
     
     // shape
-    @include button-shape;
+    @include button-shape($shape: predefined);
+
 
   }
   // end each base button base

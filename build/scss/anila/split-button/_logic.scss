@@ -1,4 +1,5 @@
 @import "vars";
+@import "../buttons/vars";
 
 // for easier reading unminified css
 /*
@@ -167,16 +168,15 @@
 
 @if $use-split-button {
 	// reset styling when using split-btn on button
-	button.split-btn {
+	button.split-#{$base-button-class} {
 		border: 0;
 		outline: none;
 		padding: 0;
 	}
 
-	.split-btn {
+	.split-#{$base-button-class} {
 		@include split-button-base;
 		@include split-button-size($button-md);
-		@include button-shape;
 
 		// sizes
 		&.lg {
