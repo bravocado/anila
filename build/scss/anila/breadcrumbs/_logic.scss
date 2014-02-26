@@ -90,9 +90,9 @@ $crumb-color: $color-list;
       $unavailable-color-adjust: if($color-type == "dark", 20, -20);
       $crumb-divider-color-adjust: if($color-type == "light", 20, -20);
       
-      $anchor-color: adjust-color(nth($c, 2), $lightness: $anchor-color-adjust);
-      $unavailable-color: adjust-color(nth($c, 2), $lightness: $unavailable-color-adjust);
-      $crumb-color: adjust-color(nth($c, 2), $lightness: $crumb-divider-color-adjust);
+      $anchor-color: adjust-color(nth($c, 2), $lightness: $anchor-color-adjust) !global;
+      $unavailable-color: adjust-color(nth($c, 2), $lightness: $unavailable-color-adjust) !global;
+      $crumb-color: adjust-color(nth($c, 2), $lightness: $crumb-divider-color-adjust) !global;
 
       @include yiq-contrasted(nth($c, 2));
       border-color: darken(nth($c, 2), 10%);

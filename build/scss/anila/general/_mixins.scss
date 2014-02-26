@@ -6,10 +6,11 @@
 // `@include vendor(border-radius, 4px);`
 
 
-@mixin vendor($property, $value...){
+@mixin vendor($property, $value...) {
     -webkit-#{$property}:$value;
+      @if $oldie {
        -moz-#{$property}:$value;
-         -o-#{$property}:$value;
+      }
             #{$property}:$value;
 }
 
@@ -28,6 +29,7 @@
 
 // User select
 // For selecting text on the page
+// we can't use vendor mixin because all browser still need those prefixes
 @mixin user-select($select) {
   -webkit-user-select: $select;
      -moz-user-select: $select;
@@ -56,7 +58,7 @@
     }
   } 
 
-  @if $rem-fallback == true {
+  @if $oldie == true {
     #{$property}: $pxValues; 
   }
   #{$property}: $remValues; 
@@ -75,39 +77,27 @@
   @include vendor(box-sizing, $type);
 }
 
-@mixin radius($radius:$border-radius-base) {
-  @if $radius {
+@mixin radius($side: all, $radius:$border-radius-base) {
+  @if $side == all {
     @include vendor(border-radius, $radius);
   }
-}
-
-@mixin side-radius($side, $radius:$border-radius-base) {
-  @if $side == left {
-    @include vendor(border-radius-bottomleft, $radius);
-    @include vendor (border-radius-topleft, $radius);
+  @else if $side == left {
     @include vendor(border-bottom-left-radius, $radius);
     @include vendor(border-top-left-radius, $radius);
   }
   @else if $side == right {
-    @include vendor(border-radius-bottomright, $radius);
-    @include vendor (border-radius-topright, $radius);
     @include vendor(border-bottom-right-radius, $radius);
     @include vendor(border-top-right-radius, $radius);
   }
   @else if $side == top {
-    @include vendor(border-radius-topright, $radius);
-    @include vendor (border-radius-topleft, $radius);
     @include vendor(border-top-right-radius, $radius);
     @include vendor(border-top-left-radius, $radius);
   }
   @else if $side == bottom {
-    @include vendor(border-radius-bottomright, $radius);
-    @include vendor (border-radius-bottomleft, $radius);
     @include vendor(border-bottom-right-radius, $radius);
     @include vendor(border-bottom-left-radius, $radius);
   }
 }
-
 
 // We use this to create equilateral triangles
 // $triangle-size - Used to set border-size. No default, set a px or em size.
@@ -137,27 +127,27 @@
   }
 }
 
+// Drop shadows
+@mixin box-shadow($shadow...) {
+  @include vendor(box-shadow, $shadow);
+}
+
+
 // We use this to add a glowing effect to block elements
 // $selector - Used for selector state. Default: focus, Options: hover, active, visited
 // $fade-time - Default: 300ms
 // $glowing-effect-color - Default: fade-out($primary-color, .25)
 @mixin block-glowing-effect($selector:focus, $fade-time:300ms, $glowing-effect-color:fade-out($primary-color, .25)) {
   -webkit-transition: -webkit-box-shadow $fade-time, border-color $fade-time ease-in-out;
-  -moz-transition: -moz-box-shadow $fade-time, border-color $fade-time ease-in-out;
+  @if $oldie {
+    -moz-transition: -moz-box-shadow $fade-time, border-color $fade-time ease-in-out;
+  }
   transition: box-shadow $fade-time, border-color $fade-time ease-in-out;
 
   &:#{$selector} {
-    -webkit-box-shadow: 0 0 5px $glowing-effect-color;
-    -moz-box-shadow: 0 0 5px $glowing-effect-color;
-    box-shadow: 0 0 5px $glowing-effect-color;
+    @include vendor(box-shadow, 0 0 5px $glowing-effect-color);
     border-color: $glowing-effect-color;
   }
-}
-
-// Drop shadows
-@mixin box-shadow($shadow...) {
-  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
-          box-shadow: $shadow;
 }
 
 
@@ -208,19 +198,9 @@
     @-webkit-keyframes #{$animation-name}{
         @content;
     }
-
     @-moz-keyframes #{$animation-name}{
         @content;
     }
-
-    @-ms-keyframes #{$animation-name}{
-        @content;
-    }
-
-    @-o-keyframes #{$animation-name}{
-        @content;
-    }
-
     @keyframes #{$animation-name}{
         @content;
     }
@@ -228,22 +208,13 @@
 
 // Transitions
 @mixin transition($transition...) {
-  -webkit-transition: $transition;
-     -moz-transition: $transition;
-       -o-transition: $transition;
-          transition: $transition;
+  @include vendor(transition, $transition);
 }
 @mixin transition-delay($transition-delay) {
-  -webkit-transition-delay: $transition-delay;
-     -moz-transition-delay: $transition-delay;
-       -o-transition-delay: $transition-delay;
-          transition-delay: $transition-delay;
+  @include vendor(transition-delay, $transition);
 }
 @mixin transition-duration($transition-duration) {
-  -webkit-transition-duration: $transition-duration;
-     -moz-transition-duration: $transition-duration;
-       -o-transition-duration: $transition-duration;
-          transition-duration: $transition-duration;
+  @include vendor(transition-duration, $transition);
 }
 
 // Force overly long spans of text to truncate, e.g.:

@@ -10,8 +10,8 @@ $normalize: 											true !default;
 $global-border-box: 							true !default;
 
 // when you set it true, all unit will add a fallback to px
-// see value.scss line 9 for setting a rem base.
-$rem-fallback: 										true !default;
+// and mixin vendor will add "-moz" prefix
+$oldie: 													true !default;
 
 //
 // ================================================

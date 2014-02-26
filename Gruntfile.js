@@ -92,7 +92,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          includePaths: ['build/scss']
+          loadPath: ['build/scss']
         },
         files: {
           'dist/assets/css/anila.css': '<%= anila.scss %>',
@@ -101,8 +101,8 @@ module.exports = function(grunt) {
       },
       dist_compressed: {
         options: {
-          outputStyle:'compressed',
-          includePaths: ['build/scss']
+          style:'compressed',
+          loadPath: ['build/scss']
         },
         files: {
           'dist/assets/css/anila.min.css': '<%= anila.scss %>'
@@ -273,7 +273,8 @@ module.exports = function(grunt) {
 
   // Load the plugin
 
-  grunt.loadNpmTasks('grunt-sass');
+  //grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');

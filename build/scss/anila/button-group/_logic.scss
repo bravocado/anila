@@ -55,21 +55,21 @@ $button-group-border-width: 1px !default;
     &:first-child,
     &:first-child > a,
     &:first-child > button,
-    &:first-child > .#{$base-button-class} { @include side-radius($default-float, $button-radius-base); }
+    &:first-child > .#{$base-button-class} { @include radius($default-float, $button-radius-base); }
     &:last-child,
     &:last-child > a,
     &:last-child > button,
-    &:last-child > .#{$base-button-class} { @include side-radius($opposite-direction, $button-radius-base); }
+    &:last-child > .#{$base-button-class} { @include radius($opposite-direction, $button-radius-base); }
   }
   @else if $radius {
     &:first-child,
     &:first-child > a,
     &:first-child > button,
-    &:first-child > .#{$base-button-class} { @include side-radius($default-float, $radius); }
+    &:first-child > .#{$base-button-class} { @include radius($default-float, $radius); }
     &:last-child,
     &:last-child > a,
     &:last-child > button,
-    &:last-child > .#{$base-button-class} { @include side-radius($opposite-direction, $radius); }
+    &:last-child > .#{$base-button-class} { @include radius($opposite-direction, $radius); }
   }
 
   // We use this to make the buttons even width across their container

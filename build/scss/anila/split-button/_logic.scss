@@ -41,10 +41,10 @@
 @mixin split-button-shape($split-radius: $button-radius-base) {
 	@include radius($split-radius);
 	#{nth($split-button-holder, 1)} {
-		@include side-radius($side: left, $radius: $split-radius);
+		@include radius($side: left, $radius: $split-radius);
 	}
 	#{nth($split-button-holder, 2)} {
-		@include side-radius($side: right, $radius: $split-radius);
+		@include radius($side: right, $radius: $split-radius);
 	}
 }
 
