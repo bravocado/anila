@@ -1,7 +1,5 @@
 @import "vars";
 
-<<<<<<< HEAD
-=======
 // for easier reading unminified css
 /*
 ==========================================================================
@@ -9,7 +7,6 @@
 ==========================================================================
 */
 
->>>>>>> origin/development
 
 @mixin pagination-base($display: $pagination-display, $selector: $pagination-selector) {
 	margin-#{$default-float}: 0;
@@ -27,56 +24,6 @@
 	}
 }
 
-<<<<<<< HEAD
-@mixin pagination-theme($color: $color-list, $style: $theme-list) {
-	.pagination {
-		@each $i in $color {
-			&.#{nth($i, 1)} {
-				a {
-					@include button-base(inline-block);
-					@include yiq-contrasted(nth($i, 2));
-	        @include single-transition(background-color, 200ms, ease-in-out);
-	        &:hover {
-	          $hover-color: darken(nth($i, 2), 5%);
-	          background-color: $hover-color;
-	        }
-	        &:active {
-	          $active-color: darken(nth($i, 2), 10%);
-	          background-color: $active-color;
-	        }
-				}
-		    @each $bs in $style {
-		      &.#{nth($bs, 1)} {
-		        // flat design
-		        @if #{nth($bs, 1)} == flat {
-		        	a {
-			          @include anila-button($btn-color: nth($i, 2), $style: flat);
-		        	}
-		        }
-		        // pretty design
-		        @if #{nth($bs, 1)} == pretty {
-		        	a {
-			          @include anila-button($btn-color: nth($i, 2), $style: pretty, $gradient-type: overlay);
-		        	}
-		        }
-		        // shiny design
-		        @if #{nth($bs, 1)} == shiny {
-		        	a {
-			          @include anila-button($btn-color: nth($i, 2), $style: shiny, $gradient-type: normal);
-		        	}
-		       }
-		         // bordered design
-		        @if #{nth($bs, 1)} == bordered {
-		        	a {
-			          @include anila-button($btn-color: nth($i, 2), $style: bordered, $gradient-type: normal);
-		        	}
-		        }
-		      }
-		    }
-			}
-		}
-		// end creating color & theme
-=======
 @mixin pagination-theme {
   @for $c from 1 through length($colors-name) {
     &.#{nth($colors-name, $c)} {
@@ -114,7 +61,6 @@
 	      }
 	    }
 		}
->>>>>>> origin/development
 
 	}
 }
@@ -138,19 +84,10 @@
 }
 
 
-<<<<<<< HEAD
-@include exports("pagination") {
-	@if $use-pagination {
-		.pagination {
-			@include pagination-base($pagination-display, $pagination-selector);
-			@include pagination-size($button-size-list);
-		}
-=======
 @if $use-pagination {
 	.pagination {
 		@include pagination-base($pagination-display, $pagination-selector);
 		@include pagination-size($button-size-list);
->>>>>>> origin/development
 		@if $use-pagination-theme {
 			@include pagination-theme;
 		}

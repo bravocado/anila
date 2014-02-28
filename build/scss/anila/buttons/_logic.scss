@@ -100,41 +100,6 @@
       @include vendor(border-radius, $button-round);
     }
   }
-<<<<<<< HEAD
-  @if $style == bordered {
-    @include yiq-contrasted(rgba(255, 255, 255, 0));
-    @include single-transition(border-color, 400ms, ease-in-out);
-    border: 3px solid $btn-color;
-    &:hover, &:focus {
-      border: 3px solid $hover-color;
-    }
-    &:active {
-      border: 3px solid $active-color;
-    }
-  }
-
-  // shape
-  @if $shape == base-radius {
-    @include vendor(border-radius, $button-radius-base);
-  }
-  @if $shape == small-radius {
-    @include vendor(border-radius, $button-radius-small);
-  }
-  @if $shape == large-radius {
-    @include vendor(border-radius, $button-radius-large);
-  }
-  @if $shape == round {
-    @include vendor(border-radius, $button-round);
-  }
-}
-
-button.btn {
-  border: 0;
-  &:focus {
-    outline: none;
-  }
-=======
->>>>>>> origin/development
 }
 
 // experimental

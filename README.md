@@ -8,10 +8,6 @@ note: This is a heavy starter. Please set your conditional and values so it's fi
 
 #### Dependecies
 
-<<<<<<< HEAD
-- SASS [SASS documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
-=======
 - SASS [SASS documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
 - Libsass
 - Node
->>>>>>> origin/development

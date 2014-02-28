@@ -1,6 +1,6 @@
 ---
 title: Boxy
-layout: build/doc/layouts/default.html
+layout: build/doc/layouts/sass.html
 ---
 
 # Boxy
@@ -9,10 +9,10 @@ layout: build/doc/layouts/default.html
 
 <div class="row">
 	<div class="col sm-12">
-		<div class="well">
+		<div class="boxy">
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, quidem, molestiae, alias inventore minus officiis repellat sit dolorum consequatur illo facilis consectetur ipsum ea totam consequuntur! Perferendis modi culpa enim.
 		</div>
-		<div class="well primary">
+		<div class="boxy primary">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, voluptate, repellat, officia distinctio ad quae consectetur hic sunt neque odit pariatur exercitationem. Facere, ut vel recusandae doloribus sed repudiandae similique?</p>
 			<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, quis!</h2>
 			<h4>Header 4</h4>
@@ -30,16 +30,16 @@ layout: build/doc/layouts/default.html
 				<dt>dt one</dt>
 			</dl>
 		</div>
-		<div class="well secondary">
+		<div class="boxy secondary">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, inventore, necessitatibus magni facilis sed pariatur dolor at placeat fuga delectus nam repudiandae veniam ullam cumque eveniet minima consequatur assumenda sit.</p>
 		</div>
-		<div class="well tertiary">
+		<div class="boxy tertiary">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, molestiae, aut. Quis accusantium voluptates unde cum eius. Similique, nemo magnam eveniet totam placeat vero debitis autem unde a commodi repellat.</p>
 		</div>
-		<div class="well quaternary">
+		<div class="boxy quaternary">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, hic, suscipit, doloribus quisquam voluptatem maxime in distinctio corporis natus ex ad dolorum nam earum dolore quod architecto soluta quibusdam amet.</p>
 		</div>
-		<div class="well quinary">
+		<div class="boxy quinary">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, ad maiores iusto quas quaerat illum ea. Harum, quidem, quis, magnam magni quod libero rem assumenda voluptatibus nulla molestias eum cum.</p>
 		</div>
 	</div>
@@ -53,11 +53,11 @@ layout: build/doc/layouts/default.html
 
 <div class="row">
 	<div class="col sm-12">
-		<div class="well sm">
+		<div class="boxy sm">
 			<p><strong>small well</strong></p>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, sequi, ut quam expedita placeat tenetur voluptas delectus. Illo, quos, ipsam, consequuntur, necessitatibus quam laboriosam repudiandae quibusdam sit labore corporis nulla.</p>
 		</div>
-		<div class="well lg">
+		<div class="boxy lg">
 			<p><strong>large well</strong></p>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, obcaecati, error, nobis, quia maiores libero quaerat quos officia commodi harum cum dolore distinctio molestias autem animi dignissimos eveniet fugit pariatur?</p>
 		</div>

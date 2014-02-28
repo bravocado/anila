@@ -23,11 +23,7 @@
 ==================================
  */
 
-<<<<<<< HEAD
-@if $use-global-helper == true {
-=======
 @if $use-helpers {
->>>>>>> origin/development
 
   .flo-r   { float:right!important; }
   .flo-l    { float:left !important; }
@@ -168,34 +164,6 @@
   }
 
 
-<<<<<<< HEAD
-  /**
-  * Hide content off-screen without resorting to `display:none;`, also provide
-  * breakpoint specific hidden elements.
-  @mixin accessibility{
-    border:0!important;
-    clip:rect(0 0 0 0)!important;
-    height:1px!important;
-    margin:-1px!important;
-    overflow:hidden!important;
-    padding:0!important;
-    position: absolute!important;
-    width:1px!important;
-  }
-  .accessibility,
-  .visuallyhidden{
-    @include accessibility;
-  }
-  @each $state in phone, tablet, desktop{
-  @include media-query(#{$state}){
-    .accessibility--#{$state},
-    .visuallyhidden--#{$state}{
-        @include accessibility;
-    }
-  }
-  }
-  */
-=======
 //  /**
 //  * Hide content off-screen without resorting to `display:none;`, also provide
 //  * breakpoint specific hidden elements.
@@ -222,7 +190,6 @@
 //  }
 //  }
 //  */
->>>>>>> origin/development
 
 }
 

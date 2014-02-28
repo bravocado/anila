@@ -51,15 +51,7 @@
   }
 }
 
-<<<<<<< HEAD
-@include exports("media-video") {
-  @if $use-media {
-    .media-video { @include media-video-container; }
-    @include media-image-responsive;
-  }
-=======
 @if $use-media {
   .media-video { @include media-video-container; }
   @include media-image-responsive;
->>>>>>> origin/development
 }

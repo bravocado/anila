@@ -129,35 +129,6 @@ module.exports = function(grunt) {
             }
         },
 
-<<<<<<< HEAD
-    // webfont config
-    webfont: {
-      icons: {
-        src: 'build/icons/*.svg',
-        //dest: 'dist/docs/assets/fonts',
-        dest: 'build/fonts/',
-        destCss: 'build/scss/anila/fonts',
-        options: {
-          hashes: false,
-          stylesheet: 'scss',
-          syntax: 'bootstrap',
-          font: 'anila',
-          ligature: true,
-          embed: false,
-          relativeFontPath: '../../../assets/fonts/'
-        }
-      }
-    },
-
-    // concat config
-    concat: {
-      dist: {
-        files: {
-          'dist/assets/js/anila.js': '<%= anila.js %>'
-        }
-      }
-    },
-=======
         // concat config
         concat: {
             dist: {
@@ -166,7 +137,6 @@ module.exports = function(grunt) {
                 }
             }
         },
->>>>>>> origin/development
 
         // uglify config
         uglify: {
@@ -182,21 +152,6 @@ module.exports = function(grunt) {
             }
         },
 
-<<<<<<< HEAD
-    // copy config
-    copy: {
-      dist: {
-        files: [
-          {cwd: 'build/doc/assets/', expand:true, filter: 'isFile', src: 'img/**/*', dest: 'dist/docs/assets/'},
-          {cwd: 'build/js/', expand:true, filter: 'isFile', src: ['{anila,vendor}/**/*.js'], dest: 'dist/assets/js'},
-          {cwd: 'build/js/vendor/', expand:true, filter: 'isFile', src: ['**/*.js'], dest: 'dist/docs/assets/js/'},
-          {cwd: 'build/scss/', expand:true, filter: 'isFile', src: '**/*.scss', dest: 'dist/assets/scss/'},
-          {src: 'bower.json', dest: 'dist/assets/'},
-          {cwd: 'build/fonts/', expand:true, filter: 'isFile', src:['*'], dest: 'dist/assets/fonts'}
-        ]
-      }
-    },
-=======
         // copy config
         copy: {
             dist: {
@@ -236,7 +191,6 @@ module.exports = function(grunt) {
                 }]
             }
         },
->>>>>>> origin/development
 
         // clean config
         clean: ['dist/'],
@@ -345,14 +299,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-<<<<<<< HEAD
-        files: [
-          {expand: true, cwd: 'dist/assets/', src: ['**'], dest: 'anila/'}
-        ]
-      }
-    }
-=======
->>>>>>> origin/development
 
         // compress config
         compress: {
@@ -390,37 +336,10 @@ module.exports = function(grunt) {
     grunt.task.renameTask('watch', 'watch_start');
     grunt.task.registerTask('watch', [ /*'karma:dev_watch:start',*/ 'watch_start']);
 
-<<<<<<< HEAD
-  });
-
-  // Load the plugin
-
-  grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-compress');
-  //grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('assemble');
-	grunt.loadNpmTasks('grunt-webfont');
-  grunt.loadNpmTasks('grunt-newer');
-
-  grunt.task.renameTask('watch', 'watch_start');
-  grunt.task.registerTask('watch', [/*'karma:dev_watch:start',*/ 'watch_start']);
-
-  grunt.registerTask('compile:assets', ['clean', 'sass', 'concat', 'uglify', 'copy', 'webfont']);
-  grunt.registerTask('compile', ['compile:assets', 'assemble']);
-  grunt.registerTask('build', ['compile', 'compress']);
-  grunt.registerTask('default', ['compile', 'watch']);
-  grunt.registerTask('travis', ['compile'/*, 'karma:continuous'*/]);
-=======
     grunt.registerTask('compile:assets', ['clean', 'sass', 'concat', 'uglify', 'copy', 'webfont']);
     grunt.registerTask('compile', ['compile:assets', 'assemble']);
     grunt.registerTask('build', ['compile', 'compress']);
     grunt.registerTask('default', ['compile', 'watch']);
     grunt.registerTask('travis', ['compile' /*, 'karma:continuous'*/ ]);
->>>>>>> origin/development
 
 };
