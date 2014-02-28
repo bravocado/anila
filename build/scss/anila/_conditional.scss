@@ -1,8 +1,8 @@
-/*
-================================================
-GENERAL
-================================================
-*/
+//
+// ================================================
+// GENERAL
+// ================================================
+//
 
 $debug-mode: 											false !default;
 $reset: 													true !default;
@@ -10,48 +10,130 @@ $normalize: 											true !default;
 $global-border-box: 							true !default;
 
 // when you set it true, all unit will add a fallback to px
+<<<<<<< HEAD
 // see value.scss line 9 for setting a rem base.
 $rem-fallback: 										true !default;
+=======
+// and mixin vendor will add "-moz" prefix
+$oldie: 													true !default;
+>>>>>>> origin/development
 
-/*
-================================================
-ALERTS
-================================================
-*/
+//
+// ================================================
+// THEMES
+// ================================================
+//
+
+$use-flat-theme: 									true !default;
+$use-candy-theme: 								true !default;
+$use-shiny-theme: 								true !default;
+$use-bordered-theme: 							true !default;
 
 
-
+<<<<<<< HEAD
 /*
 ================================================
 BUTTONS
 // value.scss line 184 - 214 for available vars
 ================================================
 */
+=======
+//
+// ================================================
+// COLORS
+// ================================================
+//
+
+$use-base-color: 									true !default;
+$use-extra-color: 								true !default;
+
+//
+// ================================================
+// COLORS
+// ================================================
+//
+
+$use-alerts: 											true !default;
+$use-alerts-precomposed: 					true !default;
+
+
+// 
+// ================================================
+// BUTTONS
+// value.scss line 184 - 214 for available vars
+// ================================================
+// 
+>>>>>>> origin/development
 
 $use-buttons: 										true !default;
 
 $use-button-precomposed: 					true !default;
+
+
+// 
+// ================================================
+// SPLIT BUTTONS
+// ================================================
+// 
+
+$use-split-button: 								true !default;
+
+$use-split-button-precomposed: 		true !default;
+
+
+// 
+// ================================================
+// SPLIT BUTTONS
+// ================================================
+// 
+
 $use-button-group: 								true !default;
 
+<<<<<<< HEAD
 
 /*
 ================================================
 SPLIT BUTTONS
 ================================================
 */
+=======
+$use-button-group-precomposed: 		true !default;
+
+
+// 
+// ================================================
+// BREADCRUMBS
+// value.scss line 222 - 245 for available vars
+// ================================================
+// 
+>>>>>>> origin/development
 
 $use-split-button: true !default;
 
 
+<<<<<<< HEAD
 /*
 ================================================
 BREADCRUMBS
 // value.scss line 222 - 245 for available vars
 ================================================
 */
+=======
+$use-breadcrumbs-precomposed: 		true !default;
+
+
+// 
+// ================================================
+// CODES
+// ================================================
+// 
+
+$use-codes: 											true !default;
+>>>>>>> origin/development
 
 $use-breadcrumbs: 								true !default;
 
+<<<<<<< HEAD
 /*
 ================================================
 CODES
@@ -67,17 +149,48 @@ FORMS
 */
 
 $use-form: 												true !default;
+=======
+// 
+// ================================================
+// FONTS
+// ================================================
+// 
+
+$use-fonts: 											true !default;
 
 
+// 
+// ================================================
+// FORMS
+// value.scss line 254 - 309 for available vars
+// ================================================
+// 
+>>>>>>> origin/development
+
+$use-forms: 											true !default;
+
+<<<<<<< HEAD
 /*
 ================================================
 GRIDS
 // value.scss line 420 - 432 for available vars
 ================================================
 */
+=======
+$use-forms-precomposed: 					true !default;
+>>>>>>> origin/development
 
-$use-grid: 												true !default;
 
+// 
+// ================================================
+// GRIDS
+// value.scss line 420 - 432 for available vars
+// ================================================
+// 
+
+$use-grids: 											true !default;
+
+// precomposed
 $use-grid-sm: 										true !default;
 $use-grid-md: 										true !default;
 $use-grid-lg: 										true !default;
@@ -86,36 +199,66 @@ $use-grid-xxl: 										true !default;
 $use-grid-push-pull: 							true !default;
 
 
+<<<<<<< HEAD
 /*
 ================================================
 LABELS
 // value.scss line 440 - 450 for available vars
 ================================================
 */
+=======
+// 
+// ================================================
+// LABELS
+// value.scss line 440 - 450 for available vars
+// ================================================
+// 
+
+$use-label: 											true !default;
+>>>>>>> origin/development
 
 $use-label: 											true !default;
 
 
+<<<<<<< HEAD
 /*
 ================================================
 MEDIA
 // value.scss line 489 - 463 for available vars
 ================================================
 */
+=======
+// 
+// ================================================
+// MEDIA
+// value.scss line 489 - 463 for available vars
+// ================================================
+// 
+>>>>>>> origin/development
 
 $use-media: 											true !default;
 
 
+<<<<<<< HEAD
 /*
 ================================================
 NAVS
 // value.scss line 472 - 489 for available vars
 ================================================
 */
+=======
+// 
+// ================================================
+// NAVS
+// value.scss line 472 - 489 for available vars
+// ================================================
+// 
+>>>>>>> origin/development
 
-$use-side-nav: 										true !default;
+$use-navs: 												true !default;
 
 
+<<<<<<< HEAD
 /*
 ================================================
 TABLES
@@ -144,10 +287,55 @@ TYPORGRAPHY
 // value.scss line 317 - 411 for available vars
 ================================================
 */
+=======
+// 
+// ================================================
+// TABLES
+// value.scss line 498 - 520 for available vars
+// ================================================
+// 
+
+$use-tables: 											true !default;
+
+$use-table-precomposed:						true !default;
+$use-table-color: 								false !default;
+
+
+// 
+// ================================================
+// TYPORGRAPHY
+// value.scss line 317 - 411 for available vars
+// ================================================
+// 
 
 $use-typography: 									true !default;
+$use-typography-precomposed: 			true !default;
+
+// 
+// ================================================
+// PAGINATION
+// value.scss line 557 - 422 for available vars
+// ================================================
+// 
+>>>>>>> origin/development
+
+$use-pagination: 									true !default;
+
+$use-pagination-precomposed: 			true !default;
+$use-pagination-theme: 						true !default;
 
 
+// 
+// ================================================
+// INLINE LIST
+// ================================================
+// 
+
+$use-inline-list: 								true !default;
+
+$use-inline-list-precomposed: 		true !default;
+
+<<<<<<< HEAD
 /*
 ================================================
 boxy
@@ -156,16 +344,31 @@ boxy
 */
 $use-boxy: 												true !default;
 
+=======
+// 
+// ================================================
+// boxy
+// value.scss line 534 - 550 for available vars
+// ================================================
+// 
+$use-boxy: 												true !default;
+
+$use-boxy-precomposed: 						true !default;
+>>>>>>> origin/development
 $use-boxy-color: 									true !default;
 
-/*
-================================================
-VISIBILITY
+// 
+// ================================================
+// VISIBILITY
 // -- no custom value.
-================================================
-*/
+// ================================================
+// 
 
+<<<<<<< HEAD
 $use-global-helper: 							true !default;
+=======
+$use-helpers: 										true !default;
+>>>>>>> origin/development
 $use-helper-clearfix: 						true !default;
 $use-helper-visibility: 					true !default;
 

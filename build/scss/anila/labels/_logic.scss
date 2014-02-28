@@ -2,6 +2,12 @@
 
 $use-label: true !default;
 
+/*
+==========================================================================
+ LABEL
+==========================================================================
+*/
+
 //
 // @mixins
 //
@@ -33,7 +39,7 @@ $use-label: true !default;
 // We use this mixin to add label styles.
 // $bg - Default: $primary-color (found in settings file)
 // $radius - Default: false, Options: true, sets radius to $global-radius (found in settings file)
-@mixin label-style($bg:$label-color-list, $radius:false) {
+@mixin label-style($bg: true, $radius:false) {
 
   // We control which background color comes through
   @if $bg {
@@ -42,10 +48,10 @@ $use-label: true !default;
 		@include yiq-contrasted($label-default-bg);
 		
 		// adding a color list
-		@each $i in $bg {
+		@for $c from 1 through length($colors-name) {
 
-			&.#{nth($i, 1)} {
-		    @include yiq-contrasted(nth($i, 2));
+			&.#{nth($colors-name, $c)} {
+		    @include yiq-contrasted(nth($colors-define, $c));
 			}
 
 		}
@@ -69,23 +75,21 @@ $use-label: true !default;
 // $text-size - Default: $label-font-sizing,
 // $bg - Default: $primary-color(found in settings file)
 // $radius - Default: false, Options: true which sets radius to $global-radius (found in settings file)
-@mixin label($padding:$label-padding, $text-size:$label-font-sizing, $bg:$label-color-list, $radius:false) {
+@mixin label($padding:$label-padding, $text-size:$label-font-sizing, $bg:$colors-name, $radius:false) {
 
   @include label-base;
   @include label-size($padding, $text-size);
   @include label-style($bg, $radius);
 }
 
-@include exports("label") {
-  @if $use-label {
-    .label {
-      @include label-base;
-      @include label-size;
-      @include label-style;
-			
-      &.radius { @include label-style(false, true); }
-      &.round { @include label-style(false, $radius:1000px); }
+@if $use-label {
+  .label {
+    @include label-base;
+    @include label-size;
+    @include label-style;
+		
+    &.radius { @include label-style(false, true); }
+    &.round { @include label-style(false, $radius:1000px); }
 
-    }
   }
 }

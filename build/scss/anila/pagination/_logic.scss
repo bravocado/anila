@@ -1,5 +1,15 @@
 @import "vars";
 
+<<<<<<< HEAD
+=======
+// for easier reading unminified css
+/*
+==========================================================================
+ PAGINATIONS
+==========================================================================
+*/
+
+>>>>>>> origin/development
 
 @mixin pagination-base($display: $pagination-display, $selector: $pagination-selector) {
 	margin-#{$default-float}: 0;
@@ -17,6 +27,7 @@
 	}
 }
 
+<<<<<<< HEAD
 @mixin pagination-theme($color: $color-list, $style: $theme-list) {
 	.pagination {
 		@each $i in $color {
@@ -65,6 +76,45 @@
 			}
 		}
 		// end creating color & theme
+=======
+@mixin pagination-theme {
+  @for $c from 1 through length($colors-name) {
+    &.#{nth($colors-name, $c)} {
+    	a {
+	      @include yiq-contrasted(nth($colors-define, $c));
+	      text-decoration: none;
+    	}
+    }
+  }
+	@for $c from 1 through length($colors-name) {
+		&.#{nth($colors-name, $c)} {
+    	a {
+        @include theme-setup($color: nth($colors-define, $c), $theme: flat, $hover: true, $transition: true, $button: true);
+    	}
+	    @for $t from 1 through length($themes) {
+	      &.#{nth($themes, $t)} {
+	        // candy design
+	        @if nth($themes, $t) == candy {
+	        	a {
+              @include theme-setup($color: nth($colors-define, $c), $theme: candy, $hover: true, $transition: true, $button: true);
+	        	}
+	        }
+	        // shiny design
+	        @if nth($themes, $t) == shiny {
+	        	a {
+              @include theme-setup($color: nth($colors-define, $c), $theme: shiny, $hover: true, $transition: true, $button: true);
+	        	}
+	       }
+	         // bordered design
+	        @if nth($themes, $t) == bordered {
+	        	a {
+              @include theme-setup($color: nth($colors-define, $c), $theme: bordered, $hover: true, $transition: true, $button: true);
+	        	}
+	        }
+	      }
+	    }
+		}
+>>>>>>> origin/development
 
 	}
 }
@@ -88,12 +138,19 @@
 }
 
 
+<<<<<<< HEAD
 @include exports("pagination") {
 	@if $use-pagination {
 		.pagination {
 			@include pagination-base($pagination-display, $pagination-selector);
 			@include pagination-size($button-size-list);
 		}
+=======
+@if $use-pagination {
+	.pagination {
+		@include pagination-base($pagination-display, $pagination-selector);
+		@include pagination-size($button-size-list);
+>>>>>>> origin/development
 		@if $use-pagination-theme {
 			@include pagination-theme;
 		}

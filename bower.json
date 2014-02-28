@@ -22,7 +22,11 @@
     "tests"
   ],
   "dependencies": {
+<<<<<<< HEAD
     "jquery" : ">= 1.10.2",
+=======
+    "jquery" : "1.11.0",
+>>>>>>> origin/development
     "modernizr": ">= 2.6.2"
   }
 }

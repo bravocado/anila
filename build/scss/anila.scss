@@ -7,7 +7,7 @@
  *
  * LICENSE
  *
- * Copyright 2013 Bravocado a part of Narrada Communications.
+ * Copyright 2013 Narrada Communications
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,14 +23,15 @@
  *
  */
 
-/*
-================================================
-GENERAL
-================================================
-*/
+// 
+// ================================================
+// GENERAL
+// ================================================
+// 
 
-@import "anila/conditional";
+
 @import "anila/general/functions";
+@import "anila/conditional";
 @import "anila/values";
 @import "anila/general/mixins";
 
@@ -38,65 +39,91 @@ GENERAL
 @import "anila/general/reset";
 @import "anila/general/debug";
 
-
-/* extensions */
+// extensions
 @import "anila/extensions/yiq-color-contrast";
 @import "anila/extensions/photoshop-gradient-overlay";
 
-/* alerts */
+
+// themes
+@import "anila/general/themes";
+
+// alerts
 @import "anila/alerts/logic";
 
-/* buttons */
+// buttons
 @import "anila/buttons/logic";
 
+<<<<<<< HEAD
 /* buttons */
 @import "anila/split-button/logic";
 
 /* breadcrumbs */
 @import "anila/breadcrumbs/logic";
+=======
+// buttons
+@import "anila/split-button/logic";
+>>>>>>> origin/development
 
-/* button group */
+// button group
 @import "anila/button-group/logic";
 
-/* codes */
+// breadcrumbs
+@import "anila/breadcrumbs/logic";
+
+// codes
 @import "anila/codes/logic";
 
+<<<<<<< HEAD
 /* fonts */
 @import "anila/fonts/anila";
 
 /* forms */
+=======
+// fonts
+@import "anila/fonts/anila";
+
+// forms
+>>>>>>> origin/development
 @import "anila/forms/logic";
 
-/* grids */
+// grids
 @import "anila/grids/logic";
 
-/* labels */
+// labels
 @import "anila/labels/logic";
 
-/* media */
+// media
 @import "anila/media/logic";
 
-/* navs */
+// navs
 @import "anila/navs/logic";
 
+<<<<<<< HEAD
 /* tables */
+=======
+// tables
+>>>>>>> origin/development
 @import "anila/tables/logic";
 
-/* typography */
+// typography
 @import "anila/typography/logic";
 
-/* typography */
+// inline-list
 @import "anila/inline-list/logic";
 
+<<<<<<< HEAD
 /* wells */
+=======
+// boxy
+>>>>>>> origin/development
 @import "anila/boxy/logic";
 
-/* media */
-@import "anila/media/logic";
+// pagination
+@import "anila/pagination/logic";
 
 /* pagination */
 @import "anila/pagination/logic";
 
 
-/* helper */
+// helper
 @import "anila/general/helper";

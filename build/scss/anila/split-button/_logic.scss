@@ -1,10 +1,20 @@
 @import "vars";
+<<<<<<< HEAD
 @import "../buttons/logic";
 
 /*
 =================
 MIXIN
 =================
+=======
+@import "../buttons/vars";
+
+// for easier reading unminified css
+/*
+==========================================================================
+  SPLIT BUTTONS
+==========================================================================
+>>>>>>> origin/development
 */
 
 @mixin split-button-base {
@@ -40,15 +50,26 @@ MIXIN
 @mixin split-button-shape($split-radius: $button-radius-base) {
 	@include radius($split-radius);
 	#{nth($split-button-holder, 1)} {
+<<<<<<< HEAD
 		@include side-radius($side: left, $radius: $split-radius);
 	}
 	#{nth($split-button-holder, 2)} {
 		@include side-radius($side: right, $radius: $split-radius);
+=======
+		@include radius($side: left, $radius: $split-radius);
+	}
+	#{nth($split-button-holder, 2)} {
+		@include radius($side: right, $radius: $split-radius);
+>>>>>>> origin/development
 	}
 }
 
 
+<<<<<<< HEAD
 @mixin split-care($color: $color-list, $style: $theme-list, $gradient-type: overlay) {
+=======
+@mixin split-care($color: $colors-define, $theme: $themes, $gradient-type: overlay) {
+>>>>>>> origin/development
   // base color adjust
   $color-type: if(yiq-contrast-color($color, #000, #fff) == #000, "light", "dark");
   $color-adjust: if($color-type == "light", 5, -5);
@@ -79,34 +100,59 @@ MIXIN
 		}
 	}
 
+<<<<<<< HEAD
   @if $style == flat {
     // icon active 
     i {
     	&:active {
     		background-color: adjust-color($active-color, $lightness: $active-color-adjust + 1%);
+=======
+  @if $theme == flat {
+    // icon active 
+    i {
+    	&:active {
+        @include yiq-contrasted(adjust-color($hover-color, $lightness: $active-color-adjust + 1%));
+>>>>>>> origin/development
     	}
     }
 	}
 
+<<<<<<< HEAD
   @if $style == pretty {
     // icon active 
     i {
     	&:active {
     		background-color: adjust-color($active-color, $lightness: $active-color-adjust + 1%);
+=======
+  @if $theme == candy {
+    // icon active 
+    i {
+    	&:active {
+        @include yiq-contrasted(adjust-color($hover-color, $lightness: $active-color-adjust + 1%));
+>>>>>>> origin/development
     	}
     }
   }
 
+<<<<<<< HEAD
   @if $style == shiny {
     // icon active 
     i {
     	&:active {
 	      @include background-image($gradient-color);
     		background-color: adjust-color($hover-color, $lightness: $active-color-adjust + 1%);
+=======
+  @if $theme == shiny {
+    // icon active 
+    i {
+    	&:active {
+        @include yiq-contrasted(adjust-color($hover-color, $lightness: $active-color-adjust + 1%));
+>>>>>>> origin/development
     	}
     }
   }
 
+<<<<<<< HEAD
 }
 
 @mixin split-btn-precomposed($color: $color-list, $style: $theme-list, $gradient-type: overlay) {
@@ -145,10 +191,55 @@ MIXIN
           @if #{nth($bs, 1)} == bordered {
             @include anila-button($btn-color: nth($bc, 2), $style: bordered, $gradient-type: normal);
             @include split-care($color: nth($bc, 2), $style: bordered, $gradient-type: normal);
+=======
+  @if $theme == bordered {
+    // icon active 
+    i {
+      &:active {
+        @include yiq-contrasted(adjust-color($hover-color, $lightness: $active-color-adjust + 1%));
+      }
+    }
+  }
+
+}
+
+
+@mixin split-compose($theme: $themes) {
+  @for $c from 1 through length($colors-name) {
+    &.#{nth($colors-name, $c)} {
+      @include yiq-contrasted(nth($colors-define, $c));
+      @include single-transition(background-color, 200ms, ease-in-out);
+      // by default it's flat design
+      @include split-care($color: nth($colors-define, $c), $theme: flat);
+      // creating style based on list
+      &:hover {
+        $hover-color: darken(nth($colors-define, $c), 5%);
+        background-color: $hover-color;
+      }
+      &:active {
+        $active-color: darken(nth($colors-define, $c), 10%);
+        background-color: $active-color;
+      }
+
+      @for $t from 1 through length($themes) {
+        &.#{nth($themes, $t)} {
+          // candy design
+          @if #{nth($themes, $t)} == candy {
+            @include split-care($color: nth($colors-define, $c), $theme: candy, $gradient-type: overlay);
+          }
+          // shiny design
+          @if #{nth($themes, $t)} == shiny {
+            @include split-care($color: nth($colors-define, $c), $theme: shiny, $gradient-type: normal);
+          }
+           // bordered design
+          @if #{nth($themes, $t)} == bordered {
+            @include split-care($color: nth($colors-define, $c), $theme: bordered, $gradient-type: normal);
+>>>>>>> origin/development
           }
         }
       }
     }
+<<<<<<< HEAD
     // end creating style
   }
   // end creating colors
@@ -200,3 +291,58 @@ MIXIN
 		}
 	}
 }
+=======
+    // end creating style specified for split button
+  }
+  // end creating colors specified for split button
+
+  // creating a colors and classes
+  @include color-setup;
+  
+  // creating a theme
+  @include compose-theme($hover: true, $transition: true, $button: true);
+  
+}
+
+
+@if $use-split-button {
+	// reset styling when using split-btn on button
+	button.split-#{$base-button-class} {
+		border: 0;
+		outline: none;
+		padding: 0;
+	}
+
+	.split-#{$base-button-class} {
+		@include split-button-base;
+		@include split-button-size($button-md);
+
+		// sizes
+		&.lg {
+			@include split-button-size($button-lg);
+		}
+		&.sm {
+			@include split-button-size($button-sm);
+		}
+		&.tn {
+			@include split-button-size($button-tn);
+		}
+
+		// shape
+		&.soft {
+			@include split-button-shape($button-radius-base);
+		}
+		&.extra-soft {
+			@include split-button-shape($button-radius-large);
+		}
+		&.round {
+			@include split-button-shape($button-round);
+		}
+
+		// style and color precompose
+		@if $use-button-precomposed {
+			@include split-compose;
+		}
+	}
+}
+>>>>>>> origin/development

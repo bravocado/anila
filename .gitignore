@@ -49,3 +49,5 @@ node_modules/*
 # Necessary #
 ######################
 .travis.yml
+.htaccess
+.sublime-grunt.cache

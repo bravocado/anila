@@ -24,7 +24,12 @@ $button-padding-horizontal: 10px !default;
 
 // precomposed
 $base-button-class: btn;
-$button-color-list: $color-list !default;
-$button-style-list: $theme-list !default;
-$button-shape-list: hard, extra-soft, soft, round !default;
-$button-size-list: tn $button-tn, sm $button-sm, md $button-md, lg $button-lg !default;
+
+// button extra list
+$button-size-list: tn $button-tn,
+									 sm $button-sm,
+									 md $button-md,
+									 lg $button-lg !default;
+									 // tn[a] $button-tn[b]
+									 // [a] for class name
+									 // [b] size for [a]

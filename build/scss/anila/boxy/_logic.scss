@@ -1,6 +1,16 @@
 @import "vars";
 
+<<<<<<< HEAD
 //
+=======
+/*
+==========================================================================
+ BOXY
+==========================================================================
+*/
+
+// --------------------------------------------------
+>>>>>>> origin/development
 // mixin
 // --------------------------------------------------
 
@@ -31,7 +41,11 @@
   @include vendor(border-radius, $radius);
 }
 
+<<<<<<< HEAD
 @if $use-boxy != false {
+=======
+@if $use-boxy {
+>>>>>>> origin/development
   
   // Base class
   .boxy {
@@ -39,12 +53,21 @@
     
     @if $use-boxy-color {
       // boxy color
+<<<<<<< HEAD
       @each $i in $boxy-bg {
         &.#{nth($i, 1)} {
           $color-type: if(yiq-contrast-color(nth($i, 2), #000, #fff) == #000, "light", "dark");
           $color-adjust: if($color-type == "light", 5, -5);
           @include yiq-contrasted(nth($i, 2));
           border-color: darken(nth($i, 2), 7%);
+=======
+      @for $c from 1 through length($colors-name) {
+        &.#{nth($colors-name, $c)} {
+          $color-type: if(yiq-contrast-color(nth($colors-define, $c), #000, #fff) == #000, "light", "dark");
+          $color-adjust: if($color-type == "light", 5, -5);
+          @include yiq-contrasted(nth($colors-define, $c));
+          border-color: darken(nth($colors-define, $c), 7%);
+>>>>>>> origin/development
           // follow yiq-color-contrast rule
           h1, h2, h3, h4, h5, h6 {
             color: inherit;

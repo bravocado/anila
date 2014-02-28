@@ -1,5 +1,11 @@
 @import "vars";
-@import "../buttons/logic";
+@import "../buttons/vars";
+
+/*
+==========================================================================
+ BUTTONS GROUP
+==========================================================================
+*/
 
 //
 // Button Group Variables
@@ -49,32 +55,32 @@ $button-group-border-width: 1px !default;
     &:first-child,
     &:first-child > a,
     &:first-child > button,
-    &:first-child > .btn { @include side-radius($default-float, $button-radius-base); }
+    &:first-child > .#{$base-button-class} { @include radius($default-float, $button-radius-base); }
     &:last-child,
     &:last-child > a,
     &:last-child > button,
-    &:last-child > .btn { @include side-radius($opposite-direction, $button-radius-base); }
+    &:last-child > .#{$base-button-class} { @include radius($opposite-direction, $button-radius-base); }
   }
   @else if $radius {
     &:first-child,
     &:first-child > a,
     &:first-child > button,
-    &:first-child > .btn { @include side-radius($default-float, $radius); }
+    &:first-child > .#{$base-button-class} { @include radius($default-float, $radius); }
     &:last-child,
     &:last-child > a,
     &:last-child > button,
-    &:last-child > .btn { @include side-radius($opposite-direction, $radius); }
+    &:last-child > .#{$base-button-class} { @include radius($opposite-direction, $radius); }
   }
 
   // We use this to make the buttons even width across their container
   @if $even {
     width: percentage((100/$even) / 100);
-    button, .btn { width: 100%; }
+    button, .#{$base-button-class} { width: 100%; }
   }
   
-  // reset border-color for pretty button
-  & > .btn {
-    &.pretty {
+  // reset border-color for candy button
+  & > .#{$base-button-class} {
+    &.candy {
       border-right: 0;
       border-right-width: 0;
       border-color: none;
@@ -83,36 +89,34 @@ $button-group-border-width: 1px !default;
 
 }
 
-@include exports("btn-group") {
-  @if $use-button-group == true {
-    .btn-group { @include button-group-container;
-      
-      &> * {
-        @include button-group-style();
-      }
-
-      &.soft > * { @include button-group-style($radius:$button-radius-base, $float:null); }
-      &.extra-soft > * { @include button-group-style($radius:$button-radius-large, $float:null); }
-      &.round > * { @include button-group-style($radius:$button-round, $float:null); }
-      
-      &.tn > * > .btn {
-        @include button-size($button-tn, false, false);
-      }
-      &.sm > * > .btn {
-        @include button-size($button-sm, false, false);
-      }
-      &.lg > * > .btn {
-        @include button-size($button-lg, false, false);
-      }
-
-      @for $i from 2 through 8 {
-        &.even#{-$i} li { @include button-group-style($even:$i, $float:null); }
-      }
+@if $use-button-group == true {
+  .#{$base-button-class}-group { @include button-group-container;
+    
+    &> * {
+      @include button-group-style();
     }
 
-    .btn-bar {
-      @include clearfix;
-      .btn-group { @include button-group-container($styles:false,$float:true); }
+    &.soft > * { @include button-group-style($radius:$button-radius-base, $float:null); }
+    &.extra-soft > * { @include button-group-style($radius:$button-radius-large, $float:null); }
+    &.round > * { @include button-group-style($radius:$button-round, $float:null); }
+    
+    &.tn > * > .#{$base-button-class} {
+      @include button-size($button-tn, false, false);
     }
+    &.sm > * > .#{$base-button-class} {
+      @include button-size($button-sm, false, false);
+    }
+    &.lg > * > .#{$base-button-class} {
+      @include button-size($button-lg, false, false);
+    }
+
+    @for $i from 2 through 8 {
+      &.even#{-$i} li { @include button-group-style($even:$i, $float:null); }
+    }
+  }
+
+  .#{$base-button-class}-bar {
+    @include clearfix;
+    .#{$base-button-class}-group { @include button-group-container($styles:false,$float:true); }
   }
 }

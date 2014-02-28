@@ -29,7 +29,13 @@ select {
   width: 100%;
 }
 
+.code-wrapper {
+  //background: #ededed;
+  //@include unit(padding, 10);
+}
+
 // Docs Components
 @import "syntax-highlighting";
 @import "sidebar";
+@import "topbar";
 @import "anila--footer";

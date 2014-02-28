@@ -1,0 +1,222 @@
+
+@mixin color-setup($color: $colors-define) {
+  @for $c from 1 through length($colors-name) {
+    &.#{nth($colors-name, $c)} {
+      @include yiq-contrasted(nth($colors-define, $c));
+    }
+  }
+}
+
+@mixin extra-color-setup($extra-color: $extra-colors-name) {
+  @for $ec from 1 through length($extra-colors-name) {
+    &.#{nth($extra-colors-name, $ec)} {
+      @include yiq-contrasted(nth($extra-colors-define, $ec));
+    }
+  }
+}
+
+@mixin theme-setup($color: $primary-color, $theme: flat, $gradient-type: overlay, $hover: false, $transition: false, $button: false) {
+  //base color
+  $color-type: if(yiq-contrast-color($color, #000, #fff) == #000, "light", "dark");
+  $color-adjust: if($color-type == "light", 5, -5);
+  $gradient-color: photoshop-gradient-overlay($color, $gradient-type, 50%, 90deg);
+  //text shadow color adjust
+  $text-shadow-adjust: if($color-type == "light", 20, -20);
+  $text-shadow: adjust-color($color, $lightness: $text-shadow-adjust);
+  // shadow color normal adjust
+  $shadow-color: yiq-contrast-color($color, #fff, #000);
+  // hover color adjust
+  $hover-color: adjust-color($color, $lightness: $color-adjust);
+  // active state adjust
+  $active-color-adjust: if($color-type == "light", 10, -10);
+  $active-color: adjust-color($color, $lightness: $active-color-adjust);
+
+  @if $theme == flat {
+    @if $hover {
+      &:hover, &:focus {
+        background-color: $hover-color;
+      }
+      &:active {
+        background-color: $active-color;
+      }
+      @if $transition {
+        @include single-transition(background-color, 400ms, ease-in-out);
+      }
+    }
+  } @else if $theme == candy {
+    @include background-image($gradient-color);
+    border: 1px solid $color;
+    @if $hover {
+      &:hover, &:focus {
+        background-color: $hover-color;
+      }
+      &:active {
+        @include vendor(box-shadow, inset 0 2px 6px rgba(0, 0, 0, .3));
+        background-color: $active-color;
+      }
+      @if $transition {
+        @include single-transition(background-color, 400ms, ease-in-out);
+      }
+    }
+    @if $button {
+      @include vendor(box-shadow, inset 0 0 5px rgba($shadow-color, .5));
+      @include vendor(text-shadow, -1px 1px 1px rgba($text-shadow, .8));
+    }
+  } @else if $theme == shiny {
+    // readjust gradient
+    $gradient-color:  photoshop-gradient-overlay($color, normal, 100%, -90deg, 100%, (adjust-color($color, $lightness: 10) 0%, adjust-color($color, $lightness: 10) 50%, $color 50%, $color 100%));
+    @include background-image($gradient-color);
+    @if $hover {
+      &:hover, &:focus {
+        $color-adjust: if($color-type == "dark", 2, -2);
+        $hover-color: adjust-color($color, $lightness: $color-adjust);
+        $gradient-color: photoshop-gradient-overlay($hover-color, normal, 100%, -90deg, 100%, (adjust-color($hover-color, $lightness: 10) 0%, adjust-color($hover-color, $lightness: 10) 50%, $hover-color 50%, $hover-color 100%));
+        @include background-image($gradient-color);
+        background-color: $hover-color;
+      }
+      &:active {
+        $color-adjust: if($color-type == "dark", 5, -5);
+        $hover-color: adjust-color($color, $lightness: $color-adjust);
+        $gradient-color: photoshop-gradient-overlay($hover-color, normal, 100%, -90deg, 100%, (adjust-color($hover-color, $lightness: 10) 0%, adjust-color($hover-color, $lightness: 10) 50%, $hover-color 50%, $hover-color 100%));
+        @include background-image($gradient-color);
+        background-color: $hover-color;
+      }
+      @if $transition {
+        @include single-transition(background-color, 400ms, ease-in-out);
+      }
+    }
+    @if $button == true {
+      @include vendor(box-shadow, inset 0 3px 5px rgba(255, 255, 255, .5));
+      @include vendor(text-shadow, 2px 0 2px rgba($text-shadow, .9));
+    }
+  } @else if $theme == bordered {
+    @include yiq-contrasted(rgba(255, 255, 255, 0));
+    border: 3px solid $color;
+    @if $hover {
+      &:hover, &:focus {
+        border: 3px solid $hover-color;
+      }
+      &:active {
+        border: 3px solid $active-color;
+      }
+      @if $transition {
+        @include single-transition(border-color, 400ms, ease-in-out);
+      }
+    }
+  }
+}
+
+@mixin compose-theme($color: $primary-color, $theme: $themes, $gradient-type: overlay, $hover: false, $transition: false, $button: false, $extra-color: true) {
+  @for $c from 1 through length($colors-name) {
+    &.#{nth($colors-name, $c)} {
+      @if $hover {
+        @include theme-setup($color: nth($colors-define, $c), $hover: true);
+      }
+      @else if $transition {
+        @include theme-setup($color: nth($colors-define, $c), $hover: true, $transition: true);
+      }
+      @else if $button {
+        @include theme-setup($color: nth($colors-define, $c), $hover: true, $transition: true, $button: true);
+      }
+      @else {
+        @include theme-setup($color: nth($colors-define, $c));
+      }
+      @for $t from 1 through length($themes) {
+        &.#{nth($themes, $t)} {
+          // candy design
+          @if nth($themes, $t) == candy {
+            @include theme-setup($color: nth($colors-define, $c), $theme: candy, $gradient-type: overlay);
+            @if $hover {
+              @include theme-setup($color: nth($colors-define, $c), $hover: true);
+            } @else if $transition {
+              @include theme-setup($color: nth($colors-define, $c), $hover: true, $transition: true);
+            } @else if $button {
+              @include theme-setup($color: nth($colors-define, $c), $hover: true, $transition: true, $button: true);
+            }
+          }
+          // shiny design
+          @else if nth($themes, $t) == shiny {
+            @if $hover {
+              @include theme-setup($color: nth($colors-define, $c), $theme: shiny, $gradient-type: normal, $hover: true);
+            } @else if $transition {
+              @include theme-setup($color: nth($colors-define, $c), $theme: shiny, $gradient-type: normal, $hover: true, $transition: true);
+            } @else if $button  {
+              @include theme-setup($color: nth($colors-define, $c), $theme: shiny, $gradient-type: normal, $hover: true, $transition: true, $button: true);
+            }  @else {
+              @include theme-setup($color: nth($colors-define, $c), $theme: shiny, $gradient-type: normal);
+            }
+          }
+          // bordered design
+          @else if nth($themes, $t) == bordered {
+            @if $hover {
+              @include theme-setup($color: nth($colors-define, $c), $theme: bordered, $hover: true);
+            } @else if $transition {
+              @include theme-setup($color: nth($colors-define, $c), $theme: bordered, $hover: true, $transition: true);
+            } @else if $button {
+              @include theme-setup($color: nth($colors-define, $c), $theme: bordered, $hover: true, $transition: true, $button: true);
+            } @else {
+              @include theme-setup($color: nth($colors-define, $c), $theme: bordered);
+            }
+          }
+        }
+      }
+      // end each theme in main color
+    }
+  }
+  // end each main color
+  @for $ec from 1 through length($extra-colors-name) {
+    &.#{nth($extra-colors-name, $ec)} {
+      @if $hover {
+        @include theme-setup($color: nth($extra-colors-define, $ec), $hover: true);
+      } @else if $transition {
+        @include theme-setup($color: nth($extra-colors-define, $ec), $hover: true, $transition: true);
+      } @else if $button {
+        @include theme-setup($color: nth($extra-colors-define, $ec), $hover: true, $transition: true, $button: true);
+      } @else {
+        @include theme-setup($color: nth($extra-colors-define, $ec));
+      }
+      @for $t from 1 through length($themes) {
+        &.#{nth($themes, $t)} {
+          // candy design
+          @if nth($themes, $t) == candy {
+            @include theme-setup($color: nth($extra-colors-define, $ec), $theme: candy, $gradient-type: overlay);
+            @if $hover {
+              @include theme-setup($color: nth($extra-colors-define, $ec), $hover: true);
+            } @else if $transition {
+              @include theme-setup($color: nth($extra-colors-define, $ec), $hover: true, $transition: true);
+            } @else if $button {
+              @include theme-setup($color: nth($extra-colors-define, $ec), $hover: true, $transition: true, $button: true);
+            }
+          }
+          // shiny design
+          @else if nth($themes, $t) == shiny {
+            @if $hover {
+              @include theme-setup($color: nth($extra-colors-define, $ec), $theme: shiny, $gradient-type: normal, $hover: true);
+            } @else if $transition {
+              @include theme-setup($color: nth($extra-colors-define, $ec), $theme: shiny, $gradient-type: normal, $hover: true, $transition: true);
+            } @else if $button  {
+              @include theme-setup($color: nth($extra-colors-define, $ec), $theme: shiny, $gradient-type: normal, $hover: true, $transition: true, $button: true);
+            } @else {
+              @include theme-setup($color: nth($extra-colors-define, $ec), $theme: shiny, $gradient-type: normal);
+            }
+          }
+          // bordered design
+          @else if nth($themes, $t) == bordered {
+            @if $hover {
+              @include theme-setup($color: nth($extra-colors-define, $ec), $theme: bordered, $hover: true);
+            } @else if $transition {
+              @include theme-setup($color: nth($extra-colors-define, $ec), $theme: bordered, $hover: true, $transition: true);
+            } @else if $button {
+              @include theme-setup($color: nth($extra-colors-define, $ec), $theme: bordered, $hover: true, $transition: true, $button: true);
+            } @else {
+              @include theme-setup($color: nth($extra-colors-define, $ec), $theme: bordered);
+            }
+          }
+        }
+      }
+      // end each theme in extra color
+    }
+  }
+  // end each extra color
+
+}
