@@ -47,6 +47,6 @@
   }
 }
 
-@if $use-side-nav !=false {
+@if $use-navs {
   .side-nav { @include side-nav; }
 }

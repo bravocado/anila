@@ -188,7 +188,7 @@ thx to Zurb Foundation
   }
 }
 
-@if $use-grid != false {
+@if $use-grids {
   .row {
     @include grid-row;
 

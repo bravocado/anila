@@ -50,3 +50,4 @@ node_modules/*
 ######################
 .travis.yml
 .htaccess
+.sublime-grunt.cache

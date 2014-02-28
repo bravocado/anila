@@ -15,10 +15,33 @@ $oldie: 													true !default;
 
 //
 // ================================================
-// ALERTS
+// THEMES
 // ================================================
 //
 
+$use-flat-theme: 									true !default;
+$use-candy-theme: 								true !default;
+$use-shiny-theme: 								true !default;
+$use-bordered-theme: 							true !default;
+
+
+//
+// ================================================
+// COLORS
+// ================================================
+//
+
+$use-base-color: 									true !default;
+$use-extra-color: 								true !default;
+
+//
+// ================================================
+// COLORS
+// ================================================
+//
+
+$use-alerts: 											true !default;
+$use-alerts-precomposed: 					true !default;
 
 
 // 
@@ -31,7 +54,6 @@ $oldie: 													true !default;
 $use-buttons: 										true !default;
 
 $use-button-precomposed: 					true !default;
-$use-button-group: 								true !default;
 
 
 // 
@@ -41,6 +63,19 @@ $use-button-group: 								true !default;
 // 
 
 $use-split-button: 								true !default;
+
+$use-split-button-precomposed: 		true !default;
+
+
+// 
+// ================================================
+// SPLIT BUTTONS
+// ================================================
+// 
+
+$use-button-group: 								true !default;
+
+$use-button-group-precomposed: 		true !default;
 
 
 // 
@@ -52,11 +87,25 @@ $use-split-button: 								true !default;
 
 $use-breadcrumbs: 								true !default;
 
+$use-breadcrumbs-precomposed: 		true !default;
+
+
 // 
 // ================================================
 // CODES
 // ================================================
 // 
+
+$use-codes: 											true !default;
+
+
+// 
+// ================================================
+// FONTS
+// ================================================
+// 
+
+$use-fonts: 											true !default;
 
 
 // 
@@ -66,7 +115,9 @@ $use-breadcrumbs: 								true !default;
 // ================================================
 // 
 
-$use-form: 												true !default;
+$use-forms: 											true !default;
+
+$use-forms-precomposed: 					true !default;
 
 
 // 
@@ -76,8 +127,9 @@ $use-form: 												true !default;
 // ================================================
 // 
 
-$use-grid: 												true !default;
+$use-grids: 											true !default;
 
+// precomposed
 $use-grid-sm: 										true !default;
 $use-grid-md: 										true !default;
 $use-grid-lg: 										true !default;
@@ -113,7 +165,7 @@ $use-media: 											true !default;
 // ================================================
 // 
 
-$use-side-nav: 										true !default;
+$use-navs: 												true !default;
 
 
 // 
@@ -123,10 +175,21 @@ $use-side-nav: 										true !default;
 // ================================================
 // 
 
-$use-table: 											true !default;
+$use-tables: 											true !default;
 
-$use-table-color: 								false !default;
 $use-table-precomposed:						true !default;
+$use-table-color: 								false !default;
+
+
+// 
+// ================================================
+// TYPORGRAPHY
+// value.scss line 317 - 411 for available vars
+// ================================================
+// 
+
+$use-typography: 									true !default;
+$use-typography-precomposed: 			true !default;
 
 // 
 // ================================================
@@ -137,17 +200,19 @@ $use-table-precomposed:						true !default;
 
 $use-pagination: 									true !default;
 
+$use-pagination-precomposed: 			true !default;
 $use-pagination-theme: 						true !default;
 
+
 // 
 // ================================================
-// TYPORGRAPHY
-// value.scss line 317 - 411 for available vars
+// INLINE LIST
 // ================================================
 // 
 
-$use-typography: 									true !default;
+$use-inline-list: 								true !default;
 
+$use-inline-list-precomposed: 		true !default;
 
 // 
 // ================================================
@@ -157,6 +222,7 @@ $use-typography: 									true !default;
 // 
 $use-boxy: 												true !default;
 
+$use-boxy-precomposed: 						true !default;
 $use-boxy-color: 									true !default;
 
 // 
@@ -166,7 +232,7 @@ $use-boxy-color: 									true !default;
 // ================================================
 // 
 
-$use-global-helper: 							true !default;
+$use-helpers: 										true !default;
 $use-helper-clearfix: 						true !default;
 $use-helper-visibility: 					true !default;
 

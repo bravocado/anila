@@ -24,8 +24,6 @@ $button-padding-horizontal: 10px !default;
 
 // precomposed
 $base-button-class: btn;
-$button-color-list: $color-list !default; // by default, Anila will read your $color-list for compiling color(s)
-$button-style-list: $theme-list !default; // by default, Anila will read your $theme-list for compiling theme(s)
 
 // button extra list
 $button-size-list: tn $button-tn,

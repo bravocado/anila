@@ -24,38 +24,38 @@
 	}
 }
 
-@mixin pagination-theme($color: $color-list, $theme: $theme-list) {
-  @each $c in $color {
-    &.#{nth($c, 1)} {
+@mixin pagination-theme {
+  @for $c from 1 through length($colors-name) {
+    &.#{nth($colors-name, $c)} {
     	a {
-	      @include yiq-contrasted(nth($c, 2));
+	      @include yiq-contrasted(nth($colors-define, $c));
 	      text-decoration: none;
     	}
     }
   }
-	@each $c in $color {
-		&.#{nth($c, 1)} {
+	@for $c from 1 through length($colors-name) {
+		&.#{nth($colors-name, $c)} {
     	a {
-        @include theme-setup($color: nth($c, 2), $theme: flat, $hover: true, $transition: true, $button: true);
+        @include theme-setup($color: nth($colors-define, $c), $theme: flat, $hover: true, $transition: true, $button: true);
     	}
-	    @each $t in $theme {
-	      &.#{nth($t, 1)} {
-	        // pretty design
-	        @if #{nth($t, 1)} == pretty {
+	    @for $t from 1 through length($themes) {
+	      &.#{nth($themes, $t)} {
+	        // candy design
+	        @if nth($themes, $t) == candy {
 	        	a {
-              @include theme-setup($color: nth($c, 2), $theme: pretty, $hover: true, $transition: true, $button: true);
+              @include theme-setup($color: nth($colors-define, $c), $theme: candy, $hover: true, $transition: true, $button: true);
 	        	}
 	        }
 	        // shiny design
-	        @if #{nth($t, 1)} == shiny {
+	        @if nth($themes, $t) == shiny {
 	        	a {
-              @include theme-setup($color: nth($c, 2), $theme: shiny, $hover: true, $transition: true, $button: true);
+              @include theme-setup($color: nth($colors-define, $c), $theme: shiny, $hover: true, $transition: true, $button: true);
 	        	}
 	       }
 	         // bordered design
-	        @if #{nth($t, 1)} == bordered {
+	        @if nth($themes, $t) == bordered {
 	        	a {
-              @include theme-setup($color: nth($c, 2), $theme: bordered, $hover: true, $transition: true, $button: true);
+              @include theme-setup($color: nth($colors-define, $c), $theme: bordered, $hover: true, $transition: true, $button: true);
 	        	}
 	        }
 	      }

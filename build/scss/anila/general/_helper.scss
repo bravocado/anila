@@ -23,7 +23,7 @@
 ==================================
  */
 
-@if $use-global-helper == true {
+@if $use-helpers {
 
   .flo-r   { float:right!important; }
   .flo-l    { float:left !important; }

@@ -27,10 +27,10 @@
   @include unit(margin-bottom, $subheader-bottom-margin);
 }
 
-@mixin type-highlight($highlight-color: $color-list) {
-  @each $i in $highlight-color {
-    &.#{nth($i, 1)} {
-      color: nth($i, 2);
+@mixin type-highlight {
+  @for $c from 1 through length($colors-name) {
+    &.#{nth($colors-name, $c)} {
+      color: nth($colors-define, $c);
     }
   }
 }
@@ -334,7 +334,7 @@
   span {
     // experimental
     // highlight text
-    @include type-highlight($color-list);
+    @include type-highlight;
   }
 
 

@@ -20,11 +20,11 @@ $text-direction:                  ltr !default;
 $default-float:                   left !default;
 $opposite-direction:              right !default;
 @if $text-direction == ltr {
-  $default-float: left !global;
-  $opposite-direction: right !global;
+  $default-float: left;
+  $opposite-direction: right;
 } @else {
-  $default-float: right !global;
-  $opposite-direction: left !global;
+  $default-float: right;
+  $opposite-direction: left;
 }
 // We use these to control various global styles
 $body-bg: #fff !default;
@@ -151,30 +151,19 @@ $info-color: #a0d3e8 !default;
 $unavailable-color: #999 !default;
 
 // experimental
-// adding a theme and color for easy update for all components without touching every single variable
-$theme-list:  pretty, // gradient, more pumping.
-              shiny, // elegant with gradient
-              bordered // simple with border
-              !default;
-              // choose wisely, it will kill your user if you load it all.
-
-$color-list:  primary $primary-color, // default color
-              secondary $secondary-color, // you will have minimum 2 colors, so fill it.
-              tertiary $tertiary-color, // optional
-              quaternary $quaternary-color, // optional
-              quinary $quinary-color // optional
-              !default;
-              // choose wisely, it will kill your user if you load it all.
-
-$extra-color-list:  alert $alert-color,
-                    success $success-color,
-                    warning $warning-color,
-                    info $info-color,
-                    disable $unavailable-color 
-                    !default;
 
 // We use this to control whether or not CSS classes come through in the gem files.
 $include-print-styles: true !default;
+
+// experimental
+// in SASS 3.3 we will change it to sass map
+$themes: candy, shiny, bordered !default;
+
+$colors-name: primary, secondary, tertiary, quaternary, quinary !default;
+$colors-define: $primary-color, $secondary-color, $tertiary-color, $quaternary-color, $quinary-color !default;
+
+$extra-colors-name: alert, success, warning, info, disable !default;
+$extra-colors-define: $alert-color, $success-color, $warning-color, $info-color, $unavailable-color !default;
 
 
 //
@@ -225,8 +214,6 @@ $button-padding-horizontal: 10px !default;
 
 // precomposed
 $base-button-class: btn;
-$button-color-list: $color-list !default;
-$button-style-list: $theme-list !default;
 $button-size-list: tn $button-tn, sm $button-sm, md $button-md, lg $button-lg !default;
 
 
@@ -454,7 +441,6 @@ $block-grid-media-queries: true !default;
 //
 
 // We use these to style the labels
-$label-color-list: $color-list !default;
 $label-default-bg: #f5f5f5 !default;
 $label-padding: 4 8 6 !default;
 $label-radius: $border-radius-base !default;
@@ -543,7 +529,6 @@ $table-margin-bottom: 20 !default;
 // BOXY AVAILABLE VARS
 //
 
-$boxy-bg: $color-list !default;
 $boxy-bg-default: #f5f5f5 !default;
 
 // boxy border -- boxy blockqoute border

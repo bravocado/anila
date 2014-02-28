@@ -49,7 +49,7 @@
 }
 
 
-@mixin split-care($color: $color-list, $theme: $theme-list, $gradient-type: overlay) {
+@mixin split-care($color: $colors-define, $theme: $themes, $gradient-type: overlay) {
   // base color adjust
   $color-type: if(yiq-contrast-color($color, #000, #fff) == #000, "light", "dark");
   $color-adjust: if($color-type == "light", 5, -5);
@@ -89,7 +89,7 @@
     }
 	}
 
-  @if $theme == pretty {
+  @if $theme == candy {
     // icon active 
     i {
     	&:active {
@@ -119,36 +119,36 @@
 }
 
 
-@mixin split-compose($color: $color-list, $theme: $theme-list) {
-  @each $c in $color {
-    &.#{nth($c, 1)} {
-      @include yiq-contrasted(nth($c, 2));
+@mixin split-compose($theme: $themes) {
+  @for $c from 1 through length($colors-name) {
+    &.#{nth($colors-name, $c)} {
+      @include yiq-contrasted(nth($colors-define, $c));
       @include single-transition(background-color, 200ms, ease-in-out);
       // by default it's flat design
-      @include split-care($color: nth($c, 2), $theme: flat);
+      @include split-care($color: nth($colors-define, $c), $theme: flat);
       // creating style based on list
       &:hover {
-        $hover-color: darken(nth($c, 2), 5%);
+        $hover-color: darken(nth($colors-define, $c), 5%);
         background-color: $hover-color;
       }
       &:active {
-        $active-color: darken(nth($c, 2), 10%);
+        $active-color: darken(nth($colors-define, $c), 10%);
         background-color: $active-color;
       }
 
-      @each $t in $theme {
-        &.#{nth($t, 1)} {
-          // pretty design
-          @if #{nth($t, 1)} == pretty {
-            @include split-care($color: nth($c, 2), $theme: pretty, $gradient-type: overlay);
+      @for $t from 1 through length($themes) {
+        &.#{nth($themes, $t)} {
+          // candy design
+          @if #{nth($themes, $t)} == candy {
+            @include split-care($color: nth($colors-define, $c), $theme: candy, $gradient-type: overlay);
           }
           // shiny design
-          @if #{nth($t, 1)} == shiny {
-            @include split-care($color: nth($c, 2), $theme: shiny, $gradient-type: normal);
+          @if #{nth($themes, $t)} == shiny {
+            @include split-care($color: nth($colors-define, $c), $theme: shiny, $gradient-type: normal);
           }
            // bordered design
-          @if #{nth($t, 1)} == bordered {
-            @include split-care($color: nth($c, 2), $theme: bordered, $gradient-type: normal);
+          @if #{nth($themes, $t)} == bordered {
+            @include split-care($color: nth($colors-define, $c), $theme: bordered, $gradient-type: normal);
           }
         }
       }

@@ -78,9 +78,9 @@ $button-group-border-width: 1px !default;
     button, .#{$base-button-class} { width: 100%; }
   }
   
-  // reset border-color for pretty button
+  // reset border-color for candy button
   & > .#{$base-button-class} {
-    &.pretty {
+    &.candy {
       border-right: 0;
       border-right-width: 0;
       border-color: none;

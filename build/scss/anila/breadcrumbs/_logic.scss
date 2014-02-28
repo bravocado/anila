@@ -3,7 +3,6 @@
 //
 // Breakcrumb Mixins
 //
-$crumb-color: $color-list;
 
 // We use this mixin to create a container around our breadcrumbs
 @mixin crumb-container {
@@ -83,32 +82,32 @@ $crumb-color: $color-list;
 @mixin crumb-color {
   // experimental
   // define colors
-  @each $c in $crumb-color {
-    &.#{nth($c, 1)} {
-      $color-type: if(yiq-contrast-color(nth($c, 2), #000, #fff) == #000, "light", "dark");
+  @for $c from 1 through length($colors-name) {
+    &.#{nth($colors-name, $c)} {
+      $color-type: if(yiq-contrast-color(nth($colors-define, $c), #000, #fff) == #000, "light", "dark");
       $anchor-color-adjust: if($color-type == "dark", 50, -50);
       $unavailable-color-adjust: if($color-type == "dark", 20, -20);
       $crumb-divider-color-adjust: if($color-type == "light", 20, -20);
       
-      $anchor-color: adjust-color(nth($c, 2), $lightness: $anchor-color-adjust) !global;
-      $unavailable-color: adjust-color(nth($c, 2), $lightness: $unavailable-color-adjust) !global;
-      $crumb-color: adjust-color(nth($c, 2), $lightness: $crumb-divider-color-adjust) !global;
+      $anchor-color: adjust-color(nth($colors-define, $c), $lightness: $anchor-color-adjust);
+      $unavailable-color: adjust-color(nth($colors-define, $c), $lightness: $unavailable-color-adjust);
+      $crumb-color: adjust-color(nth($colors-define, $c), $lightness: $crumb-divider-color-adjust);
 
-      @include yiq-contrasted(nth($c, 2));
-      border-color: darken(nth($c, 2), 10%);
-      @each $t in $theme-list {
-        &.#{nth($t, 1)} {
-          // pretty design
-          @if #{nth($t, 1)} == pretty {
-            @include theme-setup($color: nth($c, 2), $theme: pretty, $hover: false, $transition: false, $button: false);
+      @include yiq-contrasted(nth($colors-define, $c));
+      border-color: darken(nth($colors-define, $c), 10%);
+      @for $t from 1 through length($themes) {
+        &.#{nth($themes, $t)} {
+          // candy design
+          @if nth($themes, $t) == candy {
+            @include theme-setup($color: nth($colors-define, $c), $theme: candy, $hover: false, $transition: false, $button: false);
           }
           // shiny design
-          @if #{nth($t, 1)} == shiny {
-            @include theme-setup($color: nth($c, 2), $theme: shiny, $hover: false, $transition: false, $button: false);
+          @if nth($themes, $t) == shiny {
+            @include theme-setup($color: nth($colors-define, $c), $theme: shiny, $hover: false, $transition: false, $button: false);
          }
            // bordered design
-          @if #{nth($t, 1)} == bordered {
-            @include theme-setup($color: nth($c, 2), $theme: bordered, $hover: false, $transition: false, $button: false);
+          @if nth($themes, $t) == bordered {
+            @include theme-setup($color: nth($colors-define, $c), $theme: bordered, $hover: false, $transition: false, $button: false);
           }
         }
       }

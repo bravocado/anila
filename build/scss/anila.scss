@@ -7,7 +7,7 @@
  *
  * LICENSE
  *
- * Copyright 2013 Bravocado a part of Narrada Communications.
+ * Copyright 2013 Narrada Communications
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,6 +43,10 @@
 @import "anila/extensions/yiq-color-contrast";
 @import "anila/extensions/photoshop-gradient-overlay";
 
+
+// themes
+@import "anila/general/themes";
+
 // alerts
 @import "anila/alerts/logic";
 
@@ -52,11 +56,11 @@
 // buttons
 @import "anila/split-button/logic";
 
-// breadcrumbs
-@import "anila/breadcrumbs/logic";
-
 // button group
 @import "anila/button-group/logic";
+
+// breadcrumbs
+@import "anila/breadcrumbs/logic";
 
 // codes
 @import "anila/codes/logic";
@@ -88,7 +92,7 @@
 // inline-list
 @import "anila/inline-list/logic";
 
-// wells
+// boxy
 @import "anila/boxy/logic";
 
 // pagination

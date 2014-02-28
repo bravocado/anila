@@ -1,7 +1,5 @@
 @import "vars";
 
-// for easier reading unminified css
-
 @mixin button-base($display: $button-display) {
   display: $display;
   margin-bottom: 0; // For input.btn
@@ -165,13 +163,13 @@
       }
     }
   @if $use-button-precomposed {
+  // for easier reading unminified css
   /*
   ==========================================================================
    BUTTONS
   ==========================================================================
   */
     @include button-precomposed;
-
   }
 }
 
