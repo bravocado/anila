@@ -29,10 +29,13 @@
 // ================================================
 // 
 
-
+// put a functions on top of everything
+// media query values need a lower bound and upper bound to works
 @import "anila/tools/functions";
+
 @import "anila/conditional";
 @import "anila/values";
+
 @import "anila/tools/mixins";
 
 @import "anila/generic/normalize";

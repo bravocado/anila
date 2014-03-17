@@ -21,6 +21,34 @@ Up until now, there's no online documentation. Run `grunt` and check your `dist/
 - By default you will have Compass project. You can switch to libsass compiler by running `anila new [project/path] --libsass`.
 
 
+## Structures
+```
++ --- build
+	+ --- doc
+	+ --- fonts
+	+ --- icons
+	+ --- js
+	+ --- scss
+		+ --- anila
+			+ --- components
+			+ --- extensions
+			+ --- generic
+			+ --- objects
+			+ --- tools
+			- --- _conditional.scss
+			- --- _values.scss
+		- --- anila.scss
++ --- dist [compiled source files]
+	+ --- assets
+		+ --- css [compiled files]
+		+ --- fonts [copied files]
+		+ --- js [minified files]
+		+ --- scss [copied scss files from build/]
+		- --- bower.json
+	+ --- docs [when you need an offline documentation, please open this folder]
+```
+
+
 ## To Do List
+- Using Block Element Modifier for CSS classes [reference](http://www.sitepoint.com/css-sass-styleguide/)
 - Moving to SASS 3.3 (release on different version)
-- Using Block Element Modifier for CSS classes [reference](http://www.sitepoint.com/css-sass-styleguide/) (release on different version)
