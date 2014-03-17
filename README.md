@@ -9,7 +9,7 @@ Consider it, if you want to use Anila.
 #### Documentation
 Up until now, there's no online documentation. Run `grunt` and check your `dist/docs/`.
 
-#### Dependecies
+## Dependecies
 - SASS [SASS documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
 - Libsass [install](http://libsass.org/)
 - Node [install](http://nodejs.org/)
@@ -21,7 +21,6 @@ Up until now, there's no online documentation. Run `grunt` and check your `dist/
 - By default you will have Compass project. You can switch to libsass compiler by running `anila new [project/path] --libsass`.
 
 
-## To Do
-
-### 2.1
-- Moving to SASS 3.3
+## To Do List
+- Moving to SASS 3.3 (release on different version)
+- Using Block Element Modifier for CSS classes [reference](http://www.sitepoint.com/css-sass-styleguide/) (release on different version)
