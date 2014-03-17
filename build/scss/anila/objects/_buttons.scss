@@ -40,9 +40,7 @@
   @if $full-width {
     // We still need to check if $padding is set.
     @if $padding {
-    //padding-top: $padding;
-    //padding-bottom: $padding + rem-calc(1);
-    @include unit(padding-bottom, $padding);
+    @include unit(padding-top, $padding);
     @include unit(padding-bottom, $padding + strip-unit(rem-calc(1)));
     } @else if $padding == false {
       padding-top:0;
@@ -55,8 +53,6 @@
 
   // <input>'s and <button>'s take on strange padding. We added this to help fix that.
   @else if $is-input == $button-lg {
-    //padding-top: $is-input + rem-calc(.5);
-    //padding-bottom: $is-input + rem-calc(.5);
     @include unit(padding-top, $is-input);
     @include unit(padding-bottom, $is-input);
     -webkit-appearance: none;
@@ -64,8 +60,6 @@
     font-weight: $button-font-weight !important;
   }
   @else if $is-input {
-    //padding-top: $is-input + rem-calc(1);
-    //padding-bottom: $is-input;
     @include unit(padding-top, $is-input);
     @include unit(padding-bottom, $is-input);
     -webkit-appearance: none;
@@ -154,20 +148,19 @@
 // end mixin precomposed
 @if $use-buttons {
 
-    button.btn {
-      border: 0;
-      &:focus {
-        outline: none;
-      }
-    }
-  @if $use-button-precomposed {
   // for easier reading unminified css
   /*
   ==========================================================================
    BUTTONS
   ==========================================================================
   */
-    @include button-precomposed;
+  button.btn {
+    border: 0;
+    &:focus {
+      outline: none;
+    }
   }
-}
 
+  @include button-precomposed;
+
+}

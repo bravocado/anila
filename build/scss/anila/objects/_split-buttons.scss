@@ -17,9 +17,6 @@
 
 @mixin split-button-size($padding: $button-md) {
 
-  //@include unit(padding-#{$opposite-direction}, $padding);
-  //@include unit(padding-#{$default-float}, $padding);
-
 	#{nth($split-button-holder, 1)},
 	#{nth($split-button-holder, 2)} {
 	  @include unit(padding-top, $padding);
@@ -163,7 +160,7 @@
 }
 
 
-@if $use-split-button {
+@if $use-split-buttons {
 	// reset styling when using split-btn on button
 	button.split-#{$base-button-class} {
 		border: 0;
@@ -198,8 +195,6 @@
 		}
 
 		// style and color precompose
-		@if $use-button-precomposed {
-			@include split-compose;
-		}
+		@include split-compose;
 	}
 }

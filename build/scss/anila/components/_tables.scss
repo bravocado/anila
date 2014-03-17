@@ -140,9 +140,7 @@
 }
 
 @mixin table {
-  //background: $table-bg;
   @include yiq-contrasted($table-bg);
-  //margin-bottom: $table-margin-bottom;
   @include unit(margin-bottom, $table-margin-bottom);
   border: $table-border-style $table-border-size $table-border-color;
   width: $table-width-default;
@@ -157,7 +155,6 @@
       td {
         @include unit(padding, $table-head-padding);
         @include unit(font-size, $table-head-font-size);
-        //color: $table-head-font-color;
         color: inherit;
         text-align: $default-float;
       }
@@ -167,8 +164,6 @@
   tr {
     th,
     td {
-      //padding: $table-row-padding;
-      //font-size: $table-row-font-size;
       @include unit(padding, $table-row-padding);
       @include unit(font-size, $table-row-font-size);
       color: $table-row-font-color;
@@ -182,7 +177,6 @@
   tr td,
   tfoot tr td {
     display: $table-display;
-    //line-height: $table-line-height;
     @include unit(line-height, $table-line-height);
   }
   
@@ -211,9 +205,9 @@
 @if $use-tables {
   table {
     @include table;
-    @if $use-table-precomposed {
-      /* TABLE PRECOMPOSED */
-      @include table-precomposed ($gradient-type: overlay);
-    }
+
+    /* TABLE PRECOMPOSED */
+    @include table-precomposed ($gradient-type: overlay);
+
   }
 }

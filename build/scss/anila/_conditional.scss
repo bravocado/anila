@@ -31,7 +31,6 @@ $use-extra-color: 								true !default;
 //
 
 $use-alerts: 											true !default;
-$use-alerts-precomposed: 					true !default;
 
 
 // 
@@ -43,9 +42,6 @@ $use-alerts-precomposed: 					true !default;
 
 $use-buttons: 										true !default;
 
-$use-button-precomposed: 					true !default;
-
-
 // 
 // ================================================
 // SPLIT BUTTONS
@@ -53,9 +49,7 @@ $use-button-precomposed: 					true !default;
 // ================================================
 // 
 
-$use-split-button: 								true !default;
-
-$use-split-button-precomposed: 		true !default;
+$use-split-buttons: 							true !default;
 
 
 // 
@@ -67,8 +61,6 @@ $use-split-button-precomposed: 		true !default;
 
 $use-button-group: 								true !default;
 
-$use-button-group-precomposed: 		true !default;
-
 
 // 
 // ================================================
@@ -78,8 +70,6 @@ $use-button-group-precomposed: 		true !default;
 // 
 
 $use-breadcrumbs: 								true !default;
-
-$use-breadcrumbs-precomposed: 		true !default;
 
 
 // 
@@ -111,8 +101,6 @@ $use-fonts: 											true !default;
 
 $use-forms: 											true !default;
 
-$use-forms-precomposed: 					true !default;
-
 
 // 
 // ================================================
@@ -122,6 +110,7 @@ $use-forms-precomposed: 					true !default;
 // 
 
 $use-grids: 											true !default;
+$use-block-grids: 								true !default;
 
 // precomposed
 $use-grid-sm: 										true !default;
@@ -171,9 +160,6 @@ $use-navs: 												true !default;
 
 $use-tables: 											true !default;
 
-$use-table-precomposed:						true !default;
-$use-table-color: 								false !default;
-
 
 // 
 // ================================================
@@ -183,7 +169,6 @@ $use-table-color: 								false !default;
 // 
 
 $use-typography: 									true !default;
-$use-typography-precomposed: 			true !default;
 
 
 // 
@@ -195,8 +180,8 @@ $use-typography-precomposed: 			true !default;
 
 $use-pagination: 									true !default;
 
-$use-pagination-precomposed: 			true !default;
-$use-pagination-theme: 						true !default;
+$use-pagination-sizes: 						true !default;
+$use-pagination-themes: 					true !default;
 
 
 // 
@@ -208,8 +193,6 @@ $use-pagination-theme: 						true !default;
 
 $use-inline-list: 								true !default;
 
-$use-inline-list-precomposed: 		true !default;
-
 
 // 
 // ================================================
@@ -220,9 +203,7 @@ $use-inline-list-precomposed: 		true !default;
 
 $use-boxy: 												true !default;
 
-$use-boxy-precomposed: 						true !default;
 $use-boxy-color: 									true !default;
-
 
 
 // 

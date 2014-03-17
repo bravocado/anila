@@ -85,8 +85,10 @@
 @if $use-pagination {
 	.pagination {
 		@include pagination-base($pagination-display, $pagination-selector);
-		@include pagination-size($selector: $pagination-selector);
-		@if $use-pagination-theme {
+		@if $use-pagination-sizes {
+			@include pagination-size($selector: $pagination-selector);
+		}
+		@if $use-pagination-themes {
 			@include pagination-theme;
 		}
 	}

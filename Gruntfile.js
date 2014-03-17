@@ -239,7 +239,7 @@ module.exports = function(grunt) {
 
             styles: {
                 files: ['build/scss/**/*.scss', 'build/doc/assets/**/*.scss'],
-                tasks: ['sass'],
+                tasks: ['sass:dist'],
                 options: {
                     livereload: true
                 }
@@ -319,7 +319,9 @@ module.exports = function(grunt) {
 
     // Load the plugin
 
+    // using libsass?
     grunt.loadNpmTasks('grunt-sass');
+    //using sass 3.3?
     //grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -337,7 +339,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('compile:assets', ['clean', 'sass', 'concat', 'uglify', 'copy', 'webfont']);
     grunt.registerTask('compile', ['compile:assets', 'assemble']);
-    grunt.registerTask('build', ['compile', 'compress']);
+    grunt.registerTask('build', ['compile', 'sass', 'compress']);
     grunt.registerTask('default', ['compile', 'watch']);
     grunt.registerTask('travis', ['compile' /*, 'karma:continuous'*/ ]);
 

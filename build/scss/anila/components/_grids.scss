@@ -5,24 +5,6 @@ thx to Zurb Foundation
 ================================================
 */
 
-
-//
-// Grid Functions
-//
-
-// Deprecated: We'll drop support for this in 5.1, use grid-calc()
-@function gridCalc($colNumber, $totalColumns) {
-  @warn "gridCalc() is deprecated, use grid-calc()";
-  @return grid-calc($colNumber, $totalColumns);
-}
-
-// @FUNCTION
-// $colNumber - Found in settings file
-// $totalColumns - Found in settings file
-@function grid-calc($colNumber, $totalColumns) {
-  @return percentage(($colNumber / $totalColumns));
-}
-
 //
 // @mixins
 //
@@ -36,8 +18,6 @@ thx to Zurb Foundation
   // use @include grid-row(nest); to include a nested row
   @if $behavior == nest {
     width: auto;
-    //margin-#{$default-float}: -($column-gutter/2);
-    //margin-#{$opposite-direction}: -($column-gutter/2);
     @include unit(margin-#{$default-float}, -($column-gutter/2));
     @include unit(margin-#{$opposite-direction}, -($column-gutter/2));
     margin-top: 0;
@@ -49,7 +29,6 @@ thx to Zurb Foundation
   @else if $behavior == collapse {
     width: 100%;
     margin: 0;
-    //max-width: $row-width;
     @include unit(max-width, $row-width);
   }
 
@@ -67,7 +46,6 @@ thx to Zurb Foundation
     margin-#{$opposite-direction}: auto;
     margin-top: 0;
     margin-bottom: 0;
-    //max-width: $row-width;
     @include unit(max-width, $row-width);
   }
 
@@ -106,8 +84,6 @@ thx to Zurb Foundation
   // Gutter padding whenever a column isn't set to collapse
   // (use $collapse:null to do nothing)
   @else if $collapse == false {
-    //padding-left: $column-gutter / 2;
-    //padding-right: $column-gutter / 2;
     @include unit(padding-left, $column-gutter / 2);
     @include unit(padding-right, $column-gutter / 2);
   }
@@ -283,7 +259,7 @@ thx to Zurb Foundation
   }
 }
 
-@if $include-block-grid {
+@if $use-block-grids {
   [class*="block-grid-"] { @include block-grid; }
   
   /* === SMALL GRID CLASSES === */

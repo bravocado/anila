@@ -96,6 +96,9 @@ $modules: () !default;
   @return rem-calc($values);
 }
 
+@function grid-calc($colNumber, $totalColumns) {
+  @return percentage(($colNumber / $totalColumns));
+}
 
 // function for purging a list
 @function purge($list) {

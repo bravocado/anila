@@ -1,17 +1,14 @@
 //
 // Breakcrumb Mixins
 //
-
-// We use this mixin to create a container around our breadcrumbs
-@mixin crumb-container {
+// We use this placeholder to create a container around our breadcrumbs
+%crumb-base {
   display: block;
-  @include unit(padding, $crumb-padding);
   overflow: hidden;
   margin-#{$default-float}: 0;
   list-style: none;
   border-style: $crumb-border-style;
   border-width: $crumb-border-size;
-
   // We control which background color and border come through.
   background-color: $crumb-bg;
   border-color: $crumb-border-color;
@@ -20,6 +17,8 @@
 
 // We use this mixin to create breadcrumb styles from list items.
 @mixin crumbs {
+
+  @include unit(padding, $crumb-padding);
 
   // A normal state will make the links look and act like clickable breadcrumbs.
   margin: 0;
@@ -34,7 +33,7 @@
     text-transform: $crumb-font-transform;
     color: $crumb-font-color;
   }
-
+  
   // Current is for the link of the current page
   &.current {
     cursor: $cursor-default-value;
@@ -68,7 +67,6 @@
     color: $crumb-slash-color;
     @include unit(margin, 0 $crumb-side-padding);
     position: relative;
-    //top: 1px;
   }
 
   &:first-child:before {
@@ -145,7 +143,7 @@
 
 @if $use-breadcrumbs {
   .breadcrumbs {
-    @include crumb-container;
+    @extend %crumb-base;
     
     &.radius {
       @include radius($crumb-radius);

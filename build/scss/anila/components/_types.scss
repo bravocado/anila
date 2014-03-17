@@ -6,7 +6,6 @@
 
 // These will throw a deprecation warning if used within a media query.
 @mixin lead {
-  //font-size: $paragraph-font-size + rem-calc(3.5);
   @include unit(font-size, $paragraph-font-size + strip-unit(rem-calc(3.5)));
   line-height: 1.6;
 }
@@ -15,8 +14,6 @@
   line-height: $subheader-line-height;
   color: $subheader-font-color;
   font-weight: $subheader-font-weight;
-  //margin-top: $subheader-top-margin;
-  //margin-bottom: $subheader-bottom-margin;
   @include unit(margin-top, $subheader-top-margin);
   @include unit(margin-bottom, $subheader-bottom-margin);
 }
@@ -76,17 +73,14 @@
   p {
     font-family: $paragraph-font-family;
     font-weight: $paragraph-font-weight;
-    //font-size: $paragraph-font-size;
     @include unit(font-size, $paragraph-font-size);
     line-height: $paragraph-line-height;
-    //margin-bottom: $paragraph-margin-bottom;
     @include unit(margin-bottom, $paragraph-margin-bottom);
     text-rendering: $paragraph-text-rendering;
 
     &.lead { @include lead; }
 
     & aside {
-      //font-size: $paragraph-aside-font-size;
       @include unit(font-size, $paragraph-aside-font-size);
       line-height: $paragraph-aside-line-height;
       font-style: $paragraph-aside-font-style;
@@ -100,8 +94,6 @@
     font-style: $header-font-style;
     color: $header-font-color;
     text-rendering: $header-text-rendering;
-    //margin-top: $header-top-margin;
-    //margin-bottom: $header-bottom-margin;
     @include unit(margin-top, $header-top-margin);
     @include unit(margin-bottom, $header-bottom-margin);
     line-height: $header-line-height;
@@ -126,7 +118,6 @@
     border: $hr-border-style $hr-border-color;
     border-width: $hr-border-width 0 0;
     clear: both;
-    //margin: $hr-margin 0 ($hr-margin - rem-calc(1));
     @include unit(margin, $hr-margin 0 ($hr-margin - strip-unit(rem-calc(1))));
     height: 0;
   }
@@ -159,25 +150,20 @@
   ul,
   ol,
   dl {
-    //font-size: $paragraph-font-size;
     @include unit(font-size, $paragraph-font-size);
     line-height: $paragraph-line-height;
-    //margin-bottom: $paragraph-margin-bottom;
     @include unit(margin-bottom, $paragraph-margin-bottom);
     list-style-position: $list-style-position;
     font-family: $paragraph-font-family;
   }
 
   ul {
-    //margin-#{$default-float}: $list-side-margin;
     @include unit(margin-#{$default-float}, $list-side-margin);
     &.no-bullet { 
-      //margin-#{$default-float}: $list-side-margin-no-bullet; 
       @include unit(margin-#{$default-float}, $list-side-margin-no-bullet);
       li {
         ul,
         ol {
-          //margin-#{$default-float}: $list-nested-margin;
           @include unit(margin-#{$default-float}, $list-nested-margin);
           margin-bottom: 0;
           list-style: none;
@@ -191,10 +177,8 @@
     li {
       ul,
       ol {
-        //margin-#{$default-float}: $list-nested-margin;
         @include unit(margin-#{$default-float}, $list-nested-margin);
         margin-bottom: 0;
-        //font-size: 1rem; /* Override nested font-size change */
         @include unit(font-size, $rem-base);
       }
     }
@@ -206,17 +190,14 @@
 
     &.square {
       list-style-type: square;
-      //margin-#{$default-float}: $list-side-margin;
       @include unit(margin-#{$default-float}, $list-side-margin);
     }
     &.circle { 
       list-style-type: circle;
-      //margin-#{$default-float}: $list-side-margin;
       @include unit(margin-#{$default-float}, $list-side-margin);
     }
     &.disc { 
       list-style-type: disc; 
-      //margin-#{$default-float}: $list-side-margin;
       @include unit(margin-#{$default-float}, $list-side-margin);
     }
     &.no-bullet { list-style: none; }
@@ -224,12 +205,10 @@
 
   /* Ordered Lists */
   ol {
-    //margin-#{$default-float}: $list-ordered-side-margin;
     @include unit(margin-#{$default-float}, $list-ordered-side-margin);
     li {
       ul,
       ol {
-        //margin-#{$default-float}: $list-nested-margin;
         @include unit(margin-#{$default-float}, $list-nested-margin);
         margin-bottom: 0;
       }
@@ -239,12 +218,10 @@
   /* Definition Lists */
   dl {
     dt {
-      //margin-bottom: $definition-list-header-margin-bottom;
       @include unit(margin-bottom, $definition-list-header-margin-bottom);
       font-weight: $definition-list-header-weight;
     }
     dd { 
-      //margin-bottom: $definition-list-margin-bottom;
       @include unit(margin-bottom, $definition-list-margin-bottom);
     }
   }
@@ -264,16 +241,12 @@
 
   /* Blockquotes */
   blockquote {
-    //margin: 0 0 $paragraph-margin-bottom;
     @include unit(margin, 0 0 $paragraph-margin-bottom);
-    //padding: $blockquote-padding;
-    //@include unit(padding, $blockquote-padding-top, $blockquote-padding-right, $blockquote-padding-bottom, $blockquote-padding-left);
     @include unit(padding, $blockquote-padding);
     border-#{$default-float}: $blockquote-border;
 
     cite {
       display: block;
-      //font-size: $blockquote-cite-font-size;
       @include unit(font-size, $blockquote-cite-font-size);
       color: $blockquote-cite-font-color;
       &:before {
@@ -295,13 +268,8 @@
   /* Microformats */
   .vcard {
     display: inline-block;
-    //margin: $microformat-margin;
-    //@include unit(margin, $microformat-margin-top, $microformat-margin-right, $microformat-margin-bottom, $microformat-margin-left);
     @include unit(margin, $microformat-margin);
-    //@include rem(margin, $microformat-margin);
     border: $microformat-border-width $microformat-border-style $microformat-border-color;
-    //padding: $microformat-padding;
-    //@include rem(padding, $microformat-padding-vertical, $microformat-padding-horizontal);
     @include unit(padding, $microformat-padding);
 
     li {
@@ -310,7 +278,6 @@
     }
     .fn {
       font-weight: $microformat-fullname-font-weight;
-      //font-size: $microformat-fullname-font-size;
       @include unit(font-size, $microformat-fullname-font-size);
     }
   }
@@ -323,8 +290,6 @@
       text-decoration: $microformat-abbr-font-decoration;
       font-weight: $microformat-abbr-font-weight;
       border: none;
-      //padding: $microformat-abbr-padding;
-      //@include rem(padding, $microformat-abbr-padding-vertical, $microformat-abbr-padding-horizontal);
       @include unit(padding, $microformat-abbr-padding);
     }
   }
