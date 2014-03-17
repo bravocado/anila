@@ -116,12 +116,12 @@ module.exports = function(grunt) {
                 src: 'build/icons/*.svg',
                 //dest: 'dist/docs/assets/fonts',
                 dest: 'build/fonts/',
-                destCss: 'build/scss/anila/fonts',
+                destCss: 'build/scss/anila/components',
                 options: {
                     hashes: false,
                     stylesheet: 'scss',
                     syntax: 'bootstrap',
-                    font: 'anila',
+                    font: 'anila_font',
                     ligature: true,
                     embed: false,
                     relativeFontPath: '../../../assets/fonts/'
@@ -174,13 +174,12 @@ module.exports = function(grunt) {
                     src: ['**/*.js'],
                     dest: 'dist/docs/assets/js/'
                 }, {
-                    cwd: 'build/scss/',
+                    cwd: 'build/scss',
                     expand: true,
-                    filter: 'isFile',
-                    src: '**/*.scss',
-                    dest: 'dist/assets/scss/'
+                    src: ['**/**/*'],
+                    dest: 'dist/assets/scss'
                 }, {
-                    src: 'bower.json',
+                    src: ['bower.json'],
                     dest: 'dist/assets/'
                 }, {
                     cwd: 'build/fonts/',
@@ -240,7 +239,7 @@ module.exports = function(grunt) {
 
             styles: {
                 files: ['build/scss/**/*.scss', 'build/doc/assets/**/*.scss'],
-                tasks: ['sass'],
+                tasks: ['sass:dist'],
                 options: {
                     livereload: true
                 }
@@ -320,7 +319,9 @@ module.exports = function(grunt) {
 
     // Load the plugin
 
+    // using libsass?
     grunt.loadNpmTasks('grunt-sass');
+    //using sass 3.3?
     //grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -338,7 +339,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('compile:assets', ['clean', 'sass', 'concat', 'uglify', 'copy', 'webfont']);
     grunt.registerTask('compile', ['compile:assets', 'assemble']);
-    grunt.registerTask('build', ['compile', 'compress']);
+    grunt.registerTask('build', ['compile', 'sass', 'compress']);
     grunt.registerTask('default', ['compile', 'watch']);
     grunt.registerTask('travis', ['compile' /*, 'karma:continuous'*/ ]);
 

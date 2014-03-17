@@ -1,0 +1,213 @@
+/*
+==========================================================================
+ TABLE
+==========================================================================
+*/
+
+//
+// @mixins
+//
+
+@mixin table-color {
+  @for $c from 1 through length($colors-name) {
+    &.#{nth($colors-name, $c)} {
+      border-color: lighten(nth($colors-define, $c), 20%);
+      thead {
+        @include yiq-contrasted(nth($colors-define, $c));
+      }
+      thead, tfoot {
+        tr {
+          th, td {
+            color: inherit;
+            text-shadow: none;
+          }
+        }
+      }
+      &.line {
+        thead, tfoot, tbody {
+          tr {
+            th, td {
+              border-color: lighten(nth($colors-define, $c), 20%);
+            }
+          }
+        }
+      }
+      &.stripe {
+        tr {
+          &.even,
+          &.alt,
+          &:nth-of-type(even) { background: rgba(nth($colors-define, $c), .2); }
+        }    
+      }
+    }
+  }
+}
+
+@mixin anila-table($color: $primary-color, $style: flat, $gradient-type: overlay) {
+  // base color adjust
+  $color-type: if(yiq-contrast-color($color, #000, #fff) == #000, "light", "dark");
+  $color-adjust: if($color-type == "light", 5, -5);
+  $gradient-color: photoshop-gradient-overlay($color, $gradient-type, 50%, 90deg);
+  
+  @if $style == candy {
+    border: 1px solid $color;
+    thead {
+      @include background-image($gradient-color);
+      @include yiq-contrasted($color);
+    }
+  }
+  @if $style == shiny {
+    $gradient-color:  photoshop-gradient-overlay($color, normal, 100%, -90deg, 100%, (adjust-color($color, $lightness: 10) 0%, adjust-color($color, $lightness: 10) 50%, $color 50%, $color 100%));
+    border: 1px solid adjust-color($color, $lightness: 10);
+    thead {
+      @include background-image($gradient-color);
+      @include yiq-contrasted($color);      
+    }
+  }
+  @if $style == bordered {
+    border: 3px solid $color;
+    thead {
+      @include yiq-contrasted(rgba(255, 255, 255, 0));
+      th {
+        border: 3px solid $color;
+      }
+    }
+    &.line {
+      tbody {
+        td {
+          border-color: $color;
+          border-style: solid;
+          border-width: 1px;
+          border-right-width: 3px;
+        }
+      }
+    }
+  }
+
+
+}
+
+@mixin table-precomposed($gradient-type: overlay) {
+  @for $c from 1 through length($colors-name) {
+    &.#{nth($colors-name, $c)} {
+      border: 1px solid nth($colors-define, $c);
+      &.line {
+        thead, tfoot, tbody {
+          tr {
+            th, td {
+              border-color: lighten(nth($colors-define, $c), 20%);
+            }
+          }
+        }
+      }
+      &.stripe {
+        tr {
+          &.even,
+          &.alt,
+          &:nth-of-type(even) { @include yiq-contrasted(rgba(nth($colors-define, $c), .1)); }
+        }    
+      }
+      thead {
+        @include yiq-contrasted(nth($colors-define, $c));
+      }
+      @for $t from 1 through length($themes) {
+        &.#{nth($themes, $t)} {
+          // candy design
+          @if nth($themes, $t) == candy {
+            @include anila-table($color: nth($colors-define, $c), $style: candy, $gradient-type: overlay);
+          }
+          // shiny design
+          @if nth($themes, $t) == shiny {
+            @include anila-table($color: nth($colors-define, $c), $style: shiny, $gradient-type: normal);
+          }
+          // bordered design
+          @if nth($themes, $t) == bordered {
+            @include anila-table($color: nth($colors-define, $c), $style: bordered, $gradient-type: normal);
+            thead {
+              tr {
+                th, td {
+                  border-color: nth($colors-define, $c);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    // end creating style
+  }
+  // end creating colors
+}
+
+@mixin table {
+  @include yiq-contrasted($table-bg);
+  @include unit(margin-bottom, $table-margin-bottom);
+  border: $table-border-style $table-border-size $table-border-color;
+  width: $table-width-default;
+
+  thead,
+  tfoot {
+    background-color: $table-head-bg;
+    font-weight: $table-head-font-weight;
+
+    tr {
+      th,
+      td {
+        @include unit(padding, $table-head-padding);
+        @include unit(font-size, $table-head-font-size);
+        color: inherit;
+        text-align: $default-float;
+      }
+    }
+  }
+
+  tr {
+    th,
+    td {
+      @include unit(padding, $table-row-padding);
+      @include unit(font-size, $table-row-font-size);
+      color: $table-row-font-color;
+    }
+
+  }
+
+  thead tr th,
+  tfoot tr th,
+  tbody tr td,
+  tr td,
+  tfoot tr td {
+    display: $table-display;
+    @include unit(line-height, $table-line-height);
+  }
+  
+  // types
+  &.line {
+    thead, tfoot, tbody {
+      tr {
+        th, td {
+          border: $table-border-style $table-border-size $table-border-color;
+        }
+      }
+    }
+  }
+  
+  &.stripe {
+    tr {
+      &.even,
+      &.alt,
+      &:nth-of-type(even) { background: $table-even-row-bg; }
+    }    
+  }
+  
+}
+
+
+@if $use-tables {
+  table {
+    @include table;
+
+    /* TABLE PRECOMPOSED */
+    @include table-precomposed ($gradient-type: overlay);
+
+  }
+}

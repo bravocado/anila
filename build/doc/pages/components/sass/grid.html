@@ -161,12 +161,32 @@ You can further customize your grid columns using the provided options in the `g
 
 ##### Sass Errors?
 
-If the default "foundation" import was commented out, then make sure you import this file:
+Make sure you include all available vars on value.scss
 
 <h4>SCSS</h4>
 
 {{#markdown}}
 ```scss
 @import "anila/grid/logic";
+```
+{{/markdown}}
+
+{{#markdown}}
+```scss
+$row-width: 1000 !default;
+$column-gutter: 30 !default;
+$total-columns: 12 !default;
+
+$row-base-class: row !default;
+$column-base-class: col !default;
+
+// block grid
+$include-block-grid: true !default;
+// We use this to control the maximum number of block grid elements per row
+$block-grid-elements: 12 !default;
+$block-grid-default-spacing: 20 !default;
+
+// Enables media queries for block-grid classes. Set to false if writing semantic HTML.
+$block-grid-media-queries: true !default;
 ```
 {{/markdown}}

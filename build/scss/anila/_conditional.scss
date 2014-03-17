@@ -15,19 +15,8 @@ $oldie: 													true !default;
 
 //
 // ================================================
-// THEMES
-// ================================================
-//
-
-$use-flat-theme: 									true !default;
-$use-candy-theme: 								true !default;
-$use-shiny-theme: 								true !default;
-$use-bordered-theme: 							true !default;
-
-
-//
-// ================================================
 // COLORS
+// value.scss line 140 for available vars
 // ================================================
 //
 
@@ -36,63 +25,57 @@ $use-extra-color: 								true !default;
 
 //
 // ================================================
-// COLORS
+// ALERTS
+// 
 // ================================================
 //
 
 $use-alerts: 											true !default;
-$use-alerts-precomposed: 					true !default;
 
 
 // 
 // ================================================
 // BUTTONS
-// value.scss line 184 - 214 for available vars
+// value.scss line 187 for available vars
 // ================================================
 // 
 
 $use-buttons: 										true !default;
 
-$use-button-precomposed: 					true !default;
-
-
 // 
 // ================================================
 // SPLIT BUTTONS
+// value.scss line 243 for available vars
 // ================================================
 // 
 
-$use-split-button: 								true !default;
-
-$use-split-button-precomposed: 		true !default;
+$use-split-buttons: 							true !default;
 
 
 // 
 // ================================================
-// SPLIT BUTTONS
+// BUTTON GROUP
+// value.scss line 234 for avaiable vars
 // ================================================
 // 
 
 $use-button-group: 								true !default;
 
-$use-button-group-precomposed: 		true !default;
-
 
 // 
 // ================================================
 // BREADCRUMBS
-// value.scss line 222 - 245 for available vars
+// value.scss line 250 for available vars
 // ================================================
 // 
 
 $use-breadcrumbs: 								true !default;
 
-$use-breadcrumbs-precomposed: 		true !default;
-
 
 // 
 // ================================================
 // CODES
+//
 // ================================================
 // 
 
@@ -102,6 +85,7 @@ $use-codes: 											true !default;
 // 
 // ================================================
 // FONTS
+//
 // ================================================
 // 
 
@@ -111,23 +95,22 @@ $use-fonts: 											true !default;
 // 
 // ================================================
 // FORMS
-// value.scss line 254 - 309 for available vars
+// value.scss line 282 for available vars
 // ================================================
 // 
 
 $use-forms: 											true !default;
 
-$use-forms-precomposed: 					true !default;
-
 
 // 
 // ================================================
 // GRIDS
-// value.scss line 420 - 432 for available vars
+// value.scss line 345 for available vars
 // ================================================
 // 
 
 $use-grids: 											true !default;
+$use-block-grids: 								true !default;
 
 // precomposed
 $use-grid-sm: 										true !default;
@@ -141,7 +124,7 @@ $use-grid-push-pull: 							true !default;
 // 
 // ================================================
 // LABELS
-// value.scss line 440 - 450 for available vars
+// value.scss line 364 for available vars
 // ================================================
 // 
 
@@ -151,7 +134,7 @@ $use-label: 											true !default;
 // 
 // ================================================
 // MEDIA
-// value.scss line 489 - 463 for available vars
+// value.scss line 381 for available vars
 // ================================================
 // 
 
@@ -161,7 +144,7 @@ $use-media: 											true !default;
 // 
 // ================================================
 // NAVS
-// value.scss line 472 - 489 for available vars
+// value.scss line 394 for available vars
 // ================================================
 // 
 
@@ -171,59 +154,57 @@ $use-navs: 												true !default;
 // 
 // ================================================
 // TABLES
-// value.scss line 498 - 520 for available vars
+// value.scss line 421 for available vars
 // ================================================
 // 
 
 $use-tables: 											true !default;
 
-$use-table-precomposed:						true !default;
-$use-table-color: 								false !default;
-
 
 // 
 // ================================================
-// TYPORGRAPHY
-// value.scss line 317 - 411 for available vars
+// TYPES
+// value.scss line 455 for available vars
 // ================================================
 // 
 
 $use-typography: 									true !default;
-$use-typography-precomposed: 			true !default;
+
 
 // 
 // ================================================
 // PAGINATION
-// value.scss line 557 - 422 for available vars
+// value.scss line 565 for available vars
 // ================================================
 // 
 
 $use-pagination: 									true !default;
 
-$use-pagination-precomposed: 			true !default;
-$use-pagination-theme: 						true !default;
+$use-pagination-sizes: 						true !default;
+$use-pagination-themes: 					true !default;
 
 
 // 
 // ================================================
 // INLINE LIST
+// value.scss line 575 for available vars
 // ================================================
 // 
 
 $use-inline-list: 								true !default;
 
-$use-inline-list-precomposed: 		true !default;
 
 // 
 // ================================================
-// boxy
-// value.scss line 534 - 550 for available vars
+// BOXY
+// value.scss line 600 for available vars
 // ================================================
 // 
+
 $use-boxy: 												true !default;
 
-$use-boxy-precomposed: 						true !default;
 $use-boxy-color: 									true !default;
+
 
 // 
 // ================================================

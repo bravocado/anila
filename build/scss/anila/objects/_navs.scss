@@ -1,0 +1,56 @@
+/*
+==========================================================================
+ NAVIGATION
+==========================================================================
+*/
+
+/*
+==========================================================================
+ NAVIGATION
+==========================================================================
+*/
+
+// We use this to style the side-nav
+//
+// $divider-color - Border color of divider. Default: $side-nav-divider-color.
+// $font-size - Font size of nav items. Default: $side-nav-font-size.
+// $link-color - Color of navigation links. Default: $side-nav-link-color.
+@mixin side-nav(
+  $divider-color:$side-nav-divider-color, 
+  $font-size:$side-nav-font-size, 
+  $link-color:$side-nav-link-color) {
+  display: block;
+  margin: 0;
+  @include unit(padding, $side-nav-padding);
+  list-style-type: $side-nav-list-type;
+  list-style-position: $side-nav-list-position;
+  font-family: $side-nav-font-family;
+
+  li {
+    @include unit(margin, $side-nav-list-margin);
+    @include unit(font-size, $font-size);
+
+    a {
+      display: block;
+      color: $link-color;
+    }
+
+    &.active > a:first-child {
+      color: $side-nav-link-color-active;
+      font-weight: $side-nav-font-weight;
+      font-family: $side-nav-active-font-family;
+    }
+
+    &.divider {
+      border-top: $side-nav-divider-size $side-nav-divider-style;
+      height: 0;
+      padding: 0;
+      list-style: none;
+      border-top-color: $divider-color;
+    }
+  }
+}
+
+@if $use-navs {
+  .side-nav { @include side-nav; }
+}

@@ -1,0 +1,38 @@
+/*
+==========================================================================
+ INLINE LIST
+==========================================================================
+*/
+
+/*
+==========================================================================
+ INLINE LIST
+==========================================================================
+*/
+
+//
+// @mixins
+//
+// We use this mixin to create inline lists
+@mixin inline-list {
+  @include unit(margin, $inline-list-top-margin 0 $inline-list-bottom-margin 0);
+  @include unit(margin-#{$default-float}, $inline-list-default-float-margin);
+  @include unit(margin-#{$opposite-direction}, $inline-list-opposite-margin);
+  @include unit(padding, $inline-list-padding);
+  list-style: none;
+  overflow: $inline-list-overflow;
+
+  & > li {
+    list-style: none;
+    float: $default-float;
+    @include unit(margin-#{$default-float}, 22);
+    display: $inline-list-display;
+    &>* { display: $inline-list-children-display; }
+  }
+}
+
+@if $use-inline-list {
+  .inline-list {
+    @include inline-list();
+  }
+}
