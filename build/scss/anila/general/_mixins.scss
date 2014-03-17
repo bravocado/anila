@@ -68,8 +68,8 @@
 
 // mixin background image from bourbon.io
 @mixin background-image($images...) {
-  background-image: _add-prefix($images, webkit);
-  //background-image: _add-prefix($images);
+  background-image: (-moz-#{$images});
+  background-image: ($images);
 }
 
 // We use this to add box-sizing across browser prefixes
