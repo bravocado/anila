@@ -63,18 +63,18 @@
 	}
 }
 
-@mixin pagination-size ($selector: $pagination-selector ,$pagination-size: $button-size-list) {
+@mixin pagination-size ($selector: $pagination-selector) {
   // creating sizes
   #{$pagination-selector} {
   	a {
 		  @include button-size($button-md);
   	}
   }
-  @each $bz in $pagination-size {
-    &.#{nth($bz, 1)} {
+  @for $sizes from 1 through length($button-size-name) {
+    &.#{nth($button-size-name, $sizes)} {
 		  #{$pagination-selector} {
 		  	a {
-		      @include button-size(nth($bz, 2), false, false);
+		      @include button-size(nth($button-size-define, $sizes), false, false);
 		  	}
 		  }
     }
@@ -85,7 +85,7 @@
 @if $use-pagination {
 	.pagination {
 		@include pagination-base($pagination-display, $pagination-selector);
-		@include pagination-size($button-size-list);
+		@include pagination-size($selector: $pagination-selector);
 		@if $use-pagination-theme {
 			@include pagination-theme;
 		}

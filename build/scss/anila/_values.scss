@@ -216,14 +216,19 @@ $button-padding-horizontal: 10px !default;
 // precomposed
 $base-button-class: btn;
 
-// button extra list
-$button-size-list: tn $button-tn,
-                   sm $button-sm,
-                   md $button-md,
-                   lg $button-lg !default;
-                   // tn[a] $button-tn[b]
-                   // [a] for class name
-                   // [b] size for [a]
+// button size name
+$button-size-name: tn,
+                   sm,
+                   md,
+                   lg
+                   !default;
+
+// button size define
+$button-size-define: $button-tn,
+                     $button-sm,
+                     $button-md,
+                     $button-lg
+                     !default;
 
 
 //
