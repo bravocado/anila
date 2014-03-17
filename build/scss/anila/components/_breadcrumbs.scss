@@ -1,0 +1,160 @@
+//
+// Breakcrumb Mixins
+//
+
+// We use this mixin to create a container around our breadcrumbs
+@mixin crumb-container {
+  display: block;
+  @include unit(padding, $crumb-padding);
+  overflow: hidden;
+  margin-#{$default-float}: 0;
+  list-style: none;
+  border-style: $crumb-border-style;
+  border-width: $crumb-border-size;
+
+  // We control which background color and border come through.
+  background-color: $crumb-bg;
+  border-color: $crumb-border-color;
+
+}
+
+// We use this mixin to create breadcrumb styles from list items.
+@mixin crumbs {
+
+  // A normal state will make the links look and act like clickable breadcrumbs.
+  margin: 0;
+  float: $default-float;
+  @include unit(font-size, $crumb-font-size);
+  text-transform: $crumb-font-transform;
+
+  &:hover a, &:focus a { text-decoration: $crumb-link-decor; }
+
+  a,
+  span {
+    text-transform: $crumb-font-transform;
+    color: $crumb-font-color;
+  }
+
+  // Current is for the link of the current page
+  &.current {
+    cursor: $cursor-default-value;
+    color: $crumb-font-color-current;
+    a {
+      cursor: $cursor-default-value;
+      color: $crumb-font-color-current;
+    }
+
+    &:hover, &:hover a,
+    &:focus, &:focus a { text-decoration: none; }
+  }
+
+  // Unavailable removed color and link styles so it looks inactive.
+  &.unavailable {
+    color: $crumb-font-color-unavailable;
+    a { color: $crumb-font-color-unavailable; }
+
+    &:hover,
+    &:hover a,
+    &:focus,
+    a:focus {
+      text-decoration: none;
+      color: $crumb-font-color-unavailable;
+      cursor: not-allowed;
+    }
+  }
+
+  &:before {
+    content: "#{$crumb-slash}";
+    color: $crumb-slash-color;
+    @include unit(margin, 0 $crumb-side-padding);
+    position: relative;
+    //top: 1px;
+  }
+
+  &:first-child:before {
+    content: " ";
+    margin: 0;
+  }
+}
+
+@mixin crumb-color {
+  // experimental
+  // define colors
+  @for $c from 1 through length($colors-name) {
+    &.#{nth($colors-name, $c)} {
+      $color-type: if(yiq-contrast-color(nth($colors-define, $c), #000, #fff) == #000, "light", "dark");
+      $anchor-color-adjust: if($color-type == "dark", 50, -50);
+      $unavailable-color-adjust: if($color-type == "dark", 20, -20);
+      $crumb-divider-color-adjust: if($color-type == "light", 20, -20);
+      
+      $anchor-color: adjust-color(nth($colors-define, $c), $lightness: $anchor-color-adjust);
+      $unavailable-color: adjust-color(nth($colors-define, $c), $lightness: $unavailable-color-adjust);
+      $crumb-color: adjust-color(nth($colors-define, $c), $lightness: $crumb-divider-color-adjust);
+
+      @include yiq-contrasted(nth($colors-define, $c));
+      border-color: darken(nth($colors-define, $c), 10%);
+      @for $t from 1 through length($themes) {
+        &.#{nth($themes, $t)} {
+          // candy design
+          @if nth($themes, $t) == candy {
+            @include theme-setup($color: nth($colors-define, $c), $theme: candy, $hover: false, $transition: false, $button: false);
+          }
+          // shiny design
+          @if nth($themes, $t) == shiny {
+            @include theme-setup($color: nth($colors-define, $c), $theme: shiny, $hover: false, $transition: false, $button: false);
+         }
+           // bordered design
+          @if nth($themes, $t) == bordered {
+            @include theme-setup($color: nth($colors-define, $c), $theme: bordered, $hover: false, $transition: false, $button: false);
+          }
+        }
+      }
+      &>* {
+        &.current {
+            color: inherit;
+          a {
+            color: inherit;
+          }
+        }
+        
+        // crumb divider
+        &:before {
+          color: $crumb-color;
+        }
+
+        // Unavailable removed color and link styles so it looks inactive.
+        &.unavailable {
+          color: $unavailable-color;
+          a { color: $unavailable-color; }
+
+          &:hover,
+          &:hover a,
+          &:focus,
+          a:focus {
+            color: darken($unavailable-color, 10%);
+          }
+        }
+        a, span {
+          color: $anchor-color;
+        }
+      }
+    }
+  }
+}
+
+
+@if $use-breadcrumbs {
+  .breadcrumbs {
+    @include crumb-container;
+    
+    &.radius {
+      @include radius($crumb-radius);
+    }
+
+    &>* {
+      @include crumbs;
+    }
+
+    @include crumb-color;
+  }
+}

@@ -116,12 +116,12 @@ module.exports = function(grunt) {
                 src: 'build/icons/*.svg',
                 //dest: 'dist/docs/assets/fonts',
                 dest: 'build/fonts/',
-                destCss: 'build/scss/anila/fonts',
+                destCss: 'build/scss/anila/components',
                 options: {
                     hashes: false,
                     stylesheet: 'scss',
                     syntax: 'bootstrap',
-                    font: 'anila',
+                    font: 'anila_font',
                     ligature: true,
                     embed: false,
                     relativeFontPath: '../../../assets/fonts/'

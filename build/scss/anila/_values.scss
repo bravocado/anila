@@ -214,7 +214,15 @@ $button-padding-horizontal: 10px !default;
 
 // precomposed
 $base-button-class: btn;
-$button-size-list: tn $button-tn, sm $button-sm, md $button-md, lg $button-lg !default;
+
+// button extra list
+$button-size-list: tn $button-tn,
+                   sm $button-sm,
+                   md $button-md,
+                   lg $button-lg !default;
+                   // tn[a] $button-tn[b]
+                   // [a] for class name
+                   // [b] size for [a]
 
 
 //
@@ -246,7 +254,6 @@ $crumb-link-decor: underline !default;
 // We use these to control the slash between breadcrumbs
 $crumb-slash-color: #aaa !default;
 $crumb-slash: "/" !default;
-
 
 
 //
@@ -312,8 +319,9 @@ $glowing-effect-color: $input-focus-border-color !default;
 // Select variables
 $select-bg-color: #fafafa !default;
 
+
 //
-// TYPOGRAPHY AVAILABLE VARS
+// TYPES AVAILABLE VARS
 //
 
 // We use these to control header font styles
@@ -425,7 +433,6 @@ $row-width: 1000 !default;
 $column-gutter: 30 !default;
 $total-columns: 12 !default;
 
-
 // block grid
 $include-block-grid: true !default;
 // We use this to control the maximum number of block grid elements per row
@@ -471,17 +478,17 @@ $media-video-widescreen-padding-bottom: 57.25% !default;
 //
 
 // We use this to control padding.
-$side-nav-padding: 14 0 !default;
+$side-nav-padding: rem-calc(14 0) !default;
 
 // We use these to control list styles.
 $side-nav-list-type: none !default;
 $side-nav-list-position: inside !default;
-$side-nav-list-margin: 0 0 7 0 !default;
+$side-nav-list-margin: rem-calc(0 0 7 0) !default;
 
 // We use these to control link styles.
 $side-nav-link-color: $primary-color !default;
 $side-nav-link-color-active: lighten(#000, 30%) !default;
-$side-nav-font-size: 14 !default;
+$side-nav-font-size: rem-calc(14) !default;
 $side-nav-font-weight: normal !default;
 $side-nav-font-family: $body-font-family !default;
 $side-nav-active-font-family: $side-nav-font-family !default;
@@ -567,3 +574,27 @@ $pagination-spacing: $rem-base/2 !default;
 //
 
 $split-button-holder: span, i !default;
+
+
+//
+// INLINE LIST VARS
+//
+
+$use-inline-list: true !default;
+
+// We use this to control the margins and padding of the inline list.
+$inline-list-top-margin: 0 !default;
+$inline-list-opposite-margin: 0 !default;
+$inline-list-bottom-margin: 17 !default;
+$inline-list-default-float-margin: -22 !default;
+
+$inline-list-padding: 0 !default;
+
+// We use this to control the overflow of the inline list.
+$inline-list-overflow: hidden !default;
+
+// We use this to control the list items
+$inline-list-display: block !default;
+
+// We use this to control any elments within list items
+$inline-list-children-display: block !default;

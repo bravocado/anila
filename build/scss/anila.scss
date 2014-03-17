@@ -30,14 +30,14 @@
 // 
 
 
-@import "anila/general/functions";
+@import "anila/tools/functions";
 @import "anila/conditional";
 @import "anila/values";
-@import "anila/general/mixins";
+@import "anila/tools/mixins";
 
-@import "anila/general/normalize";
-@import "anila/general/reset";
-@import "anila/general/debug";
+@import "anila/generic/normalize";
+@import "anila/generic/reset";
+@import "anila/generic/debug";
 
 // extensions
 @import "anila/extensions/yiq-color-contrast";
@@ -45,59 +45,69 @@
 
 
 // themes
-@import "anila/general/themes";
+@import "anila/tools/themes";
+
+
+//
+// OBJECTS
+//
 
 // alerts
-@import "anila/alerts/logic";
+@import "anila/objects/alerts";
 
 // buttons
-@import "anila/buttons/logic";
+@import "anila/objects/buttons";
 
 // buttons
-@import "anila/split-button/logic";
+@import "anila/objects/split-buttons";
 
 // button group
-@import "anila/button-group/logic";
-
-// breadcrumbs
-@import "anila/breadcrumbs/logic";
-
-// codes
-@import "anila/codes/logic";
-
-// fonts
-@import "anila/fonts/anila";
-
-// forms
-@import "anila/forms/logic";
-
-// grids
-@import "anila/grids/logic";
+@import "anila/objects/button-group";
 
 // labels
-@import "anila/labels/logic";
-
-// media
-@import "anila/media/logic";
+@import "anila/objects/labels";
 
 // navs
-@import "anila/navs/logic";
-
-// tables
-@import "anila/tables/logic";
-
-// typography
-@import "anila/typography/logic";
-
-// inline-list
-@import "anila/inline-list/logic";
+@import "anila/objects/navs";
 
 // boxy
-@import "anila/boxy/logic";
+@import "anila/objects/boxy";
 
-// pagination
-@import "anila/pagination/logic";
+// paginations
+@import "anila/objects/paginations";
+
+
+//
+// COMPONENTS
+//
+
+// breadcrumbs
+@import "anila/components/breadcrumbs";
+
+// codes
+@import "anila/components/codes";
+
+// fonts
+@import "anila/components/anila_font";
+
+// forms
+@import "anila/components/forms";
+
+// grids
+@import "anila/components/grids";
+
+// media
+@import "anila/components/media";
+
+// tables
+@import "anila/components/tables";
+
+// types
+@import "anila/components/types";
+
+// inline-list
+@import "anila/components/inline-list";
 
 
 // helper
-@import "anila/general/helper";
+@import "anila/tools/helper";
