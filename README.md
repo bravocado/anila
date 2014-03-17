@@ -21,7 +21,7 @@ Up until now, there's no online documentation. Run `grunt` and check your `dist/
 - By default you will have Compass project. You can switch to libsass compiler by running `anila new [project/path] --libsass`.
 
 
-## Structures
+## Structure
 ```
 + --- build
 	+ --- doc
@@ -30,11 +30,11 @@ Up until now, there's no online documentation. Run `grunt` and check your `dist/
 	+ --- js
 	+ --- scss
 		+ --- anila
-			+ --- components
-			+ --- extensions
-			+ --- generic
-			+ --- objects
-			+ --- tools
+			+ --- components [modules for HTML element or a set of HTML elements]
+			+ --- extensions [an extension for mixin]
+			+ --- generic [modules for general uses. like debug, reset, normalize]
+			+ --- objects [modules for abstraction]
+			+ --- tools [a set of module dependecies]
 			- --- _conditional.scss
 			- --- _values.scss
 		- --- anila.scss
