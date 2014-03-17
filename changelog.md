@@ -4,6 +4,16 @@
 
 ## Beta Version
 
+#### 2.0.0-beta.1
+[debug] compatibility test using compass
+[fix] error on background-image mixin when using compass
+[fix] clean up code
+[improvement] restructuring folders based on Windy
+[improvement] adding letter spacing API (typography, buttons)
+[improvement] adding justify API (helpers)
+[improvement] adding anchor text-decoration on hover API (typography)
+[fix] buttons size-list incompatiblity using interpolation
+update conditional comments for available vars
 
 
 ## Alpha Version
