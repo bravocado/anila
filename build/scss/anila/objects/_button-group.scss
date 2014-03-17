@@ -4,18 +4,6 @@
 ==========================================================================
 */
 
-//
-// Button Group Variables
-//
-
-// Sets the margin for the right side by default, and the left margin if right-to-left direction is used
-$button-bar-margin-opposite: 10 !default;
-$button-group-border-width: 1px !default;
-
-//
-// Button Group Mixins
-//
-
 // We use this to add styles for a button group container
 @mixin button-group-container($styles:true, $float:false) {
   @if $styles {

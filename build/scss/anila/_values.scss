@@ -232,6 +232,22 @@ $button-size-define: $button-tn,
 
 
 //
+// BUTTON GROUP AVAILABLE VARS
+//
+
+// Sets the margin for the right side by default, and the left margin if right-to-left direction is used
+$button-bar-margin-opposite: 10 !default;
+$button-group-border-width: 1px !default;
+
+
+//
+// SPLIT BUTTON AVAILABLE VARS
+//
+
+$split-button-holder: span, i !default;
+
+
+//
 // BREADCRUMB AVAILABLE VARS
 //
 
@@ -324,6 +340,116 @@ $glowing-effect-color: $input-focus-border-color !default;
 
 // Select variables
 $select-bg-color: #fafafa !default;
+
+
+//
+// GRID AVAILABLE VARS
+//
+
+$row-width: 1000 !default;
+$column-gutter: 30 !default;
+$total-columns: 12 !default;
+
+// block grid
+$include-block-grid: true !default;
+// We use this to control the maximum number of block grid elements per row
+$block-grid-elements: 12 !default;
+$block-grid-default-spacing: 20 !default;
+
+// Enables media queries for block-grid classes. Set to false if writing semantic HTML.
+$block-grid-media-queries: true !default;
+
+
+
+//
+// LABEL AVAILABLE VARS
+//
+
+// We use these to style the labels
+$label-default-bg: #f5f5f5 !default;
+$label-padding: 4 8 6 !default;
+$label-radius: $border-radius-base !default;
+
+// We use these to style the label text
+$label-font-sizing: 12 !default;
+$label-font-weight: normal !default;
+$label-font-color: #333 !default;
+$label-font-color-alt: #fff !default;
+$label-font-family: $body-font-family !default;
+
+
+//
+// MEDIA AVAILABLE VARS
+//
+
+// We use these to control video container padding and margins
+$media-video-padding-top: 25 !default;
+$media-video-padding-bottom: 67.5% !default;
+$media-video-margin-bottom: 16 !default;
+
+// We use this to control widescreen bottom padding
+$media-video-widescreen-padding-bottom: 57.25% !default;
+
+
+//
+// NAV AVAILABLE VARS
+//
+
+// We use this to control padding.
+$side-nav-padding: 14 0 !default;
+
+// We use these to control list styles.
+$side-nav-list-type: none !default;
+$side-nav-list-position: inside !default;
+$side-nav-list-margin: 0 0 7 0 !default;
+
+// We use these to control link styles.
+$side-nav-link-color: $primary-color !default;
+$side-nav-link-color-active: lighten(#000, 30%) !default;
+$side-nav-font-size: 14 !default;
+$side-nav-font-weight: normal !default;
+$side-nav-font-family: $body-font-family !default;
+$side-nav-active-font-family: $side-nav-font-family !default;
+
+// We use these to control border styles
+$side-nav-divider-size: 1px !default;
+$side-nav-divider-style: solid !default;
+$side-nav-divider-color: darken(#fff, 10%) !default;
+
+
+
+//
+// TABLE AVAILABLE VARS
+//
+
+// These control the background color for the table and even rows
+$table-width-default: 100% !default;
+
+$table-bg: #fff !default;
+$table-even-row-bg: #f9f9f9 !default;
+
+// These control the table cell border style
+$table-border-style: solid !default;
+$table-border-size: 1px !default;
+$table-border-color: #ddd !default;
+
+// These control the table head styles
+$table-head-bg: #f5f5f5 !default;
+$table-head-font-size: 14 !default;
+$table-head-font-color: #222 !default;
+$table-head-font-weight: bold !default;
+$table-head-padding: 8 10 10 !default;
+
+// These control the row padding and font styles
+$table-row-padding: 9 10 !default;
+$table-row-font-size: 14 !default;
+$table-row-font-color: #222 !default;
+$table-line-height: 18 !default;
+
+// These are for controlling the display and margin of tables
+$table-display: table-cell !default;
+$table-margin-bottom: 20 !default;
+
 
 
 //
@@ -435,111 +561,40 @@ $microformat-abbr-font-weight: bold !default;
 $microformat-abbr-font-decoration: none !default;
 
 
+
 //
-// GRID AVAILABLE VARS
+// PAGINATION AVAILABLE VARS
 //
 
-$row-width: 1000 !default;
-$column-gutter: 30 !default;
-$total-columns: 12 !default;
-
-// block grid
-$include-block-grid: true !default;
-// We use this to control the maximum number of block grid elements per row
-$block-grid-elements: 12 !default;
-$block-grid-default-spacing: 20 !default;
-
-// Enables media queries for block-grid classes. Set to false if writing semantic HTML.
-$block-grid-media-queries: true !default;
+$pagination-selector: li !default;
+$pagination-display: inline-block !default;
+$pagination-text-decor: underline !default;
+$pagination-spacing: $rem-base/2 !default;
 
 
 //
-// LABEL AVAILABLE VARS
+// INLINE LIST VARS
 //
 
-// We use these to style the labels
-$label-default-bg: #f5f5f5 !default;
-$label-padding: 4 8 6 !default;
-$label-radius: $border-radius-base !default;
+$use-inline-list: true !default;
 
-// We use these to style the label text
-$label-font-sizing: 12 !default;
-$label-font-weight: normal !default;
-$label-font-color: #333 !default;
-$label-font-color-alt: #fff !default;
-$label-font-family: $body-font-family !default;
+// We use this to control the margins and padding of the inline list.
+$inline-list-top-margin: 0 !default;
+$inline-list-opposite-margin: 0 !default;
+$inline-list-bottom-margin: 17 !default;
+$inline-list-default-float-margin: -22 !default;
 
+$inline-list-padding: 0 !default;
 
-//
-// MEDIA AVAILABLE VARS
-//
+// We use this to control the overflow of the inline list.
+$inline-list-overflow: hidden !default;
 
-// We use these to control video container padding and margins
-$media-video-padding-top: 25 !default;
-$media-video-padding-bottom: 67.5% !default;
-$media-video-margin-bottom: 16 !default;
+// We use this to control the list items
+$inline-list-display: block !default;
 
-// We use this to control widescreen bottom padding
-$media-video-widescreen-padding-bottom: 57.25% !default;
+// We use this to control any elments within list items
+$inline-list-children-display: block !default;
 
-
-//
-// NAV AVAILABLE VARS
-//
-
-// We use this to control padding.
-$side-nav-padding: 14 0 !default;
-
-// We use these to control list styles.
-$side-nav-list-type: none !default;
-$side-nav-list-position: inside !default;
-$side-nav-list-margin: 0 0 7 0 !default;
-
-// We use these to control link styles.
-$side-nav-link-color: $primary-color !default;
-$side-nav-link-color-active: lighten(#000, 30%) !default;
-$side-nav-font-size: 14 !default;
-$side-nav-font-weight: normal !default;
-$side-nav-font-family: $body-font-family !default;
-$side-nav-active-font-family: $side-nav-font-family !default;
-
-// We use these to control border styles
-$side-nav-divider-size: 1px !default;
-$side-nav-divider-style: solid !default;
-$side-nav-divider-color: darken(#fff, 10%) !default;
-
-
-//
-// TABLE AVAILABLE VARS
-//
-
-// These control the background color for the table and even rows
-$table-width-default: 100% !default;
-
-$table-bg: #fff !default;
-$table-even-row-bg: #f9f9f9 !default;
-
-// These control the table cell border style
-$table-border-style: solid !default;
-$table-border-size: 1px !default;
-$table-border-color: #ddd !default;
-
-// These control the table head styles
-$table-head-bg: #f5f5f5 !default;
-$table-head-font-size: 14 !default;
-$table-head-font-color: #222 !default;
-$table-head-font-weight: bold !default;
-$table-head-padding: 8 10 10 !default;
-
-// These control the row padding and font styles
-$table-row-padding: 9 10 !default;
-$table-row-font-size: 14 !default;
-$table-row-font-color: #222 !default;
-$table-line-height: 18 !default;
-
-// These are for controlling the display and margin of tables
-$table-display: table-cell !default;
-$table-margin-bottom: 20 !default;
 
 
 //
@@ -568,43 +623,3 @@ $boxy-base-radius: $border-radius-base !default;
 $boxy-large-radius:  $border-radius-large !default;
 $boxy-small-radius:  $border-radius-small !default;
 
-
-//
-// PAGINATION AVAILABLE VARS
-//
-
-$pagination-selector: li !default;
-$pagination-display: inline-block !default;
-$pagination-text-decor: underline !default;
-$pagination-spacing: $rem-base/2 !default;
-
-
-//
-// SPLIT BUTTON AVAILABLE VARS
-//
-
-$split-button-holder: span, i !default;
-
-
-//
-// INLINE LIST VARS
-//
-
-$use-inline-list: true !default;
-
-// We use this to control the margins and padding of the inline list.
-$inline-list-top-margin: 0 !default;
-$inline-list-opposite-margin: 0 !default;
-$inline-list-bottom-margin: 17 !default;
-$inline-list-default-float-margin: -22 !default;
-
-$inline-list-padding: 0 !default;
-
-// We use this to control the overflow of the inline list.
-$inline-list-overflow: hidden !default;
-
-// We use this to control the list items
-$inline-list-display: block !default;
-
-// We use this to control any elments within list items
-$inline-list-children-display: block !default;
