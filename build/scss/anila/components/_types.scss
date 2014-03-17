@@ -64,7 +64,10 @@
     line-height: inherit;
 
     &:hover,
-    &:focus { color: $anchor-font-color-hover; }
+    &:focus { 
+      color: $anchor-font-color-hover;
+      text-decoration: $anchor-text-decoration-hover;
+    }
 
     img { border:none; }
   }

@@ -377,6 +377,7 @@ $code-font-weight: bold !default;
 $anchor-text-decoration: none !default;
 $anchor-font-color: $primary-color !default;
 $anchor-font-color-hover: darken($primary-color, 5%) !default;
+$anchor-text-decoration-hover: underline !default;
 
 // We use these to style the <hr> element
 $hr-border-width: 1px !default;
