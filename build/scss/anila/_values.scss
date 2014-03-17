@@ -41,10 +41,10 @@ $font-smoothing: antialiased !default;
 // BORDER RADIUS AVAILABLE VARS
 //
 
-$border-radius-small:             3px !default;
-$border-radius-base:             	5px !default;
-$border-radius-large:            	15px !default;
-$border-radius-round:            	500px !default;
+$border-radius-small: 3px !default;
+$border-radius-base: 5px !default;
+$border-radius-large: 15px !default;
+$border-radius-round: 500px !default;
 
 
 //
@@ -157,7 +157,7 @@ $include-print-styles: true !default;
 
 // experimental
 // in SASS 3.3 we will change it to sass map
-$themes: candy, shiny, bordered !default;
+$themes: flat, candy, shiny, bordered !default;
 
 $colors-name: primary, secondary, tertiary, quaternary, quinary !default;
 $colors-define: $primary-color, $secondary-color, $tertiary-color, $quaternary-color, $quinary-color !default;

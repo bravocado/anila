@@ -275,7 +275,7 @@ thx to Zurb Foundation
 // Generate presentational markup for block grid.
 //
 // $size - Name of class to use, i.e. "large" will generate .large-block-grid-1, .large-block-grid-2, etc.
-@mixin block-grid-html-classes($size) {
+@mixin compose-block-grid($size) {
   @for $i from 1 through $block-grid-elements {
     .#{$size}-block-grid-#{($i)} {
       @include block-grid($i,$block-grid-default-spacing,false);
@@ -288,16 +288,16 @@ thx to Zurb Foundation
   
   /* === SMALL GRID CLASSES === */
   @media #{$sm-up} {
-    @include block-grid-html-classes($size:sm);
+    @include compose-block-grid($size:sm);
   }
 
   /* === MEDIUM GRID CLASSES === */
   @media #{$md-up} {
-    @include block-grid-html-classes($size:md);
+    @include compose-block-grid($size:md);
   }
 
   /* === LARGE GRID CLASSES === */
   @media #{$lg-up} {
-    @include block-grid-html-classes($size:lg);
+    @include compose-block-grid($size:lg);
   }
 }

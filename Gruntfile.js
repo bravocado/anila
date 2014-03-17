@@ -174,13 +174,12 @@ module.exports = function(grunt) {
                     src: ['**/*.js'],
                     dest: 'dist/docs/assets/js/'
                 }, {
-                    cwd: 'build/scss/',
+                    cwd: 'build/scss',
                     expand: true,
-                    filter: 'isFile',
-                    src: '**/*.scss',
-                    dest: 'dist/assets/scss/'
+                    src: ['**/**/*'],
+                    dest: 'dist/assets/scss'
                 }, {
-                    src: 'bower.json',
+                    src: ['bower.json'],
                     dest: 'dist/assets/'
                 }, {
                     cwd: 'build/fonts/',
