@@ -1,6 +1,6 @@
 {
   "name": "anila",
-  "version": "2.0.0-alpha.11",
+  "version": "2.0.0-beta.1",
   "main": ["css/anila.css", "js/anila.js"],
   "homepage": "https://github.com/bravocado/anila",
   "authors": [
@@ -24,5 +24,6 @@
   "dependencies": {
     "jquery" : "1.11.0",
     "modernizr": ">= 2.6.2"
-  }
+  },
+  "private": false
 }
