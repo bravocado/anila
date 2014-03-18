@@ -7,7 +7,7 @@
  *
  * LICENSE
  *
- * Copyright 2013 Narrada Communications
+ * Copyright 2014 Narrada Communications
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,94 +23,49 @@
  *
  */
 
-// 
-// ================================================
-// GENERAL
-// ================================================
-// 
-
-// put a functions on top of everything
-// media query values need a lower bound and upper bound to works
-@import "anila/tools/functions";
-
-@import "anila/conditional";
-@import "anila/values";
-
-@import "anila/tools/mixins";
-
-@import "anila/generic/normalize";
-@import "anila/generic/reset";
-@import "anila/generic/debug";
-
-// extensions
-@import "anila/extensions/yiq-color-contrast";
-@import "anila/extensions/photoshop-gradient-overlay";
 
 
-// themes
-@import "anila/tools/themes";
-
-
+// ===================================================================================
 //
-// OBJECTS
+// NOTES :
 //
-
-// alerts
-@import "anila/objects/alerts";
-
-// buttons
-@import "anila/objects/buttons";
-
-// split buttons
-@import "anila/objects/split-buttons";
-
-// button group
-@import "anila/objects/button-group";
-
-// labels
-@import "anila/objects/labels";
-
-// navs
-@import "anila/objects/navs";
-
-// boxy
-@import "anila/objects/boxy";
-
-// paginations
-@import "anila/objects/paginations";
-
-
 //
-// COMPONENTS
+// - Delete the line that you don't need it
+// - put a functions on top of everything
+// - media query values need a lower bound and upper bound to works
 //
+// NOTES WHEN DELETING SOME OBJETS OR COMPONENTS
+// - you will need to including buttons for compiling split-buttons or button-group
+// 	 paginations, forms.
+//
+// ===================================================================================
 
-// breadcrumbs
-@import "anila/components/breadcrumbs";
-
-// codes
-@import "anila/components/codes";
-
-// fonts
-@import "anila/components/anila_font";
-
-// forms
-@import "anila/components/forms";
-
-// grids
-@import "anila/components/grids";
-
-// media
-@import "anila/components/media";
-
-// tables
-@import "anila/components/tables";
-
-// types
-@import "anila/components/types";
-
-// inline-list
-@import "anila/components/inline-list";
-
-
-// helper
-@import "anila/tools/helper";
+@import 
+	"anila/tools/functions",
+	"anila/conditional",
+	"anila/values",
+	"anila/tools/mixins",
+	"anila/generic/normalize",
+	"anila/generic/reset",
+	"anila/generic/debug",
+	"anila/extensions/yiq-color-contrast",
+	"anila/extensions/photoshop-gradient-overlay",
+	"anila/tools/themes",
+	"anila/objects/alerts",
+	"anila/objects/buttons",
+	"anila/objects/split-buttons",
+	"anila/objects/button-group",
+	"anila/objects/labels",
+	"anila/objects/navs",
+	"anila/objects/boxy",
+	"anila/objects/paginations",
+	"anila/components/breadcrumbs",
+	"anila/components/codes",
+	"anila/components/anila_font",
+	"anila/components/forms",
+	"anila/components/grids",
+	"anila/components/media",
+	"anila/components/tables",
+	"anila/components/types",
+	"anila/components/inline-list",
+	"anila/tools/helper";

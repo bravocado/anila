@@ -1,5 +1,6 @@
-@import "global";
-@import "anila";
+@import
+  "global",
+  "anila";
 
 .row {
   //max-width: rem-calc(1440);
@@ -35,7 +36,8 @@ select {
 }
 
 // Docs Components
-@import "syntax-highlighting";
-@import "sidebar";
-@import "topbar";
-@import "anila--footer";
+@import
+  "syntax-highlighting",
+  "sidebar",
+  "topbar",
+  "anila--footer";
