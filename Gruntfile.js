@@ -99,7 +99,7 @@ module.exports = function(grunt) {
                     'dist/docs/assets/css/docs.css': 'build/doc/assets/scss/docs.scss'
                 }
             },
-            dist_compressed: {
+            compressed: {
                 options: {
                     outputStyle: 'compressed',
                     includePaths: ['build/scss']
@@ -337,7 +337,8 @@ module.exports = function(grunt) {
     grunt.task.renameTask('watch', 'watch_start');
     grunt.task.registerTask('watch', [ /*'karma:dev_watch:start',*/ 'watch_start']);
 
-    grunt.registerTask('compile:assets', ['clean', 'sass', 'concat', 'uglify', 'copy', 'webfont']);
+    grunt.registerTask('compile:assets', ['clean', 'sass:dist', 'concat', 'uglify', 'copy', 'webfont']);
+    grunt.registerTask('compile:compress', ['clean', 'sass:compressed', 'concat', 'uglify', 'copy', 'webfont']);
     grunt.registerTask('compile', ['compile:assets', 'assemble']);
     grunt.registerTask('build', ['compile', 'sass', 'compress']);
     grunt.registerTask('default', ['compile', 'watch']);
