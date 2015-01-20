@@ -1,0 +1,19 @@
+{
+	"general": {
+		"title": "Anila"
+	},
+	"urls": {
+		"image": "images/"
+		, "css": "css/"
+		, "scripts": "scripts/"
+	},
+	"organisms": {
+
+	},
+	"patterns": {
+
+	},
+	"pages": {
+
+	}
+}
