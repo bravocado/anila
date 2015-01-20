@@ -1,0 +1,68 @@
+---
+title: Getting Started SASS
+layout: build/doc/layouts/sass.html
+---
+
+***
+
+# We know you nerd enough!
+<h3 class="subheader">It means you are not afraid of command line! let's get started!</h3>
+
+***
+
+<h3 class="subheader">Dependencies :</h3>
+
+You need to install it before you start creating a project.
+
+- Ruby 1.9+ | <a href="https://www.ruby-lang.org/">documentation</a>
+- Node.js | <a href="http://nodejs.org/">documentation</a>
+- Grunt.js | <a href="http://gruntjs.com/">documentation</a>
+- SASS | <a href="http://sass-lang.com/">documentation</a>
+- Git | <a href="http://git-scm.com/">documentation</a>
+- Bower | <a href="http://bower.io/">documentation</a>
+- LIBSASS (optional) | <a href="http://libsass.org/">documentation</a>
+- COMPASS (default) | <a href="http://compass-style.org/">documentation</a>
+	
+***
+
+After you install all of the dependencies, you can type this on your terminal or command prompt :
+
+```bash
+[sudo] gem install anila
+```
+
+<br>
+It will installing Anila Command Line Interface. After that you can start using Anila for your project by using :
+
+```bash
+anila new [project-folder]
+```
+
+***
+
+<h3 class="subheader push-bottom">Anila CLI Commands</h3>
+
+```bash
+anila version
+```
+Checking Anila CLI version
+
+```bash
+anila new [project-folder]
+```
+Anila will automatically creating your project folder. By default, Anila is using Compass.
+
+```bash
+anila update
+```
+Run it on your root project folder, it will updating Anila components using Bower.
+
+***
+
+<h3 class="subheader">Using Grunt + Libsass :</h3>
+
+If you wish to using Libsass (yes, faster than Compass), you can run :
+
+```bash
+anila new [project-folder] --libsass
+```

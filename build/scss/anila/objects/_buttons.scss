@@ -1,0 +1,168 @@
+@mixin button-base($display: $button-display) {
+  display: $display;
+  margin-bottom: 0; // For input.btn
+  font-weight: $button-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  //border: 1px solid transparent;
+  white-space: nowrap;
+  text-decoration: none !important;
+  -webkit-touch-callout: none;
+  background-clip: padding-box;
+  letter-spacing: $button-letter-spacing;
+  @include user-select(none);
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin button-size($padding:$button-md, $full-width:false, $is-input:false) {
+
+  // We control which padding styles come through,
+  // these can be turned off by setting $padding:false
+  @if $padding {
+    @include unit(padding-top, $padding);
+    @include unit(padding-#{$opposite-direction}, $padding * 2);
+    @include unit(padding-bottom, $padding);
+    @include unit(padding-#{$default-float}, $padding * 2);
+
+    // We control the font-size based on mixin input.
+    @if      $padding == $button-md { @include unit(font-size, $button-font-md); }
+    @else if $padding == $button-tn { @include unit(font-size, $button-font-tn); }
+    @else if $padding == $button-sm { @include unit(font-size, $button-font-sm); }
+    @else if $padding == $button-lg { @include unit(font-size, $button-font-lg); }
+//  @else { font-size: $padding - rem-calc(2); }
+  }
+
+  // We can set $full-width:true to remove side padding extend width.
+  @if $full-width {
+    // We still need to check if $padding is set.
+    @if $padding {
+    @include unit(padding-top, $padding);
+    @include unit(padding-bottom, $padding + strip-unit(rem-calc(1)));
+    } @else if $padding == false {
+      padding-top:0;
+      padding-bottom:0;
+    }
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  // <input>'s and <button>'s take on strange padding. We added this to help fix that.
+  @else if $is-input == $button-lg {
+    @include unit(padding-top, $is-input);
+    @include unit(padding-bottom, $is-input);
+    -webkit-appearance: none;
+    border: none; 
+    font-weight: $button-font-weight !important;
+  }
+  @else if $is-input {
+    @include unit(padding-top, $is-input);
+    @include unit(padding-bottom, $is-input);
+    -webkit-appearance: none;
+    border: none; 
+    font-weight: $button-font-weight !important;
+  }
+
+}
+
+
+@mixin button-shape($shape: soft) {
+  @if $shape == soft {
+    @include vendor(border-radius, $button-radius-base);
+  }
+  @else if $shape == extra-soft {
+    @include vendor(border-radius, $button-radius-large);
+  }
+  @else if $shape == round {
+    @include vendor(border-radius, $button-round);
+  }
+  @else if $shape == predefined {
+    // predefined
+    &.soft {
+      @include vendor(border-radius, $button-radius-base);
+    }
+    &.extra-soft {
+      @include vendor(border-radius, $button-radius-large);
+    }
+    &.round {
+      @include vendor(border-radius, $button-round);
+    }
+  }
+}
+
+// experimental
+// creating a class with predefined colors and class
+@mixin button-precomposed() {
+  
+  .#{$base-button-class} {
+    @include button-base;
+    // box-sizing
+    @include box-sizing(border-box);
+
+    // size
+    @include button-size($button-md, false, false);
+
+    // creating a colors and classes
+    @include color-setup;
+    
+    // creating extra color setup
+    @include extra-color-setup;
+
+    // creating a theme
+    @include compose-theme($hover: true, $transition: true, $button: true, $extra-color: true);
+    &.bordered {
+      @include button-size($button-md - 3px, false, false);
+    }
+    &.disable {
+      &:hover, &:focus, &:active {
+        background-color: $unavailable-color;
+        cursor: not-allowed;
+      }
+    }
+
+    // creating sizes
+    @for $sizes from 1 through length($button-size-name) {
+      &.#{nth($button-size-name, $sizes)} {
+        @include button-size(nth($button-size-define, $sizes), false, false);
+      }
+    }
+
+    &.block {
+      @include button-size($full-width: true, $is-input: true);
+      &.bordered {
+        @include button-size($button-md - 3px, false, false);
+      }
+    }
+    
+    // shape
+    @include button-shape($shape: predefined);
+
+
+  }
+  // end each base button base
+
+  button {
+    border: 0;
+    &:focus {
+      outline: none;
+    }
+  }
+
+}
+// end mixin precomposed
+@if $use-buttons {
+
+  // for easier reading unminified css
+  /*
+  ==========================================================================
+   BUTTONS
+  ==========================================================================
+  */
+
+  @include button-precomposed;
+
+}
