@@ -10,7 +10,7 @@ before_script:
   - git config --global user.name "bravocado"
 script:
   - npm install
-  - gulp
+  - gulp build
 after_script:
   - git clone https://bravocado:${GH_TOKEN}@github.com/bravocado/bower-anila.git
   - cp -r dist/* bower-anila/
