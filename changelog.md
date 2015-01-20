@@ -4,6 +4,11 @@
 
 ## Beta Version
 
+#### 2.0.1
+- [hotfix] switch to gulp
+- [hotfix] simplified structure
+
+
 #### 2.0.0-beta.1
 - [debug] compatibility test using compass
 - [fix] error on background-image mixin when using compass
