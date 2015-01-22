@@ -4,6 +4,7 @@
 - [hotfix] sass task gulp-rename switch to suffix option
 - [hotfix] update media img tag to vertical bottom
 - [hotfix] templates task updated
+- [feature] grid row using percent
 
 #### 2.0.1
 - [hotfix] switch to gulp
