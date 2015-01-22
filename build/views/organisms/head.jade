@@ -37,7 +37,8 @@ script(type="text/javascript" async defer).
 		s.parentNode.insertBefore(wf, s);
 	})();
 
-script(type="text/javascript")
-	| function loadCSS(e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("head")[0];i.rel="stylesheet";i.href=e;i.media="only x";o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})} loadCSS('css/anila.min.css');
-noscript.
-	<link rel="stylesheet" href="#{urls.css}anila.min.css" type='text/css'>
+link(rel='stylesheet', href='./css/anila.min.css', type='text/css' )
+// end core anila stylesheet
+
+link(rel='stylesheet', href='./css/docs.min.css', type='text/css' )
+// end docs stylesheet
