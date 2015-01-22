@@ -26,7 +26,7 @@ gulp.task('sass:compressed', ['sass'], function () {
         outputStyle: 'compressed'
       }))
     .pipe(rename({
-      basename: "anila.min"
+      suffix: ".min"
     }))
     .pipe(sourcemaps.write('./maps'))
     .on('error', handleErrors)
