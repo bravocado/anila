@@ -1,16 +1,13 @@
-// 
-// =================================
-// GENERAL VALUES
-// =================================
-// 
+/*======================================
+=            GENERAL VALUES            =
+======================================*/
 
 // rem for all unit
 $rem-base: 18px !default;
 
 
-//
-// GENERAL HTML AVAILABLE VARS
-//
+
+/*==========  GENERAL HTML VARS  ==========*/
 
 // We use these to control text direction settings
 $text-direction:                  ltr !default;
@@ -19,11 +16,11 @@ $text-direction:                  ltr !default;
 $default-float:                   left !default;
 $opposite-direction:              right !default;
 @if $text-direction == ltr {
-  $default-float: left;
-  $opposite-direction: right;
+	$default-float: left;
+	$opposite-direction: right;
 } @else {
-  $default-float: right;
-  $opposite-direction: left;
+	$default-float: right;
+	$opposite-direction: left;
 }
 // We use these to control various global styles
 $body-bg: #fff !default;
@@ -36,9 +33,8 @@ $body-font-style: normal !default;
 $font-smoothing: antialiased !default;
 
 
-//
-// BORDER RADIUS AVAILABLE VARS
-//
+
+/*==========  BORDER RADIUS VARS  ==========*/
 
 $border-radius-small: 3px !default;
 $border-radius-base: 5px !default;
@@ -46,17 +42,15 @@ $border-radius-large: 15px !default;
 $border-radius-round: 500px !default;
 
 
-//
-// HELPER AVAILABLE VARS
-//
+
+/*==========  HELPER AVAILABLE VARS  ==========*/
 
 $helper-spacing-unit: 20px !default;
 $half-helper-spacing-unit: $helper-spacing-unit/2 !default;
 
 
-//
-// MEDIA QUERIES AVAILABLE VARS
-//
+
+/*==========  MEDIA QUERIES VARS  ==========*/
 
 //$sm-range: (0em, 40em) !default;
 //$md-range: (40.063em, 64em) !default;
@@ -98,41 +92,36 @@ $large: $lg-up;
 // Responsive Mixins
 // experiment 1. SASS Map issue.
 @mixin media-query($media) {
-  @if $media == sm {
-    @media #{$sm-up} { @content; }
-  }
-  
-  @if $media == md {
-  	@media #{$md-up} { @content; }
-  }
-
-  @if $media == lg {
-  	@media #{$lg-up} { @content; }
-  }
-
-  @if $media == xl {
-  	@media #{$xl-up} { @content; }
-  }
-
-  @if $media == xxl {
-  	@media #{$xxl-up} { @content; }
-  }
-
-  @if $media == landscape {
-  	@media #{$landscape} { @content; }
-  }
-
-  @if $media == potrait {
-  	@media #{$portrait} { @content; }
-  }
-
+	@if $media == sm {
+		@media #{$sm-up} { @content; }
+	}
+	@if $media == md {
+		@media #{$md-up} { @content; }
+	}
+	@if $media == lg {
+		@media #{$lg-up} { @content; }
+	}
+	@if $media == xl {
+		@media #{$xl-up} { @content; }
+	}
+	@if $media == xxl {
+		@media #{$xxl-up} { @content; }
+	}
+	@if $media == landscape {
+		@media #{$landscape} { @content; }
+	}
+	@if $media == potrait {
+		@media #{$portrait} { @content; }
+	}
 }
 
-//
-// COLOR AVAILABLE VARS
-//
 
+
+/*==========  COLOR VARS  ==========*/
+
+// contrast setting
 // change the setting of threshold so match with our color scheme
+// it will affected to color CSS property
 $yiq-contrasted-threshold: 168 !default;
 
 // We use these as default colors throughout
@@ -149,7 +138,9 @@ $warning-color: #f08a24 !default;
 $info-color: #a0d3e8 !default;
 $unavailable-color: #999 !default;
 
-// experimental
+
+
+/*==========  THEME VARS  ==========*/
 
 // We use this to control whether or not CSS classes come through in the gem files.
 $include-print-styles: true !default;
@@ -165,9 +156,7 @@ $extra-colors-name: alert, success, warning, info, disable !default;
 $extra-colors-define: $alert-color, $success-color, $warning-color, $info-color, $unavailable-color !default;
 
 
-//
-// POINTER AVAILABLE VARS
-//
+/*==========  POINTER VARS  ==========*/
 
 //We use this as cursors values for enabling the option of having custom cursors in the whole site's stylesheet
 $cursor-crosshair-value: crosshair !default;
@@ -177,15 +166,16 @@ $cursor-help-value: help !default;
 $cursor-text-value: text !default;
 
 
-//  
-// =================================
-// COMPONENT VALUES
-// =================================
-// 
 
-//
-// BUTTON AVAILABLE VARS
-//
+/*-----  End of GENERAL VALUES  ------*/
+
+
+
+/*========================================
+=            COMPONENT VALUES            =
+========================================*/
+
+/*==========  BUTTON VARS  ==========*/
 
 // We use these to build padding for buttons.
 $button-tn: 6 !default;
@@ -217,38 +207,35 @@ $base-button-class: btn;
 
 // button size name
 $button-size-name: tn,
-                   sm,
-                   md,
-                   lg
-                   !default;
+									 sm,
+									 md,
+									 lg
+									 !default;
 
 // button size define
 $button-size-define: $button-tn,
-                     $button-sm,
-                     $button-md,
-                     $button-lg
-                     !default;
+										 $button-sm,
+										 $button-md,
+										 $button-lg
+										 !default;
 
 
-//
-// BUTTON GROUP AVAILABLE VARS
-//
+
+/*==========  BUTTON GROUP VARS  ==========*/
 
 // Sets the margin for the right side by default, and the left margin if right-to-left direction is used
 $button-bar-margin-opposite: 10 !default;
 $button-group-border-width: 1px !default;
 
 
-//
-// SPLIT BUTTON AVAILABLE VARS
-//
+
+/*==========  SPLIT BUTTON VARS  ==========*/
 
 $split-button-holder: span, i !default;
 
 
-//
-// BREADCRUMB AVAILABLE VARS
-//
+
+/*==========  BREADCRUMB VARS  ==========*/
 
 // We use this to set the background color for the breadcrumb container.
 $crumb-bg: #f9f9f9 !default;
@@ -277,9 +264,8 @@ $crumb-slash-color: #aaa !default;
 $crumb-slash: "/" !default;
 
 
-//
-// FORMS AVAILABLE VARS
-//
+
+/*==========  FORM VARS  ==========*/
 
 // We use this to set the base for lots of form spacing and positioning styles
 $form-spacing: 16 !default;
@@ -341,9 +327,8 @@ $glowing-effect-color: $input-focus-border-color !default;
 $select-bg-color: #fafafa !default;
 
 
-//
-// GRID AVAILABLE VARS
-//
+
+/*==========  GRID VARS  ==========*/
 
 $row-width: 1000 !default;
 $column-gutter: 30 !default;
@@ -360,9 +345,7 @@ $block-grid-media-queries: true !default;
 
 
 
-//
-// LABEL AVAILABLE VARS
-//
+/*==========  LABEL VARS  ==========*/
 
 // We use these to style the labels
 $label-default-bg: #f5f5f5 !default;
@@ -377,9 +360,8 @@ $label-font-color-alt: #fff !default;
 $label-font-family: $body-font-family !default;
 
 
-//
-// MEDIA AVAILABLE VARS
-//
+
+/*==========  MEDIA VARS  ==========*/
 
 // We use these to control video container padding and margins
 $media-video-padding-top: 25 !default;
@@ -390,9 +372,8 @@ $media-video-margin-bottom: 16 !default;
 $media-video-widescreen-padding-bottom: 57.25% !default;
 
 
-//
-// NAV AVAILABLE VARS
-//
+
+/*==========  SIDE NAV VARS  ==========*/
 
 // We use this to control padding.
 $side-nav-padding: 14 0 !default;
@@ -417,9 +398,7 @@ $side-nav-divider-color: darken(#fff, 10%) !default;
 
 
 
-//
-// TABLE AVAILABLE VARS
-//
+/*==========  TABLE VARS  ==========*/
 
 // These control the background color for the table and even rows
 $table-width-default: 100% !default;
@@ -451,9 +430,7 @@ $table-margin-bottom: 20 !default;
 
 
 
-//
-// TYPES AVAILABLE VARS
-//
+/*==========  TYPOGRAPHY VARS  ==========*/
 
 // we use this to control all letter spacing. paragraph, header and so on
 $type-letter-spacing: 0px !default;
@@ -561,9 +538,7 @@ $microformat-abbr-font-decoration: none !default;
 
 
 
-//
-// PAGINATION AVAILABLE VARS
-//
+/*==========  PAGINATION VARS  ==========*/
 
 $pagination-selector: li !default;
 $pagination-display: inline-block !default;
@@ -571,9 +546,8 @@ $pagination-text-decor: underline !default;
 $pagination-spacing: $rem-base/2 !default;
 
 
-//
-// INLINE LIST VARS
-//
+
+/*==========  INLINE LIST VARS  ==========*/
 
 $use-inline-list: true !default;
 
@@ -596,9 +570,7 @@ $inline-list-children-display: block !default;
 
 
 
-//
-// BOXY AVAILABLE VARS
-//
+/*==========  BOXY VARS  ==========*/
 
 $boxy-bg-default: #f5f5f5 !default;
 
@@ -622,3 +594,5 @@ $boxy-base-radius: $border-radius-base !default;
 $boxy-large-radius:  $border-radius-large !default;
 $boxy-small-radius:  $border-radius-small !default;
 
+
+/*-----  End of COMPONENT VALUES  ------*/
