@@ -434,6 +434,8 @@ $table-margin-bottom: 20 !default;
 
 // we use this to control all letter spacing. paragraph, header and so on
 $type-letter-spacing: 0px !default;
+$type-letter-light: 300 !default;
+$type-letter-bold: 700 !default;
 
 // We use these to control header font styles
 $header-font-family: join("Raleway", $body-font-family) !default;
