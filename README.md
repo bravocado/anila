@@ -47,8 +47,3 @@ Up until now, there's no online documentation. Run `grunt` and check your `dist/
 		- --- bower.json
 	+ --- docs [when you need an offline documentation, please open this folder]
 ```
-
-
-## To Do List
-- Using Block Element Modifier for CSS classes [reference](http://www.sitepoint.com/css-sass-styleguide/) (release on different version, waiting until libsass support for it [reference](https://github.com/hcatlin/libsass/issues/278))
-- Moving to SASS 3.3 (release on different version, we're waiting until libsass support it [reference](https://github.com/hcatlin/libsass/issues/278))
