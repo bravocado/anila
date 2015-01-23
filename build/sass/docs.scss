@@ -1,9 +1,23 @@
+@import 
+	"anila/tools/functions",
+	"anila/conditional",
+	"anila/values",
+	"anila/tools/mixins",
+	"anila/extensions/yiq-color-contrast",
+	"anila/extensions/photoshop-gradient-overlay",
+	"anila/tools/themes",
+
+	"docs/values",
+	"docs/general"
+;
+
 /*==========================================
 =            DOCUMENTATION SCSS            =
 ==========================================*/
 
-.docs {
-	background: #FFF;
+.docs-header {
+	@include yiq-contrasted($primary-color);
+	@include unit(padding, 10);
 }
 
 
