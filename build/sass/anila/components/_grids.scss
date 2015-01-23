@@ -28,7 +28,12 @@ GRID SYSTEM
   @else if $behavior == collapse {
     width: 100%;
     margin: 0;
-    @include unit(max-width, $row-width);
+    @if $grid-using-percent {
+      max-width: $row-width + '%';
+    }
+    @else {
+      @include unit(max-width, $row-width);
+    }
   }
 
   // use @include grid-row(nest-collapse); to collapse outer margins on a nested row
@@ -45,7 +50,12 @@ GRID SYSTEM
     margin-#{$opposite-direction}: auto;
     margin-top: 0;
     margin-bottom: 0;
-    @include unit(max-width, $row-width);
+    @if $grid-using-percent {
+      max-width: $row-width + '%';
+    }
+    @else {
+      @include unit(max-width, $row-width);
+    }
   }
 
   // Clearfix for all rows

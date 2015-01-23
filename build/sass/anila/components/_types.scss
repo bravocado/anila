@@ -131,8 +131,12 @@
 
   strong,
   b {
-    font-weight: bold;
+    font-weight: $type-letter-bold;
     line-height: inherit;
+  }
+  
+  .light {
+    font-weight: $type-letter-light;
   }
 
   small {
