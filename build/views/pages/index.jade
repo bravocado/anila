@@ -1,0 +1,19 @@
+extends ../layouts/default
+block head
+	title Home - #{general.title}
+
+block content
+	.row
+		.col.sm-12.md-3
+			- var sidenavContent = ['test1', 'test2']
+			.sidenav
+				ul.no-bullet
+					each sidenav, i in sidenavContent
+						li
+							a(href='#' + sidenav)= sidenav
+			// end sidenav
+		// end col.sm-12.md-3
+		.col.sm-12.md-9
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi ullam architecto suscipit eum veritatis culpa velit nam. Quos voluptates sint quisquam numquam, facere aliquam doloribus vel obcaecati mollitia, totam cumque!
+		// end col.sm-12.md-9
+// end row

@@ -1,13 +1,18 @@
 ## Public Version
 
-
-
-## Beta Version
+#### 2.1.0
+- [hotfix] sass task gulp-rename switch to suffix option
+- [hotfix] update media img tag to vertical bottom
+- [hotfix] templates task updated
+- [feature] grid row using percent
 
 #### 2.0.1
 - [hotfix] switch to gulp
 - [hotfix] simplified structure
 
+
+
+## Beta Version
 
 #### 2.0.0-beta.1
 - [debug] compatibility test using compass
