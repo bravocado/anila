@@ -24,11 +24,8 @@ Up until now, there's no online documentation. Run `grunt` and check your `dist/
 ## Structure
 ```
 + --- build
-	+ --- doc
-	+ --- fonts
-	+ --- icons
-	+ --- js
-	+ --- scss
+	+ --- images
+	+ --- sass
 		+ --- anila
 			+ --- components [modules for HTML element or a set of HTML elements]
 			+ --- extensions [an extension for mixin]
@@ -38,12 +35,17 @@ Up until now, there's no online documentation. Run `grunt` and check your `dist/
 			- --- _conditional.scss
 			- --- _values.scss
 		- --- anila.scss
+		+ --- docs
+			- --- *.scss
+	+ --- scripts
+	+ --- views
+		+ --- data
+		+ --- layouts
+		+ --- organisms
+		+ --- pages
 + --- dist [compiled source files]
 	+ --- assets
 		+ --- css [compiled files]
-		+ --- fonts [copied files]
-		+ --- js [minified files]
-		+ --- scss [copied scss files from build/]
-		- --- bower.json
-	+ --- docs [when you need an offline documentation, please open this folder]
+		+ --- images [copied files]
+		+ --- sass [minified files]
 ```
