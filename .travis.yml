@@ -12,13 +12,13 @@ script:
   - npm install
   - gulp build
 after_script:
-  - git clone https://bravocado:${GH_TOKEN}@github.com/bravocado/bower-anila.git
-  - cp -r dist/* bower-anila/
-  - cd bower-anila
+  - git clone https://bravocado:${GH_TOKEN}@github.com/bravocado/package-anila.git
+  - cp -r dist/* package-anila/
+  - cd package-anila
   - git remote rm origin
-  - git remote add origin https://bravocado:${GH_TOKEN}@github.com/bravocado/bower-anila.git
+  - git remote add origin https://bravocado:${GH_TOKEN}@github.com/bravocado/package-anila.git
   - git add .
-  - git commit -m "adding Anila to bower-anila"
+  - git commit -m "adding Anila to package-anila"
   - git push -fq origin master
   - echo -e "Done with magic\n"
 env:
