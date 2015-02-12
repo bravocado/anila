@@ -10,15 +10,27 @@ Consider it, if you want to use Anila.
 Up until now, there's no online documentation. Run `grunt` and check your `dist/docs/`.
 
 ## Dependecies
-- SASS [SASS documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
+- SASS [documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
 - Libsass [install](http://libsass.org/)
 - Node [install](http://nodejs.org/)
 
 
 ## How to use it?
-- install gem `[sudo] gem install anila`
-- now you can play with it. `anila new [project/path]`
-- By default you will have Compass project. You can switch to libsass compiler by running `anila new [project/path] --libsass`.
+
+### Bower
+
+`bower install anila`
+
+
+### NPM
+
+`npm install anila`
+
+
+### CLI
+
+on progress
+
 
 
 ## Structure
