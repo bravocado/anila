@@ -11,7 +11,8 @@ gulp.task('sass', ['images'], function () {
     .pipe(sourcemaps.init())
       .pipe(sass({
         cacheLocation: '.sass_cache',
-        outputStyle: 'expanded'
+        outputStyle: 'expanded',
+        includePaths: ['node_modules/npm-anila/scss/']
       }))
     .pipe(sourcemaps.write('./maps'))
     .on('error', handleErrors)
@@ -23,7 +24,8 @@ gulp.task('sass:compressed', ['sass'], function () {
     .pipe(sourcemaps.init())
       .pipe(sass({
         cacheLocation: '.sass_cache',
-        outputStyle: 'compressed'
+        outputStyle: 'compressed',
+        includePaths: ['node_modules/npm-anila/scss/']
       }))
     .pipe(rename({
       suffix: ".min"
