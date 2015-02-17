@@ -29,8 +29,14 @@ Up until now, there's no online documentation. Run `grunt` and check your `dist/
 
 ### CLI
 
-on progress
+generally you can use `[sudo] gem install anila`. After that, you can start using Anila command line tools.
 
+#### Available Commands
+- `anila version`
+- `anila new [project_folder]`
+- `anila new [project_folder] --grunt`
+- `anila new [project_folder] --gulp`
+- `anila update`
 
 
 ## Structure
