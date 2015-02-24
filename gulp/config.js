@@ -34,5 +34,16 @@ module.exports = {
     miscDest: 'dist',
     sassSrc: 'build/sass/**/*',
     sassDest: 'dist/sass'
+  },
+  concat: {
+    src: {
+      plugin: src + "/scripts/plugin.*.js",
+      vendor: src + "/scripts/vendor.*.js"
+    },
+    name: {
+      plugin: 'plugin.js',
+      vendor: 'vendor.js'
+    },
+    dest: dest + "/scripts"
   }
 };
