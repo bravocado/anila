@@ -1,5 +1,9 @@
 ## Public Version
 
+#### 2.2.0
+- [hotfix] updated tasks using multidimension array on configuration for easier to read.
+- [feature] adding documentation.
+
 #### 2.1.0
 - [hotfix] sass task gulp-rename switch to suffix option
 - [hotfix] update media img tag to vertical bottom
