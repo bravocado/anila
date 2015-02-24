@@ -7,7 +7,7 @@ This is a heavy starter and completely personal.
 Consider it, if you want to use Anila.
 
 #### Documentation
-Up until now, there's no online documentation. Run `grunt` and check your `dist/docs/`.
+Up until now, there's no online documentation. Run `gulp` and check your `dist/docs/`.
 
 ## Dependecies
 - SASS [documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
