@@ -7,7 +7,7 @@ var gulp = require('gulp')
 ;
 
 gulp.task('sass', ['images'], function () {
-  return gulp.src(config.src)
+  return gulp.src(config.src.all)
     .pipe(sourcemaps.init())
       .pipe(sass({
         cacheLocation: '.sass_cache',
@@ -20,7 +20,7 @@ gulp.task('sass', ['images'], function () {
 });
 
 gulp.task('sass:compressed', ['sass'], function () {
-  return gulp.src(config.src)
+  return gulp.src(config.src.all)
     .pipe(sourcemaps.init())
       .pipe(sass({
         cacheLocation: '.sass_cache',
