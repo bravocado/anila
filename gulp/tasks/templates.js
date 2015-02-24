@@ -6,9 +6,9 @@ var gulp = require('gulp')
 
 gulp.task('templates', function() {
 
-  gulp.src(config.src)
+  gulp.src(config.src.all)
     .pipe(data(function(file) {
-      return require(config.dataSrc + 'docs.json');
+      return require(config.src.data + 'docs.json');
     }))
     .pipe(jade({
       pretty: true
