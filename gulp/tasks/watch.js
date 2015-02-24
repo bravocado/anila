@@ -11,5 +11,5 @@ gulp.task('watch', ['setWatch', 'browserSync'], function() {
   gulp.watch([config.sass.src.all, config.sass.src.custom],   ['sass', 'sass:compressed']);
   gulp.watch(config.images.src, ['images']);
   gulp.watch(config.templates.src.watch, ['templates']);
-  gulp.watch(config.copy.miscSrc, ['copy:misc']);
+  gulp.watch([config.copy.src.misc, config.copy.src.sass], ['copy']);
 });

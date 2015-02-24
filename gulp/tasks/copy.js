@@ -5,11 +5,11 @@ var gulp = require('gulp')
 
 gulp.task('copy', ['templates'] , function() {
 
-	var copyMisc = gulp.src(config.miscSrc)
-		.pipe(gulp.dest(config.miscDest));
+	var copyMisc = gulp.src(config.src.misc)
+		.pipe(gulp.dest(config.dest.misc));
 
-	var copySass = gulp.src(config.sassSrc)
-		.pipe(gulp.dest(config.sassDest));
+	var copySass = gulp.src(config.src.sass)
+		.pipe(gulp.dest(config.dest.sass));
 
 	return merge(copyMisc, copySass);
 	

@@ -34,10 +34,14 @@ module.exports = {
     dest: dest
   },
   copy: {
-    miscSrc: ['.htaccess'],
-    miscDest: 'dist',
-    sassSrc: 'build/sass/**/*',
-    sassDest: 'dist/sass'
+    src: {
+      misc: ['.htaccess'],
+      sass:'build/sass/**/*'
+    },
+    dest: {
+      misc: 'dist',
+      sass: 'dist/sass'
+    }
   },
   concat: {
     src: {
