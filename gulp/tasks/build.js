@@ -6,6 +6,7 @@ gulp.task('build', [
 	,'images'
 	,'sass'
 	,'sass:compressed'
+	,'concat'
 	,'copy'
 	]
 );
