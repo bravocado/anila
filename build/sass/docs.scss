@@ -40,6 +40,14 @@
 	}
 }
 
+footer {
+	@include yiq-contrasted($primary-color);
+	@include unit(padding, 10 20);
+	p {
+		margin-bottom: 0;
+	}
+}
+
 
 .sidenav {
 	@include yiq-contrasted(#f5f5f5);
