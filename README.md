@@ -1,5 +1,7 @@
 # ANILA 2.0 [![Build Status](https://travis-ci.org/bravocado/anila.png?branch=master)](https://travis-ci.org/bravocado/anila) [![Total views](https://sourcegraph.com/api/repos/github.com/bravocado/anila/counters/views.png)](https://sourcegraph.com/github.com/bravocado/anila) [![library users](https://sourcegraph.com/api/repos/github.com/bravocado/anila/badges/library-users.png)](https://sourcegraph.com/github.com/bravocado/anila)
 
+![Anila Logo](/dist/images/logo100.png)
+
 See [change log](https://github.com/bravocado/anila/blob/development/changelog.md)
 
 ### Note
