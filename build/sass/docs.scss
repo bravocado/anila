@@ -17,7 +17,48 @@
 
 .docs-header {
 	@include yiq-contrasted($primary-color);
-	@include unit(padding, 10);
+	@include unit(padding, 10 20);
+	@include clearfix();
+	.logo {
+		float: left;
+		color: inherit;
+		text-transform: uppercase;
+	}
+	nav {
+		float: right;
+		@include unit(padding-top, 20);
+		li {
+			display: inline-block;
+			@include unit(margin, 0 10);
+			&:last-child {
+				margin: 0 0;
+			}
+			a {
+				color: inherit;
+			}
+		}
+	}
+}
+
+footer {
+	@include yiq-contrasted($primary-color);
+	@include unit(padding, 10 20);
+	p {
+		margin-bottom: 0;
+	}
+}
+
+
+.sidenav {
+	@include yiq-contrasted(#f5f5f5);
+	@include unit(padding, 20);
+	li {
+		@include unit(margin, 5 0);
+	}
+}
+
+.docs-content {
+	@include unit(padding, 20 0);
 }
 
 

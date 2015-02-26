@@ -5,7 +5,7 @@ block head
 block content
 	.row
 		.col.sm-12.md-3
-			- var sidenavContent = ['test1', 'test2']
+			- var sidenavContent = ['Installing', 'Scaffolding']
 			.sidenav
 				ul.no-bullet
 					each sidenav, i in sidenavContent
@@ -14,6 +14,17 @@ block content
 			// end sidenav
 		// end col.sm-12.md-3
 		.col.sm-12.md-9
-			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi ullam architecto suscipit eum veritatis culpa velit nam. Quos voluptates sint quisquam numquam, facere aliquam doloribus vel obcaecati mollitia, totam cumque!
+			.docs-content
+				h3 Installing
+				hr
+				ul
+					li Manual
+					li Bower
+					li NPM
+					li RubyGem
+				
+				h4 Manual
+				hr
+
 		// end col.sm-12.md-9
 // end row

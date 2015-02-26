@@ -15,8 +15,10 @@ module.exports = {
     ]
   },
   sass: {
-    src: src + "/sass/*.{scss, sass}",
-    srcCustom: src + "/sass/**/*.{scss, sass}",    
+    src: {
+      all: src + "/sass/*.{scss, sass}",
+      custom: src + "/sass/**/*.{scss, sass}"
+    },
     dest: dest + "/css"
   },
   images: {
@@ -24,15 +26,32 @@ module.exports = {
     dest: dest + "/images"
   },
   templates: {
-    src: [src + "/views/pages/*.jade"],
-    watchSrc: [src + "/views/pages/*.jade", src + "/views/layouts/*.jade", src + "/views/organisms/*.jade", src + "/views/data/*.json"],
-    dataSrc: '../../build/views/data/',
+    src: {
+      all: src + "/views/pages/*.jade",
+      watch: [src + "/views/pages/*.jade", src + "/views/layouts/*.jade", src + "/views/organisms/*.jade", src + "/views/data/*.json"],
+      data: '../../build/views/data/'
+    },
     dest: dest
   },
   copy: {
-    miscSrc: ['.htaccess'],
-    miscDest: 'dist',
-    sassSrc: 'build/sass/**/*',
-    sassDest: 'dist/sass'
+    src: {
+      misc: ['.htaccess'],
+      sass:'build/sass/**/*'
+    },
+    dest: {
+      misc: 'dist',
+      sass: 'dist/sass'
+    }
+  },
+  concat: {
+    src: {
+      plugin: src + "/scripts/plugin.*.js",
+      vendor: src + "/scripts/vendor.*.js"
+    },
+    name: {
+      plugin: 'plugin.js',
+      vendor: 'vendor.js'
+    },
+    dest: dest + "/scripts"
   }
 };

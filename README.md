@@ -1,5 +1,7 @@
 # ANILA 2.0 [![Build Status](https://travis-ci.org/bravocado/anila.png?branch=master)](https://travis-ci.org/bravocado/anila) [![Total views](https://sourcegraph.com/api/repos/github.com/bravocado/anila/counters/views.png)](https://sourcegraph.com/github.com/bravocado/anila) [![library users](https://sourcegraph.com/api/repos/github.com/bravocado/anila/badges/library-users.png)](https://sourcegraph.com/github.com/bravocado/anila)
 
+![Anila Logo](https://github.com/bravocado/anila/blob/development/build/images/logo100.png)
+
 See [change log](https://github.com/bravocado/anila/blob/development/changelog.md)
 
 ### Note
@@ -7,7 +9,7 @@ This is a heavy starter and completely personal.
 Consider it, if you want to use Anila.
 
 #### Documentation
-Up until now, there's no online documentation. Run `grunt` and check your `dist/docs/`.
+Up until now, there's no online documentation. Run `gulp` and check your `dist/docs/`.
 
 ## Dependecies
 - SASS [documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
