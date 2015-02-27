@@ -43,14 +43,24 @@ module.exports = {
       sass: 'dist/sass'
     }
   },
+  uglify: {
+    src: src + "/scripts/*.js",
+    dest: src + "/scripts/min"
+  },
   concat: {
     src: {
-      plugin: src + "/scripts/plugin.*.js",
-      vendor: src + "/scripts/vendor.*.js"
+      loader: src + "/scripts/min/loader.js",
+      amd: src + "/scripts/min/amd.*.js",
+      plugin: src + "/scripts/min/plugin.*.js",
+      vendor: src + "/scripts/min/vendor.*.js",
+      init: src + "/scripts/init.js"
     },
     name: {
-      plugin: 'plugin.js',
-      vendor: 'vendor.js'
+      loader: 'loader.min.js',
+      amd: 'amd.min.js',
+      plugin: 'plugin.min.js',
+      vendor: 'vendor.min.js',
+      init: 'init.min.js'
     },
     dest: dest + "/scripts"
   }

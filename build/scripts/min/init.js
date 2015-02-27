@@ -1,0 +1,1 @@
+$(document).ready(function(){$("pre code").each(function(c,e){hljs.highlightBlock(e)})});

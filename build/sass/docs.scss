@@ -8,7 +8,8 @@
 	"anila/tools/themes",
 
 	"docs/values",
-	"docs/general"
+	"docs/general",
+	"docs/syntax_highlighting"
 ;
 
 /*==========================================
@@ -46,6 +47,14 @@ footer {
 	p {
 		margin-bottom: 0;
 	}
+	a {
+		color: inherit;
+		&:hover,
+		&:focus,
+		&:active {
+			color: #FFF;
+		}
+	}
 }
 
 
@@ -59,6 +68,10 @@ footer {
 
 .docs-content {
 	@include unit(padding, 20 0);
+}
+
+.sub-divider {
+	@include unit(margin, 10 0);
 }
 
 
